@@ -1,16 +1,32 @@
 #include "metarpc/mt4.hpp"
-#include <iostream>
+#include <sstream>
+#include <iomanip>
 
 namespace metarpc {
 
-MT4Client::MT4Client(const std::string& host, int port)
-    : m_host(host), m_port(port), m_connected(false) {}
+MT4Client::MT4Client(const std::string& host, int port, const std::string& apiKey)
+    : m_host(host), m_port(port), m_apiKey(apiKey), m_connected(false) {}
 
 MT4Client::~MT4Client() {
     disconnect();
 }
 
+std::string MT4Client::getId(int login, const std::string& password) {
+    if (m_id.empty()) {
+        std::stringstream ss;
+        ss << std::hex << std::setfill('0')
+           << std::setw(8) << (login & 0xFFFFFFFF) << "-"
+           << std::setw(4) << (password.length() & 0xFFFF) << "-4000-8000-"
+           << std::setw(12) << (login & 0xFFFFFFFFFFFFLL);
+        m_id = ss.str();
+    }
+    return m_id;
+}
+
 bool MT4Client::connect(int login, const std::string& password) {
+    if (m_id.empty()) {
+        getId(login, password);
+    }
     m_connected = true;
     return true;
 }
