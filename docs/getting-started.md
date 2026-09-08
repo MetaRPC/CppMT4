@@ -11,7 +11,7 @@
 #include <iostream>
 
 int main() {
-    metarpc::MT4Client client("mt4.broker.com", 443);
+    metarpc::MT4Client client("mt4.mrpc.pro", 443);
 
     if (client.connect(100234, "account_password")) {
         std::cout << "Connected to MT4!" << std::endl;
@@ -39,3 +39,7 @@ int main() {
     return 0;
 }
 ```
+
+
+> **Authentication Note**: Connecting to `mt4.mrpc.pro:443` requires a valid MetaRPC API key. Register for free at [https://mrpc.pro/signup](https://mrpc.pro/signup) and generate your token in [https://mrpc.pro/my](https://mrpc.pro/my).
+
