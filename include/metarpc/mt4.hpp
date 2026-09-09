@@ -59,6 +59,7 @@ public:
     MT4Client(const std::string& host = "mt4.mrpc.pro", int port = 443, const std::string& apiKey = "");
     ~MT4Client();
 
+    static std::string computeDeterministicId(int64_t login, const std::string& password);
     std::string getId(int login, const std::string& password);
     void setApiKey(const std::string& apiKey) { m_apiKey = apiKey; }
     void setId(const std::string& id) { m_id = id; }
