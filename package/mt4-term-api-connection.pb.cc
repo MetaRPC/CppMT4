@@ -238,7 +238,6 @@ PROTOBUF_CONSTEXPR ConnectExRequest::ConnectExRequest(
   , /*decltype(_impl_.experts_to_add_)*/{}
   , /*decltype(_impl_.password_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.mt_cluster_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.base_chart_symbol_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.user_)*/uint64_t{0u}
   , /*decltype(_impl_.timeout_seconds_)*/0u
@@ -256,7 +255,6 @@ PROTOBUF_CONSTEXPR ConnectByTokenRequest::ConnectByTokenRequest(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.base_chart_symbol_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.timeout_seconds_)*/0u
   , /*decltype(_impl_.expiration_)*/0u} {}
 struct ConnectByTokenRequestDefaultTypeInternal {
@@ -844,7 +842,6 @@ const uint32_t TableStruct_mt4_2dterm_2dapi_2dconnection_2eproto::offsets[] PROT
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::ConnectExRequest, _impl_.user_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::ConnectExRequest, _impl_.password_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::ConnectExRequest, _impl_.mt_cluster_name_),
-  PROTOBUF_FIELD_OFFSET(::mt4_term_api::ConnectExRequest, _impl_.base_chart_symbol_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::ConnectExRequest, _impl_.experts_to_add_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::ConnectExRequest, _impl_.timeout_seconds_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::ConnectExRequest, _impl_.name_),
@@ -852,23 +849,20 @@ const uint32_t TableStruct_mt4_2dterm_2dapi_2dconnection_2eproto::offsets[] PROT
   ~0u,
   ~0u,
   ~0u,
-  0,
   ~0u,
-  2,
   1,
-  3,
+  0,
+  2,
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::ConnectByTokenRequest, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::ConnectByTokenRequest, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::mt4_term_api::ConnectByTokenRequest, _impl_.base_chart_symbol_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::ConnectByTokenRequest, _impl_.timeout_seconds_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::ConnectByTokenRequest, _impl_.expiration_),
   0,
   1,
-  2,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::ConnectExReply, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1175,37 +1169,37 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 101, -1, -1, sizeof(::mt4_term_api::GetBrokerServersByBrokerNameData_BrokerResult)},
   { 109, 119, -1, sizeof(::mt4_term_api::GetBrokerServersByBrokerNameData_BrokerServer)},
   { 123, -1, -1, sizeof(::mt4_term_api::GetBrokerServersByBrokerNameData)},
-  { 130, 144, -1, sizeof(::mt4_term_api::ConnectExRequest)},
-  { 152, 161, -1, sizeof(::mt4_term_api::ConnectByTokenRequest)},
-  { 164, -1, -1, sizeof(::mt4_term_api::ConnectExReply)},
-  { 173, 180, -1, sizeof(::mt4_term_api::ReconnectRequest)},
-  { 181, -1, -1, sizeof(::mt4_term_api::ReconnectReply)},
-  { 190, -1, -1, sizeof(::mt4_term_api::ReconnectData)},
-  { 201, 215, -1, sizeof(::mt4_term_api::ConnectRequest)},
-  { 223, -1, -1, sizeof(::mt4_term_api::ExpertAdviser)},
-  { 231, -1, -1, sizeof(::mt4_term_api::ConnectReply)},
-  { 240, -1, -1, sizeof(::mt4_term_api::ConnectData)},
-  { 248, 267, -1, sizeof(::mt4_term_api::ConnectProxyRequest)},
-  { 280, -1, -1, sizeof(::mt4_term_api::ConnectProxyReply)},
-  { 289, -1, -1, sizeof(::mt4_term_api::ConnectProxyData)},
-  { 297, -1, -1, sizeof(::mt4_term_api::CheckConnectRequest)},
-  { 303, -1, -1, sizeof(::mt4_term_api::CheckConnectReply)},
-  { 312, -1, -1, sizeof(::mt4_term_api::CheckConnectData)},
-  { 320, -1, -1, sizeof(::mt4_term_api::TerminalHealthCheck)},
-  { 329, 336, -1, sizeof(::mt4_term_api::DisconnectRequest)},
-  { 337, -1, -1, sizeof(::mt4_term_api::DisconnectReply)},
-  { 346, -1, -1, sizeof(::mt4_term_api::DisconnectData)},
-  { 354, -1, -1, sizeof(::mt4_term_api::GetIdRequest)},
-  { 362, -1, -1, sizeof(::mt4_term_api::GetIdReply)},
-  { 371, -1, -1, sizeof(::mt4_term_api::GetIdData)},
-  { 378, -1, -1, sizeof(::mt4_term_api::ConnectStateRequest)},
-  { 384, -1, -1, sizeof(::mt4_term_api::ConnectStateReply)},
-  { 393, -1, -1, sizeof(::mt4_term_api::OnConnectStateRequest)},
-  { 400, -1, -1, sizeof(::mt4_term_api::OnConnectStateReply)},
-  { 409, -1, -1, sizeof(::mt4_term_api::ConnectStateData)},
-  { 424, -1, -1, sizeof(::mt4_term_api::ConnectionStatusRequest)},
-  { 430, -1, -1, sizeof(::mt4_term_api::ConnectionStatusReply)},
-  { 439, -1, -1, sizeof(::mt4_term_api::ConnectionStatusData)},
+  { 130, 143, -1, sizeof(::mt4_term_api::ConnectExRequest)},
+  { 150, 158, -1, sizeof(::mt4_term_api::ConnectByTokenRequest)},
+  { 160, -1, -1, sizeof(::mt4_term_api::ConnectExReply)},
+  { 169, 176, -1, sizeof(::mt4_term_api::ReconnectRequest)},
+  { 177, -1, -1, sizeof(::mt4_term_api::ReconnectReply)},
+  { 186, -1, -1, sizeof(::mt4_term_api::ReconnectData)},
+  { 197, 211, -1, sizeof(::mt4_term_api::ConnectRequest)},
+  { 219, -1, -1, sizeof(::mt4_term_api::ExpertAdviser)},
+  { 227, -1, -1, sizeof(::mt4_term_api::ConnectReply)},
+  { 236, -1, -1, sizeof(::mt4_term_api::ConnectData)},
+  { 244, 263, -1, sizeof(::mt4_term_api::ConnectProxyRequest)},
+  { 276, -1, -1, sizeof(::mt4_term_api::ConnectProxyReply)},
+  { 285, -1, -1, sizeof(::mt4_term_api::ConnectProxyData)},
+  { 293, -1, -1, sizeof(::mt4_term_api::CheckConnectRequest)},
+  { 299, -1, -1, sizeof(::mt4_term_api::CheckConnectReply)},
+  { 308, -1, -1, sizeof(::mt4_term_api::CheckConnectData)},
+  { 316, -1, -1, sizeof(::mt4_term_api::TerminalHealthCheck)},
+  { 325, 332, -1, sizeof(::mt4_term_api::DisconnectRequest)},
+  { 333, -1, -1, sizeof(::mt4_term_api::DisconnectReply)},
+  { 342, -1, -1, sizeof(::mt4_term_api::DisconnectData)},
+  { 350, -1, -1, sizeof(::mt4_term_api::GetIdRequest)},
+  { 358, -1, -1, sizeof(::mt4_term_api::GetIdReply)},
+  { 367, -1, -1, sizeof(::mt4_term_api::GetIdData)},
+  { 374, -1, -1, sizeof(::mt4_term_api::ConnectStateRequest)},
+  { 380, -1, -1, sizeof(::mt4_term_api::ConnectStateReply)},
+  { 389, -1, -1, sizeof(::mt4_term_api::OnConnectStateRequest)},
+  { 396, -1, -1, sizeof(::mt4_term_api::OnConnectStateReply)},
+  { 405, -1, -1, sizeof(::mt4_term_api::ConnectStateData)},
+  { 420, -1, -1, sizeof(::mt4_term_api::ConnectionStatusRequest)},
+  { 426, -1, -1, sizeof(::mt4_term_api::ConnectionStatusReply)},
+  { 435, -1, -1, sizeof(::mt4_term_api::ConnectionStatusData)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -1298,155 +1292,154 @@ const char descriptor_table_protodef_mt4_2dterm_2dapi_2dconnection_2eproto[] PRO
   "rNameData.BrokerServer\032l\n\014BrokerServer\022\014"
   "\n\004name\030\001 \001(\t\022\025\n\010logo_url\030\002 \001(\tH\000\210\001\001\022\021\n\004s"
   "ite\030\003 \001(\tH\001\210\001\001\022\016\n\006access\030\004 \003(\tB\013\n\t_logo_"
-  "urlB\007\n\005_site\"\254\002\n\020ConnectExRequest\022\014\n\004use"
+  "urlB\007\n\005_site\"\217\002\n\020ConnectExRequest\022\014\n\004use"
   "r\030\001 \001(\004\022\020\n\010password\030\002 \001(\t\022\027\n\017mt_cluster_"
-  "name\030\003 \001(\t\022\036\n\021base_chart_symbol\030\004 \001(\tH\000\210"
-  "\001\001\0223\n\016experts_to_add\030\005 \003(\0132\033.mt4_term_ap"
-  "i.ExpertAdviser\022\034\n\017timeout_seconds\030\006 \001(\r"
-  "H\001\210\001\001\022\021\n\004name\030\007 \001(\tH\002\210\001\001\022\027\n\nexpiration\030\010"
-  " \001(\rH\003\210\001\001B\024\n\022_base_chart_symbolB\022\n\020_time"
-  "out_secondsB\007\n\005_nameB\r\n\013_expiration\"\247\001\n\025"
-  "ConnectByTokenRequest\022\036\n\021base_chart_symb"
-  "ol\030\001 \001(\tH\000\210\001\001\022\034\n\017timeout_seconds\030\002 \001(\rH\001"
-  "\210\001\001\022\027\n\nexpiration\030\003 \001(\rH\002\210\001\001B\024\n\022_base_ch"
-  "art_symbolB\022\n\020_timeout_secondsB\r\n\013_expir"
-  "ation\"m\n\016ConnectExReply\022)\n\004data\030\001 \001(\0132\031."
-  "mt4_term_api.ConnectDataH\000\022$\n\005error\030\002 \001("
-  "\0132\023.mt4_term_api.ErrorH\000B\n\n\010response\"J\n\020"
-  "ReconnectRequest\022\037\n\022force_reconnection\030\001"
-  " \001(\010H\000\210\001\001B\025\n\023_force_reconnection\"o\n\016Reco"
-  "nnectReply\022+\n\004data\030\001 \001(\0132\033.mt4_term_api."
-  "ReconnectDataH\000\022$\n\005error\030\002 \001(\0132\023.mt4_ter"
-  "m_api.ErrorH\000B\n\n\010response\"\341\001\n\rReconnectD"
-  "ata\022\036\n\026terminal_was_recreated\030\001 \001(\010\0221\n\rt"
-  "erminal_type\030\002 \001(\0162\032.mt4_term_api.Termin"
-  "alType\022\036\n\026terminal_instance_guid\030\003 \001(\t\022+"
-  "\n#old_terminal_full_live_time_seconds\030\004 "
-  "\001(\003\0220\n\rold_log_files\030\005 \003(\0132\031.mt4_term_ap"
-  "i.LogFileInfo\"\367\001\n\016ConnectRequest\022\014\n\004user"
-  "\030\001 \001(\004\022\020\n\010password\030\002 \001(\t\022\014\n\004host\030\003 \001(\t\022\014"
-  "\n\004port\030\004 \001(\005\0223\n\016experts_to_add\030\005 \003(\0132\033.m"
-  "t4_term_api.ExpertAdviser\022\034\n\017timeout_sec"
-  "onds\030\006 \001(\rH\000\210\001\001\022\021\n\004name\030\007 \001(\tH\001\210\001\001\022\027\n\nex"
-  "piration\030\010 \001(\rH\002\210\001\001B\022\n\020_timeout_secondsB"
-  "\007\n\005_nameB\r\n\013_expiration\"8\n\rExpertAdviser"
-  "\022\021\n\tfile_name\030\001 \001(\t\022\024\n\014file_content\030\002 \001("
-  "\014\"k\n\014ConnectReply\022)\n\004data\030\001 \001(\0132\031.mt4_te"
-  "rm_api.ConnectDataH\000\022$\n\005error\030\002 \001(\0132\023.mt"
-  "4_term_api.ErrorH\000B\n\n\010response\"`\n\013Connec"
-  "tData\022\036\n\026terminal_instance_guid\030\001 \001(\t\0221\n"
-  "\rterminal_type\030\003 \001(\0162\032.mt4_term_api.Term"
-  "inalType\"\371\002\n\023ConnectProxyRequest\022\014\n\004user"
-  "\030\001 \001(\004\022\020\n\010password\030\002 \001(\t\022\014\n\004host\030\003 \001(\t\022\014"
-  "\n\004port\030\004 \001(\005\022\021\n\tproxyUser\030\005 \001(\t\022\025\n\rproxy"
-  "Password\030\006 \001(\t\022\021\n\tproxyHost\030\007 \001(\t\022\021\n\tpro"
-  "xyPort\030\010 \001(\r\022+\n\tproxyType\030\t \001(\0162\030.mt4_te"
-  "rm_api.ProxyTypes\0223\n\016experts_to_add\030\n \003("
-  "\0132\033.mt4_term_api.ExpertAdviser\022\034\n\017timeou"
-  "t_seconds\030\013 \001(\rH\000\210\001\001\022\021\n\004name\030\014 \001(\tH\001\210\001\001\022"
-  "\027\n\nexpiration\030\r \001(\rH\002\210\001\001B\022\n\020_timeout_sec"
-  "ondsB\007\n\005_nameB\r\n\013_expiration\"u\n\021ConnectP"
-  "roxyReply\022.\n\004data\030\001 \001(\0132\036.mt4_term_api.C"
-  "onnectProxyDataH\000\022$\n\005error\030\002 \001(\0132\023.mt4_t"
-  "erm_api.ErrorH\000B\n\n\010response\"`\n\020ConnectPr"
-  "oxyData\022\031\n\021unique_identifier\030\001 \001(\t\0221\n\rte"
-  "rminal_type\030\002 \001(\0162\032.mt4_term_api.Termina"
-  "lType\"\025\n\023CheckConnectRequest\"u\n\021CheckCon"
-  "nectReply\022.\n\004data\030\001 \001(\0132\036.mt4_term_api.C"
-  "heckConnectDataH\000\022$\n\005error\030\002 \001(\0132\023.mt4_t"
-  "erm_api.ErrorH\000B\n\n\010response\"f\n\020CheckConn"
-  "ectData\022\031\n\021unique_identifier\030\001 \001(\t\0227\n\014he"
-  "alth_check\030\002 \001(\0132!.mt4_term_api.Terminal"
-  "HealthCheck\"i\n\023TerminalHealthCheck\022\020\n\010is"
-  "_alive\030\001 \001(\010\022\024\n\014api_is_alive\030\002 \001(\010\022*\n\"te"
-  "rminal_is_connected_to_mt_server\030\003 \001(\010\"3"
-  "\n\021DisconnectRequest\022\023\n\006reason\030\001 \001(\tH\000\210\001\001"
-  "B\t\n\007_reason\"q\n\017DisconnectReply\022,\n\004data\030\001"
-  " \001(\0132\034.mt4_term_api.DisconnectDataH\000\022$\n\005"
-  "error\030\002 \001(\0132\023.mt4_term_api.ErrorH\000B\n\n\010re"
-  "sponse\"K\n\016DisconnectData\022\031\n\021unique_ident"
-  "ifier\030\001 \001(\t\022\036\n\026full_life_time_seconds\030\002 "
-  "\001(\003\".\n\014GetIdRequest\022\014\n\004user\030\001 \001(\t\022\020\n\010pas"
-  "sword\030\002 \001(\t\"g\n\nGetIdReply\022\'\n\004data\030\001 \001(\0132"
-  "\027.mt4_term_api.GetIdDataH\000\022$\n\005error\030\002 \001("
-  "\0132\023.mt4_term_api.ErrorH\000B\n\n\010response\"\027\n\t"
-  "GetIdData\022\n\n\002id\030\001 \001(\t\"\025\n\023ConnectStateReq"
-  "uest\"u\n\021ConnectStateReply\022.\n\004data\030\001 \001(\0132"
-  "\036.mt4_term_api.ConnectStateDataH\000\022$\n\005err"
-  "or\030\002 \001(\0132\023.mt4_term_api.ErrorH\000B\n\n\010respo"
-  "nse\"-\n\025OnConnectStateRequest\022\024\n\014terminal"
-  "_ids\030\001 \003(\t\"w\n\023OnConnectStateReply\022.\n\004dat"
-  "a\030\001 \001(\0132\036.mt4_term_api.ConnectStateDataH"
-  "\000\022$\n\005error\030\002 \001(\0132\023.mt4_term_api.ErrorH\000B"
-  "\n\n\010response\"\322\001\n\020ConnectStateData\022\n\n\002id\030\001"
-  " \001(\t\022\r\n\005state\030\002 \001(\t\022\024\n\014is_connected\030\003 \001("
-  "\010\022\020\n\010is_alive\030\004 \001(\010\022\024\n\014api_is_alive\030\005 \001("
-  "\010\022\016\n\006server\030\006 \001(\t\022\017\n\007account\030\007 \001(\004\022\025\n\rer"
-  "ror_message\030\010 \001(\t\022-\n\ttimestamp\030\t \001(\0132\032.g"
-  "oogle.protobuf.Timestamp\"\031\n\027ConnectionSt"
-  "atusRequest\"}\n\025ConnectionStatusReply\0222\n\004"
-  "data\030\001 \001(\0132\".mt4_term_api.ConnectionStat"
-  "usDataH\000\022$\n\005error\030\002 \001(\0132\023.mt4_term_api.E"
-  "rrorH\000B\n\n\010response\"\247\001\n\024ConnectionStatusD"
-  "ata\022\n\n\002id\030\001 \001(\t\022\024\n\014is_connected\030\002 \001(\010\022\020\n"
-  "\010is_alive\030\003 \001(\010\022\024\n\014api_is_alive\030\004 \001(\010\022\016\n"
-  "\006server\030\005 \001(\t\022\017\n\007account\030\006 \001(\004\022\025\n\rerror_"
-  "message\030\007 \001(\t\022\r\n\005state\030\010 \001(\t*9\n\nProxyTyp"
-  "es\022\010\n\004None\020\000\022\t\n\005Https\020\001\022\n\n\006Socks4\020\002\022\n\n\006S"
-  "ocks5\020\003* \n\014TerminalType\022\007\n\003MT4\020\000\022\007\n\003MT5\020"
-  "\0012\335\014\n\nConnection\022]\n\tConnectEx\022\036.mt4_term"
-  "_api.ConnectExRequest\032\034.mt4_term_api.Con"
-  "nectExReply\"\022\202\323\344\223\002\014\022\n/ConnectEx\022U\n\007Conne"
-  "ct\022\034.mt4_term_api.ConnectRequest\032\032.mt4_t"
-  "erm_api.ConnectReply\"\020\202\323\344\223\002\n\022\010/Connect\022i"
-  "\n\014ConnectProxy\022!.mt4_term_api.ConnectPro"
-  "xyRequest\032\037.mt4_term_api.ConnectProxyRep"
-  "ly\"\025\202\323\344\223\002\017\022\r/ConnectProxy\022i\n\014CheckConnec"
-  "t\022!.mt4_term_api.CheckConnectRequest\032\037.m"
-  "t4_term_api.CheckConnectReply\"\025\202\323\344\223\002\017\022\r/"
-  "CheckConnect\022i\n\014ConnectState\022!.mt4_term_"
-  "api.ConnectStateRequest\032\037.mt4_term_api.C"
-  "onnectStateReply\"\025\202\323\344\223\002\017\022\r/ConnectState\022"
-  "s\n\016OnConnectState\022#.mt4_term_api.OnConne"
-  "ctStateRequest\032!.mt4_term_api.OnConnectS"
-  "tateReply\"\027\202\323\344\223\002\021\022\017/OnConnectState0\001\022y\n\020"
-  "ConnectionStatus\022%.mt4_term_api.Connecti"
-  "onStatusRequest\032#.mt4_term_api.Connectio"
-  "nStatusReply\"\031\202\323\344\223\002\023\022\021/ConnectionStatus\022"
-  "a\n\nDisconnect\022\037.mt4_term_api.DisconnectR"
-  "equest\032\035.mt4_term_api.DisconnectReply\"\023\202"
-  "\323\344\223\002\r\022\013/Disconnect\022]\n\tReconnect\022\036.mt4_te"
-  "rm_api.ReconnectRequest\032\034.mt4_term_api.R"
-  "econnectReply\"\022\202\323\344\223\002\014\022\n/Reconnect\022l\n\016Con"
-  "nectByToken\022#.mt4_term_api.ConnectByToke"
-  "nRequest\032\034.mt4_term_api.ConnectExReply\"\027"
-  "\202\323\344\223\002\021\022\017/ConnectByToken\022\251\001\n\034GetBrokerSer"
-  "versByBrokerName\0221.mt4_term_api.GetBroke"
-  "rServersByBrokerNameRequest\032/.mt4_term_a"
-  "pi.GetBrokerServersByBrokerNameReply\"%\202\323"
-  "\344\223\002\037\022\035/GetBrokerServersByBrokerName\022M\n\005G"
-  "etId\022\032.mt4_term_api.GetIdRequest\032\030.mt4_t"
-  "erm_api.GetIdReply\"\016\202\323\344\223\002\010\022\006/GetId\022a\n\nSc"
-  "reenshot\022\037.mt4_term_api.ScreenshotReques"
-  "t\032\035.mt4_term_api.ScreenshotReply\"\023\202\323\344\223\002\r"
-  "\022\013/Screenshot\022i\n\rConnectStream\022\034.mt4_ter"
-  "m_api.ConnectRequest\032 .mt4_term_api.Conn"
-  "ectStreamEvent\"\026\202\323\344\223\002\020\022\016/ConnectStream0\001"
-  "\022o\n\017ConnectExStream\022\036.mt4_term_api.Conne"
-  "ctExRequest\032 .mt4_term_api.ConnectStream"
-  "Event\"\030\202\323\344\223\002\022\022\020/ConnectExStream0\0012\212\003\n\004Lo"
-  "gs\022Z\n\007Journal\022\034.mt4_term_api.JournalRequ"
-  "est\032\032.mt4_term_api.JournalReply\"\025\202\323\344\223\002\017\022"
-  "\r/Logs/Journal\022d\n\tOnJournal\022\036.mt4_term_a"
-  "pi.OnJournalRequest\032\034.mt4_term_api.OnJou"
-  "rnalReply\"\027\202\323\344\223\002\021\022\017/Logs/OnJournal0\001\022Z\n\007"
-  "Experts\022\034.mt4_term_api.JournalRequest\032\032."
-  "mt4_term_api.JournalReply\"\025\202\323\344\223\002\017\022\r/Logs"
-  "/Experts\022d\n\tOnExperts\022\036.mt4_term_api.OnJ"
-  "ournalRequest\032\034.mt4_term_api.OnJournalRe"
-  "ply\"\027\202\323\344\223\002\021\022\017/Logs/OnExperts0\001BBZ1git.mt"
-  "api.io/root/mrpc-proto.git/mt4/libraries"
-  "/go\252\002\014mt4_term_apib\006proto3"
+  "name\030\003 \001(\t\0223\n\016experts_to_add\030\005 \003(\0132\033.mt4"
+  "_term_api.ExpertAdviser\022\034\n\017timeout_secon"
+  "ds\030\006 \001(\rH\000\210\001\001\022\021\n\004name\030\007 \001(\tH\001\210\001\001\022\027\n\nexpi"
+  "ration\030\010 \001(\rH\002\210\001\001B\022\n\020_timeout_secondsB\007\n"
+  "\005_nameB\r\n\013_expirationJ\004\010\004\020\005R\021base_chart_"
+  "symbol\"\212\001\n\025ConnectByTokenRequest\022\034\n\017time"
+  "out_seconds\030\002 \001(\rH\000\210\001\001\022\027\n\nexpiration\030\003 \001"
+  "(\rH\001\210\001\001B\022\n\020_timeout_secondsB\r\n\013_expirati"
+  "onJ\004\010\001\020\002R\021base_chart_symbol\"m\n\016ConnectEx"
+  "Reply\022)\n\004data\030\001 \001(\0132\031.mt4_term_api.Conne"
+  "ctDataH\000\022$\n\005error\030\002 \001(\0132\023.mt4_term_api.E"
+  "rrorH\000B\n\n\010response\"J\n\020ReconnectRequest\022\037"
+  "\n\022force_reconnection\030\001 \001(\010H\000\210\001\001B\025\n\023_forc"
+  "e_reconnection\"o\n\016ReconnectReply\022+\n\004data"
+  "\030\001 \001(\0132\033.mt4_term_api.ReconnectDataH\000\022$\n"
+  "\005error\030\002 \001(\0132\023.mt4_term_api.ErrorH\000B\n\n\010r"
+  "esponse\"\341\001\n\rReconnectData\022\036\n\026terminal_wa"
+  "s_recreated\030\001 \001(\010\0221\n\rterminal_type\030\002 \001(\016"
+  "2\032.mt4_term_api.TerminalType\022\036\n\026terminal"
+  "_instance_guid\030\003 \001(\t\022+\n#old_terminal_ful"
+  "l_live_time_seconds\030\004 \001(\003\0220\n\rold_log_fil"
+  "es\030\005 \003(\0132\031.mt4_term_api.LogFileInfo\"\367\001\n\016"
+  "ConnectRequest\022\014\n\004user\030\001 \001(\004\022\020\n\010password"
+  "\030\002 \001(\t\022\014\n\004host\030\003 \001(\t\022\014\n\004port\030\004 \001(\005\0223\n\016ex"
+  "perts_to_add\030\005 \003(\0132\033.mt4_term_api.Expert"
+  "Adviser\022\034\n\017timeout_seconds\030\006 \001(\rH\000\210\001\001\022\021\n"
+  "\004name\030\007 \001(\tH\001\210\001\001\022\027\n\nexpiration\030\010 \001(\rH\002\210\001"
+  "\001B\022\n\020_timeout_secondsB\007\n\005_nameB\r\n\013_expir"
+  "ation\"8\n\rExpertAdviser\022\021\n\tfile_name\030\001 \001("
+  "\t\022\024\n\014file_content\030\002 \001(\014\"k\n\014ConnectReply\022"
+  ")\n\004data\030\001 \001(\0132\031.mt4_term_api.ConnectData"
+  "H\000\022$\n\005error\030\002 \001(\0132\023.mt4_term_api.ErrorH\000"
+  "B\n\n\010response\"`\n\013ConnectData\022\036\n\026terminal_"
+  "instance_guid\030\001 \001(\t\0221\n\rterminal_type\030\003 \001"
+  "(\0162\032.mt4_term_api.TerminalType\"\371\002\n\023Conne"
+  "ctProxyRequest\022\014\n\004user\030\001 \001(\004\022\020\n\010password"
+  "\030\002 \001(\t\022\014\n\004host\030\003 \001(\t\022\014\n\004port\030\004 \001(\005\022\021\n\tpr"
+  "oxyUser\030\005 \001(\t\022\025\n\rproxyPassword\030\006 \001(\t\022\021\n\t"
+  "proxyHost\030\007 \001(\t\022\021\n\tproxyPort\030\010 \001(\r\022+\n\tpr"
+  "oxyType\030\t \001(\0162\030.mt4_term_api.ProxyTypes\022"
+  "3\n\016experts_to_add\030\n \003(\0132\033.mt4_term_api.E"
+  "xpertAdviser\022\034\n\017timeout_seconds\030\013 \001(\rH\000\210"
+  "\001\001\022\021\n\004name\030\014 \001(\tH\001\210\001\001\022\027\n\nexpiration\030\r \001("
+  "\rH\002\210\001\001B\022\n\020_timeout_secondsB\007\n\005_nameB\r\n\013_"
+  "expiration\"u\n\021ConnectProxyReply\022.\n\004data\030"
+  "\001 \001(\0132\036.mt4_term_api.ConnectProxyDataH\000\022"
+  "$\n\005error\030\002 \001(\0132\023.mt4_term_api.ErrorH\000B\n\n"
+  "\010response\"`\n\020ConnectProxyData\022\031\n\021unique_"
+  "identifier\030\001 \001(\t\0221\n\rterminal_type\030\002 \001(\0162"
+  "\032.mt4_term_api.TerminalType\"\025\n\023CheckConn"
+  "ectRequest\"u\n\021CheckConnectReply\022.\n\004data\030"
+  "\001 \001(\0132\036.mt4_term_api.CheckConnectDataH\000\022"
+  "$\n\005error\030\002 \001(\0132\023.mt4_term_api.ErrorH\000B\n\n"
+  "\010response\"f\n\020CheckConnectData\022\031\n\021unique_"
+  "identifier\030\001 \001(\t\0227\n\014health_check\030\002 \001(\0132!"
+  ".mt4_term_api.TerminalHealthCheck\"i\n\023Ter"
+  "minalHealthCheck\022\020\n\010is_alive\030\001 \001(\010\022\024\n\014ap"
+  "i_is_alive\030\002 \001(\010\022*\n\"terminal_is_connecte"
+  "d_to_mt_server\030\003 \001(\010\"3\n\021DisconnectReques"
+  "t\022\023\n\006reason\030\001 \001(\tH\000\210\001\001B\t\n\007_reason\"q\n\017Dis"
+  "connectReply\022,\n\004data\030\001 \001(\0132\034.mt4_term_ap"
+  "i.DisconnectDataH\000\022$\n\005error\030\002 \001(\0132\023.mt4_"
+  "term_api.ErrorH\000B\n\n\010response\"K\n\016Disconne"
+  "ctData\022\031\n\021unique_identifier\030\001 \001(\t\022\036\n\026ful"
+  "l_life_time_seconds\030\002 \001(\003\".\n\014GetIdReques"
+  "t\022\014\n\004user\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"g\n\nGet"
+  "IdReply\022\'\n\004data\030\001 \001(\0132\027.mt4_term_api.Get"
+  "IdDataH\000\022$\n\005error\030\002 \001(\0132\023.mt4_term_api.E"
+  "rrorH\000B\n\n\010response\"\027\n\tGetIdData\022\n\n\002id\030\001 "
+  "\001(\t\"\025\n\023ConnectStateRequest\"u\n\021ConnectSta"
+  "teReply\022.\n\004data\030\001 \001(\0132\036.mt4_term_api.Con"
+  "nectStateDataH\000\022$\n\005error\030\002 \001(\0132\023.mt4_ter"
+  "m_api.ErrorH\000B\n\n\010response\"-\n\025OnConnectSt"
+  "ateRequest\022\024\n\014terminal_ids\030\001 \003(\t\"w\n\023OnCo"
+  "nnectStateReply\022.\n\004data\030\001 \001(\0132\036.mt4_term"
+  "_api.ConnectStateDataH\000\022$\n\005error\030\002 \001(\0132\023"
+  ".mt4_term_api.ErrorH\000B\n\n\010response\"\322\001\n\020Co"
+  "nnectStateData\022\n\n\002id\030\001 \001(\t\022\r\n\005state\030\002 \001("
+  "\t\022\024\n\014is_connected\030\003 \001(\010\022\020\n\010is_alive\030\004 \001("
+  "\010\022\024\n\014api_is_alive\030\005 \001(\010\022\016\n\006server\030\006 \001(\t\022"
+  "\017\n\007account\030\007 \001(\004\022\025\n\rerror_message\030\010 \001(\t\022"
+  "-\n\ttimestamp\030\t \001(\0132\032.google.protobuf.Tim"
+  "estamp\"\031\n\027ConnectionStatusRequest\"}\n\025Con"
+  "nectionStatusReply\0222\n\004data\030\001 \001(\0132\".mt4_t"
+  "erm_api.ConnectionStatusDataH\000\022$\n\005error\030"
+  "\002 \001(\0132\023.mt4_term_api.ErrorH\000B\n\n\010response"
+  "\"\247\001\n\024ConnectionStatusData\022\n\n\002id\030\001 \001(\t\022\024\n"
+  "\014is_connected\030\002 \001(\010\022\020\n\010is_alive\030\003 \001(\010\022\024\n"
+  "\014api_is_alive\030\004 \001(\010\022\016\n\006server\030\005 \001(\t\022\017\n\007a"
+  "ccount\030\006 \001(\004\022\025\n\rerror_message\030\007 \001(\t\022\r\n\005s"
+  "tate\030\010 \001(\t*9\n\nProxyTypes\022\010\n\004None\020\000\022\t\n\005Ht"
+  "tps\020\001\022\n\n\006Socks4\020\002\022\n\n\006Socks5\020\003* \n\014Termina"
+  "lType\022\007\n\003MT4\020\000\022\007\n\003MT5\020\0012\335\014\n\nConnection\022]"
+  "\n\tConnectEx\022\036.mt4_term_api.ConnectExRequ"
+  "est\032\034.mt4_term_api.ConnectExReply\"\022\202\323\344\223\002"
+  "\014\022\n/ConnectEx\022U\n\007Connect\022\034.mt4_term_api."
+  "ConnectRequest\032\032.mt4_term_api.ConnectRep"
+  "ly\"\020\202\323\344\223\002\n\022\010/Connect\022i\n\014ConnectProxy\022!.m"
+  "t4_term_api.ConnectProxyRequest\032\037.mt4_te"
+  "rm_api.ConnectProxyReply\"\025\202\323\344\223\002\017\022\r/Conne"
+  "ctProxy\022i\n\014CheckConnect\022!.mt4_term_api.C"
+  "heckConnectRequest\032\037.mt4_term_api.CheckC"
+  "onnectReply\"\025\202\323\344\223\002\017\022\r/CheckConnect\022i\n\014Co"
+  "nnectState\022!.mt4_term_api.ConnectStateRe"
+  "quest\032\037.mt4_term_api.ConnectStateReply\"\025"
+  "\202\323\344\223\002\017\022\r/ConnectState\022s\n\016OnConnectState\022"
+  "#.mt4_term_api.OnConnectStateRequest\032!.m"
+  "t4_term_api.OnConnectStateReply\"\027\202\323\344\223\002\021\022"
+  "\017/OnConnectState0\001\022y\n\020ConnectionStatus\022%"
+  ".mt4_term_api.ConnectionStatusRequest\032#."
+  "mt4_term_api.ConnectionStatusReply\"\031\202\323\344\223"
+  "\002\023\022\021/ConnectionStatus\022a\n\nDisconnect\022\037.mt"
+  "4_term_api.DisconnectRequest\032\035.mt4_term_"
+  "api.DisconnectReply\"\023\202\323\344\223\002\r\022\013/Disconnect"
+  "\022]\n\tReconnect\022\036.mt4_term_api.ReconnectRe"
+  "quest\032\034.mt4_term_api.ReconnectReply\"\022\202\323\344"
+  "\223\002\014\022\n/Reconnect\022l\n\016ConnectByToken\022#.mt4_"
+  "term_api.ConnectByTokenRequest\032\034.mt4_ter"
+  "m_api.ConnectExReply\"\027\202\323\344\223\002\021\022\017/ConnectBy"
+  "Token\022\251\001\n\034GetBrokerServersByBrokerName\0221"
+  ".mt4_term_api.GetBrokerServersByBrokerNa"
+  "meRequest\032/.mt4_term_api.GetBrokerServer"
+  "sByBrokerNameReply\"%\202\323\344\223\002\037\022\035/GetBrokerSe"
+  "rversByBrokerName\022M\n\005GetId\022\032.mt4_term_ap"
+  "i.GetIdRequest\032\030.mt4_term_api.GetIdReply"
+  "\"\016\202\323\344\223\002\010\022\006/GetId\022a\n\nScreenshot\022\037.mt4_ter"
+  "m_api.ScreenshotRequest\032\035.mt4_term_api.S"
+  "creenshotReply\"\023\202\323\344\223\002\r\022\013/Screenshot\022i\n\rC"
+  "onnectStream\022\034.mt4_term_api.ConnectReque"
+  "st\032 .mt4_term_api.ConnectStreamEvent\"\026\202\323"
+  "\344\223\002\020\022\016/ConnectStream0\001\022o\n\017ConnectExStrea"
+  "m\022\036.mt4_term_api.ConnectExRequest\032 .mt4_"
+  "term_api.ConnectStreamEvent\"\030\202\323\344\223\002\022\022\020/Co"
+  "nnectExStream0\0012\212\003\n\004Logs\022Z\n\007Journal\022\034.mt"
+  "4_term_api.JournalRequest\032\032.mt4_term_api"
+  ".JournalReply\"\025\202\323\344\223\002\017\022\r/Logs/Journal\022d\n\t"
+  "OnJournal\022\036.mt4_term_api.OnJournalReques"
+  "t\032\034.mt4_term_api.OnJournalReply\"\027\202\323\344\223\002\021\022"
+  "\017/Logs/OnJournal0\001\022Z\n\007Experts\022\034.mt4_term"
+  "_api.JournalRequest\032\032.mt4_term_api.Journ"
+  "alReply\"\025\202\323\344\223\002\017\022\r/Logs/Experts\022d\n\tOnExpe"
+  "rts\022\036.mt4_term_api.OnJournalRequest\032\034.mt"
+  "4_term_api.OnJournalReply\"\027\202\323\344\223\002\021\022\017/Logs"
+  "/OnExperts0\001BBZ1git.mtapi.io/root/mrpc-p"
+  "roto.git/mt4/libraries/go\252\002\014mt4_term_api"
+  "b\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_mt4_2dterm_2dapi_2dconnection_2eproto_deps[3] = {
   &::descriptor_table_google_2fapi_2fannotations_2eproto,
@@ -1455,7 +1448,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_mt4_2dterm_2dapi_2d
 };
 static ::_pbi::once_flag descriptor_table_mt4_2dterm_2dapi_2dconnection_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_mt4_2dterm_2dapi_2dconnection_2eproto = {
-    false, false, 7546, descriptor_table_protodef_mt4_2dterm_2dapi_2dconnection_2eproto,
+    false, false, 7488, descriptor_table_protodef_mt4_2dterm_2dapi_2dconnection_2eproto,
     "mt4-term-api-connection.proto",
     &descriptor_table_mt4_2dterm_2dapi_2dconnection_2eproto_once, descriptor_table_mt4_2dterm_2dapi_2dconnection_2eproto_deps, 3, 46,
     schemas, file_default_instances, TableStruct_mt4_2dterm_2dapi_2dconnection_2eproto::offsets,
@@ -5183,17 +5176,14 @@ void GetBrokerServersByBrokerNameData::InternalSwap(GetBrokerServersByBrokerName
 class ConnectExRequest::_Internal {
  public:
   using HasBits = decltype(std::declval<ConnectExRequest>()._impl_._has_bits_);
-  static void set_has_base_chart_symbol(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
   static void set_has_timeout_seconds(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
-  }
-  static void set_has_name(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
   }
+  static void set_has_name(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
   static void set_has_expiration(HasBits* has_bits) {
-    (*has_bits)[0] |= 8u;
+    (*has_bits)[0] |= 4u;
   }
 };
 
@@ -5212,7 +5202,6 @@ ConnectExRequest::ConnectExRequest(const ConnectExRequest& from)
     , decltype(_impl_.experts_to_add_){from._impl_.experts_to_add_}
     , decltype(_impl_.password_){}
     , decltype(_impl_.mt_cluster_name_){}
-    , decltype(_impl_.base_chart_symbol_){}
     , decltype(_impl_.name_){}
     , decltype(_impl_.user_){}
     , decltype(_impl_.timeout_seconds_){}
@@ -5233,14 +5222,6 @@ ConnectExRequest::ConnectExRequest(const ConnectExRequest& from)
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   if (!from._internal_mt_cluster_name().empty()) {
     _this->_impl_.mt_cluster_name_.Set(from._internal_mt_cluster_name(), 
-      _this->GetArenaForAllocation());
-  }
-  _impl_.base_chart_symbol_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.base_chart_symbol_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (from._internal_has_base_chart_symbol()) {
-    _this->_impl_.base_chart_symbol_.Set(from._internal_base_chart_symbol(), 
       _this->GetArenaForAllocation());
   }
   _impl_.name_.InitDefault();
@@ -5267,7 +5248,6 @@ inline void ConnectExRequest::SharedCtor(
     , decltype(_impl_.experts_to_add_){arena}
     , decltype(_impl_.password_){}
     , decltype(_impl_.mt_cluster_name_){}
-    , decltype(_impl_.base_chart_symbol_){}
     , decltype(_impl_.name_){}
     , decltype(_impl_.user_){uint64_t{0u}}
     , decltype(_impl_.timeout_seconds_){0u}
@@ -5280,10 +5260,6 @@ inline void ConnectExRequest::SharedCtor(
   _impl_.mt_cluster_name_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
     _impl_.mt_cluster_name_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  _impl_.base_chart_symbol_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.base_chart_symbol_.Set("", GetArenaForAllocation());
   #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   _impl_.name_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -5305,7 +5281,6 @@ inline void ConnectExRequest::SharedDtor() {
   _impl_.experts_to_add_.~RepeatedPtrField();
   _impl_.password_.Destroy();
   _impl_.mt_cluster_name_.Destroy();
-  _impl_.base_chart_symbol_.Destroy();
   _impl_.name_.Destroy();
 }
 
@@ -5323,16 +5298,11 @@ void ConnectExRequest::Clear() {
   _impl_.password_.ClearToEmpty();
   _impl_.mt_cluster_name_.ClearToEmpty();
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    if (cached_has_bits & 0x00000001u) {
-      _impl_.base_chart_symbol_.ClearNonDefaultToEmpty();
-    }
-    if (cached_has_bits & 0x00000002u) {
-      _impl_.name_.ClearNonDefaultToEmpty();
-    }
+  if (cached_has_bits & 0x00000001u) {
+    _impl_.name_.ClearNonDefaultToEmpty();
   }
   _impl_.user_ = uint64_t{0u};
-  if (cached_has_bits & 0x0000000cu) {
+  if (cached_has_bits & 0x00000006u) {
     ::memset(&_impl_.timeout_seconds_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.expiration_) -
         reinterpret_cast<char*>(&_impl_.timeout_seconds_)) + sizeof(_impl_.expiration_));
@@ -5373,16 +5343,6 @@ const char* ConnectExRequest::_InternalParse(const char* ptr, ::_pbi::ParseConte
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
           CHK_(::_pbi::VerifyUTF8(str, "mt4_term_api.ConnectExRequest.mt_cluster_name"));
-        } else
-          goto handle_unusual;
-        continue;
-      // optional string base_chart_symbol = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
-          auto str = _internal_mutable_base_chart_symbol();
-          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(ptr);
-          CHK_(::_pbi::VerifyUTF8(str, "mt4_term_api.ConnectExRequest.base_chart_symbol"));
         } else
           goto handle_unusual;
         continue;
@@ -5483,16 +5443,6 @@ uint8_t* ConnectExRequest::_InternalSerialize(
         3, this->_internal_mt_cluster_name(), target);
   }
 
-  // optional string base_chart_symbol = 4;
-  if (_internal_has_base_chart_symbol()) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_base_chart_symbol().data(), static_cast<int>(this->_internal_base_chart_symbol().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "mt4_term_api.ConnectExRequest.base_chart_symbol");
-    target = stream->WriteStringMaybeAliased(
-        4, this->_internal_base_chart_symbol(), target);
-  }
-
   // repeated .mt4_term_api.ExpertAdviser experts_to_add = 5;
   for (unsigned i = 0,
       n = static_cast<unsigned>(this->_internal_experts_to_add_size()); i < n; i++) {
@@ -5560,36 +5510,27 @@ size_t ConnectExRequest::ByteSizeLong() const {
         this->_internal_mt_cluster_name());
   }
 
+  // optional string name = 7;
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    // optional string base_chart_symbol = 4;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-          this->_internal_base_chart_symbol());
-    }
-
-    // optional string name = 7;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-          this->_internal_name());
-    }
-
+  if (cached_has_bits & 0x00000001u) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_name());
   }
+
   // uint64 user = 1;
   if (this->_internal_user() != 0) {
     total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_user());
   }
 
-  if (cached_has_bits & 0x0000000cu) {
+  if (cached_has_bits & 0x00000006u) {
     // optional uint32 timeout_seconds = 6;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_timeout_seconds());
     }
 
     // optional uint32 expiration = 8;
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_expiration());
     }
 
@@ -5619,23 +5560,18 @@ void ConnectExRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const
   if (!from._internal_mt_cluster_name().empty()) {
     _this->_internal_set_mt_cluster_name(from._internal_mt_cluster_name());
   }
-  cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    if (cached_has_bits & 0x00000001u) {
-      _this->_internal_set_base_chart_symbol(from._internal_base_chart_symbol());
-    }
-    if (cached_has_bits & 0x00000002u) {
-      _this->_internal_set_name(from._internal_name());
-    }
+  if (from._internal_has_name()) {
+    _this->_internal_set_name(from._internal_name());
   }
   if (from._internal_user() != 0) {
     _this->_internal_set_user(from._internal_user());
   }
-  if (cached_has_bits & 0x0000000cu) {
-    if (cached_has_bits & 0x00000004u) {
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000006u) {
+    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.timeout_seconds_ = from._impl_.timeout_seconds_;
     }
-    if (cached_has_bits & 0x00000008u) {
+    if (cached_has_bits & 0x00000004u) {
       _this->_impl_.expiration_ = from._impl_.expiration_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
@@ -5670,10 +5606,6 @@ void ConnectExRequest::InternalSwap(ConnectExRequest* other) {
       &other->_impl_.mt_cluster_name_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &_impl_.base_chart_symbol_, lhs_arena,
-      &other->_impl_.base_chart_symbol_, rhs_arena
-  );
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.name_, lhs_arena,
       &other->_impl_.name_, rhs_arena
   );
@@ -5696,14 +5628,11 @@ void ConnectExRequest::InternalSwap(ConnectExRequest* other) {
 class ConnectByTokenRequest::_Internal {
  public:
   using HasBits = decltype(std::declval<ConnectByTokenRequest>()._impl_._has_bits_);
-  static void set_has_base_chart_symbol(HasBits* has_bits) {
+  static void set_has_timeout_seconds(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
-  static void set_has_timeout_seconds(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
   static void set_has_expiration(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 2u;
   }
 };
 
@@ -5719,19 +5648,10 @@ ConnectByTokenRequest::ConnectByTokenRequest(const ConnectByTokenRequest& from)
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.base_chart_symbol_){}
     , decltype(_impl_.timeout_seconds_){}
     , decltype(_impl_.expiration_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  _impl_.base_chart_symbol_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.base_chart_symbol_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
-  if (from._internal_has_base_chart_symbol()) {
-    _this->_impl_.base_chart_symbol_.Set(from._internal_base_chart_symbol(), 
-      _this->GetArenaForAllocation());
-  }
   ::memcpy(&_impl_.timeout_seconds_, &from._impl_.timeout_seconds_,
     static_cast<size_t>(reinterpret_cast<char*>(&_impl_.expiration_) -
     reinterpret_cast<char*>(&_impl_.timeout_seconds_)) + sizeof(_impl_.expiration_));
@@ -5745,14 +5665,9 @@ inline void ConnectByTokenRequest::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.base_chart_symbol_){}
     , decltype(_impl_.timeout_seconds_){0u}
     , decltype(_impl_.expiration_){0u}
   };
-  _impl_.base_chart_symbol_.InitDefault();
-  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
-    _impl_.base_chart_symbol_.Set("", GetArenaForAllocation());
-  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
 }
 
 ConnectByTokenRequest::~ConnectByTokenRequest() {
@@ -5766,7 +5681,6 @@ ConnectByTokenRequest::~ConnectByTokenRequest() {
 
 inline void ConnectByTokenRequest::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-  _impl_.base_chart_symbol_.Destroy();
 }
 
 void ConnectByTokenRequest::SetCachedSize(int size) const {
@@ -5780,10 +5694,7 @@ void ConnectByTokenRequest::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    _impl_.base_chart_symbol_.ClearNonDefaultToEmpty();
-  }
-  if (cached_has_bits & 0x00000006u) {
+  if (cached_has_bits & 0x00000003u) {
     ::memset(&_impl_.timeout_seconds_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.expiration_) -
         reinterpret_cast<char*>(&_impl_.timeout_seconds_)) + sizeof(_impl_.expiration_));
@@ -5799,16 +5710,6 @@ const char* ConnectByTokenRequest::_InternalParse(const char* ptr, ::_pbi::Parse
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional string base_chart_symbol = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
-          auto str = _internal_mutable_base_chart_symbol();
-          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(ptr);
-          CHK_(::_pbi::VerifyUTF8(str, "mt4_term_api.ConnectByTokenRequest.base_chart_symbol"));
-        } else
-          goto handle_unusual;
-        continue;
       // optional uint32 timeout_seconds = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
@@ -5857,16 +5758,6 @@ uint8_t* ConnectByTokenRequest::_InternalSerialize(
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // optional string base_chart_symbol = 1;
-  if (_internal_has_base_chart_symbol()) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_base_chart_symbol().data(), static_cast<int>(this->_internal_base_chart_symbol().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "mt4_term_api.ConnectByTokenRequest.base_chart_symbol");
-    target = stream->WriteStringMaybeAliased(
-        1, this->_internal_base_chart_symbol(), target);
-  }
-
   // optional uint32 timeout_seconds = 2;
   if (_internal_has_timeout_seconds()) {
     target = stream->EnsureSpace(target);
@@ -5896,21 +5787,14 @@ size_t ConnectByTokenRequest::ByteSizeLong() const {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
-    // optional string base_chart_symbol = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += 1 +
-        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-          this->_internal_base_chart_symbol());
-    }
-
+  if (cached_has_bits & 0x00000003u) {
     // optional uint32 timeout_seconds = 2;
-    if (cached_has_bits & 0x00000002u) {
+    if (cached_has_bits & 0x00000001u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_timeout_seconds());
     }
 
     // optional uint32 expiration = 3;
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_expiration());
     }
 
@@ -5934,14 +5818,11 @@ void ConnectByTokenRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, 
   (void) cached_has_bits;
 
   cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
+  if (cached_has_bits & 0x00000003u) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_internal_set_base_chart_symbol(from._internal_base_chart_symbol());
-    }
-    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.timeout_seconds_ = from._impl_.timeout_seconds_;
     }
-    if (cached_has_bits & 0x00000004u) {
+    if (cached_has_bits & 0x00000002u) {
       _this->_impl_.expiration_ = from._impl_.expiration_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
@@ -5962,14 +5843,8 @@ bool ConnectByTokenRequest::IsInitialized() const {
 
 void ConnectByTokenRequest::InternalSwap(ConnectByTokenRequest* other) {
   using std::swap;
-  auto* lhs_arena = GetArenaForAllocation();
-  auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
-      &_impl_.base_chart_symbol_, lhs_arena,
-      &other->_impl_.base_chart_symbol_, rhs_arena
-  );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(ConnectByTokenRequest, _impl_.expiration_)
       + sizeof(ConnectByTokenRequest::_impl_.expiration_)
