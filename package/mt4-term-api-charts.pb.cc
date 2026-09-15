@@ -247,6 +247,7 @@ PROTOBUF_CONSTEXPR RunningEaInfo::RunningEaInfo(
   , /*decltype(_impl_.period_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.state_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.started_at_)*/nullptr
+  , /*decltype(_impl_.stopped_at_)*/nullptr
   , /*decltype(_impl_.ea_cpu_percent_)*/0
   , /*decltype(_impl_.ref_cpu_percent_)*/0
   , /*decltype(_impl_.cpu_ratio_)*/0
@@ -254,6 +255,8 @@ PROTOBUF_CONSTEXPR RunningEaInfo::RunningEaInfo(
   , /*decltype(_impl_.ref_ram_bytes_)*/int64_t{0}
   , /*decltype(_impl_.ram_ratio_)*/0
   , /*decltype(_impl_.resource_multiplier_)*/0
+  , /*decltype(_impl_.metered_hours_)*/0
+  , /*decltype(_impl_.charged_amount_)*/0
   , /*decltype(_impl_.process_id_)*/0
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct RunningEaInfoDefaultTypeInternal {
@@ -587,6 +590,9 @@ const uint32_t TableStruct_mt4_2dterm_2dapi_2dcharts_2eproto::offsets[] PROTOBUF
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::RunningEaInfo, _impl_.ref_ram_bytes_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::RunningEaInfo, _impl_.ram_ratio_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::RunningEaInfo, _impl_.resource_multiplier_),
+  PROTOBUF_FIELD_OFFSET(::mt4_term_api::RunningEaInfo, _impl_.metered_hours_),
+  PROTOBUF_FIELD_OFFSET(::mt4_term_api::RunningEaInfo, _impl_.charged_amount_),
+  PROTOBUF_FIELD_OFFSET(::mt4_term_api::RunningEaInfo, _impl_.stopped_at_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::GetEaLogsRequest, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::GetEaLogsRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -692,16 +698,16 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 135, -1, -1, sizeof(::mt4_term_api::GetRunningEasReply)},
   { 144, -1, -1, sizeof(::mt4_term_api::GetRunningEasData)},
   { 151, -1, -1, sizeof(::mt4_term_api::RunningEaInfo)},
-  { 173, 181, -1, sizeof(::mt4_term_api::GetEaLogsRequest)},
-  { 183, -1, -1, sizeof(::mt4_term_api::GetEaLogsReply)},
-  { 192, -1, -1, sizeof(::mt4_term_api::GetEaLogsData)},
-  { 199, -1, -1, sizeof(::mt4_term_api::EaLogRow)},
-  { 208, 216, -1, sizeof(::mt4_term_api::StopEaRequest)},
-  { 218, -1, -1, sizeof(::mt4_term_api::StopEaReply)},
-  { 227, -1, -1, sizeof(::mt4_term_api::StopEaData)},
-  { 236, -1, -1, sizeof(::mt4_term_api::StartEaRequest)},
-  { 243, -1, -1, sizeof(::mt4_term_api::StartEaReply)},
-  { 252, -1, -1, sizeof(::mt4_term_api::StartEaData)},
+  { 176, 184, -1, sizeof(::mt4_term_api::GetEaLogsRequest)},
+  { 186, -1, -1, sizeof(::mt4_term_api::GetEaLogsReply)},
+  { 195, -1, -1, sizeof(::mt4_term_api::GetEaLogsData)},
+  { 202, -1, -1, sizeof(::mt4_term_api::EaLogRow)},
+  { 211, 219, -1, sizeof(::mt4_term_api::StopEaRequest)},
+  { 221, -1, -1, sizeof(::mt4_term_api::StopEaReply)},
+  { 230, -1, -1, sizeof(::mt4_term_api::StopEaData)},
+  { 239, -1, -1, sizeof(::mt4_term_api::StartEaRequest)},
+  { 246, -1, -1, sizeof(::mt4_term_api::StartEaReply)},
+  { 255, -1, -1, sizeof(::mt4_term_api::StartEaData)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -787,7 +793,7 @@ const char descriptor_table_protodef_mt4_2dterm_2dapi_2dcharts_2eproto[] PROTOBU
   "\001(\0132\037.mt4_term_api.GetRunningEasDataH\000\022$"
   "\n\005error\030\002 \001(\0132\023.mt4_term_api.ErrorH\000B\n\n\010"
   "response\"=\n\021GetRunningEasData\022(\n\003eas\030\001 \003"
-  "(\0132\033.mt4_term_api.RunningEaInfo\"\366\002\n\rRunn"
+  "(\0132\033.mt4_term_api.RunningEaInfo\"\325\003\n\rRunn"
   "ingEaInfo\022\r\n\005ea_id\030\001 \001(\t\022\017\n\007ea_name\030\002 \001("
   "\t\022\031\n\021parent_session_id\030\003 \001(\t\022\026\n\016ea_termi"
   "nal_id\030\004 \001(\t\022\022\n\nprocess_id\030\005 \001(\005\022\016\n\006symb"
@@ -797,72 +803,75 @@ const char descriptor_table_protodef_mt4_2dterm_2dapi_2dcharts_2eproto[] PROTOBU
   "pu_percent\030\013 \001(\001\022\021\n\tcpu_ratio\030\014 \001(\001\022\024\n\014e"
   "a_ram_bytes\030\r \001(\003\022\025\n\rref_ram_bytes\030\016 \001(\003"
   "\022\021\n\tram_ratio\030\017 \001(\001\022\033\n\023resource_multipli"
-  "er\030\020 \001(\001\"E\n\020GetEaLogsRequest\022\r\n\005ea_id\030\001 "
-  "\001(\t\022\025\n\010log_type\030\002 \001(\tH\000\210\001\001B\013\n\t_log_type\""
-  "o\n\016GetEaLogsReply\022+\n\004data\030\001 \001(\0132\033.mt4_te"
-  "rm_api.GetEaLogsDataH\000\022$\n\005error\030\002 \001(\0132\023."
-  "mt4_term_api.ErrorH\000B\n\n\010response\"5\n\rGetE"
-  "aLogsData\022$\n\004rows\030\001 \003(\0132\026.mt4_term_api.E"
-  "aLogRow\"U\n\010EaLogRow\022(\n\004time\030\001 \001(\0132\032.goog"
-  "le.protobuf.Timestamp\022\016\n\006source\030\002 \001(\t\022\017\n"
-  "\007message\030\003 \001(\t\">\n\rStopEaRequest\022\r\n\005ea_id"
-  "\030\001 \001(\t\022\023\n\006reason\030\002 \001(\tH\000\210\001\001B\t\n\007_reason\"i"
-  "\n\013StopEaReply\022(\n\004data\030\001 \001(\0132\030.mt4_term_a"
-  "pi.StopEaDataH\000\022$\n\005error\030\002 \001(\0132\023.mt4_ter"
-  "m_api.ErrorH\000B\n\n\010response\"=\n\nStopEaData\022"
-  "\017\n\007success\030\001 \001(\010\022\r\n\005ea_id\030\002 \001(\t\022\017\n\007messa"
-  "ge\030\003 \001(\t\"\037\n\016StartEaRequest\022\r\n\005ea_id\030\001 \001("
-  "\t\"k\n\014StartEaReply\022)\n\004data\030\001 \001(\0132\031.mt4_te"
-  "rm_api.StartEaDataH\000\022$\n\005error\030\002 \001(\0132\023.mt"
-  "4_term_api.ErrorH\000B\n\n\010response\">\n\013StartE"
-  "aData\022\017\n\007success\030\001 \001(\010\022\r\n\005ea_id\030\002 \001(\t\022\017\n"
-  "\007message\030\003 \001(\t*\226\001\n\rEA_PARAM_TYPE\022\033\n\027EA_P"
-  "ARAM_TYPE_UNDEFINED\020\000\022\030\n\024EA_PARAM_TYPE_S"
-  "TRING\020\001\022\031\n\025EA_PARAM_TYPE_INTEGER\020\002\022\030\n\024EA"
-  "_PARAM_TYPE_DOUBLE\020\003\022\031\n\025EA_PARAM_TYPE_BO"
-  "OLEAN\020\004*\245\001\n(EnumOpenTerminalChartWithEaP"
-  "arameterType\022\025\n\021MRPC_EA_PARAM_INT\020\000\022\026\n\022M"
-  "RPC_EA_PARAM_LONG\020\001\022\026\n\022MRPC_EA_PARAM_BOO"
-  "L\020\002\022\030\n\024MRPC_EA_PARAM_STRING\020\003\022\030\n\024MRPC_EA"
-  "_PARAM_DOUBLE\020\004*\261\005\n%EnumOpenTerminalChar"
-  "tWithEaChatPeriod\022 \n\034MRPC_EA_CHART_PERIO"
-  "D_CURRENT\020\000\022\033\n\027MRPC_EA_CHART_PERIOD_M1\020\001"
-  "\022\033\n\027MRPC_EA_CHART_PERIOD_M2\020\002\022\033\n\027MRPC_EA"
-  "_CHART_PERIOD_M3\020\003\022\033\n\027MRPC_EA_CHART_PERI"
-  "OD_M4\020\004\022\033\n\027MRPC_EA_CHART_PERIOD_M5\020\005\022\033\n\027"
-  "MRPC_EA_CHART_PERIOD_M6\020\006\022\034\n\030MRPC_EA_CHA"
-  "RT_PERIOD_M10\020\007\022\034\n\030MRPC_EA_CHART_PERIOD_"
-  "M12\020\010\022\034\n\030MRPC_EA_CHART_PERIOD_M15\020\t\022\034\n\030M"
-  "RPC_EA_CHART_PERIOD_M20\020\n\022\034\n\030MRPC_EA_CHA"
-  "RT_PERIOD_M30\020\013\022\033\n\027MRPC_EA_CHART_PERIOD_"
-  "H1\020\014\022\033\n\027MRPC_EA_CHART_PERIOD_H2\020\r\022\033\n\027MRP"
-  "C_EA_CHART_PERIOD_H3\020\016\022\033\n\027MRPC_EA_CHART_"
-  "PERIOD_H4\020\017\022\033\n\027MRPC_EA_CHART_PERIOD_H6\020\020"
-  "\022\033\n\027MRPC_EA_CHART_PERIOD_H8\020\021\022\034\n\030MRPC_EA"
-  "_CHART_PERIOD_H12\020\022\022\033\n\027MRPC_EA_CHART_PER"
-  "IOD_D1\020\023\022\033\n\027MRPC_EA_CHART_PERIOD_W1\020\024\022\034\n"
-  "\030MRPC_EA_CHART_PERIOD_MN1\020\0252\206\006\n\006Charts\022e"
-  "\n\013GetEaParams\022 .mt4_term_api.GetEaParams"
-  "Request\032\036.mt4_term_api.GetEaParamsReply\""
-  "\024\202\323\344\223\002\016\022\014/GetEaParams\022\225\001\n\027OpenTerminalCh"
-  "artWithEa\022,.mt4_term_api.OpenTerminalCha"
-  "rtWithEaRequest\032*.mt4_term_api.OpenTermi"
-  "nalChartWithEaReply\" \202\323\344\223\002\032\022\030/OpenTermin"
-  "alChartWithEa\022c\n\010AttachEa\022\035.mt4_term_api"
-  ".AttachEaRequest\032\033.mt4_term_api.AttachEa"
-  "Reply\"\033\202\323\344\223\002\025\"\020/Charts/AttachEa:\001*\022t\n\rGe"
-  "tRunningEas\022\".mt4_term_api.GetRunningEas"
-  "Request\032 .mt4_term_api.GetRunningEasRepl"
-  "y\"\035\202\323\344\223\002\027\022\025/Charts/GetRunningEas\022d\n\tGetE"
-  "aLogs\022\036.mt4_term_api.GetEaLogsRequest\032\034."
-  "mt4_term_api.GetEaLogsReply\"\031\202\323\344\223\002\023\022\021/Ch"
-  "arts/GetEaLogs\022[\n\006StopEa\022\033.mt4_term_api."
-  "StopEaRequest\032\031.mt4_term_api.StopEaReply"
-  "\"\031\202\323\344\223\002\023\"\016/Charts/StopEa:\001*\022_\n\007StartEa\022\034"
-  ".mt4_term_api.StartEaRequest\032\032.mt4_term_"
-  "api.StartEaReply\"\032\202\323\344\223\002\024\"\017/Charts/StartE"
-  "a:\001*BBZ1git.mtapi.io/root/mrpc-proto.git"
-  "/mt4/libraries/go\252\002\014mt4_term_apib\006proto3"
+  "er\030\020 \001(\001\022\025\n\rmetered_hours\030\021 \001(\001\022\026\n\016charg"
+  "ed_amount\030\022 \001(\001\022.\n\nstopped_at\030\023 \001(\0132\032.go"
+  "ogle.protobuf.Timestamp\"E\n\020GetEaLogsRequ"
+  "est\022\r\n\005ea_id\030\001 \001(\t\022\025\n\010log_type\030\002 \001(\tH\000\210\001"
+  "\001B\013\n\t_log_type\"o\n\016GetEaLogsReply\022+\n\004data"
+  "\030\001 \001(\0132\033.mt4_term_api.GetEaLogsDataH\000\022$\n"
+  "\005error\030\002 \001(\0132\023.mt4_term_api.ErrorH\000B\n\n\010r"
+  "esponse\"5\n\rGetEaLogsData\022$\n\004rows\030\001 \003(\0132\026"
+  ".mt4_term_api.EaLogRow\"U\n\010EaLogRow\022(\n\004ti"
+  "me\030\001 \001(\0132\032.google.protobuf.Timestamp\022\016\n\006"
+  "source\030\002 \001(\t\022\017\n\007message\030\003 \001(\t\">\n\rStopEaR"
+  "equest\022\r\n\005ea_id\030\001 \001(\t\022\023\n\006reason\030\002 \001(\tH\000\210"
+  "\001\001B\t\n\007_reason\"i\n\013StopEaReply\022(\n\004data\030\001 \001"
+  "(\0132\030.mt4_term_api.StopEaDataH\000\022$\n\005error\030"
+  "\002 \001(\0132\023.mt4_term_api.ErrorH\000B\n\n\010response"
+  "\"=\n\nStopEaData\022\017\n\007success\030\001 \001(\010\022\r\n\005ea_id"
+  "\030\002 \001(\t\022\017\n\007message\030\003 \001(\t\"\037\n\016StartEaReques"
+  "t\022\r\n\005ea_id\030\001 \001(\t\"k\n\014StartEaReply\022)\n\004data"
+  "\030\001 \001(\0132\031.mt4_term_api.StartEaDataH\000\022$\n\005e"
+  "rror\030\002 \001(\0132\023.mt4_term_api.ErrorH\000B\n\n\010res"
+  "ponse\">\n\013StartEaData\022\017\n\007success\030\001 \001(\010\022\r\n"
+  "\005ea_id\030\002 \001(\t\022\017\n\007message\030\003 \001(\t*\226\001\n\rEA_PAR"
+  "AM_TYPE\022\033\n\027EA_PARAM_TYPE_UNDEFINED\020\000\022\030\n\024"
+  "EA_PARAM_TYPE_STRING\020\001\022\031\n\025EA_PARAM_TYPE_"
+  "INTEGER\020\002\022\030\n\024EA_PARAM_TYPE_DOUBLE\020\003\022\031\n\025E"
+  "A_PARAM_TYPE_BOOLEAN\020\004*\245\001\n(EnumOpenTermi"
+  "nalChartWithEaParameterType\022\025\n\021MRPC_EA_P"
+  "ARAM_INT\020\000\022\026\n\022MRPC_EA_PARAM_LONG\020\001\022\026\n\022MR"
+  "PC_EA_PARAM_BOOL\020\002\022\030\n\024MRPC_EA_PARAM_STRI"
+  "NG\020\003\022\030\n\024MRPC_EA_PARAM_DOUBLE\020\004*\261\005\n%EnumO"
+  "penTerminalChartWithEaChatPeriod\022 \n\034MRPC"
+  "_EA_CHART_PERIOD_CURRENT\020\000\022\033\n\027MRPC_EA_CH"
+  "ART_PERIOD_M1\020\001\022\033\n\027MRPC_EA_CHART_PERIOD_"
+  "M2\020\002\022\033\n\027MRPC_EA_CHART_PERIOD_M3\020\003\022\033\n\027MRP"
+  "C_EA_CHART_PERIOD_M4\020\004\022\033\n\027MRPC_EA_CHART_"
+  "PERIOD_M5\020\005\022\033\n\027MRPC_EA_CHART_PERIOD_M6\020\006"
+  "\022\034\n\030MRPC_EA_CHART_PERIOD_M10\020\007\022\034\n\030MRPC_E"
+  "A_CHART_PERIOD_M12\020\010\022\034\n\030MRPC_EA_CHART_PE"
+  "RIOD_M15\020\t\022\034\n\030MRPC_EA_CHART_PERIOD_M20\020\n"
+  "\022\034\n\030MRPC_EA_CHART_PERIOD_M30\020\013\022\033\n\027MRPC_E"
+  "A_CHART_PERIOD_H1\020\014\022\033\n\027MRPC_EA_CHART_PER"
+  "IOD_H2\020\r\022\033\n\027MRPC_EA_CHART_PERIOD_H3\020\016\022\033\n"
+  "\027MRPC_EA_CHART_PERIOD_H4\020\017\022\033\n\027MRPC_EA_CH"
+  "ART_PERIOD_H6\020\020\022\033\n\027MRPC_EA_CHART_PERIOD_"
+  "H8\020\021\022\034\n\030MRPC_EA_CHART_PERIOD_H12\020\022\022\033\n\027MR"
+  "PC_EA_CHART_PERIOD_D1\020\023\022\033\n\027MRPC_EA_CHART"
+  "_PERIOD_W1\020\024\022\034\n\030MRPC_EA_CHART_PERIOD_MN1"
+  "\020\0252\206\006\n\006Charts\022e\n\013GetEaParams\022 .mt4_term_"
+  "api.GetEaParamsRequest\032\036.mt4_term_api.Ge"
+  "tEaParamsReply\"\024\202\323\344\223\002\016\022\014/GetEaParams\022\225\001\n"
+  "\027OpenTerminalChartWithEa\022,.mt4_term_api."
+  "OpenTerminalChartWithEaRequest\032*.mt4_ter"
+  "m_api.OpenTerminalChartWithEaReply\" \202\323\344\223"
+  "\002\032\022\030/OpenTerminalChartWithEa\022c\n\010AttachEa"
+  "\022\035.mt4_term_api.AttachEaRequest\032\033.mt4_te"
+  "rm_api.AttachEaReply\"\033\202\323\344\223\002\025\"\020/Charts/At"
+  "tachEa:\001*\022t\n\rGetRunningEas\022\".mt4_term_ap"
+  "i.GetRunningEasRequest\032 .mt4_term_api.Ge"
+  "tRunningEasReply\"\035\202\323\344\223\002\027\022\025/Charts/GetRun"
+  "ningEas\022d\n\tGetEaLogs\022\036.mt4_term_api.GetE"
+  "aLogsRequest\032\034.mt4_term_api.GetEaLogsRep"
+  "ly\"\031\202\323\344\223\002\023\022\021/Charts/GetEaLogs\022[\n\006StopEa\022"
+  "\033.mt4_term_api.StopEaRequest\032\031.mt4_term_"
+  "api.StopEaReply\"\031\202\323\344\223\002\023\"\016/Charts/StopEa:"
+  "\001*\022_\n\007StartEa\022\034.mt4_term_api.StartEaRequ"
+  "est\032\032.mt4_term_api.StartEaReply\"\032\202\323\344\223\002\024\""
+  "\017/Charts/StartEa:\001*BBZ1git.mtapi.io/root"
+  "/mrpc-proto.git/mt4/libraries/go\252\002\014mt4_t"
+  "erm_apib\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_mt4_2dterm_2dapi_2dcharts_2eproto_deps[3] = {
   &::descriptor_table_google_2fapi_2fannotations_2eproto,
@@ -871,7 +880,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_mt4_2dterm_2dapi_2d
 };
 static ::_pbi::once_flag descriptor_table_mt4_2dterm_2dapi_2dcharts_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_mt4_2dterm_2dapi_2dcharts_2eproto = {
-    false, false, 5200, descriptor_table_protodef_mt4_2dterm_2dapi_2dcharts_2eproto,
+    false, false, 5295, descriptor_table_protodef_mt4_2dterm_2dapi_2dcharts_2eproto,
     "mt4-term-api-charts.proto",
     &descriptor_table_mt4_2dterm_2dapi_2dcharts_2eproto_once, descriptor_table_mt4_2dterm_2dapi_2dcharts_2eproto_deps, 3, 25,
     schemas, file_default_instances, TableStruct_mt4_2dterm_2dapi_2dcharts_2eproto::offsets,
@@ -5290,17 +5299,28 @@ void GetRunningEasData::InternalSwap(GetRunningEasData* other) {
 class RunningEaInfo::_Internal {
  public:
   static const ::PROTOBUF_NAMESPACE_ID::Timestamp& started_at(const RunningEaInfo* msg);
+  static const ::PROTOBUF_NAMESPACE_ID::Timestamp& stopped_at(const RunningEaInfo* msg);
 };
 
 const ::PROTOBUF_NAMESPACE_ID::Timestamp&
 RunningEaInfo::_Internal::started_at(const RunningEaInfo* msg) {
   return *msg->_impl_.started_at_;
 }
+const ::PROTOBUF_NAMESPACE_ID::Timestamp&
+RunningEaInfo::_Internal::stopped_at(const RunningEaInfo* msg) {
+  return *msg->_impl_.stopped_at_;
+}
 void RunningEaInfo::clear_started_at() {
   if (GetArenaForAllocation() == nullptr && _impl_.started_at_ != nullptr) {
     delete _impl_.started_at_;
   }
   _impl_.started_at_ = nullptr;
+}
+void RunningEaInfo::clear_stopped_at() {
+  if (GetArenaForAllocation() == nullptr && _impl_.stopped_at_ != nullptr) {
+    delete _impl_.stopped_at_;
+  }
+  _impl_.stopped_at_ = nullptr;
 }
 RunningEaInfo::RunningEaInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -5320,6 +5340,7 @@ RunningEaInfo::RunningEaInfo(const RunningEaInfo& from)
     , decltype(_impl_.period_){}
     , decltype(_impl_.state_){}
     , decltype(_impl_.started_at_){nullptr}
+    , decltype(_impl_.stopped_at_){nullptr}
     , decltype(_impl_.ea_cpu_percent_){}
     , decltype(_impl_.ref_cpu_percent_){}
     , decltype(_impl_.cpu_ratio_){}
@@ -5327,6 +5348,8 @@ RunningEaInfo::RunningEaInfo(const RunningEaInfo& from)
     , decltype(_impl_.ref_ram_bytes_){}
     , decltype(_impl_.ram_ratio_){}
     , decltype(_impl_.resource_multiplier_){}
+    , decltype(_impl_.metered_hours_){}
+    , decltype(_impl_.charged_amount_){}
     , decltype(_impl_.process_id_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
@@ -5390,6 +5413,9 @@ RunningEaInfo::RunningEaInfo(const RunningEaInfo& from)
   if (from._internal_has_started_at()) {
     _this->_impl_.started_at_ = new ::PROTOBUF_NAMESPACE_ID::Timestamp(*from._impl_.started_at_);
   }
+  if (from._internal_has_stopped_at()) {
+    _this->_impl_.stopped_at_ = new ::PROTOBUF_NAMESPACE_ID::Timestamp(*from._impl_.stopped_at_);
+  }
   ::memcpy(&_impl_.ea_cpu_percent_, &from._impl_.ea_cpu_percent_,
     static_cast<size_t>(reinterpret_cast<char*>(&_impl_.process_id_) -
     reinterpret_cast<char*>(&_impl_.ea_cpu_percent_)) + sizeof(_impl_.process_id_));
@@ -5409,6 +5435,7 @@ inline void RunningEaInfo::SharedCtor(
     , decltype(_impl_.period_){}
     , decltype(_impl_.state_){}
     , decltype(_impl_.started_at_){nullptr}
+    , decltype(_impl_.stopped_at_){nullptr}
     , decltype(_impl_.ea_cpu_percent_){0}
     , decltype(_impl_.ref_cpu_percent_){0}
     , decltype(_impl_.cpu_ratio_){0}
@@ -5416,6 +5443,8 @@ inline void RunningEaInfo::SharedCtor(
     , decltype(_impl_.ref_ram_bytes_){int64_t{0}}
     , decltype(_impl_.ram_ratio_){0}
     , decltype(_impl_.resource_multiplier_){0}
+    , decltype(_impl_.metered_hours_){0}
+    , decltype(_impl_.charged_amount_){0}
     , decltype(_impl_.process_id_){0}
     , /*decltype(_impl_._cached_size_)*/{}
   };
@@ -5468,6 +5497,7 @@ inline void RunningEaInfo::SharedDtor() {
   _impl_.period_.Destroy();
   _impl_.state_.Destroy();
   if (this != internal_default_instance()) delete _impl_.started_at_;
+  if (this != internal_default_instance()) delete _impl_.stopped_at_;
 }
 
 void RunningEaInfo::SetCachedSize(int size) const {
@@ -5491,6 +5521,10 @@ void RunningEaInfo::Clear() {
     delete _impl_.started_at_;
   }
   _impl_.started_at_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.stopped_at_ != nullptr) {
+    delete _impl_.stopped_at_;
+  }
+  _impl_.stopped_at_ = nullptr;
   ::memset(&_impl_.ea_cpu_percent_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&_impl_.process_id_) -
       reinterpret_cast<char*>(&_impl_.ea_cpu_percent_)) + sizeof(_impl_.process_id_));
@@ -5642,6 +5676,30 @@ const char* RunningEaInfo::_InternalParse(const char* ptr, ::_pbi::ParseContext*
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 129)) {
           _impl_.resource_multiplier_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
           ptr += sizeof(double);
+        } else
+          goto handle_unusual;
+        continue;
+      // double metered_hours = 17;
+      case 17:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 137)) {
+          _impl_.metered_hours_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else
+          goto handle_unusual;
+        continue;
+      // double charged_amount = 18;
+      case 18:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 145)) {
+          _impl_.charged_amount_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else
+          goto handle_unusual;
+        continue;
+      // .google.protobuf.Timestamp stopped_at = 19;
+      case 19:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 154)) {
+          ptr = ctx->ParseMessage(_internal_mutable_stopped_at(), ptr);
+          CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
@@ -5819,6 +5877,33 @@ uint8_t* RunningEaInfo::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteDoubleToArray(16, this->_internal_resource_multiplier(), target);
   }
 
+  // double metered_hours = 17;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_metered_hours = this->_internal_metered_hours();
+  uint64_t raw_metered_hours;
+  memcpy(&raw_metered_hours, &tmp_metered_hours, sizeof(tmp_metered_hours));
+  if (raw_metered_hours != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteDoubleToArray(17, this->_internal_metered_hours(), target);
+  }
+
+  // double charged_amount = 18;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_charged_amount = this->_internal_charged_amount();
+  uint64_t raw_charged_amount;
+  memcpy(&raw_charged_amount, &tmp_charged_amount, sizeof(tmp_charged_amount));
+  if (raw_charged_amount != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteDoubleToArray(18, this->_internal_charged_amount(), target);
+  }
+
+  // .google.protobuf.Timestamp stopped_at = 19;
+  if (this->_internal_has_stopped_at()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(19, _Internal::stopped_at(this),
+        _Internal::stopped_at(this).GetCachedSize(), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -5891,6 +5976,13 @@ size_t RunningEaInfo::ByteSizeLong() const {
         *_impl_.started_at_);
   }
 
+  // .google.protobuf.Timestamp stopped_at = 19;
+  if (this->_internal_has_stopped_at()) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.stopped_at_);
+  }
+
   // double ea_cpu_percent = 10;
   static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
   double tmp_ea_cpu_percent = this->_internal_ea_cpu_percent();
@@ -5946,6 +6038,24 @@ size_t RunningEaInfo::ByteSizeLong() const {
     total_size += 2 + 8;
   }
 
+  // double metered_hours = 17;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_metered_hours = this->_internal_metered_hours();
+  uint64_t raw_metered_hours;
+  memcpy(&raw_metered_hours, &tmp_metered_hours, sizeof(tmp_metered_hours));
+  if (raw_metered_hours != 0) {
+    total_size += 2 + 8;
+  }
+
+  // double charged_amount = 18;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_charged_amount = this->_internal_charged_amount();
+  uint64_t raw_charged_amount;
+  memcpy(&raw_charged_amount, &tmp_charged_amount, sizeof(tmp_charged_amount));
+  if (raw_charged_amount != 0) {
+    total_size += 2 + 8;
+  }
+
   // int32 process_id = 5;
   if (this->_internal_process_id() != 0) {
     total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_process_id());
@@ -5994,6 +6104,10 @@ void RunningEaInfo::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::
     _this->_internal_mutable_started_at()->::PROTOBUF_NAMESPACE_ID::Timestamp::MergeFrom(
         from._internal_started_at());
   }
+  if (from._internal_has_stopped_at()) {
+    _this->_internal_mutable_stopped_at()->::PROTOBUF_NAMESPACE_ID::Timestamp::MergeFrom(
+        from._internal_stopped_at());
+  }
   static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
   double tmp_ea_cpu_percent = from._internal_ea_cpu_percent();
   uint64_t raw_ea_cpu_percent;
@@ -6034,6 +6148,20 @@ void RunningEaInfo::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::
   memcpy(&raw_resource_multiplier, &tmp_resource_multiplier, sizeof(tmp_resource_multiplier));
   if (raw_resource_multiplier != 0) {
     _this->_internal_set_resource_multiplier(from._internal_resource_multiplier());
+  }
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_metered_hours = from._internal_metered_hours();
+  uint64_t raw_metered_hours;
+  memcpy(&raw_metered_hours, &tmp_metered_hours, sizeof(tmp_metered_hours));
+  if (raw_metered_hours != 0) {
+    _this->_internal_set_metered_hours(from._internal_metered_hours());
+  }
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_charged_amount = from._internal_charged_amount();
+  uint64_t raw_charged_amount;
+  memcpy(&raw_charged_amount, &tmp_charged_amount, sizeof(tmp_charged_amount));
+  if (raw_charged_amount != 0) {
+    _this->_internal_set_charged_amount(from._internal_charged_amount());
   }
   if (from._internal_process_id() != 0) {
     _this->_internal_set_process_id(from._internal_process_id());
