@@ -37,20 +37,6 @@ class Gui final {
   class StubInterface {
    public:
     virtual ~StubInterface() {}
-    virtual ::grpc::Status DemoFindCompanies(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoFindCompaniesRequest& request, ::mt4_term_api::GuiDemoFindCompaniesReply* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mt4_term_api::GuiDemoFindCompaniesReply>> AsyncDemoFindCompanies(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoFindCompaniesRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mt4_term_api::GuiDemoFindCompaniesReply>>(AsyncDemoFindCompaniesRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mt4_term_api::GuiDemoFindCompaniesReply>> PrepareAsyncDemoFindCompanies(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoFindCompaniesRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mt4_term_api::GuiDemoFindCompaniesReply>>(PrepareAsyncDemoFindCompaniesRaw(context, request, cq));
-    }
-    virtual ::grpc::Status DemoServersAndTypes(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoServersAndTypesRequest& request, ::mt4_term_api::GuiDemoServersAndTypesReply* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mt4_term_api::GuiDemoServersAndTypesReply>> AsyncDemoServersAndTypes(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoServersAndTypesRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mt4_term_api::GuiDemoServersAndTypesReply>>(AsyncDemoServersAndTypesRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mt4_term_api::GuiDemoServersAndTypesReply>> PrepareAsyncDemoServersAndTypes(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoServersAndTypesRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mt4_term_api::GuiDemoServersAndTypesReply>>(PrepareAsyncDemoServersAndTypesRaw(context, request, cq));
-    }
     virtual ::grpc::Status DemoOpenAccount(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoOpenAccountRequest& request, ::mt4_term_api::GuiDemoOpenAccountReply* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mt4_term_api::GuiDemoOpenAccountReply>> AsyncDemoOpenAccount(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoOpenAccountRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mt4_term_api::GuiDemoOpenAccountReply>>(AsyncDemoOpenAccountRaw(context, request, cq));
@@ -58,57 +44,35 @@ class Gui final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mt4_term_api::GuiDemoOpenAccountReply>> PrepareAsyncDemoOpenAccount(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoOpenAccountRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mt4_term_api::GuiDemoOpenAccountReply>>(PrepareAsyncDemoOpenAccountRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientReaderInterface< ::mt4_term_api::GuiDemoProgressEvent>> DemoOpenAccountWithProgress(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoOpenAccountRequest& request) {
-      return std::unique_ptr< ::grpc::ClientReaderInterface< ::mt4_term_api::GuiDemoProgressEvent>>(DemoOpenAccountWithProgressRaw(context, request));
+    std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::mt4_term_api::GuiDemoInteractiveClientMessage, ::mt4_term_api::GuiDemoInteractiveServerMessage>> DemoOpenAccountInteractive(::grpc::ClientContext* context) {
+      return std::unique_ptr< ::grpc::ClientReaderWriterInterface< ::mt4_term_api::GuiDemoInteractiveClientMessage, ::mt4_term_api::GuiDemoInteractiveServerMessage>>(DemoOpenAccountInteractiveRaw(context));
     }
-    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::mt4_term_api::GuiDemoProgressEvent>> AsyncDemoOpenAccountWithProgress(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoOpenAccountRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::mt4_term_api::GuiDemoProgressEvent>>(AsyncDemoOpenAccountWithProgressRaw(context, request, cq, tag));
+    std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::mt4_term_api::GuiDemoInteractiveClientMessage, ::mt4_term_api::GuiDemoInteractiveServerMessage>> AsyncDemoOpenAccountInteractive(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::mt4_term_api::GuiDemoInteractiveClientMessage, ::mt4_term_api::GuiDemoInteractiveServerMessage>>(AsyncDemoOpenAccountInteractiveRaw(context, cq, tag));
     }
-    std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::mt4_term_api::GuiDemoProgressEvent>> PrepareAsyncDemoOpenAccountWithProgress(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoOpenAccountRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::mt4_term_api::GuiDemoProgressEvent>>(PrepareAsyncDemoOpenAccountWithProgressRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::mt4_term_api::GuiDemoInteractiveClientMessage, ::mt4_term_api::GuiDemoInteractiveServerMessage>> PrepareAsyncDemoOpenAccountInteractive(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriterInterface< ::mt4_term_api::GuiDemoInteractiveClientMessage, ::mt4_term_api::GuiDemoInteractiveServerMessage>>(PrepareAsyncDemoOpenAccountInteractiveRaw(context, cq));
     }
     class async_interface {
      public:
       virtual ~async_interface() {}
-      virtual void DemoFindCompanies(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoFindCompaniesRequest* request, ::mt4_term_api::GuiDemoFindCompaniesReply* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void DemoFindCompanies(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoFindCompaniesRequest* request, ::mt4_term_api::GuiDemoFindCompaniesReply* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      virtual void DemoServersAndTypes(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoServersAndTypesRequest* request, ::mt4_term_api::GuiDemoServersAndTypesReply* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void DemoServersAndTypes(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoServersAndTypesRequest* request, ::mt4_term_api::GuiDemoServersAndTypesReply* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       virtual void DemoOpenAccount(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoOpenAccountRequest* request, ::mt4_term_api::GuiDemoOpenAccountReply* response, std::function<void(::grpc::Status)>) = 0;
       virtual void DemoOpenAccount(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoOpenAccountRequest* request, ::mt4_term_api::GuiDemoOpenAccountReply* response, ::grpc::ClientUnaryReactor* reactor) = 0;
-      virtual void DemoOpenAccountWithProgress(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoOpenAccountRequest* request, ::grpc::ClientReadReactor< ::mt4_term_api::GuiDemoProgressEvent>* reactor) = 0;
+      virtual void DemoOpenAccountInteractive(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::mt4_term_api::GuiDemoInteractiveClientMessage,::mt4_term_api::GuiDemoInteractiveServerMessage>* reactor) = 0;
     };
     typedef class async_interface experimental_async_interface;
     virtual class async_interface* async() { return nullptr; }
     class async_interface* experimental_async() { return async(); }
    private:
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::mt4_term_api::GuiDemoFindCompaniesReply>* AsyncDemoFindCompaniesRaw(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoFindCompaniesRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::mt4_term_api::GuiDemoFindCompaniesReply>* PrepareAsyncDemoFindCompaniesRaw(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoFindCompaniesRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::mt4_term_api::GuiDemoServersAndTypesReply>* AsyncDemoServersAndTypesRaw(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoServersAndTypesRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::mt4_term_api::GuiDemoServersAndTypesReply>* PrepareAsyncDemoServersAndTypesRaw(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoServersAndTypesRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::mt4_term_api::GuiDemoOpenAccountReply>* AsyncDemoOpenAccountRaw(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoOpenAccountRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::mt4_term_api::GuiDemoOpenAccountReply>* PrepareAsyncDemoOpenAccountRaw(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoOpenAccountRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientReaderInterface< ::mt4_term_api::GuiDemoProgressEvent>* DemoOpenAccountWithProgressRaw(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoOpenAccountRequest& request) = 0;
-    virtual ::grpc::ClientAsyncReaderInterface< ::mt4_term_api::GuiDemoProgressEvent>* AsyncDemoOpenAccountWithProgressRaw(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoOpenAccountRequest& request, ::grpc::CompletionQueue* cq, void* tag) = 0;
-    virtual ::grpc::ClientAsyncReaderInterface< ::mt4_term_api::GuiDemoProgressEvent>* PrepareAsyncDemoOpenAccountWithProgressRaw(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoOpenAccountRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientReaderWriterInterface< ::mt4_term_api::GuiDemoInteractiveClientMessage, ::mt4_term_api::GuiDemoInteractiveServerMessage>* DemoOpenAccountInteractiveRaw(::grpc::ClientContext* context) = 0;
+    virtual ::grpc::ClientAsyncReaderWriterInterface< ::mt4_term_api::GuiDemoInteractiveClientMessage, ::mt4_term_api::GuiDemoInteractiveServerMessage>* AsyncDemoOpenAccountInteractiveRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) = 0;
+    virtual ::grpc::ClientAsyncReaderWriterInterface< ::mt4_term_api::GuiDemoInteractiveClientMessage, ::mt4_term_api::GuiDemoInteractiveServerMessage>* PrepareAsyncDemoOpenAccountInteractiveRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
-    ::grpc::Status DemoFindCompanies(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoFindCompaniesRequest& request, ::mt4_term_api::GuiDemoFindCompaniesReply* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mt4_term_api::GuiDemoFindCompaniesReply>> AsyncDemoFindCompanies(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoFindCompaniesRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mt4_term_api::GuiDemoFindCompaniesReply>>(AsyncDemoFindCompaniesRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mt4_term_api::GuiDemoFindCompaniesReply>> PrepareAsyncDemoFindCompanies(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoFindCompaniesRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mt4_term_api::GuiDemoFindCompaniesReply>>(PrepareAsyncDemoFindCompaniesRaw(context, request, cq));
-    }
-    ::grpc::Status DemoServersAndTypes(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoServersAndTypesRequest& request, ::mt4_term_api::GuiDemoServersAndTypesReply* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mt4_term_api::GuiDemoServersAndTypesReply>> AsyncDemoServersAndTypes(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoServersAndTypesRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mt4_term_api::GuiDemoServersAndTypesReply>>(AsyncDemoServersAndTypesRaw(context, request, cq));
-    }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mt4_term_api::GuiDemoServersAndTypesReply>> PrepareAsyncDemoServersAndTypes(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoServersAndTypesRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mt4_term_api::GuiDemoServersAndTypesReply>>(PrepareAsyncDemoServersAndTypesRaw(context, request, cq));
-    }
     ::grpc::Status DemoOpenAccount(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoOpenAccountRequest& request, ::mt4_term_api::GuiDemoOpenAccountReply* response) override;
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mt4_term_api::GuiDemoOpenAccountReply>> AsyncDemoOpenAccount(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoOpenAccountRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mt4_term_api::GuiDemoOpenAccountReply>>(AsyncDemoOpenAccountRaw(context, request, cq));
@@ -116,25 +80,21 @@ class Gui final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mt4_term_api::GuiDemoOpenAccountReply>> PrepareAsyncDemoOpenAccount(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoOpenAccountRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mt4_term_api::GuiDemoOpenAccountReply>>(PrepareAsyncDemoOpenAccountRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientReader< ::mt4_term_api::GuiDemoProgressEvent>> DemoOpenAccountWithProgress(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoOpenAccountRequest& request) {
-      return std::unique_ptr< ::grpc::ClientReader< ::mt4_term_api::GuiDemoProgressEvent>>(DemoOpenAccountWithProgressRaw(context, request));
+    std::unique_ptr< ::grpc::ClientReaderWriter< ::mt4_term_api::GuiDemoInteractiveClientMessage, ::mt4_term_api::GuiDemoInteractiveServerMessage>> DemoOpenAccountInteractive(::grpc::ClientContext* context) {
+      return std::unique_ptr< ::grpc::ClientReaderWriter< ::mt4_term_api::GuiDemoInteractiveClientMessage, ::mt4_term_api::GuiDemoInteractiveServerMessage>>(DemoOpenAccountInteractiveRaw(context));
     }
-    std::unique_ptr< ::grpc::ClientAsyncReader< ::mt4_term_api::GuiDemoProgressEvent>> AsyncDemoOpenAccountWithProgress(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoOpenAccountRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
-      return std::unique_ptr< ::grpc::ClientAsyncReader< ::mt4_term_api::GuiDemoProgressEvent>>(AsyncDemoOpenAccountWithProgressRaw(context, request, cq, tag));
+    std::unique_ptr<  ::grpc::ClientAsyncReaderWriter< ::mt4_term_api::GuiDemoInteractiveClientMessage, ::mt4_term_api::GuiDemoInteractiveServerMessage>> AsyncDemoOpenAccountInteractive(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriter< ::mt4_term_api::GuiDemoInteractiveClientMessage, ::mt4_term_api::GuiDemoInteractiveServerMessage>>(AsyncDemoOpenAccountInteractiveRaw(context, cq, tag));
     }
-    std::unique_ptr< ::grpc::ClientAsyncReader< ::mt4_term_api::GuiDemoProgressEvent>> PrepareAsyncDemoOpenAccountWithProgress(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoOpenAccountRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncReader< ::mt4_term_api::GuiDemoProgressEvent>>(PrepareAsyncDemoOpenAccountWithProgressRaw(context, request, cq));
+    std::unique_ptr<  ::grpc::ClientAsyncReaderWriter< ::mt4_term_api::GuiDemoInteractiveClientMessage, ::mt4_term_api::GuiDemoInteractiveServerMessage>> PrepareAsyncDemoOpenAccountInteractive(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncReaderWriter< ::mt4_term_api::GuiDemoInteractiveClientMessage, ::mt4_term_api::GuiDemoInteractiveServerMessage>>(PrepareAsyncDemoOpenAccountInteractiveRaw(context, cq));
     }
     class async final :
       public StubInterface::async_interface {
      public:
-      void DemoFindCompanies(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoFindCompaniesRequest* request, ::mt4_term_api::GuiDemoFindCompaniesReply* response, std::function<void(::grpc::Status)>) override;
-      void DemoFindCompanies(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoFindCompaniesRequest* request, ::mt4_term_api::GuiDemoFindCompaniesReply* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void DemoServersAndTypes(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoServersAndTypesRequest* request, ::mt4_term_api::GuiDemoServersAndTypesReply* response, std::function<void(::grpc::Status)>) override;
-      void DemoServersAndTypes(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoServersAndTypesRequest* request, ::mt4_term_api::GuiDemoServersAndTypesReply* response, ::grpc::ClientUnaryReactor* reactor) override;
       void DemoOpenAccount(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoOpenAccountRequest* request, ::mt4_term_api::GuiDemoOpenAccountReply* response, std::function<void(::grpc::Status)>) override;
       void DemoOpenAccount(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoOpenAccountRequest* request, ::mt4_term_api::GuiDemoOpenAccountReply* response, ::grpc::ClientUnaryReactor* reactor) override;
-      void DemoOpenAccountWithProgress(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoOpenAccountRequest* request, ::grpc::ClientReadReactor< ::mt4_term_api::GuiDemoProgressEvent>* reactor) override;
+      void DemoOpenAccountInteractive(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::mt4_term_api::GuiDemoInteractiveClientMessage,::mt4_term_api::GuiDemoInteractiveServerMessage>* reactor) override;
      private:
       friend class Stub;
       explicit async(Stub* stub): stub_(stub) { }
@@ -146,19 +106,13 @@ class Gui final {
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
     class async async_stub_{this};
-    ::grpc::ClientAsyncResponseReader< ::mt4_term_api::GuiDemoFindCompaniesReply>* AsyncDemoFindCompaniesRaw(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoFindCompaniesRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::mt4_term_api::GuiDemoFindCompaniesReply>* PrepareAsyncDemoFindCompaniesRaw(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoFindCompaniesRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::mt4_term_api::GuiDemoServersAndTypesReply>* AsyncDemoServersAndTypesRaw(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoServersAndTypesRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::mt4_term_api::GuiDemoServersAndTypesReply>* PrepareAsyncDemoServersAndTypesRaw(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoServersAndTypesRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::mt4_term_api::GuiDemoOpenAccountReply>* AsyncDemoOpenAccountRaw(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoOpenAccountRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::mt4_term_api::GuiDemoOpenAccountReply>* PrepareAsyncDemoOpenAccountRaw(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoOpenAccountRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientReader< ::mt4_term_api::GuiDemoProgressEvent>* DemoOpenAccountWithProgressRaw(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoOpenAccountRequest& request) override;
-    ::grpc::ClientAsyncReader< ::mt4_term_api::GuiDemoProgressEvent>* AsyncDemoOpenAccountWithProgressRaw(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoOpenAccountRequest& request, ::grpc::CompletionQueue* cq, void* tag) override;
-    ::grpc::ClientAsyncReader< ::mt4_term_api::GuiDemoProgressEvent>* PrepareAsyncDemoOpenAccountWithProgressRaw(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoOpenAccountRequest& request, ::grpc::CompletionQueue* cq) override;
-    const ::grpc::internal::RpcMethod rpcmethod_DemoFindCompanies_;
-    const ::grpc::internal::RpcMethod rpcmethod_DemoServersAndTypes_;
+    ::grpc::ClientReaderWriter< ::mt4_term_api::GuiDemoInteractiveClientMessage, ::mt4_term_api::GuiDemoInteractiveServerMessage>* DemoOpenAccountInteractiveRaw(::grpc::ClientContext* context) override;
+    ::grpc::ClientAsyncReaderWriter< ::mt4_term_api::GuiDemoInteractiveClientMessage, ::mt4_term_api::GuiDemoInteractiveServerMessage>* AsyncDemoOpenAccountInteractiveRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) override;
+    ::grpc::ClientAsyncReaderWriter< ::mt4_term_api::GuiDemoInteractiveClientMessage, ::mt4_term_api::GuiDemoInteractiveServerMessage>* PrepareAsyncDemoOpenAccountInteractiveRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_DemoOpenAccount_;
-    const ::grpc::internal::RpcMethod rpcmethod_DemoOpenAccountWithProgress_;
+    const ::grpc::internal::RpcMethod rpcmethod_DemoOpenAccountInteractive_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -166,50 +120,8 @@ class Gui final {
    public:
     Service();
     virtual ~Service();
-    virtual ::grpc::Status DemoFindCompanies(::grpc::ServerContext* context, const ::mt4_term_api::GuiDemoFindCompaniesRequest* request, ::mt4_term_api::GuiDemoFindCompaniesReply* response);
-    virtual ::grpc::Status DemoServersAndTypes(::grpc::ServerContext* context, const ::mt4_term_api::GuiDemoServersAndTypesRequest* request, ::mt4_term_api::GuiDemoServersAndTypesReply* response);
     virtual ::grpc::Status DemoOpenAccount(::grpc::ServerContext* context, const ::mt4_term_api::GuiDemoOpenAccountRequest* request, ::mt4_term_api::GuiDemoOpenAccountReply* response);
-    virtual ::grpc::Status DemoOpenAccountWithProgress(::grpc::ServerContext* context, const ::mt4_term_api::GuiDemoOpenAccountRequest* request, ::grpc::ServerWriter< ::mt4_term_api::GuiDemoProgressEvent>* writer);
-  };
-  template <class BaseClass>
-  class WithAsyncMethod_DemoFindCompanies : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithAsyncMethod_DemoFindCompanies() {
-      ::grpc::Service::MarkMethodAsync(0);
-    }
-    ~WithAsyncMethod_DemoFindCompanies() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status DemoFindCompanies(::grpc::ServerContext* /*context*/, const ::mt4_term_api::GuiDemoFindCompaniesRequest* /*request*/, ::mt4_term_api::GuiDemoFindCompaniesReply* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestDemoFindCompanies(::grpc::ServerContext* context, ::mt4_term_api::GuiDemoFindCompaniesRequest* request, ::grpc::ServerAsyncResponseWriter< ::mt4_term_api::GuiDemoFindCompaniesReply>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
-  class WithAsyncMethod_DemoServersAndTypes : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithAsyncMethod_DemoServersAndTypes() {
-      ::grpc::Service::MarkMethodAsync(1);
-    }
-    ~WithAsyncMethod_DemoServersAndTypes() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status DemoServersAndTypes(::grpc::ServerContext* /*context*/, const ::mt4_term_api::GuiDemoServersAndTypesRequest* /*request*/, ::mt4_term_api::GuiDemoServersAndTypesReply* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestDemoServersAndTypes(::grpc::ServerContext* context, ::mt4_term_api::GuiDemoServersAndTypesRequest* request, ::grpc::ServerAsyncResponseWriter< ::mt4_term_api::GuiDemoServersAndTypesReply>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
-    }
+    virtual ::grpc::Status DemoOpenAccountInteractive(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::mt4_term_api::GuiDemoInteractiveServerMessage, ::mt4_term_api::GuiDemoInteractiveClientMessage>* stream);
   };
   template <class BaseClass>
   class WithAsyncMethod_DemoOpenAccount : public BaseClass {
@@ -217,7 +129,7 @@ class Gui final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithAsyncMethod_DemoOpenAccount() {
-      ::grpc::Service::MarkMethodAsync(2);
+      ::grpc::Service::MarkMethodAsync(0);
     }
     ~WithAsyncMethod_DemoOpenAccount() override {
       BaseClassMustBeDerivedFromService(this);
@@ -228,97 +140,43 @@ class Gui final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestDemoOpenAccount(::grpc::ServerContext* context, ::mt4_term_api::GuiDemoOpenAccountRequest* request, ::grpc::ServerAsyncResponseWriter< ::mt4_term_api::GuiDemoOpenAccountReply>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
-  class WithAsyncMethod_DemoOpenAccountWithProgress : public BaseClass {
+  class WithAsyncMethod_DemoOpenAccountInteractive : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithAsyncMethod_DemoOpenAccountWithProgress() {
-      ::grpc::Service::MarkMethodAsync(3);
+    WithAsyncMethod_DemoOpenAccountInteractive() {
+      ::grpc::Service::MarkMethodAsync(1);
     }
-    ~WithAsyncMethod_DemoOpenAccountWithProgress() override {
+    ~WithAsyncMethod_DemoOpenAccountInteractive() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DemoOpenAccountWithProgress(::grpc::ServerContext* /*context*/, const ::mt4_term_api::GuiDemoOpenAccountRequest* /*request*/, ::grpc::ServerWriter< ::mt4_term_api::GuiDemoProgressEvent>* /*writer*/) override {
+    ::grpc::Status DemoOpenAccountInteractive(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::mt4_term_api::GuiDemoInteractiveServerMessage, ::mt4_term_api::GuiDemoInteractiveClientMessage>* /*stream*/)  override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestDemoOpenAccountWithProgress(::grpc::ServerContext* context, ::mt4_term_api::GuiDemoOpenAccountRequest* request, ::grpc::ServerAsyncWriter< ::mt4_term_api::GuiDemoProgressEvent>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncServerStreaming(3, context, request, writer, new_call_cq, notification_cq, tag);
+    void RequestDemoOpenAccountInteractive(::grpc::ServerContext* context, ::grpc::ServerAsyncReaderWriter< ::mt4_term_api::GuiDemoInteractiveServerMessage, ::mt4_term_api::GuiDemoInteractiveClientMessage>* stream, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncBidiStreaming(1, context, stream, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_DemoFindCompanies<WithAsyncMethod_DemoServersAndTypes<WithAsyncMethod_DemoOpenAccount<WithAsyncMethod_DemoOpenAccountWithProgress<Service > > > > AsyncService;
-  template <class BaseClass>
-  class WithCallbackMethod_DemoFindCompanies : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithCallbackMethod_DemoFindCompanies() {
-      ::grpc::Service::MarkMethodCallback(0,
-          new ::grpc::internal::CallbackUnaryHandler< ::mt4_term_api::GuiDemoFindCompaniesRequest, ::mt4_term_api::GuiDemoFindCompaniesReply>(
-            [this](
-                   ::grpc::CallbackServerContext* context, const ::mt4_term_api::GuiDemoFindCompaniesRequest* request, ::mt4_term_api::GuiDemoFindCompaniesReply* response) { return this->DemoFindCompanies(context, request, response); }));}
-    void SetMessageAllocatorFor_DemoFindCompanies(
-        ::grpc::MessageAllocator< ::mt4_term_api::GuiDemoFindCompaniesRequest, ::mt4_term_api::GuiDemoFindCompaniesReply>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::mt4_term_api::GuiDemoFindCompaniesRequest, ::mt4_term_api::GuiDemoFindCompaniesReply>*>(handler)
-              ->SetMessageAllocator(allocator);
-    }
-    ~WithCallbackMethod_DemoFindCompanies() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status DemoFindCompanies(::grpc::ServerContext* /*context*/, const ::mt4_term_api::GuiDemoFindCompaniesRequest* /*request*/, ::mt4_term_api::GuiDemoFindCompaniesReply* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    virtual ::grpc::ServerUnaryReactor* DemoFindCompanies(
-      ::grpc::CallbackServerContext* /*context*/, const ::mt4_term_api::GuiDemoFindCompaniesRequest* /*request*/, ::mt4_term_api::GuiDemoFindCompaniesReply* /*response*/)  { return nullptr; }
-  };
-  template <class BaseClass>
-  class WithCallbackMethod_DemoServersAndTypes : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithCallbackMethod_DemoServersAndTypes() {
-      ::grpc::Service::MarkMethodCallback(1,
-          new ::grpc::internal::CallbackUnaryHandler< ::mt4_term_api::GuiDemoServersAndTypesRequest, ::mt4_term_api::GuiDemoServersAndTypesReply>(
-            [this](
-                   ::grpc::CallbackServerContext* context, const ::mt4_term_api::GuiDemoServersAndTypesRequest* request, ::mt4_term_api::GuiDemoServersAndTypesReply* response) { return this->DemoServersAndTypes(context, request, response); }));}
-    void SetMessageAllocatorFor_DemoServersAndTypes(
-        ::grpc::MessageAllocator< ::mt4_term_api::GuiDemoServersAndTypesRequest, ::mt4_term_api::GuiDemoServersAndTypesReply>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(1);
-      static_cast<::grpc::internal::CallbackUnaryHandler< ::mt4_term_api::GuiDemoServersAndTypesRequest, ::mt4_term_api::GuiDemoServersAndTypesReply>*>(handler)
-              ->SetMessageAllocator(allocator);
-    }
-    ~WithCallbackMethod_DemoServersAndTypes() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status DemoServersAndTypes(::grpc::ServerContext* /*context*/, const ::mt4_term_api::GuiDemoServersAndTypesRequest* /*request*/, ::mt4_term_api::GuiDemoServersAndTypesReply* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    virtual ::grpc::ServerUnaryReactor* DemoServersAndTypes(
-      ::grpc::CallbackServerContext* /*context*/, const ::mt4_term_api::GuiDemoServersAndTypesRequest* /*request*/, ::mt4_term_api::GuiDemoServersAndTypesReply* /*response*/)  { return nullptr; }
-  };
+  typedef WithAsyncMethod_DemoOpenAccount<WithAsyncMethod_DemoOpenAccountInteractive<Service > > AsyncService;
   template <class BaseClass>
   class WithCallbackMethod_DemoOpenAccount : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithCallbackMethod_DemoOpenAccount() {
-      ::grpc::Service::MarkMethodCallback(2,
+      ::grpc::Service::MarkMethodCallback(0,
           new ::grpc::internal::CallbackUnaryHandler< ::mt4_term_api::GuiDemoOpenAccountRequest, ::mt4_term_api::GuiDemoOpenAccountReply>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::mt4_term_api::GuiDemoOpenAccountRequest* request, ::mt4_term_api::GuiDemoOpenAccountReply* response) { return this->DemoOpenAccount(context, request, response); }));}
     void SetMessageAllocatorFor_DemoOpenAccount(
         ::grpc::MessageAllocator< ::mt4_term_api::GuiDemoOpenAccountRequest, ::mt4_term_api::GuiDemoOpenAccountReply>* allocator) {
-      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(2);
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
       static_cast<::grpc::internal::CallbackUnaryHandler< ::mt4_term_api::GuiDemoOpenAccountRequest, ::mt4_term_api::GuiDemoOpenAccountReply>*>(handler)
               ->SetMessageAllocator(allocator);
     }
@@ -334,70 +192,37 @@ class Gui final {
       ::grpc::CallbackServerContext* /*context*/, const ::mt4_term_api::GuiDemoOpenAccountRequest* /*request*/, ::mt4_term_api::GuiDemoOpenAccountReply* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithCallbackMethod_DemoOpenAccountWithProgress : public BaseClass {
+  class WithCallbackMethod_DemoOpenAccountInteractive : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithCallbackMethod_DemoOpenAccountWithProgress() {
-      ::grpc::Service::MarkMethodCallback(3,
-          new ::grpc::internal::CallbackServerStreamingHandler< ::mt4_term_api::GuiDemoOpenAccountRequest, ::mt4_term_api::GuiDemoProgressEvent>(
+    WithCallbackMethod_DemoOpenAccountInteractive() {
+      ::grpc::Service::MarkMethodCallback(1,
+          new ::grpc::internal::CallbackBidiHandler< ::mt4_term_api::GuiDemoInteractiveClientMessage, ::mt4_term_api::GuiDemoInteractiveServerMessage>(
             [this](
-                   ::grpc::CallbackServerContext* context, const ::mt4_term_api::GuiDemoOpenAccountRequest* request) { return this->DemoOpenAccountWithProgress(context, request); }));
+                   ::grpc::CallbackServerContext* context) { return this->DemoOpenAccountInteractive(context); }));
     }
-    ~WithCallbackMethod_DemoOpenAccountWithProgress() override {
+    ~WithCallbackMethod_DemoOpenAccountInteractive() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DemoOpenAccountWithProgress(::grpc::ServerContext* /*context*/, const ::mt4_term_api::GuiDemoOpenAccountRequest* /*request*/, ::grpc::ServerWriter< ::mt4_term_api::GuiDemoProgressEvent>* /*writer*/) override {
+    ::grpc::Status DemoOpenAccountInteractive(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::mt4_term_api::GuiDemoInteractiveServerMessage, ::mt4_term_api::GuiDemoInteractiveClientMessage>* /*stream*/)  override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerWriteReactor< ::mt4_term_api::GuiDemoProgressEvent>* DemoOpenAccountWithProgress(
-      ::grpc::CallbackServerContext* /*context*/, const ::mt4_term_api::GuiDemoOpenAccountRequest* /*request*/)  { return nullptr; }
+    virtual ::grpc::ServerBidiReactor< ::mt4_term_api::GuiDemoInteractiveClientMessage, ::mt4_term_api::GuiDemoInteractiveServerMessage>* DemoOpenAccountInteractive(
+      ::grpc::CallbackServerContext* /*context*/)
+      { return nullptr; }
   };
-  typedef WithCallbackMethod_DemoFindCompanies<WithCallbackMethod_DemoServersAndTypes<WithCallbackMethod_DemoOpenAccount<WithCallbackMethod_DemoOpenAccountWithProgress<Service > > > > CallbackService;
+  typedef WithCallbackMethod_DemoOpenAccount<WithCallbackMethod_DemoOpenAccountInteractive<Service > > CallbackService;
   typedef CallbackService ExperimentalCallbackService;
-  template <class BaseClass>
-  class WithGenericMethod_DemoFindCompanies : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithGenericMethod_DemoFindCompanies() {
-      ::grpc::Service::MarkMethodGeneric(0);
-    }
-    ~WithGenericMethod_DemoFindCompanies() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status DemoFindCompanies(::grpc::ServerContext* /*context*/, const ::mt4_term_api::GuiDemoFindCompaniesRequest* /*request*/, ::mt4_term_api::GuiDemoFindCompaniesReply* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-  };
-  template <class BaseClass>
-  class WithGenericMethod_DemoServersAndTypes : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithGenericMethod_DemoServersAndTypes() {
-      ::grpc::Service::MarkMethodGeneric(1);
-    }
-    ~WithGenericMethod_DemoServersAndTypes() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status DemoServersAndTypes(::grpc::ServerContext* /*context*/, const ::mt4_term_api::GuiDemoServersAndTypesRequest* /*request*/, ::mt4_term_api::GuiDemoServersAndTypesReply* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-  };
   template <class BaseClass>
   class WithGenericMethod_DemoOpenAccount : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithGenericMethod_DemoOpenAccount() {
-      ::grpc::Service::MarkMethodGeneric(2);
+      ::grpc::Service::MarkMethodGeneric(0);
     }
     ~WithGenericMethod_DemoOpenAccount() override {
       BaseClassMustBeDerivedFromService(this);
@@ -409,60 +234,20 @@ class Gui final {
     }
   };
   template <class BaseClass>
-  class WithGenericMethod_DemoOpenAccountWithProgress : public BaseClass {
+  class WithGenericMethod_DemoOpenAccountInteractive : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithGenericMethod_DemoOpenAccountWithProgress() {
-      ::grpc::Service::MarkMethodGeneric(3);
+    WithGenericMethod_DemoOpenAccountInteractive() {
+      ::grpc::Service::MarkMethodGeneric(1);
     }
-    ~WithGenericMethod_DemoOpenAccountWithProgress() override {
+    ~WithGenericMethod_DemoOpenAccountInteractive() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DemoOpenAccountWithProgress(::grpc::ServerContext* /*context*/, const ::mt4_term_api::GuiDemoOpenAccountRequest* /*request*/, ::grpc::ServerWriter< ::mt4_term_api::GuiDemoProgressEvent>* /*writer*/) override {
+    ::grpc::Status DemoOpenAccountInteractive(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::mt4_term_api::GuiDemoInteractiveServerMessage, ::mt4_term_api::GuiDemoInteractiveClientMessage>* /*stream*/)  override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-  };
-  template <class BaseClass>
-  class WithRawMethod_DemoFindCompanies : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithRawMethod_DemoFindCompanies() {
-      ::grpc::Service::MarkMethodRaw(0);
-    }
-    ~WithRawMethod_DemoFindCompanies() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status DemoFindCompanies(::grpc::ServerContext* /*context*/, const ::mt4_term_api::GuiDemoFindCompaniesRequest* /*request*/, ::mt4_term_api::GuiDemoFindCompaniesReply* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestDemoFindCompanies(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
-    }
-  };
-  template <class BaseClass>
-  class WithRawMethod_DemoServersAndTypes : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithRawMethod_DemoServersAndTypes() {
-      ::grpc::Service::MarkMethodRaw(1);
-    }
-    ~WithRawMethod_DemoServersAndTypes() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status DemoServersAndTypes(::grpc::ServerContext* /*context*/, const ::mt4_term_api::GuiDemoServersAndTypesRequest* /*request*/, ::mt4_term_api::GuiDemoServersAndTypesReply* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    void RequestDemoServersAndTypes(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -471,7 +256,7 @@ class Gui final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawMethod_DemoOpenAccount() {
-      ::grpc::Service::MarkMethodRaw(2);
+      ::grpc::Service::MarkMethodRaw(0);
     }
     ~WithRawMethod_DemoOpenAccount() override {
       BaseClassMustBeDerivedFromService(this);
@@ -482,72 +267,28 @@ class Gui final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     void RequestDemoOpenAccount(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncUnary(2, context, request, response, new_call_cq, notification_cq, tag);
+      ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
-  class WithRawMethod_DemoOpenAccountWithProgress : public BaseClass {
+  class WithRawMethod_DemoOpenAccountInteractive : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawMethod_DemoOpenAccountWithProgress() {
-      ::grpc::Service::MarkMethodRaw(3);
+    WithRawMethod_DemoOpenAccountInteractive() {
+      ::grpc::Service::MarkMethodRaw(1);
     }
-    ~WithRawMethod_DemoOpenAccountWithProgress() override {
+    ~WithRawMethod_DemoOpenAccountInteractive() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DemoOpenAccountWithProgress(::grpc::ServerContext* /*context*/, const ::mt4_term_api::GuiDemoOpenAccountRequest* /*request*/, ::grpc::ServerWriter< ::mt4_term_api::GuiDemoProgressEvent>* /*writer*/) override {
+    ::grpc::Status DemoOpenAccountInteractive(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::mt4_term_api::GuiDemoInteractiveServerMessage, ::mt4_term_api::GuiDemoInteractiveClientMessage>* /*stream*/)  override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestDemoOpenAccountWithProgress(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncWriter< ::grpc::ByteBuffer>* writer, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
-      ::grpc::Service::RequestAsyncServerStreaming(3, context, request, writer, new_call_cq, notification_cq, tag);
+    void RequestDemoOpenAccountInteractive(::grpc::ServerContext* context, ::grpc::ServerAsyncReaderWriter< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* stream, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncBidiStreaming(1, context, stream, new_call_cq, notification_cq, tag);
     }
-  };
-  template <class BaseClass>
-  class WithRawCallbackMethod_DemoFindCompanies : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithRawCallbackMethod_DemoFindCompanies() {
-      ::grpc::Service::MarkMethodRawCallback(0,
-          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->DemoFindCompanies(context, request, response); }));
-    }
-    ~WithRawCallbackMethod_DemoFindCompanies() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status DemoFindCompanies(::grpc::ServerContext* /*context*/, const ::mt4_term_api::GuiDemoFindCompaniesRequest* /*request*/, ::mt4_term_api::GuiDemoFindCompaniesReply* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    virtual ::grpc::ServerUnaryReactor* DemoFindCompanies(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
-  };
-  template <class BaseClass>
-  class WithRawCallbackMethod_DemoServersAndTypes : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithRawCallbackMethod_DemoServersAndTypes() {
-      ::grpc::Service::MarkMethodRawCallback(1,
-          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
-            [this](
-                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->DemoServersAndTypes(context, request, response); }));
-    }
-    ~WithRawCallbackMethod_DemoServersAndTypes() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable synchronous version of this method
-    ::grpc::Status DemoServersAndTypes(::grpc::ServerContext* /*context*/, const ::mt4_term_api::GuiDemoServersAndTypesRequest* /*request*/, ::mt4_term_api::GuiDemoServersAndTypesReply* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    virtual ::grpc::ServerUnaryReactor* DemoServersAndTypes(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
   class WithRawCallbackMethod_DemoOpenAccount : public BaseClass {
@@ -555,7 +296,7 @@ class Gui final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithRawCallbackMethod_DemoOpenAccount() {
-      ::grpc::Service::MarkMethodRawCallback(2,
+      ::grpc::Service::MarkMethodRawCallback(0,
           new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
                    ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->DemoOpenAccount(context, request, response); }));
@@ -572,80 +313,27 @@ class Gui final {
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
-  class WithRawCallbackMethod_DemoOpenAccountWithProgress : public BaseClass {
+  class WithRawCallbackMethod_DemoOpenAccountInteractive : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
-    WithRawCallbackMethod_DemoOpenAccountWithProgress() {
-      ::grpc::Service::MarkMethodRawCallback(3,
-          new ::grpc::internal::CallbackServerStreamingHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+    WithRawCallbackMethod_DemoOpenAccountInteractive() {
+      ::grpc::Service::MarkMethodRawCallback(1,
+          new ::grpc::internal::CallbackBidiHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
             [this](
-                   ::grpc::CallbackServerContext* context, const::grpc::ByteBuffer* request) { return this->DemoOpenAccountWithProgress(context, request); }));
+                   ::grpc::CallbackServerContext* context) { return this->DemoOpenAccountInteractive(context); }));
     }
-    ~WithRawCallbackMethod_DemoOpenAccountWithProgress() override {
+    ~WithRawCallbackMethod_DemoOpenAccountInteractive() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status DemoOpenAccountWithProgress(::grpc::ServerContext* /*context*/, const ::mt4_term_api::GuiDemoOpenAccountRequest* /*request*/, ::grpc::ServerWriter< ::mt4_term_api::GuiDemoProgressEvent>* /*writer*/) override {
+    ::grpc::Status DemoOpenAccountInteractive(::grpc::ServerContext* /*context*/, ::grpc::ServerReaderWriter< ::mt4_term_api::GuiDemoInteractiveServerMessage, ::mt4_term_api::GuiDemoInteractiveClientMessage>* /*stream*/)  override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    virtual ::grpc::ServerWriteReactor< ::grpc::ByteBuffer>* DemoOpenAccountWithProgress(
-      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/)  { return nullptr; }
-  };
-  template <class BaseClass>
-  class WithStreamedUnaryMethod_DemoFindCompanies : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithStreamedUnaryMethod_DemoFindCompanies() {
-      ::grpc::Service::MarkMethodStreamed(0,
-        new ::grpc::internal::StreamedUnaryHandler<
-          ::mt4_term_api::GuiDemoFindCompaniesRequest, ::mt4_term_api::GuiDemoFindCompaniesReply>(
-            [this](::grpc::ServerContext* context,
-                   ::grpc::ServerUnaryStreamer<
-                     ::mt4_term_api::GuiDemoFindCompaniesRequest, ::mt4_term_api::GuiDemoFindCompaniesReply>* streamer) {
-                       return this->StreamedDemoFindCompanies(context,
-                         streamer);
-                  }));
-    }
-    ~WithStreamedUnaryMethod_DemoFindCompanies() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable regular version of this method
-    ::grpc::Status DemoFindCompanies(::grpc::ServerContext* /*context*/, const ::mt4_term_api::GuiDemoFindCompaniesRequest* /*request*/, ::mt4_term_api::GuiDemoFindCompaniesReply* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedDemoFindCompanies(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::mt4_term_api::GuiDemoFindCompaniesRequest,::mt4_term_api::GuiDemoFindCompaniesReply>* server_unary_streamer) = 0;
-  };
-  template <class BaseClass>
-  class WithStreamedUnaryMethod_DemoServersAndTypes : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithStreamedUnaryMethod_DemoServersAndTypes() {
-      ::grpc::Service::MarkMethodStreamed(1,
-        new ::grpc::internal::StreamedUnaryHandler<
-          ::mt4_term_api::GuiDemoServersAndTypesRequest, ::mt4_term_api::GuiDemoServersAndTypesReply>(
-            [this](::grpc::ServerContext* context,
-                   ::grpc::ServerUnaryStreamer<
-                     ::mt4_term_api::GuiDemoServersAndTypesRequest, ::mt4_term_api::GuiDemoServersAndTypesReply>* streamer) {
-                       return this->StreamedDemoServersAndTypes(context,
-                         streamer);
-                  }));
-    }
-    ~WithStreamedUnaryMethod_DemoServersAndTypes() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable regular version of this method
-    ::grpc::Status DemoServersAndTypes(::grpc::ServerContext* /*context*/, const ::mt4_term_api::GuiDemoServersAndTypesRequest* /*request*/, ::mt4_term_api::GuiDemoServersAndTypesReply* /*response*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedDemoServersAndTypes(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::mt4_term_api::GuiDemoServersAndTypesRequest,::mt4_term_api::GuiDemoServersAndTypesReply>* server_unary_streamer) = 0;
+    virtual ::grpc::ServerBidiReactor< ::grpc::ByteBuffer, ::grpc::ByteBuffer>* DemoOpenAccountInteractive(
+      ::grpc::CallbackServerContext* /*context*/)
+      { return nullptr; }
   };
   template <class BaseClass>
   class WithStreamedUnaryMethod_DemoOpenAccount : public BaseClass {
@@ -653,7 +341,7 @@ class Gui final {
     void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
    public:
     WithStreamedUnaryMethod_DemoOpenAccount() {
-      ::grpc::Service::MarkMethodStreamed(2,
+      ::grpc::Service::MarkMethodStreamed(0,
         new ::grpc::internal::StreamedUnaryHandler<
           ::mt4_term_api::GuiDemoOpenAccountRequest, ::mt4_term_api::GuiDemoOpenAccountReply>(
             [this](::grpc::ServerContext* context,
@@ -674,36 +362,9 @@ class Gui final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedDemoOpenAccount(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::mt4_term_api::GuiDemoOpenAccountRequest,::mt4_term_api::GuiDemoOpenAccountReply>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_DemoFindCompanies<WithStreamedUnaryMethod_DemoServersAndTypes<WithStreamedUnaryMethod_DemoOpenAccount<Service > > > StreamedUnaryService;
-  template <class BaseClass>
-  class WithSplitStreamingMethod_DemoOpenAccountWithProgress : public BaseClass {
-   private:
-    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
-   public:
-    WithSplitStreamingMethod_DemoOpenAccountWithProgress() {
-      ::grpc::Service::MarkMethodStreamed(3,
-        new ::grpc::internal::SplitServerStreamingHandler<
-          ::mt4_term_api::GuiDemoOpenAccountRequest, ::mt4_term_api::GuiDemoProgressEvent>(
-            [this](::grpc::ServerContext* context,
-                   ::grpc::ServerSplitStreamer<
-                     ::mt4_term_api::GuiDemoOpenAccountRequest, ::mt4_term_api::GuiDemoProgressEvent>* streamer) {
-                       return this->StreamedDemoOpenAccountWithProgress(context,
-                         streamer);
-                  }));
-    }
-    ~WithSplitStreamingMethod_DemoOpenAccountWithProgress() override {
-      BaseClassMustBeDerivedFromService(this);
-    }
-    // disable regular version of this method
-    ::grpc::Status DemoOpenAccountWithProgress(::grpc::ServerContext* /*context*/, const ::mt4_term_api::GuiDemoOpenAccountRequest* /*request*/, ::grpc::ServerWriter< ::mt4_term_api::GuiDemoProgressEvent>* /*writer*/) override {
-      abort();
-      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-    }
-    // replace default version of method with split streamed
-    virtual ::grpc::Status StreamedDemoOpenAccountWithProgress(::grpc::ServerContext* context, ::grpc::ServerSplitStreamer< ::mt4_term_api::GuiDemoOpenAccountRequest,::mt4_term_api::GuiDemoProgressEvent>* server_split_streamer) = 0;
-  };
-  typedef WithSplitStreamingMethod_DemoOpenAccountWithProgress<Service > SplitStreamedService;
-  typedef WithStreamedUnaryMethod_DemoFindCompanies<WithStreamedUnaryMethod_DemoServersAndTypes<WithStreamedUnaryMethod_DemoOpenAccount<WithSplitStreamingMethod_DemoOpenAccountWithProgress<Service > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_DemoOpenAccount<Service > StreamedUnaryService;
+  typedef Service SplitStreamedService;
+  typedef WithStreamedUnaryMethod_DemoOpenAccount<Service > StreamedService;
 };
 
 }  // namespace mt4_term_api

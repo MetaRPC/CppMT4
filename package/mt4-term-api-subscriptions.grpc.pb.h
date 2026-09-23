@@ -36,7 +36,7 @@ class SubscriptionService final {
    public:
     virtual ~StubInterface() {}
     // Streams real-time order/trade events.
-    // Requires 'id' header — use GetId to generate.
+    // Requires 'id' header returned by Connect/ConnectEx.
     // Swagger does not support streaming — use /subscription-stream interactive viewer.
     std::unique_ptr< ::grpc::ClientReaderInterface< ::mt4_term_api::OnTradeReply>> OnTrade(::grpc::ClientContext* context, const ::mt4_term_api::OnTradeRequest& request) {
       return std::unique_ptr< ::grpc::ClientReaderInterface< ::mt4_term_api::OnTradeReply>>(OnTradeRaw(context, request));
@@ -48,7 +48,7 @@ class SubscriptionService final {
       return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::mt4_term_api::OnTradeReply>>(PrepareAsyncOnTradeRaw(context, request, cq));
     }
     // Streams the tickets of currently opened orders as they change.
-    // Requires 'id' header — use GetId to generate.
+    // Requires 'id' header returned by Connect/ConnectEx.
     // Swagger does not support streaming — use /subscription-stream interactive viewer.
     std::unique_ptr< ::grpc::ClientReaderInterface< ::mt4_term_api::OnOpenedOrdersTicketsReply>> OnOpenedOrdersTickets(::grpc::ClientContext* context, const ::mt4_term_api::OnOpenedOrdersTicketsRequest& request) {
       return std::unique_ptr< ::grpc::ClientReaderInterface< ::mt4_term_api::OnOpenedOrdersTicketsReply>>(OnOpenedOrdersTicketsRaw(context, request));
@@ -60,7 +60,7 @@ class SubscriptionService final {
       return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::mt4_term_api::OnOpenedOrdersTicketsReply>>(PrepareAsyncOnOpenedOrdersTicketsRaw(context, request, cq));
     }
     // Streams the live profit of currently opened orders.
-    // Requires 'id' header — use GetId to generate.
+    // Requires 'id' header returned by Connect/ConnectEx.
     // Swagger does not support streaming — use /subscription-stream interactive viewer.
     std::unique_ptr< ::grpc::ClientReaderInterface< ::mt4_term_api::OnOpenedOrdersProfitReply>> OnOpenedOrdersProfit(::grpc::ClientContext* context, const ::mt4_term_api::OnOpenedOrdersProfitRequest& request) {
       return std::unique_ptr< ::grpc::ClientReaderInterface< ::mt4_term_api::OnOpenedOrdersProfitReply>>(OnOpenedOrdersProfitRaw(context, request));
@@ -72,7 +72,7 @@ class SubscriptionService final {
       return std::unique_ptr< ::grpc::ClientAsyncReaderInterface< ::mt4_term_api::OnOpenedOrdersProfitReply>>(PrepareAsyncOnOpenedOrdersProfitRaw(context, request, cq));
     }
     // Streams real-time ticks for the given symbols.
-    // Requires 'id' header — use GetId to generate.
+    // Requires 'id' header returned by Connect/ConnectEx.
     // Swagger does not support streaming — use /subscription-stream interactive viewer.
     // [DefaultValues]
     // {
@@ -91,19 +91,19 @@ class SubscriptionService final {
      public:
       virtual ~async_interface() {}
       // Streams real-time order/trade events.
-      // Requires 'id' header — use GetId to generate.
+      // Requires 'id' header returned by Connect/ConnectEx.
       // Swagger does not support streaming — use /subscription-stream interactive viewer.
       virtual void OnTrade(::grpc::ClientContext* context, const ::mt4_term_api::OnTradeRequest* request, ::grpc::ClientReadReactor< ::mt4_term_api::OnTradeReply>* reactor) = 0;
       // Streams the tickets of currently opened orders as they change.
-      // Requires 'id' header — use GetId to generate.
+      // Requires 'id' header returned by Connect/ConnectEx.
       // Swagger does not support streaming — use /subscription-stream interactive viewer.
       virtual void OnOpenedOrdersTickets(::grpc::ClientContext* context, const ::mt4_term_api::OnOpenedOrdersTicketsRequest* request, ::grpc::ClientReadReactor< ::mt4_term_api::OnOpenedOrdersTicketsReply>* reactor) = 0;
       // Streams the live profit of currently opened orders.
-      // Requires 'id' header — use GetId to generate.
+      // Requires 'id' header returned by Connect/ConnectEx.
       // Swagger does not support streaming — use /subscription-stream interactive viewer.
       virtual void OnOpenedOrdersProfit(::grpc::ClientContext* context, const ::mt4_term_api::OnOpenedOrdersProfitRequest* request, ::grpc::ClientReadReactor< ::mt4_term_api::OnOpenedOrdersProfitReply>* reactor) = 0;
       // Streams real-time ticks for the given symbols.
-      // Requires 'id' header — use GetId to generate.
+      // Requires 'id' header returned by Connect/ConnectEx.
       // Swagger does not support streaming — use /subscription-stream interactive viewer.
       // [DefaultValues]
       // {
@@ -209,19 +209,19 @@ class SubscriptionService final {
     Service();
     virtual ~Service();
     // Streams real-time order/trade events.
-    // Requires 'id' header — use GetId to generate.
+    // Requires 'id' header returned by Connect/ConnectEx.
     // Swagger does not support streaming — use /subscription-stream interactive viewer.
     virtual ::grpc::Status OnTrade(::grpc::ServerContext* context, const ::mt4_term_api::OnTradeRequest* request, ::grpc::ServerWriter< ::mt4_term_api::OnTradeReply>* writer);
     // Streams the tickets of currently opened orders as they change.
-    // Requires 'id' header — use GetId to generate.
+    // Requires 'id' header returned by Connect/ConnectEx.
     // Swagger does not support streaming — use /subscription-stream interactive viewer.
     virtual ::grpc::Status OnOpenedOrdersTickets(::grpc::ServerContext* context, const ::mt4_term_api::OnOpenedOrdersTicketsRequest* request, ::grpc::ServerWriter< ::mt4_term_api::OnOpenedOrdersTicketsReply>* writer);
     // Streams the live profit of currently opened orders.
-    // Requires 'id' header — use GetId to generate.
+    // Requires 'id' header returned by Connect/ConnectEx.
     // Swagger does not support streaming — use /subscription-stream interactive viewer.
     virtual ::grpc::Status OnOpenedOrdersProfit(::grpc::ServerContext* context, const ::mt4_term_api::OnOpenedOrdersProfitRequest* request, ::grpc::ServerWriter< ::mt4_term_api::OnOpenedOrdersProfitReply>* writer);
     // Streams real-time ticks for the given symbols.
-    // Requires 'id' header — use GetId to generate.
+    // Requires 'id' header returned by Connect/ConnectEx.
     // Swagger does not support streaming — use /subscription-stream interactive viewer.
     // [DefaultValues]
     // {

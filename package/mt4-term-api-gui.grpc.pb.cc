@@ -22,10 +22,8 @@
 namespace mt4_term_api {
 
 static const char* Gui_method_names[] = {
-  "/mt4_term_api.Gui/DemoFindCompanies",
-  "/mt4_term_api.Gui/DemoServersAndTypes",
   "/mt4_term_api.Gui/DemoOpenAccount",
-  "/mt4_term_api.Gui/DemoOpenAccountWithProgress",
+  "/mt4_term_api.Gui/DemoOpenAccountInteractive",
 };
 
 std::unique_ptr< Gui::Stub> Gui::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -35,57 +33,9 @@ std::unique_ptr< Gui::Stub> Gui::NewStub(const std::shared_ptr< ::grpc::ChannelI
 }
 
 Gui::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options)
-  : channel_(channel), rpcmethod_DemoFindCompanies_(Gui_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_DemoServersAndTypes_(Gui_method_names[1], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_DemoOpenAccount_(Gui_method_names[2], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_DemoOpenAccountWithProgress_(Gui_method_names[3], options.suffix_for_stats(),::grpc::internal::RpcMethod::SERVER_STREAMING, channel)
+  : channel_(channel), rpcmethod_DemoOpenAccount_(Gui_method_names[0], options.suffix_for_stats(),::grpc::internal::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_DemoOpenAccountInteractive_(Gui_method_names[1], options.suffix_for_stats(),::grpc::internal::RpcMethod::BIDI_STREAMING, channel)
   {}
-
-::grpc::Status Gui::Stub::DemoFindCompanies(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoFindCompaniesRequest& request, ::mt4_term_api::GuiDemoFindCompaniesReply* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::mt4_term_api::GuiDemoFindCompaniesRequest, ::mt4_term_api::GuiDemoFindCompaniesReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_DemoFindCompanies_, context, request, response);
-}
-
-void Gui::Stub::async::DemoFindCompanies(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoFindCompaniesRequest* request, ::mt4_term_api::GuiDemoFindCompaniesReply* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::mt4_term_api::GuiDemoFindCompaniesRequest, ::mt4_term_api::GuiDemoFindCompaniesReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_DemoFindCompanies_, context, request, response, std::move(f));
-}
-
-void Gui::Stub::async::DemoFindCompanies(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoFindCompaniesRequest* request, ::mt4_term_api::GuiDemoFindCompaniesReply* response, ::grpc::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_DemoFindCompanies_, context, request, response, reactor);
-}
-
-::grpc::ClientAsyncResponseReader< ::mt4_term_api::GuiDemoFindCompaniesReply>* Gui::Stub::PrepareAsyncDemoFindCompaniesRaw(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoFindCompaniesRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::mt4_term_api::GuiDemoFindCompaniesReply, ::mt4_term_api::GuiDemoFindCompaniesRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_DemoFindCompanies_, context, request);
-}
-
-::grpc::ClientAsyncResponseReader< ::mt4_term_api::GuiDemoFindCompaniesReply>* Gui::Stub::AsyncDemoFindCompaniesRaw(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoFindCompaniesRequest& request, ::grpc::CompletionQueue* cq) {
-  auto* result =
-    this->PrepareAsyncDemoFindCompaniesRaw(context, request, cq);
-  result->StartCall();
-  return result;
-}
-
-::grpc::Status Gui::Stub::DemoServersAndTypes(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoServersAndTypesRequest& request, ::mt4_term_api::GuiDemoServersAndTypesReply* response) {
-  return ::grpc::internal::BlockingUnaryCall< ::mt4_term_api::GuiDemoServersAndTypesRequest, ::mt4_term_api::GuiDemoServersAndTypesReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_DemoServersAndTypes_, context, request, response);
-}
-
-void Gui::Stub::async::DemoServersAndTypes(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoServersAndTypesRequest* request, ::mt4_term_api::GuiDemoServersAndTypesReply* response, std::function<void(::grpc::Status)> f) {
-  ::grpc::internal::CallbackUnaryCall< ::mt4_term_api::GuiDemoServersAndTypesRequest, ::mt4_term_api::GuiDemoServersAndTypesReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_DemoServersAndTypes_, context, request, response, std::move(f));
-}
-
-void Gui::Stub::async::DemoServersAndTypes(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoServersAndTypesRequest* request, ::mt4_term_api::GuiDemoServersAndTypesReply* response, ::grpc::ClientUnaryReactor* reactor) {
-  ::grpc::internal::ClientCallbackUnaryFactory::Create< ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(stub_->channel_.get(), stub_->rpcmethod_DemoServersAndTypes_, context, request, response, reactor);
-}
-
-::grpc::ClientAsyncResponseReader< ::mt4_term_api::GuiDemoServersAndTypesReply>* Gui::Stub::PrepareAsyncDemoServersAndTypesRaw(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoServersAndTypesRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncResponseReaderHelper::Create< ::mt4_term_api::GuiDemoServersAndTypesReply, ::mt4_term_api::GuiDemoServersAndTypesRequest, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), cq, rpcmethod_DemoServersAndTypes_, context, request);
-}
-
-::grpc::ClientAsyncResponseReader< ::mt4_term_api::GuiDemoServersAndTypesReply>* Gui::Stub::AsyncDemoServersAndTypesRaw(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoServersAndTypesRequest& request, ::grpc::CompletionQueue* cq) {
-  auto* result =
-    this->PrepareAsyncDemoServersAndTypesRaw(context, request, cq);
-  result->StartCall();
-  return result;
-}
 
 ::grpc::Status Gui::Stub::DemoOpenAccount(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoOpenAccountRequest& request, ::mt4_term_api::GuiDemoOpenAccountReply* response) {
   return ::grpc::internal::BlockingUnaryCall< ::mt4_term_api::GuiDemoOpenAccountRequest, ::mt4_term_api::GuiDemoOpenAccountReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(channel_.get(), rpcmethod_DemoOpenAccount_, context, request, response);
@@ -110,45 +60,25 @@ void Gui::Stub::async::DemoOpenAccount(::grpc::ClientContext* context, const ::m
   return result;
 }
 
-::grpc::ClientReader< ::mt4_term_api::GuiDemoProgressEvent>* Gui::Stub::DemoOpenAccountWithProgressRaw(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoOpenAccountRequest& request) {
-  return ::grpc::internal::ClientReaderFactory< ::mt4_term_api::GuiDemoProgressEvent>::Create(channel_.get(), rpcmethod_DemoOpenAccountWithProgress_, context, request);
+::grpc::ClientReaderWriter< ::mt4_term_api::GuiDemoInteractiveClientMessage, ::mt4_term_api::GuiDemoInteractiveServerMessage>* Gui::Stub::DemoOpenAccountInteractiveRaw(::grpc::ClientContext* context) {
+  return ::grpc::internal::ClientReaderWriterFactory< ::mt4_term_api::GuiDemoInteractiveClientMessage, ::mt4_term_api::GuiDemoInteractiveServerMessage>::Create(channel_.get(), rpcmethod_DemoOpenAccountInteractive_, context);
 }
 
-void Gui::Stub::async::DemoOpenAccountWithProgress(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoOpenAccountRequest* request, ::grpc::ClientReadReactor< ::mt4_term_api::GuiDemoProgressEvent>* reactor) {
-  ::grpc::internal::ClientCallbackReaderFactory< ::mt4_term_api::GuiDemoProgressEvent>::Create(stub_->channel_.get(), stub_->rpcmethod_DemoOpenAccountWithProgress_, context, request, reactor);
+void Gui::Stub::async::DemoOpenAccountInteractive(::grpc::ClientContext* context, ::grpc::ClientBidiReactor< ::mt4_term_api::GuiDemoInteractiveClientMessage,::mt4_term_api::GuiDemoInteractiveServerMessage>* reactor) {
+  ::grpc::internal::ClientCallbackReaderWriterFactory< ::mt4_term_api::GuiDemoInteractiveClientMessage,::mt4_term_api::GuiDemoInteractiveServerMessage>::Create(stub_->channel_.get(), stub_->rpcmethod_DemoOpenAccountInteractive_, context, reactor);
 }
 
-::grpc::ClientAsyncReader< ::mt4_term_api::GuiDemoProgressEvent>* Gui::Stub::AsyncDemoOpenAccountWithProgressRaw(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoOpenAccountRequest& request, ::grpc::CompletionQueue* cq, void* tag) {
-  return ::grpc::internal::ClientAsyncReaderFactory< ::mt4_term_api::GuiDemoProgressEvent>::Create(channel_.get(), cq, rpcmethod_DemoOpenAccountWithProgress_, context, request, true, tag);
+::grpc::ClientAsyncReaderWriter< ::mt4_term_api::GuiDemoInteractiveClientMessage, ::mt4_term_api::GuiDemoInteractiveServerMessage>* Gui::Stub::AsyncDemoOpenAccountInteractiveRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq, void* tag) {
+  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::mt4_term_api::GuiDemoInteractiveClientMessage, ::mt4_term_api::GuiDemoInteractiveServerMessage>::Create(channel_.get(), cq, rpcmethod_DemoOpenAccountInteractive_, context, true, tag);
 }
 
-::grpc::ClientAsyncReader< ::mt4_term_api::GuiDemoProgressEvent>* Gui::Stub::PrepareAsyncDemoOpenAccountWithProgressRaw(::grpc::ClientContext* context, const ::mt4_term_api::GuiDemoOpenAccountRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc::internal::ClientAsyncReaderFactory< ::mt4_term_api::GuiDemoProgressEvent>::Create(channel_.get(), cq, rpcmethod_DemoOpenAccountWithProgress_, context, request, false, nullptr);
+::grpc::ClientAsyncReaderWriter< ::mt4_term_api::GuiDemoInteractiveClientMessage, ::mt4_term_api::GuiDemoInteractiveServerMessage>* Gui::Stub::PrepareAsyncDemoOpenAccountInteractiveRaw(::grpc::ClientContext* context, ::grpc::CompletionQueue* cq) {
+  return ::grpc::internal::ClientAsyncReaderWriterFactory< ::mt4_term_api::GuiDemoInteractiveClientMessage, ::mt4_term_api::GuiDemoInteractiveServerMessage>::Create(channel_.get(), cq, rpcmethod_DemoOpenAccountInteractive_, context, false, nullptr);
 }
 
 Gui::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       Gui_method_names[0],
-      ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Gui::Service, ::mt4_term_api::GuiDemoFindCompaniesRequest, ::mt4_term_api::GuiDemoFindCompaniesReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
-          [](Gui::Service* service,
-             ::grpc::ServerContext* ctx,
-             const ::mt4_term_api::GuiDemoFindCompaniesRequest* req,
-             ::mt4_term_api::GuiDemoFindCompaniesReply* resp) {
-               return service->DemoFindCompanies(ctx, req, resp);
-             }, this)));
-  AddMethod(new ::grpc::internal::RpcServiceMethod(
-      Gui_method_names[1],
-      ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< Gui::Service, ::mt4_term_api::GuiDemoServersAndTypesRequest, ::mt4_term_api::GuiDemoServersAndTypesReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
-          [](Gui::Service* service,
-             ::grpc::ServerContext* ctx,
-             const ::mt4_term_api::GuiDemoServersAndTypesRequest* req,
-             ::mt4_term_api::GuiDemoServersAndTypesReply* resp) {
-               return service->DemoServersAndTypes(ctx, req, resp);
-             }, this)));
-  AddMethod(new ::grpc::internal::RpcServiceMethod(
-      Gui_method_names[2],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
       new ::grpc::internal::RpcMethodHandler< Gui::Service, ::mt4_term_api::GuiDemoOpenAccountRequest, ::mt4_term_api::GuiDemoOpenAccountReply, ::grpc::protobuf::MessageLite, ::grpc::protobuf::MessageLite>(
           [](Gui::Service* service,
@@ -158,32 +88,18 @@ Gui::Service::Service() {
                return service->DemoOpenAccount(ctx, req, resp);
              }, this)));
   AddMethod(new ::grpc::internal::RpcServiceMethod(
-      Gui_method_names[3],
-      ::grpc::internal::RpcMethod::SERVER_STREAMING,
-      new ::grpc::internal::ServerStreamingHandler< Gui::Service, ::mt4_term_api::GuiDemoOpenAccountRequest, ::mt4_term_api::GuiDemoProgressEvent>(
+      Gui_method_names[1],
+      ::grpc::internal::RpcMethod::BIDI_STREAMING,
+      new ::grpc::internal::BidiStreamingHandler< Gui::Service, ::mt4_term_api::GuiDemoInteractiveClientMessage, ::mt4_term_api::GuiDemoInteractiveServerMessage>(
           [](Gui::Service* service,
              ::grpc::ServerContext* ctx,
-             const ::mt4_term_api::GuiDemoOpenAccountRequest* req,
-             ::grpc::ServerWriter<::mt4_term_api::GuiDemoProgressEvent>* writer) {
-               return service->DemoOpenAccountWithProgress(ctx, req, writer);
+             ::grpc::ServerReaderWriter<::mt4_term_api::GuiDemoInteractiveServerMessage,
+             ::mt4_term_api::GuiDemoInteractiveClientMessage>* stream) {
+               return service->DemoOpenAccountInteractive(ctx, stream);
              }, this)));
 }
 
 Gui::Service::~Service() {
-}
-
-::grpc::Status Gui::Service::DemoFindCompanies(::grpc::ServerContext* context, const ::mt4_term_api::GuiDemoFindCompaniesRequest* request, ::mt4_term_api::GuiDemoFindCompaniesReply* response) {
-  (void) context;
-  (void) request;
-  (void) response;
-  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
-}
-
-::grpc::Status Gui::Service::DemoServersAndTypes(::grpc::ServerContext* context, const ::mt4_term_api::GuiDemoServersAndTypesRequest* request, ::mt4_term_api::GuiDemoServersAndTypesReply* response) {
-  (void) context;
-  (void) request;
-  (void) response;
-  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
 ::grpc::Status Gui::Service::DemoOpenAccount(::grpc::ServerContext* context, const ::mt4_term_api::GuiDemoOpenAccountRequest* request, ::mt4_term_api::GuiDemoOpenAccountReply* response) {
@@ -193,10 +109,9 @@ Gui::Service::~Service() {
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status Gui::Service::DemoOpenAccountWithProgress(::grpc::ServerContext* context, const ::mt4_term_api::GuiDemoOpenAccountRequest* request, ::grpc::ServerWriter< ::mt4_term_api::GuiDemoProgressEvent>* writer) {
+::grpc::Status Gui::Service::DemoOpenAccountInteractive(::grpc::ServerContext* context, ::grpc::ServerReaderWriter< ::mt4_term_api::GuiDemoInteractiveServerMessage, ::mt4_term_api::GuiDemoInteractiveClientMessage>* stream) {
   (void) context;
-  (void) request;
-  (void) writer;
+  (void) stream;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
