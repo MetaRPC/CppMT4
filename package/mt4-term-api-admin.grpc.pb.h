@@ -170,6 +170,23 @@ class AdminApi final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mrpc_admin::GetSessionRestoreStatusReply>> PrepareAsyncGetSessionRestoreStatus(::grpc::ClientContext* context, const ::mrpc_admin::ActiveTerminalsRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mrpc_admin::GetSessionRestoreStatusReply>>(PrepareAsyncGetSessionRestoreStatusRaw(context, request, cq));
     }
+    // Kills all active trial terminals across ALL pods of this StatefulSet/Deployment
+    // and marks them stopped in database.
+    virtual ::grpc::Status KillAllTrialTerminals(::grpc::ClientContext* context, const ::mrpc_admin::ActiveTerminalsRequest& request, ::mrpc_admin::KillAllTrialTerminalsReply* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mrpc_admin::KillAllTrialTerminalsReply>> AsyncKillAllTrialTerminals(::grpc::ClientContext* context, const ::mrpc_admin::ActiveTerminalsRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mrpc_admin::KillAllTrialTerminalsReply>>(AsyncKillAllTrialTerminalsRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mrpc_admin::KillAllTrialTerminalsReply>> PrepareAsyncKillAllTrialTerminals(::grpc::ClientContext* context, const ::mrpc_admin::ActiveTerminalsRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mrpc_admin::KillAllTrialTerminalsReply>>(PrepareAsyncKillAllTrialTerminalsRaw(context, request, cq));
+    }
+    // Kills all active trial terminals on THIS pod.
+    virtual ::grpc::Status KillAllTrialTerminalsLocal(::grpc::ClientContext* context, const ::mrpc_admin::ActiveTerminalsRequest& request, ::mrpc_admin::KillAllTrialTerminalsReply* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mrpc_admin::KillAllTrialTerminalsReply>> AsyncKillAllTrialTerminalsLocal(::grpc::ClientContext* context, const ::mrpc_admin::ActiveTerminalsRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mrpc_admin::KillAllTrialTerminalsReply>>(AsyncKillAllTrialTerminalsLocalRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mrpc_admin::KillAllTrialTerminalsReply>> PrepareAsyncKillAllTrialTerminalsLocal(::grpc::ClientContext* context, const ::mrpc_admin::ActiveTerminalsRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mrpc_admin::KillAllTrialTerminalsReply>>(PrepareAsyncKillAllTrialTerminalsLocalRaw(context, request, cq));
+    }
     class async_interface {
      public:
       virtual ~async_interface() {}
@@ -232,6 +249,13 @@ class AdminApi final {
       // Session restore watcher status (terminals loaded, queue count, state, diagnostics) for THIS pod.
       virtual void GetSessionRestoreStatus(::grpc::ClientContext* context, const ::mrpc_admin::ActiveTerminalsRequest* request, ::mrpc_admin::GetSessionRestoreStatusReply* response, std::function<void(::grpc::Status)>) = 0;
       virtual void GetSessionRestoreStatus(::grpc::ClientContext* context, const ::mrpc_admin::ActiveTerminalsRequest* request, ::mrpc_admin::GetSessionRestoreStatusReply* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      // Kills all active trial terminals across ALL pods of this StatefulSet/Deployment
+      // and marks them stopped in database.
+      virtual void KillAllTrialTerminals(::grpc::ClientContext* context, const ::mrpc_admin::ActiveTerminalsRequest* request, ::mrpc_admin::KillAllTrialTerminalsReply* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void KillAllTrialTerminals(::grpc::ClientContext* context, const ::mrpc_admin::ActiveTerminalsRequest* request, ::mrpc_admin::KillAllTrialTerminalsReply* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      // Kills all active trial terminals on THIS pod.
+      virtual void KillAllTrialTerminalsLocal(::grpc::ClientContext* context, const ::mrpc_admin::ActiveTerminalsRequest* request, ::mrpc_admin::KillAllTrialTerminalsReply* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void KillAllTrialTerminalsLocal(::grpc::ClientContext* context, const ::mrpc_admin::ActiveTerminalsRequest* request, ::mrpc_admin::KillAllTrialTerminalsReply* response, ::grpc::ClientUnaryReactor* reactor) = 0;
     };
     typedef class async_interface experimental_async_interface;
     virtual class async_interface* async() { return nullptr; }
@@ -263,6 +287,10 @@ class AdminApi final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::mrpc_admin::GetSessionRestoreLogsReply>* PrepareAsyncGetSessionRestoreLogsRaw(::grpc::ClientContext* context, const ::mrpc_admin::GetSessionRestoreLogsRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::mrpc_admin::GetSessionRestoreStatusReply>* AsyncGetSessionRestoreStatusRaw(::grpc::ClientContext* context, const ::mrpc_admin::ActiveTerminalsRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::mrpc_admin::GetSessionRestoreStatusReply>* PrepareAsyncGetSessionRestoreStatusRaw(::grpc::ClientContext* context, const ::mrpc_admin::ActiveTerminalsRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::mrpc_admin::KillAllTrialTerminalsReply>* AsyncKillAllTrialTerminalsRaw(::grpc::ClientContext* context, const ::mrpc_admin::ActiveTerminalsRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::mrpc_admin::KillAllTrialTerminalsReply>* PrepareAsyncKillAllTrialTerminalsRaw(::grpc::ClientContext* context, const ::mrpc_admin::ActiveTerminalsRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::mrpc_admin::KillAllTrialTerminalsReply>* AsyncKillAllTrialTerminalsLocalRaw(::grpc::ClientContext* context, const ::mrpc_admin::ActiveTerminalsRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::mrpc_admin::KillAllTrialTerminalsReply>* PrepareAsyncKillAllTrialTerminalsLocalRaw(::grpc::ClientContext* context, const ::mrpc_admin::ActiveTerminalsRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -358,6 +386,20 @@ class AdminApi final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mrpc_admin::GetSessionRestoreStatusReply>> PrepareAsyncGetSessionRestoreStatus(::grpc::ClientContext* context, const ::mrpc_admin::ActiveTerminalsRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mrpc_admin::GetSessionRestoreStatusReply>>(PrepareAsyncGetSessionRestoreStatusRaw(context, request, cq));
     }
+    ::grpc::Status KillAllTrialTerminals(::grpc::ClientContext* context, const ::mrpc_admin::ActiveTerminalsRequest& request, ::mrpc_admin::KillAllTrialTerminalsReply* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mrpc_admin::KillAllTrialTerminalsReply>> AsyncKillAllTrialTerminals(::grpc::ClientContext* context, const ::mrpc_admin::ActiveTerminalsRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mrpc_admin::KillAllTrialTerminalsReply>>(AsyncKillAllTrialTerminalsRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mrpc_admin::KillAllTrialTerminalsReply>> PrepareAsyncKillAllTrialTerminals(::grpc::ClientContext* context, const ::mrpc_admin::ActiveTerminalsRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mrpc_admin::KillAllTrialTerminalsReply>>(PrepareAsyncKillAllTrialTerminalsRaw(context, request, cq));
+    }
+    ::grpc::Status KillAllTrialTerminalsLocal(::grpc::ClientContext* context, const ::mrpc_admin::ActiveTerminalsRequest& request, ::mrpc_admin::KillAllTrialTerminalsReply* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mrpc_admin::KillAllTrialTerminalsReply>> AsyncKillAllTrialTerminalsLocal(::grpc::ClientContext* context, const ::mrpc_admin::ActiveTerminalsRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mrpc_admin::KillAllTrialTerminalsReply>>(AsyncKillAllTrialTerminalsLocalRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mrpc_admin::KillAllTrialTerminalsReply>> PrepareAsyncKillAllTrialTerminalsLocal(::grpc::ClientContext* context, const ::mrpc_admin::ActiveTerminalsRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mrpc_admin::KillAllTrialTerminalsReply>>(PrepareAsyncKillAllTrialTerminalsLocalRaw(context, request, cq));
+    }
     class async final :
       public StubInterface::async_interface {
      public:
@@ -387,6 +429,10 @@ class AdminApi final {
       void GetSessionRestoreLogs(::grpc::ClientContext* context, const ::mrpc_admin::GetSessionRestoreLogsRequest* request, ::mrpc_admin::GetSessionRestoreLogsReply* response, ::grpc::ClientUnaryReactor* reactor) override;
       void GetSessionRestoreStatus(::grpc::ClientContext* context, const ::mrpc_admin::ActiveTerminalsRequest* request, ::mrpc_admin::GetSessionRestoreStatusReply* response, std::function<void(::grpc::Status)>) override;
       void GetSessionRestoreStatus(::grpc::ClientContext* context, const ::mrpc_admin::ActiveTerminalsRequest* request, ::mrpc_admin::GetSessionRestoreStatusReply* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void KillAllTrialTerminals(::grpc::ClientContext* context, const ::mrpc_admin::ActiveTerminalsRequest* request, ::mrpc_admin::KillAllTrialTerminalsReply* response, std::function<void(::grpc::Status)>) override;
+      void KillAllTrialTerminals(::grpc::ClientContext* context, const ::mrpc_admin::ActiveTerminalsRequest* request, ::mrpc_admin::KillAllTrialTerminalsReply* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void KillAllTrialTerminalsLocal(::grpc::ClientContext* context, const ::mrpc_admin::ActiveTerminalsRequest* request, ::mrpc_admin::KillAllTrialTerminalsReply* response, std::function<void(::grpc::Status)>) override;
+      void KillAllTrialTerminalsLocal(::grpc::ClientContext* context, const ::mrpc_admin::ActiveTerminalsRequest* request, ::mrpc_admin::KillAllTrialTerminalsReply* response, ::grpc::ClientUnaryReactor* reactor) override;
      private:
       friend class Stub;
       explicit async(Stub* stub): stub_(stub) { }
@@ -424,6 +470,10 @@ class AdminApi final {
     ::grpc::ClientAsyncResponseReader< ::mrpc_admin::GetSessionRestoreLogsReply>* PrepareAsyncGetSessionRestoreLogsRaw(::grpc::ClientContext* context, const ::mrpc_admin::GetSessionRestoreLogsRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::mrpc_admin::GetSessionRestoreStatusReply>* AsyncGetSessionRestoreStatusRaw(::grpc::ClientContext* context, const ::mrpc_admin::ActiveTerminalsRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::mrpc_admin::GetSessionRestoreStatusReply>* PrepareAsyncGetSessionRestoreStatusRaw(::grpc::ClientContext* context, const ::mrpc_admin::ActiveTerminalsRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::mrpc_admin::KillAllTrialTerminalsReply>* AsyncKillAllTrialTerminalsRaw(::grpc::ClientContext* context, const ::mrpc_admin::ActiveTerminalsRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::mrpc_admin::KillAllTrialTerminalsReply>* PrepareAsyncKillAllTrialTerminalsRaw(::grpc::ClientContext* context, const ::mrpc_admin::ActiveTerminalsRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::mrpc_admin::KillAllTrialTerminalsReply>* AsyncKillAllTrialTerminalsLocalRaw(::grpc::ClientContext* context, const ::mrpc_admin::ActiveTerminalsRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::mrpc_admin::KillAllTrialTerminalsReply>* PrepareAsyncKillAllTrialTerminalsLocalRaw(::grpc::ClientContext* context, const ::mrpc_admin::ActiveTerminalsRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_ActiveTerminals_;
     const ::grpc::internal::RpcMethod rpcmethod_ActiveTerminalsCluster_;
     const ::grpc::internal::RpcMethod rpcmethod_SystemUsage_;
@@ -437,6 +487,8 @@ class AdminApi final {
     const ::grpc::internal::RpcMethod rpcmethod_GetAllLogs_;
     const ::grpc::internal::RpcMethod rpcmethod_GetSessionRestoreLogs_;
     const ::grpc::internal::RpcMethod rpcmethod_GetSessionRestoreStatus_;
+    const ::grpc::internal::RpcMethod rpcmethod_KillAllTrialTerminals_;
+    const ::grpc::internal::RpcMethod rpcmethod_KillAllTrialTerminalsLocal_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -490,6 +542,11 @@ class AdminApi final {
     virtual ::grpc::Status GetSessionRestoreLogs(::grpc::ServerContext* context, const ::mrpc_admin::GetSessionRestoreLogsRequest* request, ::mrpc_admin::GetSessionRestoreLogsReply* response);
     // Session restore watcher status (terminals loaded, queue count, state, diagnostics) for THIS pod.
     virtual ::grpc::Status GetSessionRestoreStatus(::grpc::ServerContext* context, const ::mrpc_admin::ActiveTerminalsRequest* request, ::mrpc_admin::GetSessionRestoreStatusReply* response);
+    // Kills all active trial terminals across ALL pods of this StatefulSet/Deployment
+    // and marks them stopped in database.
+    virtual ::grpc::Status KillAllTrialTerminals(::grpc::ServerContext* context, const ::mrpc_admin::ActiveTerminalsRequest* request, ::mrpc_admin::KillAllTrialTerminalsReply* response);
+    // Kills all active trial terminals on THIS pod.
+    virtual ::grpc::Status KillAllTrialTerminalsLocal(::grpc::ServerContext* context, const ::mrpc_admin::ActiveTerminalsRequest* request, ::mrpc_admin::KillAllTrialTerminalsReply* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_ActiveTerminals : public BaseClass {
@@ -751,7 +808,47 @@ class AdminApi final {
       ::grpc::Service::RequestAsyncUnary(12, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_ActiveTerminals<WithAsyncMethod_ActiveTerminalsCluster<WithAsyncMethod_SystemUsage<WithAsyncMethod_ListLogFiles<WithAsyncMethod_GetLogFile<WithAsyncMethod_GetEventLogEntries<WithAsyncMethod_CaptureSessionScreenshot<WithAsyncMethod_CaptureSessionScreenshotOnPod<WithAsyncMethod_RefreshMrpcRest<WithAsyncMethod_GetVersion<WithAsyncMethod_GetAllLogs<WithAsyncMethod_GetSessionRestoreLogs<WithAsyncMethod_GetSessionRestoreStatus<Service > > > > > > > > > > > > > AsyncService;
+  template <class BaseClass>
+  class WithAsyncMethod_KillAllTrialTerminals : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_KillAllTrialTerminals() {
+      ::grpc::Service::MarkMethodAsync(13);
+    }
+    ~WithAsyncMethod_KillAllTrialTerminals() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status KillAllTrialTerminals(::grpc::ServerContext* /*context*/, const ::mrpc_admin::ActiveTerminalsRequest* /*request*/, ::mrpc_admin::KillAllTrialTerminalsReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestKillAllTrialTerminals(::grpc::ServerContext* context, ::mrpc_admin::ActiveTerminalsRequest* request, ::grpc::ServerAsyncResponseWriter< ::mrpc_admin::KillAllTrialTerminalsReply>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(13, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_KillAllTrialTerminalsLocal : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_KillAllTrialTerminalsLocal() {
+      ::grpc::Service::MarkMethodAsync(14);
+    }
+    ~WithAsyncMethod_KillAllTrialTerminalsLocal() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status KillAllTrialTerminalsLocal(::grpc::ServerContext* /*context*/, const ::mrpc_admin::ActiveTerminalsRequest* /*request*/, ::mrpc_admin::KillAllTrialTerminalsReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestKillAllTrialTerminalsLocal(::grpc::ServerContext* context, ::mrpc_admin::ActiveTerminalsRequest* request, ::grpc::ServerAsyncResponseWriter< ::mrpc_admin::KillAllTrialTerminalsReply>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(14, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_ActiveTerminals<WithAsyncMethod_ActiveTerminalsCluster<WithAsyncMethod_SystemUsage<WithAsyncMethod_ListLogFiles<WithAsyncMethod_GetLogFile<WithAsyncMethod_GetEventLogEntries<WithAsyncMethod_CaptureSessionScreenshot<WithAsyncMethod_CaptureSessionScreenshotOnPod<WithAsyncMethod_RefreshMrpcRest<WithAsyncMethod_GetVersion<WithAsyncMethod_GetAllLogs<WithAsyncMethod_GetSessionRestoreLogs<WithAsyncMethod_GetSessionRestoreStatus<WithAsyncMethod_KillAllTrialTerminals<WithAsyncMethod_KillAllTrialTerminalsLocal<Service > > > > > > > > > > > > > > > AsyncService;
   template <class BaseClass>
   class WithCallbackMethod_ActiveTerminals : public BaseClass {
    private:
@@ -1103,7 +1200,61 @@ class AdminApi final {
     virtual ::grpc::ServerUnaryReactor* GetSessionRestoreStatus(
       ::grpc::CallbackServerContext* /*context*/, const ::mrpc_admin::ActiveTerminalsRequest* /*request*/, ::mrpc_admin::GetSessionRestoreStatusReply* /*response*/)  { return nullptr; }
   };
-  typedef WithCallbackMethod_ActiveTerminals<WithCallbackMethod_ActiveTerminalsCluster<WithCallbackMethod_SystemUsage<WithCallbackMethod_ListLogFiles<WithCallbackMethod_GetLogFile<WithCallbackMethod_GetEventLogEntries<WithCallbackMethod_CaptureSessionScreenshot<WithCallbackMethod_CaptureSessionScreenshotOnPod<WithCallbackMethod_RefreshMrpcRest<WithCallbackMethod_GetVersion<WithCallbackMethod_GetAllLogs<WithCallbackMethod_GetSessionRestoreLogs<WithCallbackMethod_GetSessionRestoreStatus<Service > > > > > > > > > > > > > CallbackService;
+  template <class BaseClass>
+  class WithCallbackMethod_KillAllTrialTerminals : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_KillAllTrialTerminals() {
+      ::grpc::Service::MarkMethodCallback(13,
+          new ::grpc::internal::CallbackUnaryHandler< ::mrpc_admin::ActiveTerminalsRequest, ::mrpc_admin::KillAllTrialTerminalsReply>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::mrpc_admin::ActiveTerminalsRequest* request, ::mrpc_admin::KillAllTrialTerminalsReply* response) { return this->KillAllTrialTerminals(context, request, response); }));}
+    void SetMessageAllocatorFor_KillAllTrialTerminals(
+        ::grpc::MessageAllocator< ::mrpc_admin::ActiveTerminalsRequest, ::mrpc_admin::KillAllTrialTerminalsReply>* allocator) {
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(13);
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::mrpc_admin::ActiveTerminalsRequest, ::mrpc_admin::KillAllTrialTerminalsReply>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~WithCallbackMethod_KillAllTrialTerminals() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status KillAllTrialTerminals(::grpc::ServerContext* /*context*/, const ::mrpc_admin::ActiveTerminalsRequest* /*request*/, ::mrpc_admin::KillAllTrialTerminalsReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* KillAllTrialTerminals(
+      ::grpc::CallbackServerContext* /*context*/, const ::mrpc_admin::ActiveTerminalsRequest* /*request*/, ::mrpc_admin::KillAllTrialTerminalsReply* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithCallbackMethod_KillAllTrialTerminalsLocal : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_KillAllTrialTerminalsLocal() {
+      ::grpc::Service::MarkMethodCallback(14,
+          new ::grpc::internal::CallbackUnaryHandler< ::mrpc_admin::ActiveTerminalsRequest, ::mrpc_admin::KillAllTrialTerminalsReply>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::mrpc_admin::ActiveTerminalsRequest* request, ::mrpc_admin::KillAllTrialTerminalsReply* response) { return this->KillAllTrialTerminalsLocal(context, request, response); }));}
+    void SetMessageAllocatorFor_KillAllTrialTerminalsLocal(
+        ::grpc::MessageAllocator< ::mrpc_admin::ActiveTerminalsRequest, ::mrpc_admin::KillAllTrialTerminalsReply>* allocator) {
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(14);
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::mrpc_admin::ActiveTerminalsRequest, ::mrpc_admin::KillAllTrialTerminalsReply>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~WithCallbackMethod_KillAllTrialTerminalsLocal() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status KillAllTrialTerminalsLocal(::grpc::ServerContext* /*context*/, const ::mrpc_admin::ActiveTerminalsRequest* /*request*/, ::mrpc_admin::KillAllTrialTerminalsReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* KillAllTrialTerminalsLocal(
+      ::grpc::CallbackServerContext* /*context*/, const ::mrpc_admin::ActiveTerminalsRequest* /*request*/, ::mrpc_admin::KillAllTrialTerminalsReply* /*response*/)  { return nullptr; }
+  };
+  typedef WithCallbackMethod_ActiveTerminals<WithCallbackMethod_ActiveTerminalsCluster<WithCallbackMethod_SystemUsage<WithCallbackMethod_ListLogFiles<WithCallbackMethod_GetLogFile<WithCallbackMethod_GetEventLogEntries<WithCallbackMethod_CaptureSessionScreenshot<WithCallbackMethod_CaptureSessionScreenshotOnPod<WithCallbackMethod_RefreshMrpcRest<WithCallbackMethod_GetVersion<WithCallbackMethod_GetAllLogs<WithCallbackMethod_GetSessionRestoreLogs<WithCallbackMethod_GetSessionRestoreStatus<WithCallbackMethod_KillAllTrialTerminals<WithCallbackMethod_KillAllTrialTerminalsLocal<Service > > > > > > > > > > > > > > > CallbackService;
   typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_ActiveTerminals : public BaseClass {
@@ -1322,6 +1473,40 @@ class AdminApi final {
     }
     // disable synchronous version of this method
     ::grpc::Status GetSessionRestoreStatus(::grpc::ServerContext* /*context*/, const ::mrpc_admin::ActiveTerminalsRequest* /*request*/, ::mrpc_admin::GetSessionRestoreStatusReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_KillAllTrialTerminals : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_KillAllTrialTerminals() {
+      ::grpc::Service::MarkMethodGeneric(13);
+    }
+    ~WithGenericMethod_KillAllTrialTerminals() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status KillAllTrialTerminals(::grpc::ServerContext* /*context*/, const ::mrpc_admin::ActiveTerminalsRequest* /*request*/, ::mrpc_admin::KillAllTrialTerminalsReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_KillAllTrialTerminalsLocal : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_KillAllTrialTerminalsLocal() {
+      ::grpc::Service::MarkMethodGeneric(14);
+    }
+    ~WithGenericMethod_KillAllTrialTerminalsLocal() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status KillAllTrialTerminalsLocal(::grpc::ServerContext* /*context*/, const ::mrpc_admin::ActiveTerminalsRequest* /*request*/, ::mrpc_admin::KillAllTrialTerminalsReply* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -1584,6 +1769,46 @@ class AdminApi final {
     }
     void RequestGetSessionRestoreStatus(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(12, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_KillAllTrialTerminals : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_KillAllTrialTerminals() {
+      ::grpc::Service::MarkMethodRaw(13);
+    }
+    ~WithRawMethod_KillAllTrialTerminals() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status KillAllTrialTerminals(::grpc::ServerContext* /*context*/, const ::mrpc_admin::ActiveTerminalsRequest* /*request*/, ::mrpc_admin::KillAllTrialTerminalsReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestKillAllTrialTerminals(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(13, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_KillAllTrialTerminalsLocal : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_KillAllTrialTerminalsLocal() {
+      ::grpc::Service::MarkMethodRaw(14);
+    }
+    ~WithRawMethod_KillAllTrialTerminalsLocal() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status KillAllTrialTerminalsLocal(::grpc::ServerContext* /*context*/, const ::mrpc_admin::ActiveTerminalsRequest* /*request*/, ::mrpc_admin::KillAllTrialTerminalsReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestKillAllTrialTerminalsLocal(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(14, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -1870,6 +2095,50 @@ class AdminApi final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerUnaryReactor* GetSessionRestoreStatus(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithRawCallbackMethod_KillAllTrialTerminals : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_KillAllTrialTerminals() {
+      ::grpc::Service::MarkMethodRawCallback(13,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->KillAllTrialTerminals(context, request, response); }));
+    }
+    ~WithRawCallbackMethod_KillAllTrialTerminals() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status KillAllTrialTerminals(::grpc::ServerContext* /*context*/, const ::mrpc_admin::ActiveTerminalsRequest* /*request*/, ::mrpc_admin::KillAllTrialTerminalsReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* KillAllTrialTerminals(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithRawCallbackMethod_KillAllTrialTerminalsLocal : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_KillAllTrialTerminalsLocal() {
+      ::grpc::Service::MarkMethodRawCallback(14,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->KillAllTrialTerminalsLocal(context, request, response); }));
+    }
+    ~WithRawCallbackMethod_KillAllTrialTerminalsLocal() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status KillAllTrialTerminalsLocal(::grpc::ServerContext* /*context*/, const ::mrpc_admin::ActiveTerminalsRequest* /*request*/, ::mrpc_admin::KillAllTrialTerminalsReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* KillAllTrialTerminalsLocal(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
@@ -2223,9 +2492,63 @@ class AdminApi final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedGetSessionRestoreStatus(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::mrpc_admin::ActiveTerminalsRequest,::mrpc_admin::GetSessionRestoreStatusReply>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_ActiveTerminals<WithStreamedUnaryMethod_ActiveTerminalsCluster<WithStreamedUnaryMethod_SystemUsage<WithStreamedUnaryMethod_ListLogFiles<WithStreamedUnaryMethod_GetLogFile<WithStreamedUnaryMethod_GetEventLogEntries<WithStreamedUnaryMethod_CaptureSessionScreenshot<WithStreamedUnaryMethod_CaptureSessionScreenshotOnPod<WithStreamedUnaryMethod_RefreshMrpcRest<WithStreamedUnaryMethod_GetVersion<WithStreamedUnaryMethod_GetAllLogs<WithStreamedUnaryMethod_GetSessionRestoreLogs<WithStreamedUnaryMethod_GetSessionRestoreStatus<Service > > > > > > > > > > > > > StreamedUnaryService;
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_KillAllTrialTerminals : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_KillAllTrialTerminals() {
+      ::grpc::Service::MarkMethodStreamed(13,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::mrpc_admin::ActiveTerminalsRequest, ::mrpc_admin::KillAllTrialTerminalsReply>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::mrpc_admin::ActiveTerminalsRequest, ::mrpc_admin::KillAllTrialTerminalsReply>* streamer) {
+                       return this->StreamedKillAllTrialTerminals(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_KillAllTrialTerminals() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status KillAllTrialTerminals(::grpc::ServerContext* /*context*/, const ::mrpc_admin::ActiveTerminalsRequest* /*request*/, ::mrpc_admin::KillAllTrialTerminalsReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedKillAllTrialTerminals(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::mrpc_admin::ActiveTerminalsRequest,::mrpc_admin::KillAllTrialTerminalsReply>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_KillAllTrialTerminalsLocal : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_KillAllTrialTerminalsLocal() {
+      ::grpc::Service::MarkMethodStreamed(14,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::mrpc_admin::ActiveTerminalsRequest, ::mrpc_admin::KillAllTrialTerminalsReply>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::mrpc_admin::ActiveTerminalsRequest, ::mrpc_admin::KillAllTrialTerminalsReply>* streamer) {
+                       return this->StreamedKillAllTrialTerminalsLocal(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_KillAllTrialTerminalsLocal() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status KillAllTrialTerminalsLocal(::grpc::ServerContext* /*context*/, const ::mrpc_admin::ActiveTerminalsRequest* /*request*/, ::mrpc_admin::KillAllTrialTerminalsReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedKillAllTrialTerminalsLocal(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::mrpc_admin::ActiveTerminalsRequest,::mrpc_admin::KillAllTrialTerminalsReply>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_ActiveTerminals<WithStreamedUnaryMethod_ActiveTerminalsCluster<WithStreamedUnaryMethod_SystemUsage<WithStreamedUnaryMethod_ListLogFiles<WithStreamedUnaryMethod_GetLogFile<WithStreamedUnaryMethod_GetEventLogEntries<WithStreamedUnaryMethod_CaptureSessionScreenshot<WithStreamedUnaryMethod_CaptureSessionScreenshotOnPod<WithStreamedUnaryMethod_RefreshMrpcRest<WithStreamedUnaryMethod_GetVersion<WithStreamedUnaryMethod_GetAllLogs<WithStreamedUnaryMethod_GetSessionRestoreLogs<WithStreamedUnaryMethod_GetSessionRestoreStatus<WithStreamedUnaryMethod_KillAllTrialTerminals<WithStreamedUnaryMethod_KillAllTrialTerminalsLocal<Service > > > > > > > > > > > > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_ActiveTerminals<WithStreamedUnaryMethod_ActiveTerminalsCluster<WithStreamedUnaryMethod_SystemUsage<WithStreamedUnaryMethod_ListLogFiles<WithStreamedUnaryMethod_GetLogFile<WithStreamedUnaryMethod_GetEventLogEntries<WithStreamedUnaryMethod_CaptureSessionScreenshot<WithStreamedUnaryMethod_CaptureSessionScreenshotOnPod<WithStreamedUnaryMethod_RefreshMrpcRest<WithStreamedUnaryMethod_GetVersion<WithStreamedUnaryMethod_GetAllLogs<WithStreamedUnaryMethod_GetSessionRestoreLogs<WithStreamedUnaryMethod_GetSessionRestoreStatus<Service > > > > > > > > > > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_ActiveTerminals<WithStreamedUnaryMethod_ActiveTerminalsCluster<WithStreamedUnaryMethod_SystemUsage<WithStreamedUnaryMethod_ListLogFiles<WithStreamedUnaryMethod_GetLogFile<WithStreamedUnaryMethod_GetEventLogEntries<WithStreamedUnaryMethod_CaptureSessionScreenshot<WithStreamedUnaryMethod_CaptureSessionScreenshotOnPod<WithStreamedUnaryMethod_RefreshMrpcRest<WithStreamedUnaryMethod_GetVersion<WithStreamedUnaryMethod_GetAllLogs<WithStreamedUnaryMethod_GetSessionRestoreLogs<WithStreamedUnaryMethod_GetSessionRestoreStatus<WithStreamedUnaryMethod_KillAllTrialTerminals<WithStreamedUnaryMethod_KillAllTrialTerminalsLocal<Service > > > > > > > > > > > > > > > StreamedService;
 };
 
 }  // namespace mrpc_admin

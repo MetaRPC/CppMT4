@@ -61,6 +61,22 @@ struct GetSessionRestoreStatusReplyDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GetSessionRestoreStatusReplyDefaultTypeInternal _GetSessionRestoreStatusReply_default_instance_;
+PROTOBUF_CONSTEXPR KillAllTrialTerminalsReply::KillAllTrialTerminalsReply(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.killed_terminal_ids_)*/{}
+  , /*decltype(_impl_.message_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.error_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.killed_count_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct KillAllTrialTerminalsReplyDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR KillAllTrialTerminalsReplyDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~KillAllTrialTerminalsReplyDefaultTypeInternal() {}
+  union {
+    KillAllTrialTerminalsReply _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 KillAllTrialTerminalsReplyDefaultTypeInternal _KillAllTrialTerminalsReply_default_instance_;
 PROTOBUF_CONSTEXPR GetSessionRestoreLogsRequest::GetSessionRestoreLogsRequest(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.admin_key_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
@@ -469,7 +485,7 @@ struct ActiveTerminalsClusterReplyDefaultTypeInternal {
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 ActiveTerminalsClusterReplyDefaultTypeInternal _ActiveTerminalsClusterReply_default_instance_;
 }  // namespace mrpc_admin
-static ::_pb::Metadata file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[27];
+static ::_pb::Metadata file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[28];
 static constexpr ::_pb::EnumDescriptor const** file_level_enum_descriptors_mt4_2dterm_2dapi_2dadmin_2eproto = nullptr;
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_mt4_2dterm_2dapi_2dadmin_2eproto = nullptr;
 
@@ -502,6 +518,16 @@ const uint32_t TableStruct_mt4_2dterm_2dapi_2dadmin_2eproto::offsets[] PROTOBUF_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::mrpc_admin::GetSessionRestoreStatusReply, _impl_.status_),
   PROTOBUF_FIELD_OFFSET(::mrpc_admin::GetSessionRestoreStatusReply, _impl_.error_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::mrpc_admin::KillAllTrialTerminalsReply, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::mrpc_admin::KillAllTrialTerminalsReply, _impl_.killed_count_),
+  PROTOBUF_FIELD_OFFSET(::mrpc_admin::KillAllTrialTerminalsReply, _impl_.killed_terminal_ids_),
+  PROTOBUF_FIELD_OFFSET(::mrpc_admin::KillAllTrialTerminalsReply, _impl_.message_),
+  PROTOBUF_FIELD_OFFSET(::mrpc_admin::KillAllTrialTerminalsReply, _impl_.error_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::mrpc_admin::GetSessionRestoreLogsRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -778,36 +804,38 @@ const uint32_t TableStruct_mt4_2dterm_2dapi_2dadmin_2eproto::offsets[] PROTOBUF_
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::mrpc_admin::SessionRestoreWatcherStatus)},
   { 20, -1, -1, sizeof(::mrpc_admin::GetSessionRestoreStatusReply)},
-  { 28, -1, -1, sizeof(::mrpc_admin::GetSessionRestoreLogsRequest)},
-  { 37, -1, -1, sizeof(::mrpc_admin::SessionRestoreLogEntry)},
-  { 53, -1, -1, sizeof(::mrpc_admin::GetSessionRestoreLogsReply)},
-  { 61, -1, -1, sizeof(::mrpc_admin::GetAllLogsRequest)},
-  { 70, -1, -1, sizeof(::mrpc_admin::AllLogsEntry)},
-  { 84, -1, -1, sizeof(::mrpc_admin::GetAllLogsReply)},
-  { 92, -1, -1, sizeof(::mrpc_admin::VersionRequest)},
-  { 98, -1, -1, sizeof(::mrpc_admin::VersionReply)},
-  { 108, -1, -1, sizeof(::mrpc_admin::ListLogFilesReply)},
-  { 116, -1, -1, sizeof(::mrpc_admin::LogFileEntry)},
-  { 125, -1, -1, sizeof(::mrpc_admin::GetLogFileRequest)},
-  { 134, -1, -1, sizeof(::mrpc_admin::GetLogFileReply)},
-  { 144, -1, -1, sizeof(::mrpc_admin::GetEventLogEntriesRequest)},
-  { 153, -1, -1, sizeof(::mrpc_admin::GetEventLogEntriesReply)},
-  { 161, -1, -1, sizeof(::mrpc_admin::CaptureSessionScreenshotRequest)},
-  { 169, -1, -1, sizeof(::mrpc_admin::CaptureSessionScreenshotOnPodRequest)},
-  { 178, -1, -1, sizeof(::mrpc_admin::CaptureSessionScreenshotReply)},
-  { 186, -1, -1, sizeof(::mrpc_admin::RefreshMrpcRestReply)},
-  { 195, -1, -1, sizeof(::mrpc_admin::UsageSample)},
-  { 205, -1, -1, sizeof(::mrpc_admin::SystemUsageReply)},
-  { 216, -1, -1, sizeof(::mrpc_admin::ActiveTerminalsRequest)},
-  { 223, 244, -1, sizeof(::mrpc_admin::TerminalInfo)},
-  { 259, -1, -1, sizeof(::mrpc_admin::ActiveTerminalsReply)},
-  { 275, -1, -1, sizeof(::mrpc_admin::PodTerminals)},
-  { 293, -1, -1, sizeof(::mrpc_admin::ActiveTerminalsClusterReply)},
+  { 28, -1, -1, sizeof(::mrpc_admin::KillAllTrialTerminalsReply)},
+  { 38, -1, -1, sizeof(::mrpc_admin::GetSessionRestoreLogsRequest)},
+  { 47, -1, -1, sizeof(::mrpc_admin::SessionRestoreLogEntry)},
+  { 63, -1, -1, sizeof(::mrpc_admin::GetSessionRestoreLogsReply)},
+  { 71, -1, -1, sizeof(::mrpc_admin::GetAllLogsRequest)},
+  { 80, -1, -1, sizeof(::mrpc_admin::AllLogsEntry)},
+  { 94, -1, -1, sizeof(::mrpc_admin::GetAllLogsReply)},
+  { 102, -1, -1, sizeof(::mrpc_admin::VersionRequest)},
+  { 108, -1, -1, sizeof(::mrpc_admin::VersionReply)},
+  { 118, -1, -1, sizeof(::mrpc_admin::ListLogFilesReply)},
+  { 126, -1, -1, sizeof(::mrpc_admin::LogFileEntry)},
+  { 135, -1, -1, sizeof(::mrpc_admin::GetLogFileRequest)},
+  { 144, -1, -1, sizeof(::mrpc_admin::GetLogFileReply)},
+  { 154, -1, -1, sizeof(::mrpc_admin::GetEventLogEntriesRequest)},
+  { 163, -1, -1, sizeof(::mrpc_admin::GetEventLogEntriesReply)},
+  { 171, -1, -1, sizeof(::mrpc_admin::CaptureSessionScreenshotRequest)},
+  { 179, -1, -1, sizeof(::mrpc_admin::CaptureSessionScreenshotOnPodRequest)},
+  { 188, -1, -1, sizeof(::mrpc_admin::CaptureSessionScreenshotReply)},
+  { 196, -1, -1, sizeof(::mrpc_admin::RefreshMrpcRestReply)},
+  { 205, -1, -1, sizeof(::mrpc_admin::UsageSample)},
+  { 215, -1, -1, sizeof(::mrpc_admin::SystemUsageReply)},
+  { 226, -1, -1, sizeof(::mrpc_admin::ActiveTerminalsRequest)},
+  { 233, 254, -1, sizeof(::mrpc_admin::TerminalInfo)},
+  { 269, -1, -1, sizeof(::mrpc_admin::ActiveTerminalsReply)},
+  { 285, -1, -1, sizeof(::mrpc_admin::PodTerminals)},
+  { 303, -1, -1, sizeof(::mrpc_admin::ActiveTerminalsClusterReply)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
   &::mrpc_admin::_SessionRestoreWatcherStatus_default_instance_._instance,
   &::mrpc_admin::_GetSessionRestoreStatusReply_default_instance_._instance,
+  &::mrpc_admin::_KillAllTrialTerminalsReply_default_instance_._instance,
   &::mrpc_admin::_GetSessionRestoreLogsRequest_default_instance_._instance,
   &::mrpc_admin::_SessionRestoreLogEntry_default_instance_._instance,
   &::mrpc_admin::_GetSessionRestoreLogsReply_default_instance_._instance,
@@ -850,127 +878,138 @@ const char descriptor_table_protodef_mt4_2dterm_2dapi_2dadmin_2eproto[] PROTOBUF
   "ms\030\r \001(\001\022\022\n\nlast_error\030\016 \001(\t\"f\n\034GetSessi"
   "onRestoreStatusReply\0227\n\006status\030\001 \001(\0132\'.m"
   "rpc_admin.SessionRestoreWatcherStatus\022\r\n"
-  "\005error\030\002 \001(\t\"S\n\034GetSessionRestoreLogsReq"
-  "uest\022\021\n\tadmin_key\030\001 \001(\t\022\013\n\003pod\030\002 \001(\t\022\023\n\013"
-  "latest_only\030\003 \001(\010\"\302\001\n\026SessionRestoreLogE"
-  "ntry\022\020\n\010token_id\030\001 \001(\t\022\020\n\010platform\030\002 \001(\t"
-  "\022\016\n\006reason\030\003 \001(\t\022\r\n\005owner\030\004 \001(\t\022\014\n\004user\030"
-  "\005 \001(\t\022\016\n\006target\030\006 \001(\t\022\017\n\007success\030\007 \001(\010\022\r"
-  "\n\005error\030\010 \001(\t\022\022\n\nelapsed_ms\030\t \001(\001\022\023\n\013cre"
-  "ated_utc\030\n \001(\t\"`\n\032GetSessionRestoreLogsR"
-  "eply\0223\n\007entries\030\001 \003(\0132\".mrpc_admin.Sessi"
-  "onRestoreLogEntry\022\r\n\005error\030\002 \001(\t\"]\n\021GetA"
-  "llLogsRequest\022\021\n\tadmin_key\030\001 \001(\t\022\031\n\021max_"
-  "bytes_per_log\030\002 \001(\003\022\032\n\022exclude_event_log"
-  "s\030\003 \001(\010\"\226\001\n\014AllLogsEntry\022\016\n\006source\030\001 \001(\t"
-  "\022\014\n\004name\030\002 \001(\t\022\014\n\004path\030\003 \001(\t\022\022\n\nsize_byt"
-  "es\030\004 \001(\003\022\023\n\013modified_at\030\005 \001(\t\022\017\n\007content"
-  "\030\006 \001(\t\022\021\n\ttruncated\030\007 \001(\010\022\r\n\005error\030\010 \001(\t"
-  "\"H\n\017GetAllLogsReply\022&\n\004logs\030\001 \003(\0132\030.mrpc"
-  "_admin.AllLogsEntry\022\r\n\005error\030\002 \001(\t\"\020\n\016Ve"
-  "rsionRequest\"V\n\014VersionReply\022\017\n\007service\030"
-  "\001 \001(\t\022\017\n\007version\030\002 \001(\t\022\026\n\016build_time_utc"
-  "\030\003 \001(\t\022\014\n\004mode\030\004 \001(\t\"K\n\021ListLogFilesRepl"
-  "y\022\'\n\005files\030\001 \003(\0132\030.mrpc_admin.LogFileEnt"
-  "ry\022\r\n\005error\030\002 \001(\t\"a\n\014LogFileEntry\022\014\n\004nam"
-  "e\030\001 \001(\t\022\022\n\nsize_bytes\030\002 \001(\003\022/\n\013modified_"
-  "at\030\003 \001(\0132\032.google.protobuf.Timestamp\"L\n\021"
-  "GetLogFileRequest\022\021\n\tadmin_key\030\001 \001(\t\022\021\n\t"
-  "file_name\030\002 \001(\t\022\021\n\tmax_bytes\030\003 \001(\003\"^\n\017Ge"
-  "tLogFileReply\022\017\n\007content\030\001 \001(\t\022\021\n\ttrunca"
-  "ted\030\002 \001(\010\022\030\n\020total_size_bytes\030\003 \001(\003\022\r\n\005e"
-  "rror\030\004 \001(\t\"S\n\031GetEventLogEntriesRequest\022"
-  "\021\n\tadmin_key\030\001 \001(\t\022\020\n\010log_name\030\002 \001(\t\022\021\n\t"
-  "max_count\030\003 \001(\005\"9\n\027GetEventLogEntriesRep"
-  "ly\022\017\n\007entries\030\001 \003(\t\022\r\n\005error\030\002 \001(\t\"O\n\037Ca"
-  "ptureSessionScreenshotRequest\022\021\n\tadmin_k"
-  "ey\030\001 \001(\t\022\031\n\021session_user_name\030\002 \001(\t\"d\n$C"
-  "aptureSessionScreenshotOnPodRequest\022\021\n\ta"
-  "dmin_key\030\001 \001(\t\022\016\n\006pod_ip\030\002 \001(\t\022\031\n\021sessio"
-  "n_user_name\030\003 \001(\t\"A\n\035CaptureSessionScree"
-  "nshotReply\022\021\n\timage_png\030\001 \001(\014\022\r\n\005error\030\002"
-  " \001(\t\"G\n\024RefreshMrpcRestReply\022\017\n\007success\030"
-  "\001 \001(\010\022\017\n\007message\030\002 \001(\t\022\r\n\005error\030\003 \001(\t\"w\n"
-  "\013UsageSample\022(\n\004time\030\001 \001(\0132\032.google.prot"
-  "obuf.Timestamp\022\023\n\013cpu_percent\030\002 \001(\001\022\023\n\013r"
-  "am_used_mb\030\003 \001(\004\022\024\n\014ram_total_mb\030\004 \001(\004\"\213"
-  "\001\n\020SystemUsageReply\022\023\n\013cpu_percent\030\001 \001(\001"
-  "\022\023\n\013ram_used_mb\030\002 \001(\004\022\024\n\014ram_total_mb\030\003 "
-  "\001(\004\022(\n\007history\030\004 \003(\0132\027.mrpc_admin.UsageS"
-  "ample\022\r\n\005error\030\005 \001(\t\"+\n\026ActiveTerminalsR"
-  "equest\022\021\n\tadmin_key\030\001 \001(\t\"\340\003\n\014TerminalIn"
-  "fo\022\n\n\002id\030\001 \001(\t\022\023\n\013user_number\030\002 \001(\r\022\024\n\014w"
-  "indows_user\030\003 \001(\t\022\017\n\007account\030\004 \001(\004\022\016\n\006se"
-  "rver\030\005 \001(\t\022\014\n\004port\030\006 \001(\r\022.\n\ncreated_at\030\007"
-  " \001(\0132\032.google.protobuf.Timestamp\022\030\n\020wind"
-  "ows_password\030\010 \001(\t\022\021\n\004name\030\t \001(\tH\000\210\001\001\022\r\n"
-  "\005state\030\n \001(\t\022\025\n\rerror_message\030\013 \001(\t\022\027\n\nu"
-  "ser_email\030\014 \001(\tH\001\210\001\001\022%\n\030startup_duration"
-  "_seconds\030\r \001(\001H\002\210\001\001\0225\n\014connected_at\030\016 \001("
-  "\0132\032.google.protobuf.TimestampH\003\210\001\001\022\031\n\014st"
-  "artup_time\030\017 \001(\tH\004\210\001\001B\007\n\005_nameB\r\n\013_user_"
-  "emailB\033\n\031_startup_duration_secondsB\017\n\r_c"
-  "onnected_atB\017\n\r_startup_time\"\256\002\n\024ActiveT"
-  "erminalsReply\022\013\n\003pod\030\001 \001(\t\022\014\n\004node\030\002 \001(\t"
-  "\022\016\n\006pod_ip\030\003 \001(\t\022+\n\tterminals\030\004 \003(\0132\030.mr"
-  "pc_admin.TerminalInfo\022\r\n\005error\030\005 \001(\t\022\023\n\013"
-  "cpu_percent\030\006 \001(\001\022\023\n\013ram_used_mb\030\007 \001(\004\022\024"
-  "\n\014ram_total_mb\030\010 \001(\004\022.\n\rusage_history\030\t "
-  "\003(\0132\027.mrpc_admin.UsageSample\022\?\n\016restore_"
-  "status\030\n \001(\0132\'.mrpc_admin.SessionRestore"
-  "WatcherStatus\"\312\002\n\014PodTerminals\022\013\n\003pod\030\001 "
-  "\001(\t\022\014\n\004node\030\002 \001(\t\022\016\n\006pod_ip\030\003 \001(\t\022\021\n\tnov"
-  "nc_url\030\004 \001(\t\022+\n\tterminals\030\005 \003(\0132\030.mrpc_a"
-  "dmin.TerminalInfo\022\r\n\005error\030\006 \001(\t\022\017\n\007host"
-  "_ip\030\007 \001(\t\022\023\n\013cpu_percent\030\010 \001(\001\022\023\n\013ram_us"
-  "ed_mb\030\t \001(\004\022\024\n\014ram_total_mb\030\n \001(\004\022.\n\rusa"
-  "ge_history\030\013 \003(\0132\027.mrpc_admin.UsageSampl"
-  "e\022\?\n\016restore_status\030\014 \001(\0132\'.mrpc_admin.S"
-  "essionRestoreWatcherStatus\"E\n\033ActiveTerm"
-  "inalsClusterReply\022&\n\004pods\030\001 \003(\0132\030.mrpc_a"
-  "dmin.PodTerminals2\267\014\n\010AdminApi\022q\n\017Active"
-  "Terminals\022\".mrpc_admin.ActiveTerminalsRe"
-  "quest\032 .mrpc_admin.ActiveTerminalsReply\""
-  "\030\202\323\344\223\002\022\022\020/ActiveTerminals\022\206\001\n\026ActiveTerm"
-  "inalsCluster\022\".mrpc_admin.ActiveTerminal"
-  "sRequest\032\'.mrpc_admin.ActiveTerminalsClu"
-  "sterReply\"\037\202\323\344\223\002\031\022\027/ActiveTerminalsClust"
-  "er\022e\n\013SystemUsage\022\".mrpc_admin.ActiveTer"
-  "minalsRequest\032\034.mrpc_admin.SystemUsageRe"
-  "ply\"\024\202\323\344\223\002\016\022\014/SystemUsage\022h\n\014ListLogFile"
-  "s\022\".mrpc_admin.ActiveTerminalsRequest\032\035."
-  "mrpc_admin.ListLogFilesReply\"\025\202\323\344\223\002\017\022\r/L"
-  "istLogFiles\022]\n\nGetLogFile\022\035.mrpc_admin.G"
-  "etLogFileRequest\032\033.mrpc_admin.GetLogFile"
-  "Reply\"\023\202\323\344\223\002\r\022\013/GetLogFile\022}\n\022GetEventLo"
-  "gEntries\022%.mrpc_admin.GetEventLogEntries"
-  "Request\032#.mrpc_admin.GetEventLogEntriesR"
-  "eply\"\033\202\323\344\223\002\025\022\023/GetEventLogEntries\022\225\001\n\030Ca"
-  "ptureSessionScreenshot\022+.mrpc_admin.Capt"
-  "ureSessionScreenshotRequest\032).mrpc_admin"
-  ".CaptureSessionScreenshotReply\"!\202\323\344\223\002\033\022\031"
-  "/CaptureSessionScreenshot\022\244\001\n\035CaptureSes"
-  "sionScreenshotOnPod\0220.mrpc_admin.Capture"
-  "SessionScreenshotOnPodRequest\032).mrpc_adm"
-  "in.CaptureSessionScreenshotReply\"&\202\323\344\223\002 "
-  "\022\036/CaptureSessionScreenshotOnPod\022q\n\017Refr"
-  "eshMrpcRest\022\".mrpc_admin.ActiveTerminals"
-  "Request\032 .mrpc_admin.RefreshMrpcRestRepl"
-  "y\"\030\202\323\344\223\002\022\022\020/RefreshMrpcRest\022W\n\nGetVersio"
-  "n\022\032.mrpc_admin.VersionRequest\032\030.mrpc_adm"
-  "in.VersionReply\"\023\202\323\344\223\002\r\022\013/version-tm\022]\n\n"
-  "GetAllLogs\022\035.mrpc_admin.GetAllLogsReques"
-  "t\032\033.mrpc_admin.GetAllLogsReply\"\023\202\323\344\223\002\r\022\013"
-  "/GetAllLogs\022\211\001\n\025GetSessionRestoreLogs\022(."
-  "mrpc_admin.GetSessionRestoreLogsRequest\032"
-  "&.mrpc_admin.GetSessionRestoreLogsReply\""
-  "\036\202\323\344\223\002\030\022\026/GetSessionRestoreLogs\022\211\001\n\027GetS"
-  "essionRestoreStatus\022\".mrpc_admin.ActiveT"
-  "erminalsRequest\032(.mrpc_admin.GetSessionR"
-  "estoreStatusReply\" \202\323\344\223\002\032\022\030/GetSessionRe"
-  "storeStatusB@Z1git.mtapi.io/root/mrpc-pr"
-  "oto.git/mt4/libraries/go\252\002\nmrpc_adminb\006p"
-  "roto3"
+  "\005error\030\002 \001(\t\"o\n\032KillAllTrialTerminalsRep"
+  "ly\022\024\n\014killed_count\030\001 \001(\005\022\033\n\023killed_termi"
+  "nal_ids\030\002 \003(\t\022\017\n\007message\030\003 \001(\t\022\r\n\005error\030"
+  "\004 \001(\t\"S\n\034GetSessionRestoreLogsRequest\022\021\n"
+  "\tadmin_key\030\001 \001(\t\022\013\n\003pod\030\002 \001(\t\022\023\n\013latest_"
+  "only\030\003 \001(\010\"\302\001\n\026SessionRestoreLogEntry\022\020\n"
+  "\010token_id\030\001 \001(\t\022\020\n\010platform\030\002 \001(\t\022\016\n\006rea"
+  "son\030\003 \001(\t\022\r\n\005owner\030\004 \001(\t\022\014\n\004user\030\005 \001(\t\022\016"
+  "\n\006target\030\006 \001(\t\022\017\n\007success\030\007 \001(\010\022\r\n\005error"
+  "\030\010 \001(\t\022\022\n\nelapsed_ms\030\t \001(\001\022\023\n\013created_ut"
+  "c\030\n \001(\t\"`\n\032GetSessionRestoreLogsReply\0223\n"
+  "\007entries\030\001 \003(\0132\".mrpc_admin.SessionResto"
+  "reLogEntry\022\r\n\005error\030\002 \001(\t\"]\n\021GetAllLogsR"
+  "equest\022\021\n\tadmin_key\030\001 \001(\t\022\031\n\021max_bytes_p"
+  "er_log\030\002 \001(\003\022\032\n\022exclude_event_logs\030\003 \001(\010"
+  "\"\226\001\n\014AllLogsEntry\022\016\n\006source\030\001 \001(\t\022\014\n\004nam"
+  "e\030\002 \001(\t\022\014\n\004path\030\003 \001(\t\022\022\n\nsize_bytes\030\004 \001("
+  "\003\022\023\n\013modified_at\030\005 \001(\t\022\017\n\007content\030\006 \001(\t\022"
+  "\021\n\ttruncated\030\007 \001(\010\022\r\n\005error\030\010 \001(\t\"H\n\017Get"
+  "AllLogsReply\022&\n\004logs\030\001 \003(\0132\030.mrpc_admin."
+  "AllLogsEntry\022\r\n\005error\030\002 \001(\t\"\020\n\016VersionRe"
+  "quest\"V\n\014VersionReply\022\017\n\007service\030\001 \001(\t\022\017"
+  "\n\007version\030\002 \001(\t\022\026\n\016build_time_utc\030\003 \001(\t\022"
+  "\014\n\004mode\030\004 \001(\t\"K\n\021ListLogFilesReply\022\'\n\005fi"
+  "les\030\001 \003(\0132\030.mrpc_admin.LogFileEntry\022\r\n\005e"
+  "rror\030\002 \001(\t\"a\n\014LogFileEntry\022\014\n\004name\030\001 \001(\t"
+  "\022\022\n\nsize_bytes\030\002 \001(\003\022/\n\013modified_at\030\003 \001("
+  "\0132\032.google.protobuf.Timestamp\"L\n\021GetLogF"
+  "ileRequest\022\021\n\tadmin_key\030\001 \001(\t\022\021\n\tfile_na"
+  "me\030\002 \001(\t\022\021\n\tmax_bytes\030\003 \001(\003\"^\n\017GetLogFil"
+  "eReply\022\017\n\007content\030\001 \001(\t\022\021\n\ttruncated\030\002 \001"
+  "(\010\022\030\n\020total_size_bytes\030\003 \001(\003\022\r\n\005error\030\004 "
+  "\001(\t\"S\n\031GetEventLogEntriesRequest\022\021\n\tadmi"
+  "n_key\030\001 \001(\t\022\020\n\010log_name\030\002 \001(\t\022\021\n\tmax_cou"
+  "nt\030\003 \001(\005\"9\n\027GetEventLogEntriesReply\022\017\n\007e"
+  "ntries\030\001 \003(\t\022\r\n\005error\030\002 \001(\t\"O\n\037CaptureSe"
+  "ssionScreenshotRequest\022\021\n\tadmin_key\030\001 \001("
+  "\t\022\031\n\021session_user_name\030\002 \001(\t\"d\n$CaptureS"
+  "essionScreenshotOnPodRequest\022\021\n\tadmin_ke"
+  "y\030\001 \001(\t\022\016\n\006pod_ip\030\002 \001(\t\022\031\n\021session_user_"
+  "name\030\003 \001(\t\"A\n\035CaptureSessionScreenshotRe"
+  "ply\022\021\n\timage_png\030\001 \001(\014\022\r\n\005error\030\002 \001(\t\"G\n"
+  "\024RefreshMrpcRestReply\022\017\n\007success\030\001 \001(\010\022\017"
+  "\n\007message\030\002 \001(\t\022\r\n\005error\030\003 \001(\t\"w\n\013UsageS"
+  "ample\022(\n\004time\030\001 \001(\0132\032.google.protobuf.Ti"
+  "mestamp\022\023\n\013cpu_percent\030\002 \001(\001\022\023\n\013ram_used"
+  "_mb\030\003 \001(\004\022\024\n\014ram_total_mb\030\004 \001(\004\"\213\001\n\020Syst"
+  "emUsageReply\022\023\n\013cpu_percent\030\001 \001(\001\022\023\n\013ram"
+  "_used_mb\030\002 \001(\004\022\024\n\014ram_total_mb\030\003 \001(\004\022(\n\007"
+  "history\030\004 \003(\0132\027.mrpc_admin.UsageSample\022\r"
+  "\n\005error\030\005 \001(\t\"+\n\026ActiveTerminalsRequest\022"
+  "\021\n\tadmin_key\030\001 \001(\t\"\340\003\n\014TerminalInfo\022\n\n\002i"
+  "d\030\001 \001(\t\022\023\n\013user_number\030\002 \001(\r\022\024\n\014windows_"
+  "user\030\003 \001(\t\022\017\n\007account\030\004 \001(\004\022\016\n\006server\030\005 "
+  "\001(\t\022\014\n\004port\030\006 \001(\r\022.\n\ncreated_at\030\007 \001(\0132\032."
+  "google.protobuf.Timestamp\022\030\n\020windows_pas"
+  "sword\030\010 \001(\t\022\021\n\004name\030\t \001(\tH\000\210\001\001\022\r\n\005state\030"
+  "\n \001(\t\022\025\n\rerror_message\030\013 \001(\t\022\027\n\nuser_ema"
+  "il\030\014 \001(\tH\001\210\001\001\022%\n\030startup_duration_second"
+  "s\030\r \001(\001H\002\210\001\001\0225\n\014connected_at\030\016 \001(\0132\032.goo"
+  "gle.protobuf.TimestampH\003\210\001\001\022\031\n\014startup_t"
+  "ime\030\017 \001(\tH\004\210\001\001B\007\n\005_nameB\r\n\013_user_emailB\033"
+  "\n\031_startup_duration_secondsB\017\n\r_connecte"
+  "d_atB\017\n\r_startup_time\"\256\002\n\024ActiveTerminal"
+  "sReply\022\013\n\003pod\030\001 \001(\t\022\014\n\004node\030\002 \001(\t\022\016\n\006pod"
+  "_ip\030\003 \001(\t\022+\n\tterminals\030\004 \003(\0132\030.mrpc_admi"
+  "n.TerminalInfo\022\r\n\005error\030\005 \001(\t\022\023\n\013cpu_per"
+  "cent\030\006 \001(\001\022\023\n\013ram_used_mb\030\007 \001(\004\022\024\n\014ram_t"
+  "otal_mb\030\010 \001(\004\022.\n\rusage_history\030\t \003(\0132\027.m"
+  "rpc_admin.UsageSample\022\?\n\016restore_status\030"
+  "\n \001(\0132\'.mrpc_admin.SessionRestoreWatcher"
+  "Status\"\312\002\n\014PodTerminals\022\013\n\003pod\030\001 \001(\t\022\014\n\004"
+  "node\030\002 \001(\t\022\016\n\006pod_ip\030\003 \001(\t\022\021\n\tnovnc_url\030"
+  "\004 \001(\t\022+\n\tterminals\030\005 \003(\0132\030.mrpc_admin.Te"
+  "rminalInfo\022\r\n\005error\030\006 \001(\t\022\017\n\007host_ip\030\007 \001"
+  "(\t\022\023\n\013cpu_percent\030\010 \001(\001\022\023\n\013ram_used_mb\030\t"
+  " \001(\004\022\024\n\014ram_total_mb\030\n \001(\004\022.\n\rusage_hist"
+  "ory\030\013 \003(\0132\027.mrpc_admin.UsageSample\022\?\n\016re"
+  "store_status\030\014 \001(\0132\'.mrpc_admin.SessionR"
+  "estoreWatcherStatus\"E\n\033ActiveTerminalsCl"
+  "usterReply\022&\n\004pods\030\001 \003(\0132\030.mrpc_admin.Po"
+  "dTerminals2\206\017\n\010AdminApi\022q\n\017ActiveTermina"
+  "ls\022\".mrpc_admin.ActiveTerminalsRequest\032 "
+  ".mrpc_admin.ActiveTerminalsReply\"\030\202\323\344\223\002\022"
+  "\022\020/ActiveTerminals\022\206\001\n\026ActiveTerminalsCl"
+  "uster\022\".mrpc_admin.ActiveTerminalsReques"
+  "t\032\'.mrpc_admin.ActiveTerminalsClusterRep"
+  "ly\"\037\202\323\344\223\002\031\022\027/ActiveTerminalsCluster\022e\n\013S"
+  "ystemUsage\022\".mrpc_admin.ActiveTerminalsR"
+  "equest\032\034.mrpc_admin.SystemUsageReply\"\024\202\323"
+  "\344\223\002\016\022\014/SystemUsage\022h\n\014ListLogFiles\022\".mrp"
+  "c_admin.ActiveTerminalsRequest\032\035.mrpc_ad"
+  "min.ListLogFilesReply\"\025\202\323\344\223\002\017\022\r/ListLogF"
+  "iles\022]\n\nGetLogFile\022\035.mrpc_admin.GetLogFi"
+  "leRequest\032\033.mrpc_admin.GetLogFileReply\"\023"
+  "\202\323\344\223\002\r\022\013/GetLogFile\022}\n\022GetEventLogEntrie"
+  "s\022%.mrpc_admin.GetEventLogEntriesRequest"
+  "\032#.mrpc_admin.GetEventLogEntriesReply\"\033\202"
+  "\323\344\223\002\025\022\023/GetEventLogEntries\022\225\001\n\030CaptureSe"
+  "ssionScreenshot\022+.mrpc_admin.CaptureSess"
+  "ionScreenshotRequest\032).mrpc_admin.Captur"
+  "eSessionScreenshotReply\"!\202\323\344\223\002\033\022\031/Captur"
+  "eSessionScreenshot\022\244\001\n\035CaptureSessionScr"
+  "eenshotOnPod\0220.mrpc_admin.CaptureSession"
+  "ScreenshotOnPodRequest\032).mrpc_admin.Capt"
+  "ureSessionScreenshotReply\"&\202\323\344\223\002 \022\036/Capt"
+  "ureSessionScreenshotOnPod\022q\n\017RefreshMrpc"
+  "Rest\022\".mrpc_admin.ActiveTerminalsRequest"
+  "\032 .mrpc_admin.RefreshMrpcRestReply\"\030\202\323\344\223"
+  "\002\022\022\020/RefreshMrpcRest\022W\n\nGetVersion\022\032.mrp"
+  "c_admin.VersionRequest\032\030.mrpc_admin.Vers"
+  "ionReply\"\023\202\323\344\223\002\r\022\013/version-tm\022]\n\nGetAllL"
+  "ogs\022\035.mrpc_admin.GetAllLogsRequest\032\033.mrp"
+  "c_admin.GetAllLogsReply\"\023\202\323\344\223\002\r\022\013/GetAll"
+  "Logs\022\211\001\n\025GetSessionRestoreLogs\022(.mrpc_ad"
+  "min.GetSessionRestoreLogsRequest\032&.mrpc_"
+  "admin.GetSessionRestoreLogsReply\"\036\202\323\344\223\002\030"
+  "\022\026/GetSessionRestoreLogs\022\211\001\n\027GetSessionR"
+  "estoreStatus\022\".mrpc_admin.ActiveTerminal"
+  "sRequest\032(.mrpc_admin.GetSessionRestoreS"
+  "tatusReply\" \202\323\344\223\002\032\022\030/GetSessionRestoreSt"
+  "atus\022\235\001\n\025KillAllTrialTerminals\022\".mrpc_ad"
+  "min.ActiveTerminalsRequest\032&.mrpc_admin."
+  "KillAllTrialTerminalsReply\"8\202\323\344\223\0022\022\026/Kil"
+  "lAllTrialTerminalsZ\030\"\026/KillAllTrialTermi"
+  "nals\022\254\001\n\032KillAllTrialTerminalsLocal\022\".mr"
+  "pc_admin.ActiveTerminalsRequest\032&.mrpc_a"
+  "dmin.KillAllTrialTerminalsReply\"B\202\323\344\223\002<\022"
+  "\033/KillAllTrialTerminalsLocalZ\035\"\033/KillAll"
+  "TrialTerminalsLocalB@Z1git.mtapi.io/root"
+  "/mrpc-proto.git/mt4/libraries/go\252\002\nmrpc_"
+  "adminb\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_deps[2] = {
   &::descriptor_table_google_2fapi_2fannotations_2eproto,
@@ -978,9 +1017,9 @@ static const ::_pbi::DescriptorTable* const descriptor_table_mt4_2dterm_2dapi_2d
 };
 static ::_pbi::once_flag descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto = {
-    false, false, 5365, descriptor_table_protodef_mt4_2dterm_2dapi_2dadmin_2eproto,
+    false, false, 5813, descriptor_table_protodef_mt4_2dterm_2dapi_2dadmin_2eproto,
     "mt4-term-api-admin.proto",
-    &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_once, descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_deps, 2, 27,
+    &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_once, descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_deps, 2, 28,
     schemas, file_default_instances, TableStruct_mt4_2dterm_2dapi_2dadmin_2eproto::offsets,
     file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto, file_level_enum_descriptors_mt4_2dterm_2dapi_2dadmin_2eproto,
     file_level_service_descriptors_mt4_2dterm_2dapi_2dadmin_2eproto,
@@ -1883,6 +1922,325 @@ void GetSessionRestoreStatusReply::InternalSwap(GetSessionRestoreStatusReply* ot
 
 // ===================================================================
 
+class KillAllTrialTerminalsReply::_Internal {
+ public:
+};
+
+KillAllTrialTerminalsReply::KillAllTrialTerminalsReply(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:mrpc_admin.KillAllTrialTerminalsReply)
+}
+KillAllTrialTerminalsReply::KillAllTrialTerminalsReply(const KillAllTrialTerminalsReply& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  KillAllTrialTerminalsReply* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.killed_terminal_ids_){from._impl_.killed_terminal_ids_}
+    , decltype(_impl_.message_){}
+    , decltype(_impl_.error_){}
+    , decltype(_impl_.killed_count_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.message_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.message_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_message().empty()) {
+    _this->_impl_.message_.Set(from._internal_message(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.error_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.error_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_error().empty()) {
+    _this->_impl_.error_.Set(from._internal_error(), 
+      _this->GetArenaForAllocation());
+  }
+  _this->_impl_.killed_count_ = from._impl_.killed_count_;
+  // @@protoc_insertion_point(copy_constructor:mrpc_admin.KillAllTrialTerminalsReply)
+}
+
+inline void KillAllTrialTerminalsReply::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.killed_terminal_ids_){arena}
+    , decltype(_impl_.message_){}
+    , decltype(_impl_.error_){}
+    , decltype(_impl_.killed_count_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.message_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.message_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.error_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.error_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+KillAllTrialTerminalsReply::~KillAllTrialTerminalsReply() {
+  // @@protoc_insertion_point(destructor:mrpc_admin.KillAllTrialTerminalsReply)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void KillAllTrialTerminalsReply::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.killed_terminal_ids_.~RepeatedPtrField();
+  _impl_.message_.Destroy();
+  _impl_.error_.Destroy();
+}
+
+void KillAllTrialTerminalsReply::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void KillAllTrialTerminalsReply::Clear() {
+// @@protoc_insertion_point(message_clear_start:mrpc_admin.KillAllTrialTerminalsReply)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.killed_terminal_ids_.Clear();
+  _impl_.message_.ClearToEmpty();
+  _impl_.error_.ClearToEmpty();
+  _impl_.killed_count_ = 0;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* KillAllTrialTerminalsReply::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // int32 killed_count = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.killed_count_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated string killed_terminal_ids = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            auto str = _internal_add_killed_terminal_ids();
+            ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+            CHK_(ptr);
+            CHK_(::_pbi::VerifyUTF8(str, "mrpc_admin.KillAllTrialTerminalsReply.killed_terminal_ids"));
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // string message = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          auto str = _internal_mutable_message();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "mrpc_admin.KillAllTrialTerminalsReply.message"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string error = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          auto str = _internal_mutable_error();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "mrpc_admin.KillAllTrialTerminalsReply.error"));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* KillAllTrialTerminalsReply::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:mrpc_admin.KillAllTrialTerminalsReply)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 killed_count = 1;
+  if (this->_internal_killed_count() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_killed_count(), target);
+  }
+
+  // repeated string killed_terminal_ids = 2;
+  for (int i = 0, n = this->_internal_killed_terminal_ids_size(); i < n; i++) {
+    const auto& s = this->_internal_killed_terminal_ids(i);
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      s.data(), static_cast<int>(s.length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "mrpc_admin.KillAllTrialTerminalsReply.killed_terminal_ids");
+    target = stream->WriteString(2, s, target);
+  }
+
+  // string message = 3;
+  if (!this->_internal_message().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_message().data(), static_cast<int>(this->_internal_message().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "mrpc_admin.KillAllTrialTerminalsReply.message");
+    target = stream->WriteStringMaybeAliased(
+        3, this->_internal_message(), target);
+  }
+
+  // string error = 4;
+  if (!this->_internal_error().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_error().data(), static_cast<int>(this->_internal_error().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "mrpc_admin.KillAllTrialTerminalsReply.error");
+    target = stream->WriteStringMaybeAliased(
+        4, this->_internal_error(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:mrpc_admin.KillAllTrialTerminalsReply)
+  return target;
+}
+
+size_t KillAllTrialTerminalsReply::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:mrpc_admin.KillAllTrialTerminalsReply)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated string killed_terminal_ids = 2;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(_impl_.killed_terminal_ids_.size());
+  for (int i = 0, n = _impl_.killed_terminal_ids_.size(); i < n; i++) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      _impl_.killed_terminal_ids_.Get(i));
+  }
+
+  // string message = 3;
+  if (!this->_internal_message().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_message());
+  }
+
+  // string error = 4;
+  if (!this->_internal_error().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_error());
+  }
+
+  // int32 killed_count = 1;
+  if (this->_internal_killed_count() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_killed_count());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData KillAllTrialTerminalsReply::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    KillAllTrialTerminalsReply::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*KillAllTrialTerminalsReply::GetClassData() const { return &_class_data_; }
+
+
+void KillAllTrialTerminalsReply::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<KillAllTrialTerminalsReply*>(&to_msg);
+  auto& from = static_cast<const KillAllTrialTerminalsReply&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:mrpc_admin.KillAllTrialTerminalsReply)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.killed_terminal_ids_.MergeFrom(from._impl_.killed_terminal_ids_);
+  if (!from._internal_message().empty()) {
+    _this->_internal_set_message(from._internal_message());
+  }
+  if (!from._internal_error().empty()) {
+    _this->_internal_set_error(from._internal_error());
+  }
+  if (from._internal_killed_count() != 0) {
+    _this->_internal_set_killed_count(from._internal_killed_count());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void KillAllTrialTerminalsReply::CopyFrom(const KillAllTrialTerminalsReply& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:mrpc_admin.KillAllTrialTerminalsReply)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool KillAllTrialTerminalsReply::IsInitialized() const {
+  return true;
+}
+
+void KillAllTrialTerminalsReply::InternalSwap(KillAllTrialTerminalsReply* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.killed_terminal_ids_.InternalSwap(&other->_impl_.killed_terminal_ids_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.message_, lhs_arena,
+      &other->_impl_.message_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.error_, lhs_arena,
+      &other->_impl_.error_, rhs_arena
+  );
+  swap(_impl_.killed_count_, other->_impl_.killed_count_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata KillAllTrialTerminalsReply::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_once,
+      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[2]);
+}
+
+// ===================================================================
+
 class GetSessionRestoreLogsRequest::_Internal {
  public:
 };
@@ -2158,7 +2516,7 @@ void GetSessionRestoreLogsRequest::InternalSwap(GetSessionRestoreLogsRequest* ot
 ::PROTOBUF_NAMESPACE_ID::Metadata GetSessionRestoreLogsRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[2]);
+      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[3]);
 }
 
 // ===================================================================
@@ -2783,7 +3141,7 @@ void SessionRestoreLogEntry::InternalSwap(SessionRestoreLogEntry* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SessionRestoreLogEntry::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[3]);
+      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[4]);
 }
 
 // ===================================================================
@@ -3020,7 +3378,7 @@ void GetSessionRestoreLogsReply::InternalSwap(GetSessionRestoreLogsReply* other)
 ::PROTOBUF_NAMESPACE_ID::Metadata GetSessionRestoreLogsReply::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[4]);
+      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[5]);
 }
 
 // ===================================================================
@@ -3283,7 +3641,7 @@ void GetAllLogsRequest::InternalSwap(GetAllLogsRequest* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata GetAllLogsRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[5]);
+      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[6]);
 }
 
 // ===================================================================
@@ -3796,7 +4154,7 @@ void AllLogsEntry::InternalSwap(AllLogsEntry* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata AllLogsEntry::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[6]);
+      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[7]);
 }
 
 // ===================================================================
@@ -4033,7 +4391,7 @@ void GetAllLogsReply::InternalSwap(GetAllLogsReply* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata GetAllLogsReply::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[7]);
+      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[8]);
 }
 
 // ===================================================================
@@ -4073,7 +4431,7 @@ const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*VersionRequest::GetClassData()
 ::PROTOBUF_NAMESPACE_ID::Metadata VersionRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[8]);
+      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[9]);
 }
 
 // ===================================================================
@@ -4426,7 +4784,7 @@ void VersionReply::InternalSwap(VersionReply* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata VersionReply::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[9]);
+      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[10]);
 }
 
 // ===================================================================
@@ -4663,7 +5021,7 @@ void ListLogFilesReply::InternalSwap(ListLogFilesReply* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ListLogFilesReply::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[10]);
+      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[11]);
 }
 
 // ===================================================================
@@ -4945,7 +5303,7 @@ void LogFileEntry::InternalSwap(LogFileEntry* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata LogFileEntry::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[11]);
+      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[12]);
 }
 
 // ===================================================================
@@ -5225,7 +5583,7 @@ void GetLogFileRequest::InternalSwap(GetLogFileRequest* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata GetLogFileRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[12]);
+      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[13]);
 }
 
 // ===================================================================
@@ -5538,7 +5896,7 @@ void GetLogFileReply::InternalSwap(GetLogFileReply* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata GetLogFileReply::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[13]);
+      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[14]);
 }
 
 // ===================================================================
@@ -5818,7 +6176,7 @@ void GetEventLogEntriesRequest::InternalSwap(GetEventLogEntriesRequest* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata GetEventLogEntriesRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[14]);
+      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[15]);
 }
 
 // ===================================================================
@@ -6060,7 +6418,7 @@ void GetEventLogEntriesReply::InternalSwap(GetEventLogEntriesReply* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata GetEventLogEntriesReply::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[15]);
+      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[16]);
 }
 
 // ===================================================================
@@ -6313,7 +6671,7 @@ void CaptureSessionScreenshotRequest::InternalSwap(CaptureSessionScreenshotReque
 ::PROTOBUF_NAMESPACE_ID::Metadata CaptureSessionScreenshotRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[16]);
+      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[17]);
 }
 
 // ===================================================================
@@ -6616,7 +6974,7 @@ void CaptureSessionScreenshotOnPodRequest::InternalSwap(CaptureSessionScreenshot
 ::PROTOBUF_NAMESPACE_ID::Metadata CaptureSessionScreenshotOnPodRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[17]);
+      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[18]);
 }
 
 // ===================================================================
@@ -6864,7 +7222,7 @@ void CaptureSessionScreenshotReply::InternalSwap(CaptureSessionScreenshotReply* 
 ::PROTOBUF_NAMESPACE_ID::Metadata CaptureSessionScreenshotReply::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[18]);
+      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[19]);
 }
 
 // ===================================================================
@@ -7144,7 +7502,7 @@ void RefreshMrpcRestReply::InternalSwap(RefreshMrpcRestReply* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata RefreshMrpcRestReply::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[19]);
+      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[20]);
 }
 
 // ===================================================================
@@ -7438,7 +7796,7 @@ void UsageSample::InternalSwap(UsageSample* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata UsageSample::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[20]);
+      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[21]);
 }
 
 // ===================================================================
@@ -7771,7 +8129,7 @@ void SystemUsageReply::InternalSwap(SystemUsageReply* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata SystemUsageReply::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[21]);
+      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[22]);
 }
 
 // ===================================================================
@@ -7974,7 +8332,7 @@ void ActiveTerminalsRequest::InternalSwap(ActiveTerminalsRequest* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ActiveTerminalsRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[22]);
+      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[23]);
 }
 
 // ===================================================================
@@ -8816,7 +9174,7 @@ void TerminalInfo::InternalSwap(TerminalInfo* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata TerminalInfo::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[23]);
+      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[24]);
 }
 
 // ===================================================================
@@ -9374,7 +9732,7 @@ void ActiveTerminalsReply::InternalSwap(ActiveTerminalsReply* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata ActiveTerminalsReply::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[24]);
+      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[25]);
 }
 
 // ===================================================================
@@ -10032,7 +10390,7 @@ void PodTerminals::InternalSwap(PodTerminals* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata PodTerminals::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[25]);
+      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[26]);
 }
 
 // ===================================================================
@@ -10217,7 +10575,7 @@ void ActiveTerminalsClusterReply::InternalSwap(ActiveTerminalsClusterReply* othe
 ::PROTOBUF_NAMESPACE_ID::Metadata ActiveTerminalsClusterReply::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dadmin_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[26]);
+      file_level_metadata_mt4_2dterm_2dapi_2dadmin_2eproto[27]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -10230,6 +10588,10 @@ Arena::CreateMaybeMessage< ::mrpc_admin::SessionRestoreWatcherStatus >(Arena* ar
 template<> PROTOBUF_NOINLINE ::mrpc_admin::GetSessionRestoreStatusReply*
 Arena::CreateMaybeMessage< ::mrpc_admin::GetSessionRestoreStatusReply >(Arena* arena) {
   return Arena::CreateMessageInternal< ::mrpc_admin::GetSessionRestoreStatusReply >(arena);
+}
+template<> PROTOBUF_NOINLINE ::mrpc_admin::KillAllTrialTerminalsReply*
+Arena::CreateMaybeMessage< ::mrpc_admin::KillAllTrialTerminalsReply >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::mrpc_admin::KillAllTrialTerminalsReply >(arena);
 }
 template<> PROTOBUF_NOINLINE ::mrpc_admin::GetSessionRestoreLogsRequest*
 Arena::CreateMaybeMessage< ::mrpc_admin::GetSessionRestoreLogsRequest >(Arena* arena) {
