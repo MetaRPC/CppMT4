@@ -500,7 +500,8 @@ PROTOBUF_CONSTEXPR DisconnectRequest::DisconnectRequest(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.reason_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}} {}
+  , /*decltype(_impl_.reason_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.delete__)*/false} {}
 struct DisconnectRequestDefaultTypeInternal {
   PROTOBUF_CONSTEXPR DisconnectRequestDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -1035,7 +1036,9 @@ const uint32_t TableStruct_mt4_2dterm_2dapi_2dconnection_2eproto::offsets[] PROT
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::DisconnectRequest, _impl_.reason_),
+  PROTOBUF_FIELD_OFFSET(::mt4_term_api::DisconnectRequest, _impl_.delete__),
   0,
+  1,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::DisconnectReply, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1186,20 +1189,20 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 299, -1, -1, sizeof(::mt4_term_api::CheckConnectReply)},
   { 308, -1, -1, sizeof(::mt4_term_api::CheckConnectData)},
   { 316, -1, -1, sizeof(::mt4_term_api::TerminalHealthCheck)},
-  { 325, 332, -1, sizeof(::mt4_term_api::DisconnectRequest)},
-  { 333, -1, -1, sizeof(::mt4_term_api::DisconnectReply)},
-  { 342, -1, -1, sizeof(::mt4_term_api::DisconnectData)},
-  { 350, -1, -1, sizeof(::mt4_term_api::GetIdRequest)},
-  { 358, -1, -1, sizeof(::mt4_term_api::GetIdReply)},
-  { 367, -1, -1, sizeof(::mt4_term_api::GetIdData)},
-  { 374, -1, -1, sizeof(::mt4_term_api::ConnectStateRequest)},
-  { 380, -1, -1, sizeof(::mt4_term_api::ConnectStateReply)},
-  { 389, -1, -1, sizeof(::mt4_term_api::OnConnectStateRequest)},
-  { 396, -1, -1, sizeof(::mt4_term_api::OnConnectStateReply)},
-  { 405, -1, -1, sizeof(::mt4_term_api::ConnectStateData)},
-  { 420, -1, -1, sizeof(::mt4_term_api::ConnectionStatusRequest)},
-  { 426, -1, -1, sizeof(::mt4_term_api::ConnectionStatusReply)},
-  { 435, -1, -1, sizeof(::mt4_term_api::ConnectionStatusData)},
+  { 325, 333, -1, sizeof(::mt4_term_api::DisconnectRequest)},
+  { 335, -1, -1, sizeof(::mt4_term_api::DisconnectReply)},
+  { 344, -1, -1, sizeof(::mt4_term_api::DisconnectData)},
+  { 352, -1, -1, sizeof(::mt4_term_api::GetIdRequest)},
+  { 360, -1, -1, sizeof(::mt4_term_api::GetIdReply)},
+  { 369, -1, -1, sizeof(::mt4_term_api::GetIdData)},
+  { 376, -1, -1, sizeof(::mt4_term_api::ConnectStateRequest)},
+  { 382, -1, -1, sizeof(::mt4_term_api::ConnectStateReply)},
+  { 391, -1, -1, sizeof(::mt4_term_api::OnConnectStateRequest)},
+  { 398, -1, -1, sizeof(::mt4_term_api::OnConnectStateReply)},
+  { 407, -1, -1, sizeof(::mt4_term_api::ConnectStateData)},
+  { 422, -1, -1, sizeof(::mt4_term_api::ConnectionStatusRequest)},
+  { 428, -1, -1, sizeof(::mt4_term_api::ConnectionStatusReply)},
+  { 437, -1, -1, sizeof(::mt4_term_api::ConnectionStatusData)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -1352,94 +1355,94 @@ const char descriptor_table_protodef_mt4_2dterm_2dapi_2dconnection_2eproto[] PRO
   ".mt4_term_api.TerminalHealthCheck\"i\n\023Ter"
   "minalHealthCheck\022\020\n\010is_alive\030\001 \001(\010\022\024\n\014ap"
   "i_is_alive\030\002 \001(\010\022*\n\"terminal_is_connecte"
-  "d_to_mt_server\030\003 \001(\010\"3\n\021DisconnectReques"
-  "t\022\023\n\006reason\030\001 \001(\tH\000\210\001\001B\t\n\007_reason\"q\n\017Dis"
-  "connectReply\022,\n\004data\030\001 \001(\0132\034.mt4_term_ap"
-  "i.DisconnectDataH\000\022$\n\005error\030\002 \001(\0132\023.mt4_"
-  "term_api.ErrorH\000B\n\n\010response\"K\n\016Disconne"
-  "ctData\022\031\n\021unique_identifier\030\001 \001(\t\022\036\n\026ful"
-  "l_life_time_seconds\030\002 \001(\003\".\n\014GetIdReques"
-  "t\022\014\n\004user\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"g\n\nGet"
-  "IdReply\022\'\n\004data\030\001 \001(\0132\027.mt4_term_api.Get"
-  "IdDataH\000\022$\n\005error\030\002 \001(\0132\023.mt4_term_api.E"
-  "rrorH\000B\n\n\010response\"\027\n\tGetIdData\022\n\n\002id\030\001 "
-  "\001(\t\"\025\n\023ConnectStateRequest\"u\n\021ConnectSta"
+  "d_to_mt_server\030\003 \001(\010\"S\n\021DisconnectReques"
+  "t\022\023\n\006reason\030\001 \001(\tH\000\210\001\001\022\023\n\006delete\030\002 \001(\010H\001"
+  "\210\001\001B\t\n\007_reasonB\t\n\007_delete\"q\n\017DisconnectR"
+  "eply\022,\n\004data\030\001 \001(\0132\034.mt4_term_api.Discon"
+  "nectDataH\000\022$\n\005error\030\002 \001(\0132\023.mt4_term_api"
+  ".ErrorH\000B\n\n\010response\"K\n\016DisconnectData\022\031"
+  "\n\021unique_identifier\030\001 \001(\t\022\036\n\026full_life_t"
+  "ime_seconds\030\002 \001(\003\".\n\014GetIdRequest\022\014\n\004use"
+  "r\030\001 \001(\t\022\020\n\010password\030\002 \001(\t\"g\n\nGetIdReply\022"
+  "\'\n\004data\030\001 \001(\0132\027.mt4_term_api.GetIdDataH\000"
+  "\022$\n\005error\030\002 \001(\0132\023.mt4_term_api.ErrorH\000B\n"
+  "\n\010response\"\027\n\tGetIdData\022\n\n\002id\030\001 \001(\t\"\025\n\023C"
+  "onnectStateRequest\"u\n\021ConnectStateReply\022"
+  ".\n\004data\030\001 \001(\0132\036.mt4_term_api.ConnectStat"
+  "eDataH\000\022$\n\005error\030\002 \001(\0132\023.mt4_term_api.Er"
+  "rorH\000B\n\n\010response\"-\n\025OnConnectStateReque"
+  "st\022\024\n\014terminal_ids\030\001 \003(\t\"w\n\023OnConnectSta"
   "teReply\022.\n\004data\030\001 \001(\0132\036.mt4_term_api.Con"
   "nectStateDataH\000\022$\n\005error\030\002 \001(\0132\023.mt4_ter"
-  "m_api.ErrorH\000B\n\n\010response\"-\n\025OnConnectSt"
-  "ateRequest\022\024\n\014terminal_ids\030\001 \003(\t\"w\n\023OnCo"
-  "nnectStateReply\022.\n\004data\030\001 \001(\0132\036.mt4_term"
-  "_api.ConnectStateDataH\000\022$\n\005error\030\002 \001(\0132\023"
-  ".mt4_term_api.ErrorH\000B\n\n\010response\"\322\001\n\020Co"
-  "nnectStateData\022\n\n\002id\030\001 \001(\t\022\r\n\005state\030\002 \001("
-  "\t\022\024\n\014is_connected\030\003 \001(\010\022\020\n\010is_alive\030\004 \001("
-  "\010\022\024\n\014api_is_alive\030\005 \001(\010\022\016\n\006server\030\006 \001(\t\022"
-  "\017\n\007account\030\007 \001(\004\022\025\n\rerror_message\030\010 \001(\t\022"
-  "-\n\ttimestamp\030\t \001(\0132\032.google.protobuf.Tim"
-  "estamp\"\031\n\027ConnectionStatusRequest\"}\n\025Con"
-  "nectionStatusReply\0222\n\004data\030\001 \001(\0132\".mt4_t"
-  "erm_api.ConnectionStatusDataH\000\022$\n\005error\030"
-  "\002 \001(\0132\023.mt4_term_api.ErrorH\000B\n\n\010response"
-  "\"\247\001\n\024ConnectionStatusData\022\n\n\002id\030\001 \001(\t\022\024\n"
-  "\014is_connected\030\002 \001(\010\022\020\n\010is_alive\030\003 \001(\010\022\024\n"
-  "\014api_is_alive\030\004 \001(\010\022\016\n\006server\030\005 \001(\t\022\017\n\007a"
-  "ccount\030\006 \001(\004\022\025\n\rerror_message\030\007 \001(\t\022\r\n\005s"
-  "tate\030\010 \001(\t*9\n\nProxyTypes\022\010\n\004None\020\000\022\t\n\005Ht"
-  "tps\020\001\022\n\n\006Socks4\020\002\022\n\n\006Socks5\020\003* \n\014Termina"
-  "lType\022\007\n\003MT4\020\000\022\007\n\003MT5\020\0012\335\014\n\nConnection\022]"
-  "\n\tConnectEx\022\036.mt4_term_api.ConnectExRequ"
-  "est\032\034.mt4_term_api.ConnectExReply\"\022\202\323\344\223\002"
-  "\014\022\n/ConnectEx\022U\n\007Connect\022\034.mt4_term_api."
-  "ConnectRequest\032\032.mt4_term_api.ConnectRep"
-  "ly\"\020\202\323\344\223\002\n\022\010/Connect\022i\n\014ConnectProxy\022!.m"
-  "t4_term_api.ConnectProxyRequest\032\037.mt4_te"
-  "rm_api.ConnectProxyReply\"\025\202\323\344\223\002\017\022\r/Conne"
-  "ctProxy\022i\n\014CheckConnect\022!.mt4_term_api.C"
-  "heckConnectRequest\032\037.mt4_term_api.CheckC"
-  "onnectReply\"\025\202\323\344\223\002\017\022\r/CheckConnect\022i\n\014Co"
-  "nnectState\022!.mt4_term_api.ConnectStateRe"
-  "quest\032\037.mt4_term_api.ConnectStateReply\"\025"
-  "\202\323\344\223\002\017\022\r/ConnectState\022s\n\016OnConnectState\022"
-  "#.mt4_term_api.OnConnectStateRequest\032!.m"
-  "t4_term_api.OnConnectStateReply\"\027\202\323\344\223\002\021\022"
-  "\017/OnConnectState0\001\022y\n\020ConnectionStatus\022%"
-  ".mt4_term_api.ConnectionStatusRequest\032#."
-  "mt4_term_api.ConnectionStatusReply\"\031\202\323\344\223"
-  "\002\023\022\021/ConnectionStatus\022a\n\nDisconnect\022\037.mt"
-  "4_term_api.DisconnectRequest\032\035.mt4_term_"
-  "api.DisconnectReply\"\023\202\323\344\223\002\r\022\013/Disconnect"
-  "\022]\n\tReconnect\022\036.mt4_term_api.ReconnectRe"
-  "quest\032\034.mt4_term_api.ReconnectReply\"\022\202\323\344"
-  "\223\002\014\022\n/Reconnect\022l\n\016ConnectByToken\022#.mt4_"
-  "term_api.ConnectByTokenRequest\032\034.mt4_ter"
-  "m_api.ConnectExReply\"\027\202\323\344\223\002\021\022\017/ConnectBy"
-  "Token\022\251\001\n\034GetBrokerServersByBrokerName\0221"
-  ".mt4_term_api.GetBrokerServersByBrokerNa"
-  "meRequest\032/.mt4_term_api.GetBrokerServer"
-  "sByBrokerNameReply\"%\202\323\344\223\002\037\022\035/GetBrokerSe"
-  "rversByBrokerName\022M\n\005GetId\022\032.mt4_term_ap"
-  "i.GetIdRequest\032\030.mt4_term_api.GetIdReply"
-  "\"\016\202\323\344\223\002\010\022\006/GetId\022a\n\nScreenshot\022\037.mt4_ter"
-  "m_api.ScreenshotRequest\032\035.mt4_term_api.S"
-  "creenshotReply\"\023\202\323\344\223\002\r\022\013/Screenshot\022i\n\rC"
-  "onnectStream\022\034.mt4_term_api.ConnectReque"
-  "st\032 .mt4_term_api.ConnectStreamEvent\"\026\202\323"
-  "\344\223\002\020\022\016/ConnectStream0\001\022o\n\017ConnectExStrea"
-  "m\022\036.mt4_term_api.ConnectExRequest\032 .mt4_"
-  "term_api.ConnectStreamEvent\"\030\202\323\344\223\002\022\022\020/Co"
-  "nnectExStream0\0012\212\003\n\004Logs\022Z\n\007Journal\022\034.mt"
-  "4_term_api.JournalRequest\032\032.mt4_term_api"
-  ".JournalReply\"\025\202\323\344\223\002\017\022\r/Logs/Journal\022d\n\t"
-  "OnJournal\022\036.mt4_term_api.OnJournalReques"
-  "t\032\034.mt4_term_api.OnJournalReply\"\027\202\323\344\223\002\021\022"
-  "\017/Logs/OnJournal0\001\022Z\n\007Experts\022\034.mt4_term"
-  "_api.JournalRequest\032\032.mt4_term_api.Journ"
-  "alReply\"\025\202\323\344\223\002\017\022\r/Logs/Experts\022d\n\tOnExpe"
-  "rts\022\036.mt4_term_api.OnJournalRequest\032\034.mt"
-  "4_term_api.OnJournalReply\"\027\202\323\344\223\002\021\022\017/Logs"
-  "/OnExperts0\001BBZ1git.mtapi.io/root/mrpc-p"
-  "roto.git/mt4/libraries/go\252\002\014mt4_term_api"
-  "b\006proto3"
+  "m_api.ErrorH\000B\n\n\010response\"\322\001\n\020ConnectSta"
+  "teData\022\n\n\002id\030\001 \001(\t\022\r\n\005state\030\002 \001(\t\022\024\n\014is_"
+  "connected\030\003 \001(\010\022\020\n\010is_alive\030\004 \001(\010\022\024\n\014api"
+  "_is_alive\030\005 \001(\010\022\016\n\006server\030\006 \001(\t\022\017\n\007accou"
+  "nt\030\007 \001(\004\022\025\n\rerror_message\030\010 \001(\t\022-\n\ttimes"
+  "tamp\030\t \001(\0132\032.google.protobuf.Timestamp\"\031"
+  "\n\027ConnectionStatusRequest\"}\n\025ConnectionS"
+  "tatusReply\0222\n\004data\030\001 \001(\0132\".mt4_term_api."
+  "ConnectionStatusDataH\000\022$\n\005error\030\002 \001(\0132\023."
+  "mt4_term_api.ErrorH\000B\n\n\010response\"\247\001\n\024Con"
+  "nectionStatusData\022\n\n\002id\030\001 \001(\t\022\024\n\014is_conn"
+  "ected\030\002 \001(\010\022\020\n\010is_alive\030\003 \001(\010\022\024\n\014api_is_"
+  "alive\030\004 \001(\010\022\016\n\006server\030\005 \001(\t\022\017\n\007account\030\006"
+  " \001(\004\022\025\n\rerror_message\030\007 \001(\t\022\r\n\005state\030\010 \001"
+  "(\t*9\n\nProxyTypes\022\010\n\004None\020\000\022\t\n\005Https\020\001\022\n\n"
+  "\006Socks4\020\002\022\n\n\006Socks5\020\003* \n\014TerminalType\022\007\n"
+  "\003MT4\020\000\022\007\n\003MT5\020\0012\335\014\n\nConnection\022]\n\tConnec"
+  "tEx\022\036.mt4_term_api.ConnectExRequest\032\034.mt"
+  "4_term_api.ConnectExReply\"\022\202\323\344\223\002\014\022\n/Conn"
+  "ectEx\022U\n\007Connect\022\034.mt4_term_api.ConnectR"
+  "equest\032\032.mt4_term_api.ConnectReply\"\020\202\323\344\223"
+  "\002\n\022\010/Connect\022i\n\014ConnectProxy\022!.mt4_term_"
+  "api.ConnectProxyRequest\032\037.mt4_term_api.C"
+  "onnectProxyReply\"\025\202\323\344\223\002\017\022\r/ConnectProxy\022"
+  "i\n\014CheckConnect\022!.mt4_term_api.CheckConn"
+  "ectRequest\032\037.mt4_term_api.CheckConnectRe"
+  "ply\"\025\202\323\344\223\002\017\022\r/CheckConnect\022i\n\014ConnectSta"
+  "te\022!.mt4_term_api.ConnectStateRequest\032\037."
+  "mt4_term_api.ConnectStateReply\"\025\202\323\344\223\002\017\022\r"
+  "/ConnectState\022s\n\016OnConnectState\022#.mt4_te"
+  "rm_api.OnConnectStateRequest\032!.mt4_term_"
+  "api.OnConnectStateReply\"\027\202\323\344\223\002\021\022\017/OnConn"
+  "ectState0\001\022y\n\020ConnectionStatus\022%.mt4_ter"
+  "m_api.ConnectionStatusRequest\032#.mt4_term"
+  "_api.ConnectionStatusReply\"\031\202\323\344\223\002\023\022\021/Con"
+  "nectionStatus\022a\n\nDisconnect\022\037.mt4_term_a"
+  "pi.DisconnectRequest\032\035.mt4_term_api.Disc"
+  "onnectReply\"\023\202\323\344\223\002\r\022\013/Disconnect\022]\n\tReco"
+  "nnect\022\036.mt4_term_api.ReconnectRequest\032\034."
+  "mt4_term_api.ReconnectReply\"\022\202\323\344\223\002\014\022\n/Re"
+  "connect\022l\n\016ConnectByToken\022#.mt4_term_api"
+  ".ConnectByTokenRequest\032\034.mt4_term_api.Co"
+  "nnectExReply\"\027\202\323\344\223\002\021\022\017/ConnectByToken\022\251\001"
+  "\n\034GetBrokerServersByBrokerName\0221.mt4_ter"
+  "m_api.GetBrokerServersByBrokerNameReques"
+  "t\032/.mt4_term_api.GetBrokerServersByBroke"
+  "rNameReply\"%\202\323\344\223\002\037\022\035/GetBrokerServersByB"
+  "rokerName\022M\n\005GetId\022\032.mt4_term_api.GetIdR"
+  "equest\032\030.mt4_term_api.GetIdReply\"\016\202\323\344\223\002\010"
+  "\022\006/GetId\022a\n\nScreenshot\022\037.mt4_term_api.Sc"
+  "reenshotRequest\032\035.mt4_term_api.Screensho"
+  "tReply\"\023\202\323\344\223\002\r\022\013/Screenshot\022i\n\rConnectSt"
+  "ream\022\034.mt4_term_api.ConnectRequest\032 .mt4"
+  "_term_api.ConnectStreamEvent\"\026\202\323\344\223\002\020\022\016/C"
+  "onnectStream0\001\022o\n\017ConnectExStream\022\036.mt4_"
+  "term_api.ConnectExRequest\032 .mt4_term_api"
+  ".ConnectStreamEvent\"\030\202\323\344\223\002\022\022\020/ConnectExS"
+  "tream0\0012\212\003\n\004Logs\022Z\n\007Journal\022\034.mt4_term_a"
+  "pi.JournalRequest\032\032.mt4_term_api.Journal"
+  "Reply\"\025\202\323\344\223\002\017\022\r/Logs/Journal\022d\n\tOnJourna"
+  "l\022\036.mt4_term_api.OnJournalRequest\032\034.mt4_"
+  "term_api.OnJournalReply\"\027\202\323\344\223\002\021\022\017/Logs/O"
+  "nJournal0\001\022Z\n\007Experts\022\034.mt4_term_api.Jou"
+  "rnalRequest\032\032.mt4_term_api.JournalReply\""
+  "\025\202\323\344\223\002\017\022\r/Logs/Experts\022d\n\tOnExperts\022\036.mt"
+  "4_term_api.OnJournalRequest\032\034.mt4_term_a"
+  "pi.OnJournalReply\"\027\202\323\344\223\002\021\022\017/Logs/OnExper"
+  "ts0\001BBZ1git.mtapi.io/root/mrpc-proto.git"
+  "/mt4/libraries/go\252\002\014mt4_term_apib\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_mt4_2dterm_2dapi_2dconnection_2eproto_deps[3] = {
   &::descriptor_table_google_2fapi_2fannotations_2eproto,
@@ -1448,7 +1451,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_mt4_2dterm_2dapi_2d
 };
 static ::_pbi::once_flag descriptor_table_mt4_2dterm_2dapi_2dconnection_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_mt4_2dterm_2dapi_2dconnection_2eproto = {
-    false, false, 7488, descriptor_table_protodef_mt4_2dterm_2dapi_2dconnection_2eproto,
+    false, false, 7520, descriptor_table_protodef_mt4_2dterm_2dapi_2dconnection_2eproto,
     "mt4-term-api-connection.proto",
     &descriptor_table_mt4_2dterm_2dapi_2dconnection_2eproto_once, descriptor_table_mt4_2dterm_2dapi_2dconnection_2eproto_deps, 3, 46,
     schemas, file_default_instances, TableStruct_mt4_2dterm_2dapi_2dconnection_2eproto::offsets,
@@ -10345,6 +10348,9 @@ class DisconnectRequest::_Internal {
   static void set_has_reason(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
+  static void set_has_delete_(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
 };
 
 DisconnectRequest::DisconnectRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
@@ -10359,7 +10365,8 @@ DisconnectRequest::DisconnectRequest(const DisconnectRequest& from)
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.reason_){}};
+    , decltype(_impl_.reason_){}
+    , decltype(_impl_.delete__){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   _impl_.reason_.InitDefault();
@@ -10370,6 +10377,7 @@ DisconnectRequest::DisconnectRequest(const DisconnectRequest& from)
     _this->_impl_.reason_.Set(from._internal_reason(), 
       _this->GetArenaForAllocation());
   }
+  _this->_impl_.delete__ = from._impl_.delete__;
   // @@protoc_insertion_point(copy_constructor:mt4_term_api.DisconnectRequest)
 }
 
@@ -10381,6 +10389,7 @@ inline void DisconnectRequest::SharedCtor(
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.reason_){}
+    , decltype(_impl_.delete__){false}
   };
   _impl_.reason_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -10416,6 +10425,7 @@ void DisconnectRequest::Clear() {
   if (cached_has_bits & 0x00000001u) {
     _impl_.reason_.ClearNonDefaultToEmpty();
   }
+  _impl_.delete__ = false;
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -10434,6 +10444,15 @@ const char* DisconnectRequest::_InternalParse(const char* ptr, ::_pbi::ParseCont
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
           CHK_(::_pbi::VerifyUTF8(str, "mt4_term_api.DisconnectRequest.reason"));
+        } else
+          goto handle_unusual;
+        continue;
+      // optional bool delete = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _Internal::set_has_delete_(&has_bits);
+          _impl_.delete__ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
@@ -10477,6 +10496,12 @@ uint8_t* DisconnectRequest::_InternalSerialize(
         1, this->_internal_reason(), target);
   }
 
+  // optional bool delete = 2;
+  if (_internal_has_delete_()) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(2, this->_internal_delete_(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -10493,14 +10518,21 @@ size_t DisconnectRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional string reason = 1;
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_reason());
-  }
+  if (cached_has_bits & 0x00000003u) {
+    // optional string reason = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_reason());
+    }
 
+    // optional bool delete = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 + 1;
+    }
+
+  }
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -10519,8 +10551,15 @@ void DisconnectRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, cons
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from._internal_has_reason()) {
-    _this->_internal_set_reason(from._internal_reason());
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_internal_set_reason(from._internal_reason());
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.delete__ = from._impl_.delete__;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -10546,6 +10585,7 @@ void DisconnectRequest::InternalSwap(DisconnectRequest* other) {
       &_impl_.reason_, lhs_arena,
       &other->_impl_.reason_, rhs_arena
   );
+  swap(_impl_.delete__, other->_impl_.delete__);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata DisconnectRequest::GetMetadata() const {
