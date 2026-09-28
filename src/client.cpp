@@ -144,7 +144,8 @@ bool MT4Client::connect(int login, const std::string& password) {
     return true;
 }
 
-void MT4Client::disconnect() {
+void MT4Client::disconnect(bool delete_terminal) {
+    (void)delete_terminal;
     m_connected = false;
 }
 

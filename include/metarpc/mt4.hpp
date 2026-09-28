@@ -67,7 +67,7 @@ public:
     const std::string& getApiKey() const { return m_apiKey; }
 
     bool connect(int login, const std::string& password);
-    void disconnect();
+    void disconnect(bool delete_terminal = false);
     bool isConnected() const;
 
     AccountInfo getAccountInfo();
