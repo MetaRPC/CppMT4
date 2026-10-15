@@ -629,6 +629,7 @@ class QuoteData final :
   enum : int {
     kSymbolFieldNumber = 1,
     kDateTimeFieldNumber = 4,
+    kDateTimeUtcFieldNumber = 7,
     kBidFieldNumber = 2,
     kAskFieldNumber = 3,
     kHighFieldNumber = 5,
@@ -665,6 +666,24 @@ class QuoteData final :
   void unsafe_arena_set_allocated_date_time(
       ::PROTOBUF_NAMESPACE_ID::Timestamp* date_time);
   ::PROTOBUF_NAMESPACE_ID::Timestamp* unsafe_arena_release_date_time();
+
+  // .google.protobuf.Timestamp date_time_utc = 7;
+  bool has_date_time_utc() const;
+  private:
+  bool _internal_has_date_time_utc() const;
+  public:
+  void clear_date_time_utc();
+  const ::PROTOBUF_NAMESPACE_ID::Timestamp& date_time_utc() const;
+  PROTOBUF_NODISCARD ::PROTOBUF_NAMESPACE_ID::Timestamp* release_date_time_utc();
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* mutable_date_time_utc();
+  void set_allocated_date_time_utc(::PROTOBUF_NAMESPACE_ID::Timestamp* date_time_utc);
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Timestamp& _internal_date_time_utc() const;
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* _internal_mutable_date_time_utc();
+  public:
+  void unsafe_arena_set_allocated_date_time_utc(
+      ::PROTOBUF_NAMESPACE_ID::Timestamp* date_time_utc);
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* unsafe_arena_release_date_time_utc();
 
   // double bid = 2;
   void clear_bid();
@@ -712,6 +731,7 @@ class QuoteData final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr symbol_;
     ::PROTOBUF_NAMESPACE_ID::Timestamp* date_time_;
+    ::PROTOBUF_NAMESPACE_ID::Timestamp* date_time_utc_;
     double bid_;
     double ask_;
     double high_;
@@ -1998,6 +2018,8 @@ class QuoteHistoryRequest final :
     kSymbolFieldNumber = 1,
     kFromTimeFieldNumber = 3,
     kToTimeFieldNumber = 4,
+    kFromTimeUtcFieldNumber = 5,
+    kToTimeUtcFieldNumber = 6,
     kTimeframeFieldNumber = 2,
   };
   // string symbol = 1;
@@ -2050,6 +2072,42 @@ class QuoteHistoryRequest final :
       ::PROTOBUF_NAMESPACE_ID::Timestamp* totime);
   ::PROTOBUF_NAMESPACE_ID::Timestamp* unsafe_arena_release_totime();
 
+  // .google.protobuf.Timestamp fromTimeUtc = 5;
+  bool has_fromtimeutc() const;
+  private:
+  bool _internal_has_fromtimeutc() const;
+  public:
+  void clear_fromtimeutc();
+  const ::PROTOBUF_NAMESPACE_ID::Timestamp& fromtimeutc() const;
+  PROTOBUF_NODISCARD ::PROTOBUF_NAMESPACE_ID::Timestamp* release_fromtimeutc();
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* mutable_fromtimeutc();
+  void set_allocated_fromtimeutc(::PROTOBUF_NAMESPACE_ID::Timestamp* fromtimeutc);
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Timestamp& _internal_fromtimeutc() const;
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* _internal_mutable_fromtimeutc();
+  public:
+  void unsafe_arena_set_allocated_fromtimeutc(
+      ::PROTOBUF_NAMESPACE_ID::Timestamp* fromtimeutc);
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* unsafe_arena_release_fromtimeutc();
+
+  // .google.protobuf.Timestamp toTimeUtc = 6;
+  bool has_totimeutc() const;
+  private:
+  bool _internal_has_totimeutc() const;
+  public:
+  void clear_totimeutc();
+  const ::PROTOBUF_NAMESPACE_ID::Timestamp& totimeutc() const;
+  PROTOBUF_NODISCARD ::PROTOBUF_NAMESPACE_ID::Timestamp* release_totimeutc();
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* mutable_totimeutc();
+  void set_allocated_totimeutc(::PROTOBUF_NAMESPACE_ID::Timestamp* totimeutc);
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Timestamp& _internal_totimeutc() const;
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* _internal_mutable_totimeutc();
+  public:
+  void unsafe_arena_set_allocated_totimeutc(
+      ::PROTOBUF_NAMESPACE_ID::Timestamp* totimeutc);
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* unsafe_arena_release_totimeutc();
+
   // .mt4_term_api.ENUM_QUOTE_HISTORY_TIMEFRAME timeframe = 2;
   void clear_timeframe();
   ::mt4_term_api::ENUM_QUOTE_HISTORY_TIMEFRAME timeframe() const;
@@ -2070,6 +2128,8 @@ class QuoteHistoryRequest final :
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr symbol_;
     ::PROTOBUF_NAMESPACE_ID::Timestamp* fromtime_;
     ::PROTOBUF_NAMESPACE_ID::Timestamp* totime_;
+    ::PROTOBUF_NAMESPACE_ID::Timestamp* fromtimeutc_;
+    ::PROTOBUF_NAMESPACE_ID::Timestamp* totimeutc_;
     int timeframe_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -2554,6 +2614,7 @@ class HistoryQuote final :
   enum : int {
     kSymbolFieldNumber = 1,
     kTimeFieldNumber = 3,
+    kTimeUtcFieldNumber = 11,
     kOpenFieldNumber = 4,
     kCloseFieldNumber = 5,
     kHighFieldNumber = 6,
@@ -2594,6 +2655,24 @@ class HistoryQuote final :
   void unsafe_arena_set_allocated_time(
       ::PROTOBUF_NAMESPACE_ID::Timestamp* time);
   ::PROTOBUF_NAMESPACE_ID::Timestamp* unsafe_arena_release_time();
+
+  // .google.protobuf.Timestamp time_utc = 11;
+  bool has_time_utc() const;
+  private:
+  bool _internal_has_time_utc() const;
+  public:
+  void clear_time_utc();
+  const ::PROTOBUF_NAMESPACE_ID::Timestamp& time_utc() const;
+  PROTOBUF_NODISCARD ::PROTOBUF_NAMESPACE_ID::Timestamp* release_time_utc();
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* mutable_time_utc();
+  void set_allocated_time_utc(::PROTOBUF_NAMESPACE_ID::Timestamp* time_utc);
+  private:
+  const ::PROTOBUF_NAMESPACE_ID::Timestamp& _internal_time_utc() const;
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* _internal_mutable_time_utc();
+  public:
+  void unsafe_arena_set_allocated_time_utc(
+      ::PROTOBUF_NAMESPACE_ID::Timestamp* time_utc);
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* unsafe_arena_release_time_utc();
 
   // double open = 4;
   void clear_open();
@@ -2677,6 +2756,7 @@ class HistoryQuote final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr symbol_;
     ::PROTOBUF_NAMESPACE_ID::Timestamp* time_;
+    ::PROTOBUF_NAMESPACE_ID::Timestamp* time_utc_;
     double open_;
     double close_;
     double high_;
@@ -3591,6 +3671,91 @@ inline void QuoteData::set_allocated_date_time(::PROTOBUF_NAMESPACE_ID::Timestam
   // @@protoc_insertion_point(field_set_allocated:mt4_term_api.QuoteData.date_time)
 }
 
+// .google.protobuf.Timestamp date_time_utc = 7;
+inline bool QuoteData::_internal_has_date_time_utc() const {
+  return this != internal_default_instance() && _impl_.date_time_utc_ != nullptr;
+}
+inline bool QuoteData::has_date_time_utc() const {
+  return _internal_has_date_time_utc();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Timestamp& QuoteData::_internal_date_time_utc() const {
+  const ::PROTOBUF_NAMESPACE_ID::Timestamp* p = _impl_.date_time_utc_;
+  return p != nullptr ? *p : reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Timestamp&>(
+      ::PROTOBUF_NAMESPACE_ID::_Timestamp_default_instance_);
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Timestamp& QuoteData::date_time_utc() const {
+  // @@protoc_insertion_point(field_get:mt4_term_api.QuoteData.date_time_utc)
+  return _internal_date_time_utc();
+}
+inline void QuoteData::unsafe_arena_set_allocated_date_time_utc(
+    ::PROTOBUF_NAMESPACE_ID::Timestamp* date_time_utc) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.date_time_utc_);
+  }
+  _impl_.date_time_utc_ = date_time_utc;
+  if (date_time_utc) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:mt4_term_api.QuoteData.date_time_utc)
+}
+inline ::PROTOBUF_NAMESPACE_ID::Timestamp* QuoteData::release_date_time_utc() {
+  
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* temp = _impl_.date_time_utc_;
+  _impl_.date_time_utc_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::PROTOBUF_NAMESPACE_ID::Timestamp* QuoteData::unsafe_arena_release_date_time_utc() {
+  // @@protoc_insertion_point(field_release:mt4_term_api.QuoteData.date_time_utc)
+  
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* temp = _impl_.date_time_utc_;
+  _impl_.date_time_utc_ = nullptr;
+  return temp;
+}
+inline ::PROTOBUF_NAMESPACE_ID::Timestamp* QuoteData::_internal_mutable_date_time_utc() {
+  
+  if (_impl_.date_time_utc_ == nullptr) {
+    auto* p = CreateMaybeMessage<::PROTOBUF_NAMESPACE_ID::Timestamp>(GetArenaForAllocation());
+    _impl_.date_time_utc_ = p;
+  }
+  return _impl_.date_time_utc_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::Timestamp* QuoteData::mutable_date_time_utc() {
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* _msg = _internal_mutable_date_time_utc();
+  // @@protoc_insertion_point(field_mutable:mt4_term_api.QuoteData.date_time_utc)
+  return _msg;
+}
+inline void QuoteData::set_allocated_date_time_utc(::PROTOBUF_NAMESPACE_ID::Timestamp* date_time_utc) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.date_time_utc_);
+  }
+  if (date_time_utc) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(date_time_utc));
+    if (message_arena != submessage_arena) {
+      date_time_utc = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, date_time_utc, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.date_time_utc_ = date_time_utc;
+  // @@protoc_insertion_point(field_set_allocated:mt4_term_api.QuoteData.date_time_utc)
+}
+
 // double high = 5;
 inline void QuoteData::clear_high() {
   _impl_.high_ = 0;
@@ -4341,6 +4506,91 @@ inline void QuoteHistoryRequest::set_allocated_fromtime(::PROTOBUF_NAMESPACE_ID:
   // @@protoc_insertion_point(field_set_allocated:mt4_term_api.QuoteHistoryRequest.fromTime)
 }
 
+// .google.protobuf.Timestamp fromTimeUtc = 5;
+inline bool QuoteHistoryRequest::_internal_has_fromtimeutc() const {
+  return this != internal_default_instance() && _impl_.fromtimeutc_ != nullptr;
+}
+inline bool QuoteHistoryRequest::has_fromtimeutc() const {
+  return _internal_has_fromtimeutc();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Timestamp& QuoteHistoryRequest::_internal_fromtimeutc() const {
+  const ::PROTOBUF_NAMESPACE_ID::Timestamp* p = _impl_.fromtimeutc_;
+  return p != nullptr ? *p : reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Timestamp&>(
+      ::PROTOBUF_NAMESPACE_ID::_Timestamp_default_instance_);
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Timestamp& QuoteHistoryRequest::fromtimeutc() const {
+  // @@protoc_insertion_point(field_get:mt4_term_api.QuoteHistoryRequest.fromTimeUtc)
+  return _internal_fromtimeutc();
+}
+inline void QuoteHistoryRequest::unsafe_arena_set_allocated_fromtimeutc(
+    ::PROTOBUF_NAMESPACE_ID::Timestamp* fromtimeutc) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.fromtimeutc_);
+  }
+  _impl_.fromtimeutc_ = fromtimeutc;
+  if (fromtimeutc) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:mt4_term_api.QuoteHistoryRequest.fromTimeUtc)
+}
+inline ::PROTOBUF_NAMESPACE_ID::Timestamp* QuoteHistoryRequest::release_fromtimeutc() {
+  
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* temp = _impl_.fromtimeutc_;
+  _impl_.fromtimeutc_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::PROTOBUF_NAMESPACE_ID::Timestamp* QuoteHistoryRequest::unsafe_arena_release_fromtimeutc() {
+  // @@protoc_insertion_point(field_release:mt4_term_api.QuoteHistoryRequest.fromTimeUtc)
+  
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* temp = _impl_.fromtimeutc_;
+  _impl_.fromtimeutc_ = nullptr;
+  return temp;
+}
+inline ::PROTOBUF_NAMESPACE_ID::Timestamp* QuoteHistoryRequest::_internal_mutable_fromtimeutc() {
+  
+  if (_impl_.fromtimeutc_ == nullptr) {
+    auto* p = CreateMaybeMessage<::PROTOBUF_NAMESPACE_ID::Timestamp>(GetArenaForAllocation());
+    _impl_.fromtimeutc_ = p;
+  }
+  return _impl_.fromtimeutc_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::Timestamp* QuoteHistoryRequest::mutable_fromtimeutc() {
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* _msg = _internal_mutable_fromtimeutc();
+  // @@protoc_insertion_point(field_mutable:mt4_term_api.QuoteHistoryRequest.fromTimeUtc)
+  return _msg;
+}
+inline void QuoteHistoryRequest::set_allocated_fromtimeutc(::PROTOBUF_NAMESPACE_ID::Timestamp* fromtimeutc) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.fromtimeutc_);
+  }
+  if (fromtimeutc) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(fromtimeutc));
+    if (message_arena != submessage_arena) {
+      fromtimeutc = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, fromtimeutc, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.fromtimeutc_ = fromtimeutc;
+  // @@protoc_insertion_point(field_set_allocated:mt4_term_api.QuoteHistoryRequest.fromTimeUtc)
+}
+
 // .google.protobuf.Timestamp toTime = 4;
 inline bool QuoteHistoryRequest::_internal_has_totime() const {
   return this != internal_default_instance() && _impl_.totime_ != nullptr;
@@ -4424,6 +4674,91 @@ inline void QuoteHistoryRequest::set_allocated_totime(::PROTOBUF_NAMESPACE_ID::T
   }
   _impl_.totime_ = totime;
   // @@protoc_insertion_point(field_set_allocated:mt4_term_api.QuoteHistoryRequest.toTime)
+}
+
+// .google.protobuf.Timestamp toTimeUtc = 6;
+inline bool QuoteHistoryRequest::_internal_has_totimeutc() const {
+  return this != internal_default_instance() && _impl_.totimeutc_ != nullptr;
+}
+inline bool QuoteHistoryRequest::has_totimeutc() const {
+  return _internal_has_totimeutc();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Timestamp& QuoteHistoryRequest::_internal_totimeutc() const {
+  const ::PROTOBUF_NAMESPACE_ID::Timestamp* p = _impl_.totimeutc_;
+  return p != nullptr ? *p : reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Timestamp&>(
+      ::PROTOBUF_NAMESPACE_ID::_Timestamp_default_instance_);
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Timestamp& QuoteHistoryRequest::totimeutc() const {
+  // @@protoc_insertion_point(field_get:mt4_term_api.QuoteHistoryRequest.toTimeUtc)
+  return _internal_totimeutc();
+}
+inline void QuoteHistoryRequest::unsafe_arena_set_allocated_totimeutc(
+    ::PROTOBUF_NAMESPACE_ID::Timestamp* totimeutc) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.totimeutc_);
+  }
+  _impl_.totimeutc_ = totimeutc;
+  if (totimeutc) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:mt4_term_api.QuoteHistoryRequest.toTimeUtc)
+}
+inline ::PROTOBUF_NAMESPACE_ID::Timestamp* QuoteHistoryRequest::release_totimeutc() {
+  
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* temp = _impl_.totimeutc_;
+  _impl_.totimeutc_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::PROTOBUF_NAMESPACE_ID::Timestamp* QuoteHistoryRequest::unsafe_arena_release_totimeutc() {
+  // @@protoc_insertion_point(field_release:mt4_term_api.QuoteHistoryRequest.toTimeUtc)
+  
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* temp = _impl_.totimeutc_;
+  _impl_.totimeutc_ = nullptr;
+  return temp;
+}
+inline ::PROTOBUF_NAMESPACE_ID::Timestamp* QuoteHistoryRequest::_internal_mutable_totimeutc() {
+  
+  if (_impl_.totimeutc_ == nullptr) {
+    auto* p = CreateMaybeMessage<::PROTOBUF_NAMESPACE_ID::Timestamp>(GetArenaForAllocation());
+    _impl_.totimeutc_ = p;
+  }
+  return _impl_.totimeutc_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::Timestamp* QuoteHistoryRequest::mutable_totimeutc() {
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* _msg = _internal_mutable_totimeutc();
+  // @@protoc_insertion_point(field_mutable:mt4_term_api.QuoteHistoryRequest.toTimeUtc)
+  return _msg;
+}
+inline void QuoteHistoryRequest::set_allocated_totimeutc(::PROTOBUF_NAMESPACE_ID::Timestamp* totimeutc) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.totimeutc_);
+  }
+  if (totimeutc) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(totimeutc));
+    if (message_arena != submessage_arena) {
+      totimeutc = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, totimeutc, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.totimeutc_ = totimeutc;
+  // @@protoc_insertion_point(field_set_allocated:mt4_term_api.QuoteHistoryRequest.toTimeUtc)
 }
 
 // -------------------------------------------------------------------
@@ -4780,6 +5115,91 @@ inline void HistoryQuote::set_allocated_time(::PROTOBUF_NAMESPACE_ID::Timestamp*
   }
   _impl_.time_ = time;
   // @@protoc_insertion_point(field_set_allocated:mt4_term_api.HistoryQuote.time)
+}
+
+// .google.protobuf.Timestamp time_utc = 11;
+inline bool HistoryQuote::_internal_has_time_utc() const {
+  return this != internal_default_instance() && _impl_.time_utc_ != nullptr;
+}
+inline bool HistoryQuote::has_time_utc() const {
+  return _internal_has_time_utc();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Timestamp& HistoryQuote::_internal_time_utc() const {
+  const ::PROTOBUF_NAMESPACE_ID::Timestamp* p = _impl_.time_utc_;
+  return p != nullptr ? *p : reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Timestamp&>(
+      ::PROTOBUF_NAMESPACE_ID::_Timestamp_default_instance_);
+}
+inline const ::PROTOBUF_NAMESPACE_ID::Timestamp& HistoryQuote::time_utc() const {
+  // @@protoc_insertion_point(field_get:mt4_term_api.HistoryQuote.time_utc)
+  return _internal_time_utc();
+}
+inline void HistoryQuote::unsafe_arena_set_allocated_time_utc(
+    ::PROTOBUF_NAMESPACE_ID::Timestamp* time_utc) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.time_utc_);
+  }
+  _impl_.time_utc_ = time_utc;
+  if (time_utc) {
+    
+  } else {
+    
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:mt4_term_api.HistoryQuote.time_utc)
+}
+inline ::PROTOBUF_NAMESPACE_ID::Timestamp* HistoryQuote::release_time_utc() {
+  
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* temp = _impl_.time_utc_;
+  _impl_.time_utc_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::PROTOBUF_NAMESPACE_ID::Timestamp* HistoryQuote::unsafe_arena_release_time_utc() {
+  // @@protoc_insertion_point(field_release:mt4_term_api.HistoryQuote.time_utc)
+  
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* temp = _impl_.time_utc_;
+  _impl_.time_utc_ = nullptr;
+  return temp;
+}
+inline ::PROTOBUF_NAMESPACE_ID::Timestamp* HistoryQuote::_internal_mutable_time_utc() {
+  
+  if (_impl_.time_utc_ == nullptr) {
+    auto* p = CreateMaybeMessage<::PROTOBUF_NAMESPACE_ID::Timestamp>(GetArenaForAllocation());
+    _impl_.time_utc_ = p;
+  }
+  return _impl_.time_utc_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::Timestamp* HistoryQuote::mutable_time_utc() {
+  ::PROTOBUF_NAMESPACE_ID::Timestamp* _msg = _internal_mutable_time_utc();
+  // @@protoc_insertion_point(field_mutable:mt4_term_api.HistoryQuote.time_utc)
+  return _msg;
+}
+inline void HistoryQuote::set_allocated_time_utc(::PROTOBUF_NAMESPACE_ID::Timestamp* time_utc) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.time_utc_);
+  }
+  if (time_utc) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(time_utc));
+    if (message_arena != submessage_arena) {
+      time_utc = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, time_utc, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  _impl_.time_utc_ = time_utc;
+  // @@protoc_insertion_point(field_set_allocated:mt4_term_api.HistoryQuote.time_utc)
 }
 
 // double open = 4;

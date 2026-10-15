@@ -75,6 +75,8 @@ class AccountHelper final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mt4_term_api::SymbolParamsManyReply>> PrepareAsyncSymbolParamsMany(::grpc::ClientContext* context, const ::mt4_term_api::SymbolParamsManyRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mt4_term_api::SymbolParamsManyReply>>(PrepareAsyncSymbolParamsManyRaw(context, request, cq));
     }
+    // Tick value as array. Name the symbols (symbolNames); with no names the reply covers the
+    // symbols currently in Market Watch, never the whole server list.
     virtual ::grpc::Status TickValueWithSize(::grpc::ClientContext* context, const ::mt4_term_api::TickValueWithSizeRequest& request, ::mt4_term_api::TickValueWithSizeReply* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mt4_term_api::TickValueWithSizeReply>> AsyncTickValueWithSize(::grpc::ClientContext* context, const ::mt4_term_api::TickValueWithSizeRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mt4_term_api::TickValueWithSizeReply>>(AsyncTickValueWithSizeRaw(context, request, cq));
@@ -100,6 +102,8 @@ class AccountHelper final {
       // Full information about exact symbol, or all symbols
       virtual void SymbolParamsMany(::grpc::ClientContext* context, const ::mt4_term_api::SymbolParamsManyRequest* request, ::mt4_term_api::SymbolParamsManyReply* response, std::function<void(::grpc::Status)>) = 0;
       virtual void SymbolParamsMany(::grpc::ClientContext* context, const ::mt4_term_api::SymbolParamsManyRequest* request, ::mt4_term_api::SymbolParamsManyReply* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      // Tick value as array. Name the symbols (symbolNames); with no names the reply covers the
+      // symbols currently in Market Watch, never the whole server list.
       virtual void TickValueWithSize(::grpc::ClientContext* context, const ::mt4_term_api::TickValueWithSizeRequest* request, ::mt4_term_api::TickValueWithSizeReply* response, std::function<void(::grpc::Status)>) = 0;
       virtual void TickValueWithSize(::grpc::ClientContext* context, const ::mt4_term_api::TickValueWithSizeRequest* request, ::mt4_term_api::TickValueWithSizeReply* response, ::grpc::ClientUnaryReactor* reactor) = 0;
     };
@@ -226,6 +230,8 @@ class AccountHelper final {
     virtual ::grpc::Status OrdersHistory(::grpc::ServerContext* context, const ::mt4_term_api::OrdersHistoryRequest* request, ::mt4_term_api::OrdersHistoryReply* response);
     // Full information about exact symbol, or all symbols
     virtual ::grpc::Status SymbolParamsMany(::grpc::ServerContext* context, const ::mt4_term_api::SymbolParamsManyRequest* request, ::mt4_term_api::SymbolParamsManyReply* response);
+    // Tick value as array. Name the symbols (symbolNames); with no names the reply covers the
+    // symbols currently in Market Watch, never the whole server list.
     virtual ::grpc::Status TickValueWithSize(::grpc::ServerContext* context, const ::mt4_term_api::TickValueWithSizeRequest* request, ::mt4_term_api::TickValueWithSizeReply* response);
   };
   template <class BaseClass>

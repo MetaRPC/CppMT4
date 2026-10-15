@@ -35,6 +35,7 @@ PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORIT
 PROTOBUF_CONSTEXPR HealthCheckReply::HealthCheckReply(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.servertimemsc_)*/int64_t{0}
+  , /*decltype(_impl_.servertimemscutc_)*/int64_t{0}
   , /*decltype(_impl_.connected_)*/false
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct HealthCheckReplyDefaultTypeInternal {
@@ -88,6 +89,7 @@ const uint32_t TableStruct_mt4_2dterm_2dapi_2dhealth_2dcheck_2eproto::offsets[] 
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::HealthCheckReply, _impl_.connected_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::HealthCheckReply, _impl_.servertimemsc_),
+  PROTOBUF_FIELD_OFFSET(::mt4_term_api::HealthCheckReply, _impl_.servertimemscutc_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::CloseTerminalRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -104,8 +106,8 @@ const uint32_t TableStruct_mt4_2dterm_2dapi_2dhealth_2dcheck_2eproto::offsets[] 
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::mt4_term_api::HealthCheckRequest)},
   { 6, -1, -1, sizeof(::mt4_term_api::HealthCheckReply)},
-  { 14, -1, -1, sizeof(::mt4_term_api::CloseTerminalRequest)},
-  { 20, -1, -1, sizeof(::mt4_term_api::CloseTerminalReply)},
+  { 15, -1, -1, sizeof(::mt4_term_api::CloseTerminalRequest)},
+  { 21, -1, -1, sizeof(::mt4_term_api::CloseTerminalReply)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -117,20 +119,21 @@ static const ::_pb::Message* const file_default_instances[] = {
 
 const char descriptor_table_protodef_mt4_2dterm_2dapi_2dhealth_2dcheck_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\037mt4-term-api-health-check.proto\022\014mt4_t"
-  "erm_api\"\024\n\022HealthCheckRequest\"<\n\020HealthC"
+  "erm_api\"\024\n\022HealthCheckRequest\"V\n\020HealthC"
   "heckReply\022\021\n\tconnected\030\001 \001(\010\022\025\n\rserverTi"
-  "meMsc\030\002 \001(\003\"\026\n\024CloseTerminalRequest\"\024\n\022C"
-  "loseTerminalReply2\267\001\n\rHealthService\022O\n\013H"
-  "ealthCheck\022 .mt4_term_api.HealthCheckReq"
-  "uest\032\036.mt4_term_api.HealthCheckReply\022U\n\r"
-  "CloseTerminal\022\".mt4_term_api.CloseTermin"
-  "alRequest\032 .mt4_term_api.CloseTerminalRe"
-  "plyBBZ1git.mtapi.io/root/mrpc-proto.git/"
-  "mt4/libraries/go\252\002\014mt4_term_apib\006proto3"
+  "meMsc\030\002 \001(\003\022\030\n\020serverTimeMscUtc\030\003 \001(\003\"\026\n"
+  "\024CloseTerminalRequest\"\024\n\022CloseTerminalRe"
+  "ply2\267\001\n\rHealthService\022O\n\013HealthCheck\022 .m"
+  "t4_term_api.HealthCheckRequest\032\036.mt4_ter"
+  "m_api.HealthCheckReply\022U\n\rCloseTerminal\022"
+  "\".mt4_term_api.CloseTerminalRequest\032 .mt"
+  "4_term_api.CloseTerminalReplyBBZ1git.mta"
+  "pi.io/root/mrpc-proto.git/mt4/libraries/"
+  "go\252\002\014mt4_term_apib\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_mt4_2dterm_2dapi_2dhealth_2dcheck_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_mt4_2dterm_2dapi_2dhealth_2dcheck_2eproto = {
-    false, false, 439, descriptor_table_protodef_mt4_2dterm_2dapi_2dhealth_2dcheck_2eproto,
+    false, false, 465, descriptor_table_protodef_mt4_2dterm_2dapi_2dhealth_2dcheck_2eproto,
     "mt4-term-api-health-check.proto",
     &descriptor_table_mt4_2dterm_2dapi_2dhealth_2dcheck_2eproto_once, nullptr, 0, 4,
     schemas, file_default_instances, TableStruct_mt4_2dterm_2dapi_2dhealth_2dcheck_2eproto::offsets,
@@ -202,6 +205,7 @@ HealthCheckReply::HealthCheckReply(const HealthCheckReply& from)
   HealthCheckReply* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       decltype(_impl_.servertimemsc_){}
+    , decltype(_impl_.servertimemscutc_){}
     , decltype(_impl_.connected_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
@@ -218,6 +222,7 @@ inline void HealthCheckReply::SharedCtor(
   (void)is_message_owned;
   new (&_impl_) Impl_{
       decltype(_impl_.servertimemsc_){int64_t{0}}
+    , decltype(_impl_.servertimemscutc_){int64_t{0}}
     , decltype(_impl_.connected_){false}
     , /*decltype(_impl_._cached_size_)*/{}
   };
@@ -274,6 +279,14 @@ const char* HealthCheckReply::_InternalParse(const char* ptr, ::_pbi::ParseConte
         } else
           goto handle_unusual;
         continue;
+      // int64 serverTimeMscUtc = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _impl_.servertimemscutc_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -315,6 +328,12 @@ uint8_t* HealthCheckReply::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteInt64ToArray(2, this->_internal_servertimemsc(), target);
   }
 
+  // int64 serverTimeMscUtc = 3;
+  if (this->_internal_servertimemscutc() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(3, this->_internal_servertimemscutc(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -334,6 +353,11 @@ size_t HealthCheckReply::ByteSizeLong() const {
   // int64 serverTimeMsc = 2;
   if (this->_internal_servertimemsc() != 0) {
     total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_servertimemsc());
+  }
+
+  // int64 serverTimeMscUtc = 3;
+  if (this->_internal_servertimemscutc() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_servertimemscutc());
   }
 
   // bool connected = 1;
@@ -361,6 +385,9 @@ void HealthCheckReply::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const
 
   if (from._internal_servertimemsc() != 0) {
     _this->_internal_set_servertimemsc(from._internal_servertimemsc());
+  }
+  if (from._internal_servertimemscutc() != 0) {
+    _this->_internal_set_servertimemscutc(from._internal_servertimemscutc());
   }
   if (from._internal_connected() != 0) {
     _this->_internal_set_connected(from._internal_connected());

@@ -66,11 +66,13 @@ PROTOBUF_CONSTEXPR OnSymbolMqlTickInfo::OnSymbolMqlTickInfo(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.symbol_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.time_)*/nullptr
+  , /*decltype(_impl_.time_utc_)*/nullptr
   , /*decltype(_impl_.bid_)*/0
   , /*decltype(_impl_.ask_)*/0
   , /*decltype(_impl_.last_)*/0
   , /*decltype(_impl_.volume_)*/uint64_t{0u}
   , /*decltype(_impl_.time_msc_)*/int64_t{0}
+  , /*decltype(_impl_.time_msc_utc_)*/int64_t{0}
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct OnSymbolMqlTickInfoDefaultTypeInternal {
   PROTOBUF_CONSTEXPR OnSymbolMqlTickInfoDefaultTypeInternal()
@@ -145,6 +147,9 @@ PROTOBUF_CONSTEXPR OnTradeOrderInfo::OnTradeOrderInfo(
   , /*decltype(_impl_.expiration_)*/nullptr
   , /*decltype(_impl_.open_time_)*/nullptr
   , /*decltype(_impl_.close_time_)*/nullptr
+  , /*decltype(_impl_.expiration_utc_)*/nullptr
+  , /*decltype(_impl_.open_time_utc_)*/nullptr
+  , /*decltype(_impl_.close_time_utc_)*/nullptr
   , /*decltype(_impl_.index_)*/0
   , /*decltype(_impl_.ticket_)*/0
   , /*decltype(_impl_.commission_)*/0
@@ -218,6 +223,7 @@ PROTOBUF_CONSTEXPR OnOpenedOrdersTicketsData::OnOpenedOrdersTicketsData(
   , /*decltype(_impl_._pending_order_tickets_cached_byte_size_)*/{0}
   , /*decltype(_impl_.terminal_instance_guid_id_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.server_time_)*/nullptr
+  , /*decltype(_impl_.server_time_utc_)*/nullptr
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct OnOpenedOrdersTicketsDataDefaultTypeInternal {
   PROTOBUF_CONSTEXPR OnOpenedOrdersTicketsDataDefaultTypeInternal()
@@ -297,6 +303,8 @@ PROTOBUF_CONSTEXPR OnOpenedOrdersProfitOrderInfo::OnOpenedOrdersProfitOrderInfo(
   , /*decltype(_impl_.symbol_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.expiration_)*/nullptr
   , /*decltype(_impl_.open_time_)*/nullptr
+  , /*decltype(_impl_.expiration_utc_)*/nullptr
+  , /*decltype(_impl_.open_time_utc_)*/nullptr
   , /*decltype(_impl_.index_)*/0
   , /*decltype(_impl_.ticket_)*/0
   , /*decltype(_impl_.commission_)*/0
@@ -355,11 +363,13 @@ const uint32_t TableStruct_mt4_2dterm_2dapi_2dsubscriptions_2eproto::offsets[] P
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnSymbolMqlTickInfo, _impl_.time_),
+  PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnSymbolMqlTickInfo, _impl_.time_utc_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnSymbolMqlTickInfo, _impl_.bid_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnSymbolMqlTickInfo, _impl_.ask_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnSymbolMqlTickInfo, _impl_.last_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnSymbolMqlTickInfo, _impl_.volume_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnSymbolMqlTickInfo, _impl_.time_msc_),
+  PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnSymbolMqlTickInfo, _impl_.time_msc_utc_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnSymbolMqlTickInfo, _impl_.symbol_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnTradeRequest, _internal_metadata_),
@@ -408,10 +418,12 @@ const uint32_t TableStruct_mt4_2dterm_2dapi_2dsubscriptions_2eproto::offsets[] P
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnTradeOrderInfo, _impl_.comment_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnTradeOrderInfo, _impl_.commission_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnTradeOrderInfo, _impl_.expiration_),
+  PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnTradeOrderInfo, _impl_.expiration_utc_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnTradeOrderInfo, _impl_.lots_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnTradeOrderInfo, _impl_.magic_number_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnTradeOrderInfo, _impl_.open_price_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnTradeOrderInfo, _impl_.open_time_),
+  PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnTradeOrderInfo, _impl_.open_time_utc_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnTradeOrderInfo, _impl_.order_profit_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnTradeOrderInfo, _impl_.stop_loss_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnTradeOrderInfo, _impl_.swap_),
@@ -420,6 +432,7 @@ const uint32_t TableStruct_mt4_2dterm_2dapi_2dsubscriptions_2eproto::offsets[] P
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnTradeOrderInfo, _impl_.type_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnTradeOrderInfo, _impl_.close_price_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnTradeOrderInfo, _impl_.close_time_),
+  PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnTradeOrderInfo, _impl_.close_time_utc_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnTradeOrderInfo, _impl_.account_login_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnTradeUpdatedOrderInfo, _internal_metadata_),
@@ -454,6 +467,7 @@ const uint32_t TableStruct_mt4_2dterm_2dapi_2dsubscriptions_2eproto::offsets[] P
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnOpenedOrdersTicketsData, _impl_.position_tickets_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnOpenedOrdersTicketsData, _impl_.pending_order_tickets_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnOpenedOrdersTicketsData, _impl_.server_time_),
+  PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnOpenedOrdersTicketsData, _impl_.server_time_utc_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnOpenedOrdersTicketsData, _impl_.terminal_instance_guid_id_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnOpenedOrdersProfitRequest, _internal_metadata_),
@@ -506,10 +520,12 @@ const uint32_t TableStruct_mt4_2dterm_2dapi_2dsubscriptions_2eproto::offsets[] P
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnOpenedOrdersProfitOrderInfo, _impl_.comment_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnOpenedOrdersProfitOrderInfo, _impl_.commission_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnOpenedOrdersProfitOrderInfo, _impl_.expiration_),
+  PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnOpenedOrdersProfitOrderInfo, _impl_.expiration_utc_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnOpenedOrdersProfitOrderInfo, _impl_.lots_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnOpenedOrdersProfitOrderInfo, _impl_.magic_number_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnOpenedOrdersProfitOrderInfo, _impl_.open_price_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnOpenedOrdersProfitOrderInfo, _impl_.open_time_),
+  PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnOpenedOrdersProfitOrderInfo, _impl_.open_time_utc_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnOpenedOrdersProfitOrderInfo, _impl_.order_profit_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnOpenedOrdersProfitOrderInfo, _impl_.stop_loss_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::OnOpenedOrdersProfitOrderInfo, _impl_.swap_),
@@ -522,20 +538,20 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 7, -1, -1, sizeof(::mt4_term_api::OnSymbolTickReply)},
   { 16, -1, -1, sizeof(::mt4_term_api::OnSymbolTickData)},
   { 24, -1, -1, sizeof(::mt4_term_api::OnSymbolMqlTickInfo)},
-  { 37, -1, -1, sizeof(::mt4_term_api::OnTradeRequest)},
-  { 43, -1, -1, sizeof(::mt4_term_api::OnTradeReply)},
-  { 52, -1, -1, sizeof(::mt4_term_api::OnTradeData)},
-  { 62, -1, -1, sizeof(::mt4_term_api::OnTadeEventData)},
-  { 72, -1, -1, sizeof(::mt4_term_api::OnTradeOrderInfo)},
-  { 97, -1, -1, sizeof(::mt4_term_api::OnTradeUpdatedOrderInfo)},
-  { 105, -1, -1, sizeof(::mt4_term_api::OnOpenedOrdersTicketsRequest)},
-  { 112, -1, -1, sizeof(::mt4_term_api::OnOpenedOrdersTicketsReply)},
-  { 121, -1, -1, sizeof(::mt4_term_api::OnOpenedOrdersTicketsData)},
-  { 131, -1, -1, sizeof(::mt4_term_api::OnOpenedOrdersProfitRequest)},
-  { 138, -1, -1, sizeof(::mt4_term_api::OnOpenedOrdersProfitReply)},
-  { 147, -1, -1, sizeof(::mt4_term_api::OnOpenedOrdersProfitData)},
-  { 157, -1, -1, sizeof(::mt4_term_api::OnEventAccountInfo)},
-  { 171, -1, -1, sizeof(::mt4_term_api::OnOpenedOrdersProfitOrderInfo)},
+  { 39, -1, -1, sizeof(::mt4_term_api::OnTradeRequest)},
+  { 45, -1, -1, sizeof(::mt4_term_api::OnTradeReply)},
+  { 54, -1, -1, sizeof(::mt4_term_api::OnTradeData)},
+  { 64, -1, -1, sizeof(::mt4_term_api::OnTadeEventData)},
+  { 74, -1, -1, sizeof(::mt4_term_api::OnTradeOrderInfo)},
+  { 102, -1, -1, sizeof(::mt4_term_api::OnTradeUpdatedOrderInfo)},
+  { 110, -1, -1, sizeof(::mt4_term_api::OnOpenedOrdersTicketsRequest)},
+  { 117, -1, -1, sizeof(::mt4_term_api::OnOpenedOrdersTicketsReply)},
+  { 126, -1, -1, sizeof(::mt4_term_api::OnOpenedOrdersTicketsData)},
+  { 137, -1, -1, sizeof(::mt4_term_api::OnOpenedOrdersProfitRequest)},
+  { 144, -1, -1, sizeof(::mt4_term_api::OnOpenedOrdersProfitReply)},
+  { 153, -1, -1, sizeof(::mt4_term_api::OnOpenedOrdersProfitData)},
+  { 163, -1, -1, sizeof(::mt4_term_api::OnEventAccountInfo)},
+  { 177, -1, -1, sizeof(::mt4_term_api::OnOpenedOrdersProfitOrderInfo)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -570,96 +586,106 @@ const char descriptor_table_protodef_mt4_2dterm_2dapi_2dsubscriptions_2eproto[] 
   "rorH\000B\n\n\010response\"m\n\020OnSymbolTickData\0226\n"
   "\013symbol_tick\030\001 \001(\0132!.mt4_term_api.OnSymb"
   "olMqlTickInfo\022!\n\031terminal_instance_guid_"
-  "id\030\002 \001(\t\"\231\001\n\023OnSymbolMqlTickInfo\022(\n\004time"
-  "\030\001 \001(\0132\032.google.protobuf.Timestamp\022\013\n\003bi"
-  "d\030\002 \001(\001\022\013\n\003ask\030\003 \001(\001\022\014\n\004last\030\004 \001(\001\022\016\n\006vo"
-  "lume\030\005 \001(\004\022\020\n\010time_msc\030\006 \001(\003\022\016\n\006symbol\030\007"
-  " \001(\t\"\020\n\016OnTradeRequest\"k\n\014OnTradeReply\022)"
-  "\n\004data\030\001 \001(\0132\031.mt4_term_api.OnTradeDataH"
-  "\000\022$\n\005error\030\002 \001(\0132\023.mt4_term_api.ErrorH\000B"
-  "\n\n\010response\"\326\001\n\013OnTradeData\0229\n\004type\030\001 \001("
-  "\0162+.mt4_term_api.MT4_SUB_ENUM_EVENT_GROU"
-  "P_TYPE\0221\n\nevent_data\030\002 \001(\0132\035.mt4_term_ap"
-  "i.OnTadeEventData\0226\n\014account_info\030\003 \001(\0132"
-  " .mt4_term_api.OnEventAccountInfo\022!\n\031ter"
-  "minal_instance_guid_id\030\004 \001(\t\"\370\001\n\017OnTadeE"
-  "ventData\0222\n\nnew_orders\030\001 \003(\0132\036.mt4_term_"
-  "api.OnTradeOrderInfo\022=\n\016updated_orders\030\002"
-  " \003(\0132%.mt4_term_api.OnTradeUpdatedOrderI"
-  "nfo\0226\n\016removed_orders\030\003 \003(\0132\036.mt4_term_a"
-  "pi.OnTradeOrderInfo\022:\n\022new_history_order"
-  "s\030\004 \003(\0132\036.mt4_term_api.OnTradeOrderInfo\""
-  "\357\003\n\020OnTradeOrderInfo\022\r\n\005index\030\001 \001(\005\022\016\n\006t"
-  "icket\030\002 \001(\005\022\022\n\nis_history\030\003 \001(\010\022\017\n\007comme"
-  "nt\030\004 \001(\t\022\022\n\ncommission\030\005 \001(\001\022.\n\nexpirati"
-  "on\030\006 \001(\0132\032.google.protobuf.Timestamp\022\014\n\004"
+  "id\030\002 \001(\t\"\335\001\n\023OnSymbolMqlTickInfo\022(\n\004time"
+  "\030\001 \001(\0132\032.google.protobuf.Timestamp\022,\n\010ti"
+  "me_utc\030\010 \001(\0132\032.google.protobuf.Timestamp"
+  "\022\013\n\003bid\030\002 \001(\001\022\013\n\003ask\030\003 \001(\001\022\014\n\004last\030\004 \001(\001"
+  "\022\016\n\006volume\030\005 \001(\004\022\020\n\010time_msc\030\006 \001(\003\022\024\n\014ti"
+  "me_msc_utc\030\t \001(\003\022\016\n\006symbol\030\007 \001(\t\"\020\n\016OnTr"
+  "adeRequest\"k\n\014OnTradeReply\022)\n\004data\030\001 \001(\013"
+  "2\031.mt4_term_api.OnTradeDataH\000\022$\n\005error\030\002"
+  " \001(\0132\023.mt4_term_api.ErrorH\000B\n\n\010response\""
+  "\326\001\n\013OnTradeData\0229\n\004type\030\001 \001(\0162+.mt4_term"
+  "_api.MT4_SUB_ENUM_EVENT_GROUP_TYPE\0221\n\nev"
+  "ent_data\030\002 \001(\0132\035.mt4_term_api.OnTadeEven"
+  "tData\0226\n\014account_info\030\003 \001(\0132 .mt4_term_a"
+  "pi.OnEventAccountInfo\022!\n\031terminal_instan"
+  "ce_guid_id\030\004 \001(\t\"\370\001\n\017OnTadeEventData\0222\n\n"
+  "new_orders\030\001 \003(\0132\036.mt4_term_api.OnTradeO"
+  "rderInfo\022=\n\016updated_orders\030\002 \003(\0132%.mt4_t"
+  "erm_api.OnTradeUpdatedOrderInfo\0226\n\016remov"
+  "ed_orders\030\003 \003(\0132\036.mt4_term_api.OnTradeOr"
+  "derInfo\022:\n\022new_history_orders\030\004 \003(\0132\036.mt"
+  "4_term_api.OnTradeOrderInfo\"\212\005\n\020OnTradeO"
+  "rderInfo\022\r\n\005index\030\001 \001(\005\022\016\n\006ticket\030\002 \001(\005\022"
+  "\022\n\nis_history\030\003 \001(\010\022\017\n\007comment\030\004 \001(\t\022\022\n\n"
+  "commission\030\005 \001(\001\022.\n\nexpiration\030\006 \001(\0132\032.g"
+  "oogle.protobuf.Timestamp\0222\n\016expiration_u"
+  "tc\030\024 \001(\0132\032.google.protobuf.Timestamp\022\014\n\004"
   "lots\030\007 \001(\001\022\024\n\014magic_number\030\010 \001(\005\022\022\n\nopen"
   "_price\030\t \001(\001\022-\n\topen_time\030\n \001(\0132\032.google"
-  ".protobuf.Timestamp\022\024\n\014order_profit\030\013 \001("
-  "\001\022\021\n\tstop_loss\030\014 \001(\001\022\014\n\004swap\030\r \001(\001\022\016\n\006sy"
-  "mbol\030\016 \001(\t\022\023\n\013take_profit\030\017 \001(\001\0224\n\004type\030"
-  "\020 \001(\0162&.mt4_term_api.SUB_ORDER_OPERATION"
-  "_TYPE\022\023\n\013close_price\030\021 \001(\001\022.\n\nclose_time"
-  "\030\022 \001(\0132\032.google.protobuf.Timestamp\022\025\n\rac"
-  "count_login\030\023 \001(\003\"|\n\027OnTradeUpdatedOrder"
-  "Info\0220\n\010previous\030\001 \001(\0132\036.mt4_term_api.On"
-  "TradeOrderInfo\022/\n\007current\030\002 \001(\0132\036.mt4_te"
-  "rm_api.OnTradeOrderInfo\"B\n\034OnOpenedOrder"
-  "sTicketsRequest\022\"\n\032pull_interval_millise"
-  "conds\030\001 \001(\005\"\207\001\n\032OnOpenedOrdersTicketsRep"
-  "ly\0227\n\004data\030\001 \001(\0132\'.mt4_term_api.OnOpened"
-  "OrdersTicketsDataH\000\022$\n\005error\030\002 \001(\0132\023.mt4"
-  "_term_api.ErrorH\000B\n\n\010response\"\250\001\n\031OnOpen"
-  "edOrdersTicketsData\022\030\n\020position_tickets\030"
-  "\001 \003(\005\022\035\n\025pending_order_tickets\030\002 \003(\005\022/\n\013"
-  "server_time\030\003 \001(\0132\032.google.protobuf.Time"
-  "stamp\022!\n\031terminal_instance_guid_id\030\005 \001(\t"
-  "\"@\n\033OnOpenedOrdersProfitRequest\022!\n\031timer"
-  "_period_milliseconds\030\001 \001(\005\"\205\001\n\031OnOpenedO"
-  "rdersProfitReply\0226\n\004data\030\001 \001(\0132&.mt4_ter"
-  "m_api.OnOpenedOrdersProfitDataH\000\022$\n\005erro"
-  "r\030\002 \001(\0132\023.mt4_term_api.ErrorH\000B\n\n\010respon"
-  "se\"\210\002\n\030OnOpenedOrdersProfitData\0229\n\004type\030"
-  "\001 \001(\0162+.mt4_term_api.MT4_SUB_ENUM_EVENT_"
-  "GROUP_TYPE\022V\n!opened_orders_with_profit_"
-  "updated\030\002 \003(\0132+.mt4_term_api.OnOpenedOrd"
-  "ersProfitOrderInfo\0226\n\014account_info\030\003 \001(\013"
-  "2 .mt4_term_api.OnEventAccountInfo\022!\n\031te"
-  "rminal_instance_guid_id\030\004 \001(\t\"\237\001\n\022OnEven"
-  "tAccountInfo\022\017\n\007balance\030\001 \001(\001\022\016\n\006credit\030"
-  "\002 \001(\001\022\016\n\006equity\030\003 \001(\001\022\016\n\006margin\030\004 \001(\001\022\023\n"
-  "\013free_margin\030\005 \001(\001\022\016\n\006profit\030\006 \001(\001\022\024\n\014ma"
-  "rgin_level\030\007 \001(\001\022\r\n\005login\030\010 \001(\003\"\214\003\n\035OnOp"
-  "enedOrdersProfitOrderInfo\022\r\n\005index\030\001 \001(\005"
-  "\022\016\n\006ticket\030\002 \001(\005\022\017\n\007comment\030\003 \001(\t\022\022\n\ncom"
-  "mission\030\004 \001(\001\022.\n\nexpiration\030\005 \001(\0132\032.goog"
-  "le.protobuf.Timestamp\022\014\n\004lots\030\006 \001(\001\022\024\n\014m"
-  "agic_number\030\007 \001(\005\022\022\n\nopen_price\030\010 \001(\001\022-\n"
-  "\topen_time\030\t \001(\0132\032.google.protobuf.Times"
-  "tamp\022\024\n\014order_profit\030\n \001(\001\022\021\n\tstop_loss\030"
-  "\013 \001(\001\022\014\n\004swap\030\014 \001(\001\022\016\n\006symbol\030\r \001(\t\022\023\n\013t"
-  "ake_profit\030\016 \001(\001\0224\n\004type\030\017 \001(\0162&.mt4_ter"
-  "m_api.SUB_ORDER_OPERATION_TYPE*\217\001\n\030SUB_O"
-  "RDER_OPERATION_TYPE\022\016\n\nSUB_OP_BUY\020\000\022\017\n\013S"
-  "UB_OP_SELL\020\001\022\023\n\017SUB_OP_BUYLIMIT\020\002\022\024\n\020SUB"
-  "_OP_SELLLIMIT\020\003\022\022\n\016SUB_OP_BUYSTOP\020\004\022\023\n\017S"
-  "UB_OP_SELLSTOP\020\005*A\n\035MT4_SUB_ENUM_EVENT_G"
-  "ROUP_TYPE\022\017\n\013OrderProfit\020\000\022\017\n\013OrderUpdat"
-  "e\020\0012\373\003\n\023SubscriptionService\022W\n\007OnTrade\022\034"
-  ".mt4_term_api.OnTradeRequest\032\032.mt4_term_"
-  "api.OnTradeReply\"\020\202\323\344\223\002\n\022\010/OnTrade0\001\022\217\001\n"
-  "\025OnOpenedOrdersTickets\022*.mt4_term_api.On"
-  "OpenedOrdersTicketsRequest\032(.mt4_term_ap"
-  "i.OnOpenedOrdersTicketsReply\"\036\202\323\344\223\002\030\022\026/O"
-  "nOpenedOrdersTickets0\001\022\213\001\n\024OnOpenedOrder"
-  "sProfit\022).mt4_term_api.OnOpenedOrdersPro"
-  "fitRequest\032\'.mt4_term_api.OnOpenedOrders"
-  "ProfitReply\"\035\202\323\344\223\002\027\022\025/OnOpenedOrdersProf"
-  "it0\001\022k\n\014OnSymbolTick\022!.mt4_term_api.OnSy"
-  "mbolTickRequest\032\037.mt4_term_api.OnSymbolT"
-  "ickReply\"\025\202\323\344\223\002\017\022\r/OnSymbolTick0\001BBZ1git"
-  ".mtapi.io/root/mrpc-proto.git/mt4/librar"
-  "ies/go\252\002\014mt4_term_apib\006proto3"
+  ".protobuf.Timestamp\0221\n\ropen_time_utc\030\025 \001"
+  "(\0132\032.google.protobuf.Timestamp\022\024\n\014order_"
+  "profit\030\013 \001(\001\022\021\n\tstop_loss\030\014 \001(\001\022\014\n\004swap\030"
+  "\r \001(\001\022\016\n\006symbol\030\016 \001(\t\022\023\n\013take_profit\030\017 \001"
+  "(\001\0224\n\004type\030\020 \001(\0162&.mt4_term_api.SUB_ORDE"
+  "R_OPERATION_TYPE\022\023\n\013close_price\030\021 \001(\001\022.\n"
+  "\nclose_time\030\022 \001(\0132\032.google.protobuf.Time"
+  "stamp\0222\n\016close_time_utc\030\026 \001(\0132\032.google.p"
+  "rotobuf.Timestamp\022\025\n\raccount_login\030\023 \001(\003"
+  "\"|\n\027OnTradeUpdatedOrderInfo\0220\n\010previous\030"
+  "\001 \001(\0132\036.mt4_term_api.OnTradeOrderInfo\022/\n"
+  "\007current\030\002 \001(\0132\036.mt4_term_api.OnTradeOrd"
+  "erInfo\"B\n\034OnOpenedOrdersTicketsRequest\022\""
+  "\n\032pull_interval_milliseconds\030\001 \001(\005\"\207\001\n\032O"
+  "nOpenedOrdersTicketsReply\0227\n\004data\030\001 \001(\0132"
+  "\'.mt4_term_api.OnOpenedOrdersTicketsData"
+  "H\000\022$\n\005error\030\002 \001(\0132\023.mt4_term_api.ErrorH\000"
+  "B\n\n\010response\"\335\001\n\031OnOpenedOrdersTicketsDa"
+  "ta\022\030\n\020position_tickets\030\001 \003(\005\022\035\n\025pending_"
+  "order_tickets\030\002 \003(\005\022/\n\013server_time\030\003 \001(\013"
+  "2\032.google.protobuf.Timestamp\0223\n\017server_t"
+  "ime_utc\030\006 \001(\0132\032.google.protobuf.Timestam"
+  "p\022!\n\031terminal_instance_guid_id\030\005 \001(\t\"@\n\033"
+  "OnOpenedOrdersProfitRequest\022!\n\031timer_per"
+  "iod_milliseconds\030\001 \001(\005\"\205\001\n\031OnOpenedOrder"
+  "sProfitReply\0226\n\004data\030\001 \001(\0132&.mt4_term_ap"
+  "i.OnOpenedOrdersProfitDataH\000\022$\n\005error\030\002 "
+  "\001(\0132\023.mt4_term_api.ErrorH\000B\n\n\010response\"\210"
+  "\002\n\030OnOpenedOrdersProfitData\0229\n\004type\030\001 \001("
+  "\0162+.mt4_term_api.MT4_SUB_ENUM_EVENT_GROU"
+  "P_TYPE\022V\n!opened_orders_with_profit_upda"
+  "ted\030\002 \003(\0132+.mt4_term_api.OnOpenedOrdersP"
+  "rofitOrderInfo\0226\n\014account_info\030\003 \001(\0132 .m"
+  "t4_term_api.OnEventAccountInfo\022!\n\031termin"
+  "al_instance_guid_id\030\004 \001(\t\"\237\001\n\022OnEventAcc"
+  "ountInfo\022\017\n\007balance\030\001 \001(\001\022\016\n\006credit\030\002 \001("
+  "\001\022\016\n\006equity\030\003 \001(\001\022\016\n\006margin\030\004 \001(\001\022\023\n\013fre"
+  "e_margin\030\005 \001(\001\022\016\n\006profit\030\006 \001(\001\022\024\n\014margin"
+  "_level\030\007 \001(\001\022\r\n\005login\030\010 \001(\003\"\363\003\n\035OnOpened"
+  "OrdersProfitOrderInfo\022\r\n\005index\030\001 \001(\005\022\016\n\006"
+  "ticket\030\002 \001(\005\022\017\n\007comment\030\003 \001(\t\022\022\n\ncommiss"
+  "ion\030\004 \001(\001\022.\n\nexpiration\030\005 \001(\0132\032.google.p"
+  "rotobuf.Timestamp\0222\n\016expiration_utc\030\020 \001("
+  "\0132\032.google.protobuf.Timestamp\022\014\n\004lots\030\006 "
+  "\001(\001\022\024\n\014magic_number\030\007 \001(\005\022\022\n\nopen_price\030"
+  "\010 \001(\001\022-\n\topen_time\030\t \001(\0132\032.google.protob"
+  "uf.Timestamp\0221\n\ropen_time_utc\030\021 \001(\0132\032.go"
+  "ogle.protobuf.Timestamp\022\024\n\014order_profit\030"
+  "\n \001(\001\022\021\n\tstop_loss\030\013 \001(\001\022\014\n\004swap\030\014 \001(\001\022\016"
+  "\n\006symbol\030\r \001(\t\022\023\n\013take_profit\030\016 \001(\001\0224\n\004t"
+  "ype\030\017 \001(\0162&.mt4_term_api.SUB_ORDER_OPERA"
+  "TION_TYPE*\217\001\n\030SUB_ORDER_OPERATION_TYPE\022\016"
+  "\n\nSUB_OP_BUY\020\000\022\017\n\013SUB_OP_SELL\020\001\022\023\n\017SUB_O"
+  "P_BUYLIMIT\020\002\022\024\n\020SUB_OP_SELLLIMIT\020\003\022\022\n\016SU"
+  "B_OP_BUYSTOP\020\004\022\023\n\017SUB_OP_SELLSTOP\020\005*A\n\035M"
+  "T4_SUB_ENUM_EVENT_GROUP_TYPE\022\017\n\013OrderPro"
+  "fit\020\000\022\017\n\013OrderUpdate\020\0012\373\003\n\023SubscriptionS"
+  "ervice\022W\n\007OnTrade\022\034.mt4_term_api.OnTrade"
+  "Request\032\032.mt4_term_api.OnTradeReply\"\020\202\323\344"
+  "\223\002\n\022\010/OnTrade0\001\022\217\001\n\025OnOpenedOrdersTicket"
+  "s\022*.mt4_term_api.OnOpenedOrdersTicketsRe"
+  "quest\032(.mt4_term_api.OnOpenedOrdersTicke"
+  "tsReply\"\036\202\323\344\223\002\030\022\026/OnOpenedOrdersTickets0"
+  "\001\022\213\001\n\024OnOpenedOrdersProfit\022).mt4_term_ap"
+  "i.OnOpenedOrdersProfitRequest\032\'.mt4_term"
+  "_api.OnOpenedOrdersProfitReply\"\035\202\323\344\223\002\027\022\025"
+  "/OnOpenedOrdersProfit0\001\022k\n\014OnSymbolTick\022"
+  "!.mt4_term_api.OnSymbolTickRequest\032\037.mt4"
+  "_term_api.OnSymbolTickReply\"\025\202\323\344\223\002\017\022\r/On"
+  "SymbolTick0\001BBZ1git.mtapi.io/root/mrpc-p"
+  "roto.git/mt4/libraries/go\252\002\014mt4_term_api"
+  "b\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_mt4_2dterm_2dapi_2dsubscriptions_2eproto_deps[3] = {
   &::descriptor_table_google_2fapi_2fannotations_2eproto,
@@ -668,7 +694,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_mt4_2dterm_2dapi_2d
 };
 static ::_pbi::once_flag descriptor_table_mt4_2dterm_2dapi_2dsubscriptions_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_mt4_2dterm_2dapi_2dsubscriptions_2eproto = {
-    false, false, 3989, descriptor_table_protodef_mt4_2dterm_2dapi_2dsubscriptions_2eproto,
+    false, false, 4368, descriptor_table_protodef_mt4_2dterm_2dapi_2dsubscriptions_2eproto,
     "mt4-term-api-subscriptions.proto",
     &descriptor_table_mt4_2dterm_2dapi_2dsubscriptions_2eproto_once, descriptor_table_mt4_2dterm_2dapi_2dsubscriptions_2eproto_deps, 3, 18,
     schemas, file_default_instances, TableStruct_mt4_2dterm_2dapi_2dsubscriptions_2eproto::offsets,
@@ -1469,17 +1495,28 @@ void OnSymbolTickData::InternalSwap(OnSymbolTickData* other) {
 class OnSymbolMqlTickInfo::_Internal {
  public:
   static const ::PROTOBUF_NAMESPACE_ID::Timestamp& time(const OnSymbolMqlTickInfo* msg);
+  static const ::PROTOBUF_NAMESPACE_ID::Timestamp& time_utc(const OnSymbolMqlTickInfo* msg);
 };
 
 const ::PROTOBUF_NAMESPACE_ID::Timestamp&
 OnSymbolMqlTickInfo::_Internal::time(const OnSymbolMqlTickInfo* msg) {
   return *msg->_impl_.time_;
 }
+const ::PROTOBUF_NAMESPACE_ID::Timestamp&
+OnSymbolMqlTickInfo::_Internal::time_utc(const OnSymbolMqlTickInfo* msg) {
+  return *msg->_impl_.time_utc_;
+}
 void OnSymbolMqlTickInfo::clear_time() {
   if (GetArenaForAllocation() == nullptr && _impl_.time_ != nullptr) {
     delete _impl_.time_;
   }
   _impl_.time_ = nullptr;
+}
+void OnSymbolMqlTickInfo::clear_time_utc() {
+  if (GetArenaForAllocation() == nullptr && _impl_.time_utc_ != nullptr) {
+    delete _impl_.time_utc_;
+  }
+  _impl_.time_utc_ = nullptr;
 }
 OnSymbolMqlTickInfo::OnSymbolMqlTickInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -1493,11 +1530,13 @@ OnSymbolMqlTickInfo::OnSymbolMqlTickInfo(const OnSymbolMqlTickInfo& from)
   new (&_impl_) Impl_{
       decltype(_impl_.symbol_){}
     , decltype(_impl_.time_){nullptr}
+    , decltype(_impl_.time_utc_){nullptr}
     , decltype(_impl_.bid_){}
     , decltype(_impl_.ask_){}
     , decltype(_impl_.last_){}
     , decltype(_impl_.volume_){}
     , decltype(_impl_.time_msc_){}
+    , decltype(_impl_.time_msc_utc_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -1512,9 +1551,12 @@ OnSymbolMqlTickInfo::OnSymbolMqlTickInfo(const OnSymbolMqlTickInfo& from)
   if (from._internal_has_time()) {
     _this->_impl_.time_ = new ::PROTOBUF_NAMESPACE_ID::Timestamp(*from._impl_.time_);
   }
+  if (from._internal_has_time_utc()) {
+    _this->_impl_.time_utc_ = new ::PROTOBUF_NAMESPACE_ID::Timestamp(*from._impl_.time_utc_);
+  }
   ::memcpy(&_impl_.bid_, &from._impl_.bid_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.time_msc_) -
-    reinterpret_cast<char*>(&_impl_.bid_)) + sizeof(_impl_.time_msc_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.time_msc_utc_) -
+    reinterpret_cast<char*>(&_impl_.bid_)) + sizeof(_impl_.time_msc_utc_));
   // @@protoc_insertion_point(copy_constructor:mt4_term_api.OnSymbolMqlTickInfo)
 }
 
@@ -1525,11 +1567,13 @@ inline void OnSymbolMqlTickInfo::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_.symbol_){}
     , decltype(_impl_.time_){nullptr}
+    , decltype(_impl_.time_utc_){nullptr}
     , decltype(_impl_.bid_){0}
     , decltype(_impl_.ask_){0}
     , decltype(_impl_.last_){0}
     , decltype(_impl_.volume_){uint64_t{0u}}
     , decltype(_impl_.time_msc_){int64_t{0}}
+    , decltype(_impl_.time_msc_utc_){int64_t{0}}
     , /*decltype(_impl_._cached_size_)*/{}
   };
   _impl_.symbol_.InitDefault();
@@ -1551,6 +1595,7 @@ inline void OnSymbolMqlTickInfo::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.symbol_.Destroy();
   if (this != internal_default_instance()) delete _impl_.time_;
+  if (this != internal_default_instance()) delete _impl_.time_utc_;
 }
 
 void OnSymbolMqlTickInfo::SetCachedSize(int size) const {
@@ -1568,9 +1613,13 @@ void OnSymbolMqlTickInfo::Clear() {
     delete _impl_.time_;
   }
   _impl_.time_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.time_utc_ != nullptr) {
+    delete _impl_.time_utc_;
+  }
+  _impl_.time_utc_ = nullptr;
   ::memset(&_impl_.bid_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.time_msc_) -
-      reinterpret_cast<char*>(&_impl_.bid_)) + sizeof(_impl_.time_msc_));
+      reinterpret_cast<char*>(&_impl_.time_msc_utc_) -
+      reinterpret_cast<char*>(&_impl_.bid_)) + sizeof(_impl_.time_msc_utc_));
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -1635,6 +1684,22 @@ const char* OnSymbolMqlTickInfo::_InternalParse(const char* ptr, ::_pbi::ParseCo
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
           CHK_(::_pbi::VerifyUTF8(str, "mt4_term_api.OnSymbolMqlTickInfo.symbol"));
+        } else
+          goto handle_unusual;
+        continue;
+      // .google.protobuf.Timestamp time_utc = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 66)) {
+          ptr = ctx->ParseMessage(_internal_mutable_time_utc(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // int64 time_msc_utc = 9;
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 72)) {
+          _impl_.time_msc_utc_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
@@ -1726,6 +1791,19 @@ uint8_t* OnSymbolMqlTickInfo::_InternalSerialize(
         7, this->_internal_symbol(), target);
   }
 
+  // .google.protobuf.Timestamp time_utc = 8;
+  if (this->_internal_has_time_utc()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(8, _Internal::time_utc(this),
+        _Internal::time_utc(this).GetCachedSize(), target, stream);
+  }
+
+  // int64 time_msc_utc = 9;
+  if (this->_internal_time_msc_utc() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt64ToArray(9, this->_internal_time_msc_utc(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -1754,6 +1832,13 @@ size_t OnSymbolMqlTickInfo::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *_impl_.time_);
+  }
+
+  // .google.protobuf.Timestamp time_utc = 8;
+  if (this->_internal_has_time_utc()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.time_utc_);
   }
 
   // double bid = 2;
@@ -1793,6 +1878,11 @@ size_t OnSymbolMqlTickInfo::ByteSizeLong() const {
     total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_time_msc());
   }
 
+  // int64 time_msc_utc = 9;
+  if (this->_internal_time_msc_utc() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int64SizePlusOne(this->_internal_time_msc_utc());
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -1817,6 +1907,10 @@ void OnSymbolMqlTickInfo::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, co
   if (from._internal_has_time()) {
     _this->_internal_mutable_time()->::PROTOBUF_NAMESPACE_ID::Timestamp::MergeFrom(
         from._internal_time());
+  }
+  if (from._internal_has_time_utc()) {
+    _this->_internal_mutable_time_utc()->::PROTOBUF_NAMESPACE_ID::Timestamp::MergeFrom(
+        from._internal_time_utc());
   }
   static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
   double tmp_bid = from._internal_bid();
@@ -1845,6 +1939,9 @@ void OnSymbolMqlTickInfo::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, co
   if (from._internal_time_msc() != 0) {
     _this->_internal_set_time_msc(from._internal_time_msc());
   }
+  if (from._internal_time_msc_utc() != 0) {
+    _this->_internal_set_time_msc_utc(from._internal_time_msc_utc());
+  }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -1869,8 +1966,8 @@ void OnSymbolMqlTickInfo::InternalSwap(OnSymbolMqlTickInfo* other) {
       &other->_impl_.symbol_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(OnSymbolMqlTickInfo, _impl_.time_msc_)
-      + sizeof(OnSymbolMqlTickInfo::_impl_.time_msc_)
+      PROTOBUF_FIELD_OFFSET(OnSymbolMqlTickInfo, _impl_.time_msc_utc_)
+      + sizeof(OnSymbolMqlTickInfo::_impl_.time_msc_utc_)
       - PROTOBUF_FIELD_OFFSET(OnSymbolMqlTickInfo, _impl_.time_)>(
           reinterpret_cast<char*>(&_impl_.time_),
           reinterpret_cast<char*>(&other->_impl_.time_));
@@ -2848,8 +2945,11 @@ void OnTadeEventData::InternalSwap(OnTadeEventData* other) {
 class OnTradeOrderInfo::_Internal {
  public:
   static const ::PROTOBUF_NAMESPACE_ID::Timestamp& expiration(const OnTradeOrderInfo* msg);
+  static const ::PROTOBUF_NAMESPACE_ID::Timestamp& expiration_utc(const OnTradeOrderInfo* msg);
   static const ::PROTOBUF_NAMESPACE_ID::Timestamp& open_time(const OnTradeOrderInfo* msg);
+  static const ::PROTOBUF_NAMESPACE_ID::Timestamp& open_time_utc(const OnTradeOrderInfo* msg);
   static const ::PROTOBUF_NAMESPACE_ID::Timestamp& close_time(const OnTradeOrderInfo* msg);
+  static const ::PROTOBUF_NAMESPACE_ID::Timestamp& close_time_utc(const OnTradeOrderInfo* msg);
 };
 
 const ::PROTOBUF_NAMESPACE_ID::Timestamp&
@@ -2857,12 +2957,24 @@ OnTradeOrderInfo::_Internal::expiration(const OnTradeOrderInfo* msg) {
   return *msg->_impl_.expiration_;
 }
 const ::PROTOBUF_NAMESPACE_ID::Timestamp&
+OnTradeOrderInfo::_Internal::expiration_utc(const OnTradeOrderInfo* msg) {
+  return *msg->_impl_.expiration_utc_;
+}
+const ::PROTOBUF_NAMESPACE_ID::Timestamp&
 OnTradeOrderInfo::_Internal::open_time(const OnTradeOrderInfo* msg) {
   return *msg->_impl_.open_time_;
 }
 const ::PROTOBUF_NAMESPACE_ID::Timestamp&
+OnTradeOrderInfo::_Internal::open_time_utc(const OnTradeOrderInfo* msg) {
+  return *msg->_impl_.open_time_utc_;
+}
+const ::PROTOBUF_NAMESPACE_ID::Timestamp&
 OnTradeOrderInfo::_Internal::close_time(const OnTradeOrderInfo* msg) {
   return *msg->_impl_.close_time_;
+}
+const ::PROTOBUF_NAMESPACE_ID::Timestamp&
+OnTradeOrderInfo::_Internal::close_time_utc(const OnTradeOrderInfo* msg) {
+  return *msg->_impl_.close_time_utc_;
 }
 void OnTradeOrderInfo::clear_expiration() {
   if (GetArenaForAllocation() == nullptr && _impl_.expiration_ != nullptr) {
@@ -2870,17 +2982,35 @@ void OnTradeOrderInfo::clear_expiration() {
   }
   _impl_.expiration_ = nullptr;
 }
+void OnTradeOrderInfo::clear_expiration_utc() {
+  if (GetArenaForAllocation() == nullptr && _impl_.expiration_utc_ != nullptr) {
+    delete _impl_.expiration_utc_;
+  }
+  _impl_.expiration_utc_ = nullptr;
+}
 void OnTradeOrderInfo::clear_open_time() {
   if (GetArenaForAllocation() == nullptr && _impl_.open_time_ != nullptr) {
     delete _impl_.open_time_;
   }
   _impl_.open_time_ = nullptr;
 }
+void OnTradeOrderInfo::clear_open_time_utc() {
+  if (GetArenaForAllocation() == nullptr && _impl_.open_time_utc_ != nullptr) {
+    delete _impl_.open_time_utc_;
+  }
+  _impl_.open_time_utc_ = nullptr;
+}
 void OnTradeOrderInfo::clear_close_time() {
   if (GetArenaForAllocation() == nullptr && _impl_.close_time_ != nullptr) {
     delete _impl_.close_time_;
   }
   _impl_.close_time_ = nullptr;
+}
+void OnTradeOrderInfo::clear_close_time_utc() {
+  if (GetArenaForAllocation() == nullptr && _impl_.close_time_utc_ != nullptr) {
+    delete _impl_.close_time_utc_;
+  }
+  _impl_.close_time_utc_ = nullptr;
 }
 OnTradeOrderInfo::OnTradeOrderInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -2897,6 +3027,9 @@ OnTradeOrderInfo::OnTradeOrderInfo(const OnTradeOrderInfo& from)
     , decltype(_impl_.expiration_){nullptr}
     , decltype(_impl_.open_time_){nullptr}
     , decltype(_impl_.close_time_){nullptr}
+    , decltype(_impl_.expiration_utc_){nullptr}
+    , decltype(_impl_.open_time_utc_){nullptr}
+    , decltype(_impl_.close_time_utc_){nullptr}
     , decltype(_impl_.index_){}
     , decltype(_impl_.ticket_){}
     , decltype(_impl_.commission_){}
@@ -2939,6 +3072,15 @@ OnTradeOrderInfo::OnTradeOrderInfo(const OnTradeOrderInfo& from)
   if (from._internal_has_close_time()) {
     _this->_impl_.close_time_ = new ::PROTOBUF_NAMESPACE_ID::Timestamp(*from._impl_.close_time_);
   }
+  if (from._internal_has_expiration_utc()) {
+    _this->_impl_.expiration_utc_ = new ::PROTOBUF_NAMESPACE_ID::Timestamp(*from._impl_.expiration_utc_);
+  }
+  if (from._internal_has_open_time_utc()) {
+    _this->_impl_.open_time_utc_ = new ::PROTOBUF_NAMESPACE_ID::Timestamp(*from._impl_.open_time_utc_);
+  }
+  if (from._internal_has_close_time_utc()) {
+    _this->_impl_.close_time_utc_ = new ::PROTOBUF_NAMESPACE_ID::Timestamp(*from._impl_.close_time_utc_);
+  }
   ::memcpy(&_impl_.index_, &from._impl_.index_,
     static_cast<size_t>(reinterpret_cast<char*>(&_impl_.type_) -
     reinterpret_cast<char*>(&_impl_.index_)) + sizeof(_impl_.type_));
@@ -2955,6 +3097,9 @@ inline void OnTradeOrderInfo::SharedCtor(
     , decltype(_impl_.expiration_){nullptr}
     , decltype(_impl_.open_time_){nullptr}
     , decltype(_impl_.close_time_){nullptr}
+    , decltype(_impl_.expiration_utc_){nullptr}
+    , decltype(_impl_.open_time_utc_){nullptr}
+    , decltype(_impl_.close_time_utc_){nullptr}
     , decltype(_impl_.index_){0}
     , decltype(_impl_.ticket_){0}
     , decltype(_impl_.commission_){0}
@@ -2997,6 +3142,9 @@ inline void OnTradeOrderInfo::SharedDtor() {
   if (this != internal_default_instance()) delete _impl_.expiration_;
   if (this != internal_default_instance()) delete _impl_.open_time_;
   if (this != internal_default_instance()) delete _impl_.close_time_;
+  if (this != internal_default_instance()) delete _impl_.expiration_utc_;
+  if (this != internal_default_instance()) delete _impl_.open_time_utc_;
+  if (this != internal_default_instance()) delete _impl_.close_time_utc_;
 }
 
 void OnTradeOrderInfo::SetCachedSize(int size) const {
@@ -3023,6 +3171,18 @@ void OnTradeOrderInfo::Clear() {
     delete _impl_.close_time_;
   }
   _impl_.close_time_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.expiration_utc_ != nullptr) {
+    delete _impl_.expiration_utc_;
+  }
+  _impl_.expiration_utc_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.open_time_utc_ != nullptr) {
+    delete _impl_.open_time_utc_;
+  }
+  _impl_.open_time_utc_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.close_time_utc_ != nullptr) {
+    delete _impl_.close_time_utc_;
+  }
+  _impl_.close_time_utc_ = nullptr;
   ::memset(&_impl_.index_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&_impl_.type_) -
       reinterpret_cast<char*>(&_impl_.index_)) + sizeof(_impl_.type_));
@@ -3188,6 +3348,30 @@ const char* OnTradeOrderInfo::_InternalParse(const char* ptr, ::_pbi::ParseConte
       case 19:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 152)) {
           _impl_.account_login_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .google.protobuf.Timestamp expiration_utc = 20;
+      case 20:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 162)) {
+          ptr = ctx->ParseMessage(_internal_mutable_expiration_utc(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .google.protobuf.Timestamp open_time_utc = 21;
+      case 21:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 170)) {
+          ptr = ctx->ParseMessage(_internal_mutable_open_time_utc(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .google.protobuf.Timestamp close_time_utc = 22;
+      case 22:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 178)) {
+          ptr = ctx->ParseMessage(_internal_mutable_close_time_utc(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -3379,6 +3563,27 @@ uint8_t* OnTradeOrderInfo::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteInt64ToArray(19, this->_internal_account_login(), target);
   }
 
+  // .google.protobuf.Timestamp expiration_utc = 20;
+  if (this->_internal_has_expiration_utc()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(20, _Internal::expiration_utc(this),
+        _Internal::expiration_utc(this).GetCachedSize(), target, stream);
+  }
+
+  // .google.protobuf.Timestamp open_time_utc = 21;
+  if (this->_internal_has_open_time_utc()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(21, _Internal::open_time_utc(this),
+        _Internal::open_time_utc(this).GetCachedSize(), target, stream);
+  }
+
+  // .google.protobuf.Timestamp close_time_utc = 22;
+  if (this->_internal_has_close_time_utc()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(22, _Internal::close_time_utc(this),
+        _Internal::close_time_utc(this).GetCachedSize(), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -3428,6 +3633,27 @@ size_t OnTradeOrderInfo::ByteSizeLong() const {
     total_size += 2 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *_impl_.close_time_);
+  }
+
+  // .google.protobuf.Timestamp expiration_utc = 20;
+  if (this->_internal_has_expiration_utc()) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.expiration_utc_);
+  }
+
+  // .google.protobuf.Timestamp open_time_utc = 21;
+  if (this->_internal_has_open_time_utc()) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.open_time_utc_);
+  }
+
+  // .google.protobuf.Timestamp close_time_utc = 22;
+  if (this->_internal_has_close_time_utc()) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.close_time_utc_);
   }
 
   // int32 index = 1;
@@ -3570,6 +3796,18 @@ void OnTradeOrderInfo::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const
   if (from._internal_has_close_time()) {
     _this->_internal_mutable_close_time()->::PROTOBUF_NAMESPACE_ID::Timestamp::MergeFrom(
         from._internal_close_time());
+  }
+  if (from._internal_has_expiration_utc()) {
+    _this->_internal_mutable_expiration_utc()->::PROTOBUF_NAMESPACE_ID::Timestamp::MergeFrom(
+        from._internal_expiration_utc());
+  }
+  if (from._internal_has_open_time_utc()) {
+    _this->_internal_mutable_open_time_utc()->::PROTOBUF_NAMESPACE_ID::Timestamp::MergeFrom(
+        from._internal_open_time_utc());
+  }
+  if (from._internal_has_close_time_utc()) {
+    _this->_internal_mutable_close_time_utc()->::PROTOBUF_NAMESPACE_ID::Timestamp::MergeFrom(
+        from._internal_close_time_utc());
   }
   if (from._internal_index() != 0) {
     _this->_internal_set_index(from._internal_index());
@@ -4422,17 +4660,28 @@ void OnOpenedOrdersTicketsReply::InternalSwap(OnOpenedOrdersTicketsReply* other)
 class OnOpenedOrdersTicketsData::_Internal {
  public:
   static const ::PROTOBUF_NAMESPACE_ID::Timestamp& server_time(const OnOpenedOrdersTicketsData* msg);
+  static const ::PROTOBUF_NAMESPACE_ID::Timestamp& server_time_utc(const OnOpenedOrdersTicketsData* msg);
 };
 
 const ::PROTOBUF_NAMESPACE_ID::Timestamp&
 OnOpenedOrdersTicketsData::_Internal::server_time(const OnOpenedOrdersTicketsData* msg) {
   return *msg->_impl_.server_time_;
 }
+const ::PROTOBUF_NAMESPACE_ID::Timestamp&
+OnOpenedOrdersTicketsData::_Internal::server_time_utc(const OnOpenedOrdersTicketsData* msg) {
+  return *msg->_impl_.server_time_utc_;
+}
 void OnOpenedOrdersTicketsData::clear_server_time() {
   if (GetArenaForAllocation() == nullptr && _impl_.server_time_ != nullptr) {
     delete _impl_.server_time_;
   }
   _impl_.server_time_ = nullptr;
+}
+void OnOpenedOrdersTicketsData::clear_server_time_utc() {
+  if (GetArenaForAllocation() == nullptr && _impl_.server_time_utc_ != nullptr) {
+    delete _impl_.server_time_utc_;
+  }
+  _impl_.server_time_utc_ = nullptr;
 }
 OnOpenedOrdersTicketsData::OnOpenedOrdersTicketsData(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -4450,6 +4699,7 @@ OnOpenedOrdersTicketsData::OnOpenedOrdersTicketsData(const OnOpenedOrdersTickets
     , /*decltype(_impl_._pending_order_tickets_cached_byte_size_)*/{0}
     , decltype(_impl_.terminal_instance_guid_id_){}
     , decltype(_impl_.server_time_){nullptr}
+    , decltype(_impl_.server_time_utc_){nullptr}
     , /*decltype(_impl_._cached_size_)*/{}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -4463,6 +4713,9 @@ OnOpenedOrdersTicketsData::OnOpenedOrdersTicketsData(const OnOpenedOrdersTickets
   }
   if (from._internal_has_server_time()) {
     _this->_impl_.server_time_ = new ::PROTOBUF_NAMESPACE_ID::Timestamp(*from._impl_.server_time_);
+  }
+  if (from._internal_has_server_time_utc()) {
+    _this->_impl_.server_time_utc_ = new ::PROTOBUF_NAMESPACE_ID::Timestamp(*from._impl_.server_time_utc_);
   }
   // @@protoc_insertion_point(copy_constructor:mt4_term_api.OnOpenedOrdersTicketsData)
 }
@@ -4478,6 +4731,7 @@ inline void OnOpenedOrdersTicketsData::SharedCtor(
     , /*decltype(_impl_._pending_order_tickets_cached_byte_size_)*/{0}
     , decltype(_impl_.terminal_instance_guid_id_){}
     , decltype(_impl_.server_time_){nullptr}
+    , decltype(_impl_.server_time_utc_){nullptr}
     , /*decltype(_impl_._cached_size_)*/{}
   };
   _impl_.terminal_instance_guid_id_.InitDefault();
@@ -4501,6 +4755,7 @@ inline void OnOpenedOrdersTicketsData::SharedDtor() {
   _impl_.pending_order_tickets_.~RepeatedField();
   _impl_.terminal_instance_guid_id_.Destroy();
   if (this != internal_default_instance()) delete _impl_.server_time_;
+  if (this != internal_default_instance()) delete _impl_.server_time_utc_;
 }
 
 void OnOpenedOrdersTicketsData::SetCachedSize(int size) const {
@@ -4520,6 +4775,10 @@ void OnOpenedOrdersTicketsData::Clear() {
     delete _impl_.server_time_;
   }
   _impl_.server_time_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.server_time_utc_ != nullptr) {
+    delete _impl_.server_time_utc_;
+  }
+  _impl_.server_time_utc_ = nullptr;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -4566,6 +4825,14 @@ const char* OnOpenedOrdersTicketsData::_InternalParse(const char* ptr, ::_pbi::P
           ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
           CHK_(::_pbi::VerifyUTF8(str, "mt4_term_api.OnOpenedOrdersTicketsData.terminal_instance_guid_id"));
+        } else
+          goto handle_unusual;
+        continue;
+      // .google.protobuf.Timestamp server_time_utc = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
+          ptr = ctx->ParseMessage(_internal_mutable_server_time_utc(), ptr);
+          CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
@@ -4633,6 +4900,13 @@ uint8_t* OnOpenedOrdersTicketsData::_InternalSerialize(
         5, this->_internal_terminal_instance_guid_id(), target);
   }
 
+  // .google.protobuf.Timestamp server_time_utc = 6;
+  if (this->_internal_has_server_time_utc()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(6, _Internal::server_time_utc(this),
+        _Internal::server_time_utc(this).GetCachedSize(), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -4691,6 +4965,13 @@ size_t OnOpenedOrdersTicketsData::ByteSizeLong() const {
         *_impl_.server_time_);
   }
 
+  // .google.protobuf.Timestamp server_time_utc = 6;
+  if (this->_internal_has_server_time_utc()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.server_time_utc_);
+  }
+
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -4718,6 +4999,10 @@ void OnOpenedOrdersTicketsData::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_m
     _this->_internal_mutable_server_time()->::PROTOBUF_NAMESPACE_ID::Timestamp::MergeFrom(
         from._internal_server_time());
   }
+  if (from._internal_has_server_time_utc()) {
+    _this->_internal_mutable_server_time_utc()->::PROTOBUF_NAMESPACE_ID::Timestamp::MergeFrom(
+        from._internal_server_time_utc());
+  }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
@@ -4743,7 +5028,12 @@ void OnOpenedOrdersTicketsData::InternalSwap(OnOpenedOrdersTicketsData* other) {
       &_impl_.terminal_instance_guid_id_, lhs_arena,
       &other->_impl_.terminal_instance_guid_id_, rhs_arena
   );
-  swap(_impl_.server_time_, other->_impl_.server_time_);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(OnOpenedOrdersTicketsData, _impl_.server_time_utc_)
+      + sizeof(OnOpenedOrdersTicketsData::_impl_.server_time_utc_)
+      - PROTOBUF_FIELD_OFFSET(OnOpenedOrdersTicketsData, _impl_.server_time_)>(
+          reinterpret_cast<char*>(&_impl_.server_time_),
+          reinterpret_cast<char*>(&other->_impl_.server_time_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata OnOpenedOrdersTicketsData::GetMetadata() const {
@@ -6001,7 +6291,9 @@ void OnEventAccountInfo::InternalSwap(OnEventAccountInfo* other) {
 class OnOpenedOrdersProfitOrderInfo::_Internal {
  public:
   static const ::PROTOBUF_NAMESPACE_ID::Timestamp& expiration(const OnOpenedOrdersProfitOrderInfo* msg);
+  static const ::PROTOBUF_NAMESPACE_ID::Timestamp& expiration_utc(const OnOpenedOrdersProfitOrderInfo* msg);
   static const ::PROTOBUF_NAMESPACE_ID::Timestamp& open_time(const OnOpenedOrdersProfitOrderInfo* msg);
+  static const ::PROTOBUF_NAMESPACE_ID::Timestamp& open_time_utc(const OnOpenedOrdersProfitOrderInfo* msg);
 };
 
 const ::PROTOBUF_NAMESPACE_ID::Timestamp&
@@ -6009,8 +6301,16 @@ OnOpenedOrdersProfitOrderInfo::_Internal::expiration(const OnOpenedOrdersProfitO
   return *msg->_impl_.expiration_;
 }
 const ::PROTOBUF_NAMESPACE_ID::Timestamp&
+OnOpenedOrdersProfitOrderInfo::_Internal::expiration_utc(const OnOpenedOrdersProfitOrderInfo* msg) {
+  return *msg->_impl_.expiration_utc_;
+}
+const ::PROTOBUF_NAMESPACE_ID::Timestamp&
 OnOpenedOrdersProfitOrderInfo::_Internal::open_time(const OnOpenedOrdersProfitOrderInfo* msg) {
   return *msg->_impl_.open_time_;
+}
+const ::PROTOBUF_NAMESPACE_ID::Timestamp&
+OnOpenedOrdersProfitOrderInfo::_Internal::open_time_utc(const OnOpenedOrdersProfitOrderInfo* msg) {
+  return *msg->_impl_.open_time_utc_;
 }
 void OnOpenedOrdersProfitOrderInfo::clear_expiration() {
   if (GetArenaForAllocation() == nullptr && _impl_.expiration_ != nullptr) {
@@ -6018,11 +6318,23 @@ void OnOpenedOrdersProfitOrderInfo::clear_expiration() {
   }
   _impl_.expiration_ = nullptr;
 }
+void OnOpenedOrdersProfitOrderInfo::clear_expiration_utc() {
+  if (GetArenaForAllocation() == nullptr && _impl_.expiration_utc_ != nullptr) {
+    delete _impl_.expiration_utc_;
+  }
+  _impl_.expiration_utc_ = nullptr;
+}
 void OnOpenedOrdersProfitOrderInfo::clear_open_time() {
   if (GetArenaForAllocation() == nullptr && _impl_.open_time_ != nullptr) {
     delete _impl_.open_time_;
   }
   _impl_.open_time_ = nullptr;
+}
+void OnOpenedOrdersProfitOrderInfo::clear_open_time_utc() {
+  if (GetArenaForAllocation() == nullptr && _impl_.open_time_utc_ != nullptr) {
+    delete _impl_.open_time_utc_;
+  }
+  _impl_.open_time_utc_ = nullptr;
 }
 OnOpenedOrdersProfitOrderInfo::OnOpenedOrdersProfitOrderInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -6038,6 +6350,8 @@ OnOpenedOrdersProfitOrderInfo::OnOpenedOrdersProfitOrderInfo(const OnOpenedOrder
     , decltype(_impl_.symbol_){}
     , decltype(_impl_.expiration_){nullptr}
     , decltype(_impl_.open_time_){nullptr}
+    , decltype(_impl_.expiration_utc_){nullptr}
+    , decltype(_impl_.open_time_utc_){nullptr}
     , decltype(_impl_.index_){}
     , decltype(_impl_.ticket_){}
     , decltype(_impl_.commission_){}
@@ -6074,6 +6388,12 @@ OnOpenedOrdersProfitOrderInfo::OnOpenedOrdersProfitOrderInfo(const OnOpenedOrder
   if (from._internal_has_open_time()) {
     _this->_impl_.open_time_ = new ::PROTOBUF_NAMESPACE_ID::Timestamp(*from._impl_.open_time_);
   }
+  if (from._internal_has_expiration_utc()) {
+    _this->_impl_.expiration_utc_ = new ::PROTOBUF_NAMESPACE_ID::Timestamp(*from._impl_.expiration_utc_);
+  }
+  if (from._internal_has_open_time_utc()) {
+    _this->_impl_.open_time_utc_ = new ::PROTOBUF_NAMESPACE_ID::Timestamp(*from._impl_.open_time_utc_);
+  }
   ::memcpy(&_impl_.index_, &from._impl_.index_,
     static_cast<size_t>(reinterpret_cast<char*>(&_impl_.take_profit_) -
     reinterpret_cast<char*>(&_impl_.index_)) + sizeof(_impl_.take_profit_));
@@ -6089,6 +6409,8 @@ inline void OnOpenedOrdersProfitOrderInfo::SharedCtor(
     , decltype(_impl_.symbol_){}
     , decltype(_impl_.expiration_){nullptr}
     , decltype(_impl_.open_time_){nullptr}
+    , decltype(_impl_.expiration_utc_){nullptr}
+    , decltype(_impl_.open_time_utc_){nullptr}
     , decltype(_impl_.index_){0}
     , decltype(_impl_.ticket_){0}
     , decltype(_impl_.commission_){0}
@@ -6127,6 +6449,8 @@ inline void OnOpenedOrdersProfitOrderInfo::SharedDtor() {
   _impl_.symbol_.Destroy();
   if (this != internal_default_instance()) delete _impl_.expiration_;
   if (this != internal_default_instance()) delete _impl_.open_time_;
+  if (this != internal_default_instance()) delete _impl_.expiration_utc_;
+  if (this != internal_default_instance()) delete _impl_.open_time_utc_;
 }
 
 void OnOpenedOrdersProfitOrderInfo::SetCachedSize(int size) const {
@@ -6149,6 +6473,14 @@ void OnOpenedOrdersProfitOrderInfo::Clear() {
     delete _impl_.open_time_;
   }
   _impl_.open_time_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.expiration_utc_ != nullptr) {
+    delete _impl_.expiration_utc_;
+  }
+  _impl_.expiration_utc_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.open_time_utc_ != nullptr) {
+    delete _impl_.open_time_utc_;
+  }
+  _impl_.open_time_utc_ = nullptr;
   ::memset(&_impl_.index_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&_impl_.take_profit_) -
       reinterpret_cast<char*>(&_impl_.index_)) + sizeof(_impl_.take_profit_));
@@ -6283,6 +6615,22 @@ const char* OnOpenedOrdersProfitOrderInfo::_InternalParse(const char* ptr, ::_pb
           uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
           _internal_set_type(static_cast<::mt4_term_api::SUB_ORDER_OPERATION_TYPE>(val));
+        } else
+          goto handle_unusual;
+        continue;
+      // .google.protobuf.Timestamp expiration_utc = 16;
+      case 16:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 130)) {
+          ptr = ctx->ParseMessage(_internal_mutable_expiration_utc(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .google.protobuf.Timestamp open_time_utc = 17;
+      case 17:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 138)) {
+          ptr = ctx->ParseMessage(_internal_mutable_open_time_utc(), ptr);
+          CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
@@ -6444,6 +6792,20 @@ uint8_t* OnOpenedOrdersProfitOrderInfo::_InternalSerialize(
       15, this->_internal_type(), target);
   }
 
+  // .google.protobuf.Timestamp expiration_utc = 16;
+  if (this->_internal_has_expiration_utc()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(16, _Internal::expiration_utc(this),
+        _Internal::expiration_utc(this).GetCachedSize(), target, stream);
+  }
+
+  // .google.protobuf.Timestamp open_time_utc = 17;
+  if (this->_internal_has_open_time_utc()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(17, _Internal::open_time_utc(this),
+        _Internal::open_time_utc(this).GetCachedSize(), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -6486,6 +6848,20 @@ size_t OnOpenedOrdersProfitOrderInfo::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *_impl_.open_time_);
+  }
+
+  // .google.protobuf.Timestamp expiration_utc = 16;
+  if (this->_internal_has_expiration_utc()) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.expiration_utc_);
+  }
+
+  // .google.protobuf.Timestamp open_time_utc = 17;
+  if (this->_internal_has_open_time_utc()) {
+    total_size += 2 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.open_time_utc_);
   }
 
   // int32 index = 1;
@@ -6603,6 +6979,14 @@ void OnOpenedOrdersProfitOrderInfo::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& 
   if (from._internal_has_open_time()) {
     _this->_internal_mutable_open_time()->::PROTOBUF_NAMESPACE_ID::Timestamp::MergeFrom(
         from._internal_open_time());
+  }
+  if (from._internal_has_expiration_utc()) {
+    _this->_internal_mutable_expiration_utc()->::PROTOBUF_NAMESPACE_ID::Timestamp::MergeFrom(
+        from._internal_expiration_utc());
+  }
+  if (from._internal_has_open_time_utc()) {
+    _this->_internal_mutable_open_time_utc()->::PROTOBUF_NAMESPACE_ID::Timestamp::MergeFrom(
+        from._internal_open_time_utc());
   }
   if (from._internal_index() != 0) {
     _this->_internal_set_index(from._internal_index());

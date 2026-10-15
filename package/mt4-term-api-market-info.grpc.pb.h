@@ -58,6 +58,7 @@ class MarketInfo final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mt4_term_api::SymbolsReply>> PrepareAsyncSymbols(::grpc::ClientContext* context, const ::mt4_term_api::SymbolsRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mt4_term_api::SymbolsReply>>(PrepareAsyncSymbolsRaw(context, request, cq));
     }
+    // DEPRECATED: use QuoteHistory.Bars (mt4-term-api-quote-history.proto): paged, bounded, oldest first.
     virtual ::grpc::Status QuoteHistory(::grpc::ClientContext* context, const ::mt4_term_api::QuoteHistoryRequest& request, ::mt4_term_api::QuoteHistoryReply* response) = 0;
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mt4_term_api::QuoteHistoryReply>> AsyncQuoteHistory(::grpc::ClientContext* context, const ::mt4_term_api::QuoteHistoryRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mt4_term_api::QuoteHistoryReply>>(AsyncQuoteHistoryRaw(context, request, cq));
@@ -85,6 +86,7 @@ class MarketInfo final {
       virtual void QuoteMany(::grpc::ClientContext* context, const ::mt4_term_api::QuoteManyRequest* request, ::mt4_term_api::QuoteManyReply* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       virtual void Symbols(::grpc::ClientContext* context, const ::mt4_term_api::SymbolsRequest* request, ::mt4_term_api::SymbolsReply* response, std::function<void(::grpc::Status)>) = 0;
       virtual void Symbols(::grpc::ClientContext* context, const ::mt4_term_api::SymbolsRequest* request, ::mt4_term_api::SymbolsReply* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      // DEPRECATED: use QuoteHistory.Bars (mt4-term-api-quote-history.proto): paged, bounded, oldest first.
       virtual void QuoteHistory(::grpc::ClientContext* context, const ::mt4_term_api::QuoteHistoryRequest* request, ::mt4_term_api::QuoteHistoryReply* response, std::function<void(::grpc::Status)>) = 0;
       virtual void QuoteHistory(::grpc::ClientContext* context, const ::mt4_term_api::QuoteHistoryRequest* request, ::mt4_term_api::QuoteHistoryReply* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       // Selects a symbol in the Market Watch window or removes a symbol from the window
@@ -196,6 +198,7 @@ class MarketInfo final {
     // Latest quote for the specified symbol
     virtual ::grpc::Status QuoteMany(::grpc::ServerContext* context, const ::mt4_term_api::QuoteManyRequest* request, ::mt4_term_api::QuoteManyReply* response);
     virtual ::grpc::Status Symbols(::grpc::ServerContext* context, const ::mt4_term_api::SymbolsRequest* request, ::mt4_term_api::SymbolsReply* response);
+    // DEPRECATED: use QuoteHistory.Bars (mt4-term-api-quote-history.proto): paged, bounded, oldest first.
     virtual ::grpc::Status QuoteHistory(::grpc::ServerContext* context, const ::mt4_term_api::QuoteHistoryRequest* request, ::mt4_term_api::QuoteHistoryReply* response);
     // Selects a symbol in the Market Watch window or removes a symbol from the window
     // https://docs.mql4.com/marketinformation/symbolselect

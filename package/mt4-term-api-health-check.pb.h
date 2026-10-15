@@ -309,6 +309,7 @@ class HealthCheckReply final :
 
   enum : int {
     kServerTimeMscFieldNumber = 2,
+    kServerTimeMscUtcFieldNumber = 3,
     kConnectedFieldNumber = 1,
   };
   // int64 serverTimeMsc = 2;
@@ -318,6 +319,15 @@ class HealthCheckReply final :
   private:
   int64_t _internal_servertimemsc() const;
   void _internal_set_servertimemsc(int64_t value);
+  public:
+
+  // int64 serverTimeMscUtc = 3;
+  void clear_servertimemscutc();
+  int64_t servertimemscutc() const;
+  void set_servertimemscutc(int64_t value);
+  private:
+  int64_t _internal_servertimemscutc() const;
+  void _internal_set_servertimemscutc(int64_t value);
   public:
 
   // bool connected = 1;
@@ -338,6 +348,7 @@ class HealthCheckReply final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     int64_t servertimemsc_;
+    int64_t servertimemscutc_;
     bool connected_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
@@ -633,6 +644,26 @@ inline void HealthCheckReply::_internal_set_servertimemsc(int64_t value) {
 inline void HealthCheckReply::set_servertimemsc(int64_t value) {
   _internal_set_servertimemsc(value);
   // @@protoc_insertion_point(field_set:mt4_term_api.HealthCheckReply.serverTimeMsc)
+}
+
+// int64 serverTimeMscUtc = 3;
+inline void HealthCheckReply::clear_servertimemscutc() {
+  _impl_.servertimemscutc_ = int64_t{0};
+}
+inline int64_t HealthCheckReply::_internal_servertimemscutc() const {
+  return _impl_.servertimemscutc_;
+}
+inline int64_t HealthCheckReply::servertimemscutc() const {
+  // @@protoc_insertion_point(field_get:mt4_term_api.HealthCheckReply.serverTimeMscUtc)
+  return _internal_servertimemscutc();
+}
+inline void HealthCheckReply::_internal_set_servertimemscutc(int64_t value) {
+  
+  _impl_.servertimemscutc_ = value;
+}
+inline void HealthCheckReply::set_servertimemscutc(int64_t value) {
+  _internal_set_servertimemscutc(value);
+  // @@protoc_insertion_point(field_set:mt4_term_api.HealthCheckReply.serverTimeMscUtc)
 }
 
 // -------------------------------------------------------------------

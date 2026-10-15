@@ -52,6 +52,7 @@ PROTOBUF_CONSTEXPR QuoteData::QuoteData(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.symbol_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.date_time_)*/nullptr
+  , /*decltype(_impl_.date_time_utc_)*/nullptr
   , /*decltype(_impl_.bid_)*/0
   , /*decltype(_impl_.ask_)*/0
   , /*decltype(_impl_.high_)*/0
@@ -163,6 +164,8 @@ PROTOBUF_CONSTEXPR QuoteHistoryRequest::QuoteHistoryRequest(
     /*decltype(_impl_.symbol_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.fromtime_)*/nullptr
   , /*decltype(_impl_.totime_)*/nullptr
+  , /*decltype(_impl_.fromtimeutc_)*/nullptr
+  , /*decltype(_impl_.totimeutc_)*/nullptr
   , /*decltype(_impl_.timeframe_)*/0
   , /*decltype(_impl_._cached_size_)*/{}} {}
 struct QuoteHistoryRequestDefaultTypeInternal {
@@ -205,6 +208,7 @@ PROTOBUF_CONSTEXPR HistoryQuote::HistoryQuote(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.symbol_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.time_)*/nullptr
+  , /*decltype(_impl_.time_utc_)*/nullptr
   , /*decltype(_impl_.open_)*/0
   , /*decltype(_impl_.close_)*/0
   , /*decltype(_impl_.high_)*/0
@@ -296,6 +300,7 @@ const uint32_t TableStruct_mt4_2dterm_2dapi_2dmarket_2dinfo_2eproto::offsets[] P
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::QuoteData, _impl_.bid_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::QuoteData, _impl_.ask_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::QuoteData, _impl_.date_time_),
+  PROTOBUF_FIELD_OFFSET(::mt4_term_api::QuoteData, _impl_.date_time_utc_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::QuoteData, _impl_.high_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::QuoteData, _impl_.low_),
   ~0u,  // no _has_bits_
@@ -360,7 +365,9 @@ const uint32_t TableStruct_mt4_2dterm_2dapi_2dmarket_2dinfo_2eproto::offsets[] P
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::QuoteHistoryRequest, _impl_.symbol_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::QuoteHistoryRequest, _impl_.timeframe_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::QuoteHistoryRequest, _impl_.fromtime_),
+  PROTOBUF_FIELD_OFFSET(::mt4_term_api::QuoteHistoryRequest, _impl_.fromtimeutc_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::QuoteHistoryRequest, _impl_.totime_),
+  PROTOBUF_FIELD_OFFSET(::mt4_term_api::QuoteHistoryRequest, _impl_.totimeutc_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::QuoteHistoryReply, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -386,6 +393,7 @@ const uint32_t TableStruct_mt4_2dterm_2dapi_2dmarket_2dinfo_2eproto::offsets[] P
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::HistoryQuote, _impl_.symbol_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::HistoryQuote, _impl_.index_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::HistoryQuote, _impl_.time_),
+  PROTOBUF_FIELD_OFFSET(::mt4_term_api::HistoryQuote, _impl_.time_utc_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::HistoryQuote, _impl_.open_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::HistoryQuote, _impl_.close_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::HistoryQuote, _impl_.high_),
@@ -422,20 +430,20 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 0, -1, -1, sizeof(::mt4_term_api::QuoteRequest)},
   { 7, -1, -1, sizeof(::mt4_term_api::QuoteReply)},
   { 16, -1, -1, sizeof(::mt4_term_api::QuoteData)},
-  { 28, -1, -1, sizeof(::mt4_term_api::QuoteManyRequest)},
-  { 35, -1, -1, sizeof(::mt4_term_api::QuoteManyReply)},
-  { 44, -1, -1, sizeof(::mt4_term_api::QuoteManyData)},
-  { 51, -1, -1, sizeof(::mt4_term_api::SymbolsRequest)},
-  { 57, -1, -1, sizeof(::mt4_term_api::SymbolsReply)},
-  { 66, -1, -1, sizeof(::mt4_term_api::SymbolsData)},
-  { 73, -1, -1, sizeof(::mt4_term_api::SymbolNameInfo)},
-  { 81, -1, -1, sizeof(::mt4_term_api::QuoteHistoryRequest)},
-  { 91, -1, -1, sizeof(::mt4_term_api::QuoteHistoryReply)},
-  { 100, -1, -1, sizeof(::mt4_term_api::QuoteHistoryData)},
-  { 107, -1, -1, sizeof(::mt4_term_api::HistoryQuote)},
-  { 123, -1, -1, sizeof(::mt4_term_api::SymbolSelectRequest)},
-  { 131, -1, -1, sizeof(::mt4_term_api::SymbolSelectReply)},
-  { 140, -1, -1, sizeof(::mt4_term_api::SymbolSelectData)},
+  { 29, -1, -1, sizeof(::mt4_term_api::QuoteManyRequest)},
+  { 36, -1, -1, sizeof(::mt4_term_api::QuoteManyReply)},
+  { 45, -1, -1, sizeof(::mt4_term_api::QuoteManyData)},
+  { 52, -1, -1, sizeof(::mt4_term_api::SymbolsRequest)},
+  { 58, -1, -1, sizeof(::mt4_term_api::SymbolsReply)},
+  { 67, -1, -1, sizeof(::mt4_term_api::SymbolsData)},
+  { 74, -1, -1, sizeof(::mt4_term_api::SymbolNameInfo)},
+  { 82, -1, -1, sizeof(::mt4_term_api::QuoteHistoryRequest)},
+  { 94, -1, -1, sizeof(::mt4_term_api::QuoteHistoryReply)},
+  { 103, -1, -1, sizeof(::mt4_term_api::QuoteHistoryData)},
+  { 110, -1, -1, sizeof(::mt4_term_api::HistoryQuote)},
+  { 127, -1, -1, sizeof(::mt4_term_api::SymbolSelectRequest)},
+  { 135, -1, -1, sizeof(::mt4_term_api::SymbolSelectReply)},
+  { 144, -1, -1, sizeof(::mt4_term_api::SymbolSelectData)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -465,61 +473,66 @@ const char descriptor_table_protodef_mt4_2dterm_2dapi_2dmarket_2dinfo_2eproto[] 
   "error.proto\"\036\n\014QuoteRequest\022\016\n\006symbol\030\001 "
   "\001(\t\"g\n\nQuoteReply\022\'\n\004data\030\001 \001(\0132\027.mt4_te"
   "rm_api.QuoteDataH\000\022$\n\005error\030\002 \001(\0132\023.mt4_"
-  "term_api.ErrorH\000B\n\n\010response\"\177\n\tQuoteDat"
-  "a\022\016\n\006symbol\030\001 \001(\t\022\013\n\003bid\030\002 \001(\001\022\013\n\003ask\030\003 "
-  "\001(\001\022-\n\tdate_time\030\004 \001(\0132\032.google.protobuf"
-  ".Timestamp\022\014\n\004high\030\005 \001(\001\022\013\n\003low\030\006 \001(\001\"#\n"
-  "\020QuoteManyRequest\022\017\n\007symbols\030\001 \003(\t\"o\n\016Qu"
-  "oteManyReply\022+\n\004data\030\001 \001(\0132\033.mt4_term_ap"
-  "i.QuoteManyDataH\000\022$\n\005error\030\002 \001(\0132\023.mt4_t"
-  "erm_api.ErrorH\000B\n\n\010response\"8\n\rQuoteMany"
-  "Data\022\'\n\006quotes\030\001 \003(\0132\027.mt4_term_api.Quot"
-  "eData\"\020\n\016SymbolsRequest\"k\n\014SymbolsReply\022"
-  ")\n\004data\030\001 \001(\0132\031.mt4_term_api.SymbolsData"
-  "H\000\022$\n\005error\030\002 \001(\0132\023.mt4_term_api.ErrorH\000"
-  "B\n\n\010response\"D\n\013SymbolsData\0225\n\017SymbolNam"
-  "eInfos\030\001 \003(\0132\034.mt4_term_api.SymbolNameIn"
-  "fo\";\n\016SymbolNameInfo\022\023\n\013symbol_name\030\001 \001("
-  "\t\022\024\n\014symbol_index\030\002 \001(\005\"\276\001\n\023QuoteHistory"
-  "Request\022\016\n\006symbol\030\001 \001(\t\022=\n\ttimeframe\030\002 \001"
-  "(\0162*.mt4_term_api.ENUM_QUOTE_HISTORY_TIM"
-  "EFRAME\022,\n\010fromTime\030\003 \001(\0132\032.google.protob"
-  "uf.Timestamp\022*\n\006toTime\030\004 \001(\0132\032.google.pr"
-  "otobuf.Timestamp\"u\n\021QuoteHistoryReply\022.\n"
-  "\004data\030\001 \001(\0132\036.mt4_term_api.QuoteHistoryD"
-  "ataH\000\022$\n\005error\030\002 \001(\0132\023.mt4_term_api.Erro"
-  "rH\000B\n\n\010response\"I\n\020QuoteHistoryData\0225\n\021h"
-  "istorical_quotes\030\001 \003(\0132\032.mt4_term_api.Hi"
-  "storyQuote\"\311\001\n\014HistoryQuote\022\016\n\006symbol\030\001 "
-  "\001(\t\022\r\n\005index\030\002 \001(\005\022(\n\004time\030\003 \001(\0132\032.googl"
-  "e.protobuf.Timestamp\022\014\n\004open\030\004 \001(\001\022\r\n\005cl"
-  "ose\030\005 \001(\001\022\014\n\004high\030\006 \001(\001\022\013\n\003low\030\007 \001(\001\022\023\n\013"
-  "real_volume\030\010 \001(\003\022\023\n\013tick_volume\030\t \001(\003\022\016"
-  "\n\006spread\030\n \001(\005\"5\n\023SymbolSelectRequest\022\016\n"
-  "\006symbol\030\001 \001(\t\022\016\n\006select\030\002 \001(\010\"u\n\021SymbolS"
-  "electReply\022.\n\004data\030\001 \001(\0132\036.mt4_term_api."
-  "SymbolSelectDataH\000\022$\n\005error\030\002 \001(\0132\023.mt4_"
-  "term_api.ErrorH\000B\n\n\010response\"#\n\020SymbolSe"
-  "lectData\022\017\n\007success\030\001 \001(\010*\303\001\n\034ENUM_QUOTE"
-  "_HISTORY_TIMEFRAME\022\020\n\014QH_PERIOD_M1\020\000\022\020\n\014"
-  "QH_PERIOD_M5\020\001\022\021\n\rQH_PERIOD_M15\020\002\022\021\n\rQH_"
-  "PERIOD_M30\020\003\022\020\n\014QH_PERIOD_H1\020\004\022\020\n\014QH_PER"
-  "IOD_H4\020\005\022\020\n\014QH_PERIOD_D1\020\006\022\020\n\014QH_PERIOD_"
-  "W1\020\007\022\021\n\rQH_PERIOD_MN1\020\0102\347\003\n\nMarketInfo\022M"
-  "\n\005Quote\022\032.mt4_term_api.QuoteRequest\032\030.mt"
-  "4_term_api.QuoteReply\"\016\202\323\344\223\002\010\022\006/Quote\022]\n"
-  "\tQuoteMany\022\036.mt4_term_api.QuoteManyReque"
-  "st\032\034.mt4_term_api.QuoteManyReply\"\022\202\323\344\223\002\014"
-  "\022\n/QuoteMany\022U\n\007Symbols\022\034.mt4_term_api.S"
-  "ymbolsRequest\032\032.mt4_term_api.SymbolsRepl"
-  "y\"\020\202\323\344\223\002\n\022\010/Symbols\022i\n\014QuoteHistory\022!.mt"
-  "4_term_api.QuoteHistoryRequest\032\037.mt4_ter"
-  "m_api.QuoteHistoryReply\"\025\202\323\344\223\002\017\022\r/QuoteH"
-  "istory\022i\n\014SymbolSelect\022!.mt4_term_api.Sy"
-  "mbolSelectRequest\032\037.mt4_term_api.SymbolS"
-  "electReply\"\025\202\323\344\223\002\017\022\r/SymbolSelectBBZ1git"
-  ".mtapi.io/root/mrpc-proto.git/mt4/librar"
-  "ies/go\252\002\014mt4_term_apib\006proto3"
+  "term_api.ErrorH\000B\n\n\010response\"\262\001\n\tQuoteDa"
+  "ta\022\016\n\006symbol\030\001 \001(\t\022\013\n\003bid\030\002 \001(\001\022\013\n\003ask\030\003"
+  " \001(\001\022-\n\tdate_time\030\004 \001(\0132\032.google.protobu"
+  "f.Timestamp\0221\n\rdate_time_utc\030\007 \001(\0132\032.goo"
+  "gle.protobuf.Timestamp\022\014\n\004high\030\005 \001(\001\022\013\n\003"
+  "low\030\006 \001(\001\"#\n\020QuoteManyRequest\022\017\n\007symbols"
+  "\030\001 \003(\t\"o\n\016QuoteManyReply\022+\n\004data\030\001 \001(\0132\033"
+  ".mt4_term_api.QuoteManyDataH\000\022$\n\005error\030\002"
+  " \001(\0132\023.mt4_term_api.ErrorH\000B\n\n\010response\""
+  "8\n\rQuoteManyData\022\'\n\006quotes\030\001 \003(\0132\027.mt4_t"
+  "erm_api.QuoteData\"\020\n\016SymbolsRequest\"k\n\014S"
+  "ymbolsReply\022)\n\004data\030\001 \001(\0132\031.mt4_term_api"
+  ".SymbolsDataH\000\022$\n\005error\030\002 \001(\0132\023.mt4_term"
+  "_api.ErrorH\000B\n\n\010response\"D\n\013SymbolsData\022"
+  "5\n\017SymbolNameInfos\030\001 \003(\0132\034.mt4_term_api."
+  "SymbolNameInfo\";\n\016SymbolNameInfo\022\023\n\013symb"
+  "ol_name\030\001 \001(\t\022\024\n\014symbol_index\030\002 \001(\005\"\236\002\n\023"
+  "QuoteHistoryRequest\022\016\n\006symbol\030\001 \001(\t\022=\n\tt"
+  "imeframe\030\002 \001(\0162*.mt4_term_api.ENUM_QUOTE"
+  "_HISTORY_TIMEFRAME\022,\n\010fromTime\030\003 \001(\0132\032.g"
+  "oogle.protobuf.Timestamp\022/\n\013fromTimeUtc\030"
+  "\005 \001(\0132\032.google.protobuf.Timestamp\022*\n\006toT"
+  "ime\030\004 \001(\0132\032.google.protobuf.Timestamp\022-\n"
+  "\ttoTimeUtc\030\006 \001(\0132\032.google.protobuf.Times"
+  "tamp\"u\n\021QuoteHistoryReply\022.\n\004data\030\001 \001(\0132"
+  "\036.mt4_term_api.QuoteHistoryDataH\000\022$\n\005err"
+  "or\030\002 \001(\0132\023.mt4_term_api.ErrorH\000B\n\n\010respo"
+  "nse\"I\n\020QuoteHistoryData\0225\n\021historical_qu"
+  "otes\030\001 \003(\0132\032.mt4_term_api.HistoryQuote\"\367"
+  "\001\n\014HistoryQuote\022\016\n\006symbol\030\001 \001(\t\022\r\n\005index"
+  "\030\002 \001(\005\022(\n\004time\030\003 \001(\0132\032.google.protobuf.T"
+  "imestamp\022,\n\010time_utc\030\013 \001(\0132\032.google.prot"
+  "obuf.Timestamp\022\014\n\004open\030\004 \001(\001\022\r\n\005close\030\005 "
+  "\001(\001\022\014\n\004high\030\006 \001(\001\022\013\n\003low\030\007 \001(\001\022\023\n\013real_v"
+  "olume\030\010 \001(\003\022\023\n\013tick_volume\030\t \001(\003\022\016\n\006spre"
+  "ad\030\n \001(\005\"5\n\023SymbolSelectRequest\022\016\n\006symbo"
+  "l\030\001 \001(\t\022\016\n\006select\030\002 \001(\010\"u\n\021SymbolSelectR"
+  "eply\022.\n\004data\030\001 \001(\0132\036.mt4_term_api.Symbol"
+  "SelectDataH\000\022$\n\005error\030\002 \001(\0132\023.mt4_term_a"
+  "pi.ErrorH\000B\n\n\010response\"#\n\020SymbolSelectDa"
+  "ta\022\017\n\007success\030\001 \001(\010*\303\001\n\034ENUM_QUOTE_HISTO"
+  "RY_TIMEFRAME\022\020\n\014QH_PERIOD_M1\020\000\022\020\n\014QH_PER"
+  "IOD_M5\020\001\022\021\n\rQH_PERIOD_M15\020\002\022\021\n\rQH_PERIOD"
+  "_M30\020\003\022\020\n\014QH_PERIOD_H1\020\004\022\020\n\014QH_PERIOD_H4"
+  "\020\005\022\020\n\014QH_PERIOD_D1\020\006\022\020\n\014QH_PERIOD_W1\020\007\022\021"
+  "\n\rQH_PERIOD_MN1\020\0102\352\003\n\nMarketInfo\022M\n\005Quot"
+  "e\022\032.mt4_term_api.QuoteRequest\032\030.mt4_term"
+  "_api.QuoteReply\"\016\202\323\344\223\002\010\022\006/Quote\022]\n\tQuote"
+  "Many\022\036.mt4_term_api.QuoteManyRequest\032\034.m"
+  "t4_term_api.QuoteManyReply\"\022\202\323\344\223\002\014\022\n/Quo"
+  "teMany\022U\n\007Symbols\022\034.mt4_term_api.Symbols"
+  "Request\032\032.mt4_term_api.SymbolsReply\"\020\202\323\344"
+  "\223\002\n\022\010/Symbols\022l\n\014QuoteHistory\022!.mt4_term"
+  "_api.QuoteHistoryRequest\032\037.mt4_term_api."
+  "QuoteHistoryReply\"\030\210\002\001\202\323\344\223\002\017\022\r/QuoteHist"
+  "ory\022i\n\014SymbolSelect\022!.mt4_term_api.Symbo"
+  "lSelectRequest\032\037.mt4_term_api.SymbolSele"
+  "ctReply\"\025\202\323\344\223\002\017\022\r/SymbolSelectBBZ1git.mt"
+  "api.io/root/mrpc-proto.git/mt4/libraries"
+  "/go\252\002\014mt4_term_apib\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_mt4_2dterm_2dapi_2dmarket_2dinfo_2eproto_deps[3] = {
   &::descriptor_table_google_2fapi_2fannotations_2eproto,
@@ -528,7 +541,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_mt4_2dterm_2dapi_2d
 };
 static ::_pbi::once_flag descriptor_table_mt4_2dterm_2dapi_2dmarket_2dinfo_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_mt4_2dterm_2dapi_2dmarket_2dinfo_2eproto = {
-    false, false, 2429, descriptor_table_protodef_mt4_2dterm_2dapi_2dmarket_2dinfo_2eproto,
+    false, false, 2626, descriptor_table_protodef_mt4_2dterm_2dapi_2dmarket_2dinfo_2eproto,
     "mt4-term-api-market-info.proto",
     &descriptor_table_mt4_2dterm_2dapi_2dmarket_2dinfo_2eproto_once, descriptor_table_mt4_2dterm_2dapi_2dmarket_2dinfo_2eproto_deps, 3, 17,
     schemas, file_default_instances, TableStruct_mt4_2dterm_2dapi_2dmarket_2dinfo_2eproto::offsets,
@@ -1086,17 +1099,28 @@ void QuoteReply::InternalSwap(QuoteReply* other) {
 class QuoteData::_Internal {
  public:
   static const ::PROTOBUF_NAMESPACE_ID::Timestamp& date_time(const QuoteData* msg);
+  static const ::PROTOBUF_NAMESPACE_ID::Timestamp& date_time_utc(const QuoteData* msg);
 };
 
 const ::PROTOBUF_NAMESPACE_ID::Timestamp&
 QuoteData::_Internal::date_time(const QuoteData* msg) {
   return *msg->_impl_.date_time_;
 }
+const ::PROTOBUF_NAMESPACE_ID::Timestamp&
+QuoteData::_Internal::date_time_utc(const QuoteData* msg) {
+  return *msg->_impl_.date_time_utc_;
+}
 void QuoteData::clear_date_time() {
   if (GetArenaForAllocation() == nullptr && _impl_.date_time_ != nullptr) {
     delete _impl_.date_time_;
   }
   _impl_.date_time_ = nullptr;
+}
+void QuoteData::clear_date_time_utc() {
+  if (GetArenaForAllocation() == nullptr && _impl_.date_time_utc_ != nullptr) {
+    delete _impl_.date_time_utc_;
+  }
+  _impl_.date_time_utc_ = nullptr;
 }
 QuoteData::QuoteData(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -1110,6 +1134,7 @@ QuoteData::QuoteData(const QuoteData& from)
   new (&_impl_) Impl_{
       decltype(_impl_.symbol_){}
     , decltype(_impl_.date_time_){nullptr}
+    , decltype(_impl_.date_time_utc_){nullptr}
     , decltype(_impl_.bid_){}
     , decltype(_impl_.ask_){}
     , decltype(_impl_.high_){}
@@ -1128,6 +1153,9 @@ QuoteData::QuoteData(const QuoteData& from)
   if (from._internal_has_date_time()) {
     _this->_impl_.date_time_ = new ::PROTOBUF_NAMESPACE_ID::Timestamp(*from._impl_.date_time_);
   }
+  if (from._internal_has_date_time_utc()) {
+    _this->_impl_.date_time_utc_ = new ::PROTOBUF_NAMESPACE_ID::Timestamp(*from._impl_.date_time_utc_);
+  }
   ::memcpy(&_impl_.bid_, &from._impl_.bid_,
     static_cast<size_t>(reinterpret_cast<char*>(&_impl_.low_) -
     reinterpret_cast<char*>(&_impl_.bid_)) + sizeof(_impl_.low_));
@@ -1141,6 +1169,7 @@ inline void QuoteData::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_.symbol_){}
     , decltype(_impl_.date_time_){nullptr}
+    , decltype(_impl_.date_time_utc_){nullptr}
     , decltype(_impl_.bid_){0}
     , decltype(_impl_.ask_){0}
     , decltype(_impl_.high_){0}
@@ -1166,6 +1195,7 @@ inline void QuoteData::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.symbol_.Destroy();
   if (this != internal_default_instance()) delete _impl_.date_time_;
+  if (this != internal_default_instance()) delete _impl_.date_time_utc_;
 }
 
 void QuoteData::SetCachedSize(int size) const {
@@ -1183,6 +1213,10 @@ void QuoteData::Clear() {
     delete _impl_.date_time_;
   }
   _impl_.date_time_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.date_time_utc_ != nullptr) {
+    delete _impl_.date_time_utc_;
+  }
+  _impl_.date_time_utc_ = nullptr;
   ::memset(&_impl_.bid_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&_impl_.low_) -
       reinterpret_cast<char*>(&_impl_.bid_)) + sizeof(_impl_.low_));
@@ -1242,6 +1276,14 @@ const char* QuoteData::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 49)) {
           _impl_.low_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
           ptr += sizeof(double);
+        } else
+          goto handle_unusual;
+        continue;
+      // .google.protobuf.Timestamp date_time_utc = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 58)) {
+          ptr = ctx->ParseMessage(_internal_mutable_date_time_utc(), ptr);
+          CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
@@ -1331,6 +1373,13 @@ uint8_t* QuoteData::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteDoubleToArray(6, this->_internal_low(), target);
   }
 
+  // .google.protobuf.Timestamp date_time_utc = 7;
+  if (this->_internal_has_date_time_utc()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(7, _Internal::date_time_utc(this),
+        _Internal::date_time_utc(this).GetCachedSize(), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -1359,6 +1408,13 @@ size_t QuoteData::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *_impl_.date_time_);
+  }
+
+  // .google.protobuf.Timestamp date_time_utc = 7;
+  if (this->_internal_has_date_time_utc()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.date_time_utc_);
   }
 
   // double bid = 2;
@@ -1421,6 +1477,10 @@ void QuoteData::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROT
   if (from._internal_has_date_time()) {
     _this->_internal_mutable_date_time()->::PROTOBUF_NAMESPACE_ID::Timestamp::MergeFrom(
         from._internal_date_time());
+  }
+  if (from._internal_has_date_time_utc()) {
+    _this->_internal_mutable_date_time_utc()->::PROTOBUF_NAMESPACE_ID::Timestamp::MergeFrom(
+        from._internal_date_time_utc());
   }
   static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
   double tmp_bid = from._internal_bid();
@@ -2950,7 +3010,9 @@ void SymbolNameInfo::InternalSwap(SymbolNameInfo* other) {
 class QuoteHistoryRequest::_Internal {
  public:
   static const ::PROTOBUF_NAMESPACE_ID::Timestamp& fromtime(const QuoteHistoryRequest* msg);
+  static const ::PROTOBUF_NAMESPACE_ID::Timestamp& fromtimeutc(const QuoteHistoryRequest* msg);
   static const ::PROTOBUF_NAMESPACE_ID::Timestamp& totime(const QuoteHistoryRequest* msg);
+  static const ::PROTOBUF_NAMESPACE_ID::Timestamp& totimeutc(const QuoteHistoryRequest* msg);
 };
 
 const ::PROTOBUF_NAMESPACE_ID::Timestamp&
@@ -2958,8 +3020,16 @@ QuoteHistoryRequest::_Internal::fromtime(const QuoteHistoryRequest* msg) {
   return *msg->_impl_.fromtime_;
 }
 const ::PROTOBUF_NAMESPACE_ID::Timestamp&
+QuoteHistoryRequest::_Internal::fromtimeutc(const QuoteHistoryRequest* msg) {
+  return *msg->_impl_.fromtimeutc_;
+}
+const ::PROTOBUF_NAMESPACE_ID::Timestamp&
 QuoteHistoryRequest::_Internal::totime(const QuoteHistoryRequest* msg) {
   return *msg->_impl_.totime_;
+}
+const ::PROTOBUF_NAMESPACE_ID::Timestamp&
+QuoteHistoryRequest::_Internal::totimeutc(const QuoteHistoryRequest* msg) {
+  return *msg->_impl_.totimeutc_;
 }
 void QuoteHistoryRequest::clear_fromtime() {
   if (GetArenaForAllocation() == nullptr && _impl_.fromtime_ != nullptr) {
@@ -2967,11 +3037,23 @@ void QuoteHistoryRequest::clear_fromtime() {
   }
   _impl_.fromtime_ = nullptr;
 }
+void QuoteHistoryRequest::clear_fromtimeutc() {
+  if (GetArenaForAllocation() == nullptr && _impl_.fromtimeutc_ != nullptr) {
+    delete _impl_.fromtimeutc_;
+  }
+  _impl_.fromtimeutc_ = nullptr;
+}
 void QuoteHistoryRequest::clear_totime() {
   if (GetArenaForAllocation() == nullptr && _impl_.totime_ != nullptr) {
     delete _impl_.totime_;
   }
   _impl_.totime_ = nullptr;
+}
+void QuoteHistoryRequest::clear_totimeutc() {
+  if (GetArenaForAllocation() == nullptr && _impl_.totimeutc_ != nullptr) {
+    delete _impl_.totimeutc_;
+  }
+  _impl_.totimeutc_ = nullptr;
 }
 QuoteHistoryRequest::QuoteHistoryRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -2986,6 +3068,8 @@ QuoteHistoryRequest::QuoteHistoryRequest(const QuoteHistoryRequest& from)
       decltype(_impl_.symbol_){}
     , decltype(_impl_.fromtime_){nullptr}
     , decltype(_impl_.totime_){nullptr}
+    , decltype(_impl_.fromtimeutc_){nullptr}
+    , decltype(_impl_.totimeutc_){nullptr}
     , decltype(_impl_.timeframe_){}
     , /*decltype(_impl_._cached_size_)*/{}};
 
@@ -3004,6 +3088,12 @@ QuoteHistoryRequest::QuoteHistoryRequest(const QuoteHistoryRequest& from)
   if (from._internal_has_totime()) {
     _this->_impl_.totime_ = new ::PROTOBUF_NAMESPACE_ID::Timestamp(*from._impl_.totime_);
   }
+  if (from._internal_has_fromtimeutc()) {
+    _this->_impl_.fromtimeutc_ = new ::PROTOBUF_NAMESPACE_ID::Timestamp(*from._impl_.fromtimeutc_);
+  }
+  if (from._internal_has_totimeutc()) {
+    _this->_impl_.totimeutc_ = new ::PROTOBUF_NAMESPACE_ID::Timestamp(*from._impl_.totimeutc_);
+  }
   _this->_impl_.timeframe_ = from._impl_.timeframe_;
   // @@protoc_insertion_point(copy_constructor:mt4_term_api.QuoteHistoryRequest)
 }
@@ -3016,6 +3106,8 @@ inline void QuoteHistoryRequest::SharedCtor(
       decltype(_impl_.symbol_){}
     , decltype(_impl_.fromtime_){nullptr}
     , decltype(_impl_.totime_){nullptr}
+    , decltype(_impl_.fromtimeutc_){nullptr}
+    , decltype(_impl_.totimeutc_){nullptr}
     , decltype(_impl_.timeframe_){0}
     , /*decltype(_impl_._cached_size_)*/{}
   };
@@ -3039,6 +3131,8 @@ inline void QuoteHistoryRequest::SharedDtor() {
   _impl_.symbol_.Destroy();
   if (this != internal_default_instance()) delete _impl_.fromtime_;
   if (this != internal_default_instance()) delete _impl_.totime_;
+  if (this != internal_default_instance()) delete _impl_.fromtimeutc_;
+  if (this != internal_default_instance()) delete _impl_.totimeutc_;
 }
 
 void QuoteHistoryRequest::SetCachedSize(int size) const {
@@ -3060,6 +3154,14 @@ void QuoteHistoryRequest::Clear() {
     delete _impl_.totime_;
   }
   _impl_.totime_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.fromtimeutc_ != nullptr) {
+    delete _impl_.fromtimeutc_;
+  }
+  _impl_.fromtimeutc_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.totimeutc_ != nullptr) {
+    delete _impl_.totimeutc_;
+  }
+  _impl_.totimeutc_ = nullptr;
   _impl_.timeframe_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -3101,6 +3203,22 @@ const char* QuoteHistoryRequest::_InternalParse(const char* ptr, ::_pbi::ParseCo
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
           ptr = ctx->ParseMessage(_internal_mutable_totime(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .google.protobuf.Timestamp fromTimeUtc = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
+          ptr = ctx->ParseMessage(_internal_mutable_fromtimeutc(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .google.protobuf.Timestamp toTimeUtc = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
+          ptr = ctx->ParseMessage(_internal_mutable_totimeutc(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -3165,6 +3283,20 @@ uint8_t* QuoteHistoryRequest::_InternalSerialize(
         _Internal::totime(this).GetCachedSize(), target, stream);
   }
 
+  // .google.protobuf.Timestamp fromTimeUtc = 5;
+  if (this->_internal_has_fromtimeutc()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(5, _Internal::fromtimeutc(this),
+        _Internal::fromtimeutc(this).GetCachedSize(), target, stream);
+  }
+
+  // .google.protobuf.Timestamp toTimeUtc = 6;
+  if (this->_internal_has_totimeutc()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(6, _Internal::totimeutc(this),
+        _Internal::totimeutc(this).GetCachedSize(), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -3202,6 +3334,20 @@ size_t QuoteHistoryRequest::ByteSizeLong() const {
         *_impl_.totime_);
   }
 
+  // .google.protobuf.Timestamp fromTimeUtc = 5;
+  if (this->_internal_has_fromtimeutc()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.fromtimeutc_);
+  }
+
+  // .google.protobuf.Timestamp toTimeUtc = 6;
+  if (this->_internal_has_totimeutc()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.totimeutc_);
+  }
+
   // .mt4_term_api.ENUM_QUOTE_HISTORY_TIMEFRAME timeframe = 2;
   if (this->_internal_timeframe() != 0) {
     total_size += 1 +
@@ -3236,6 +3382,14 @@ void QuoteHistoryRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, co
   if (from._internal_has_totime()) {
     _this->_internal_mutable_totime()->::PROTOBUF_NAMESPACE_ID::Timestamp::MergeFrom(
         from._internal_totime());
+  }
+  if (from._internal_has_fromtimeutc()) {
+    _this->_internal_mutable_fromtimeutc()->::PROTOBUF_NAMESPACE_ID::Timestamp::MergeFrom(
+        from._internal_fromtimeutc());
+  }
+  if (from._internal_has_totimeutc()) {
+    _this->_internal_mutable_totimeutc()->::PROTOBUF_NAMESPACE_ID::Timestamp::MergeFrom(
+        from._internal_totimeutc());
   }
   if (from._internal_timeframe() != 0) {
     _this->_internal_set_timeframe(from._internal_timeframe());
@@ -3781,17 +3935,28 @@ void QuoteHistoryData::InternalSwap(QuoteHistoryData* other) {
 class HistoryQuote::_Internal {
  public:
   static const ::PROTOBUF_NAMESPACE_ID::Timestamp& time(const HistoryQuote* msg);
+  static const ::PROTOBUF_NAMESPACE_ID::Timestamp& time_utc(const HistoryQuote* msg);
 };
 
 const ::PROTOBUF_NAMESPACE_ID::Timestamp&
 HistoryQuote::_Internal::time(const HistoryQuote* msg) {
   return *msg->_impl_.time_;
 }
+const ::PROTOBUF_NAMESPACE_ID::Timestamp&
+HistoryQuote::_Internal::time_utc(const HistoryQuote* msg) {
+  return *msg->_impl_.time_utc_;
+}
 void HistoryQuote::clear_time() {
   if (GetArenaForAllocation() == nullptr && _impl_.time_ != nullptr) {
     delete _impl_.time_;
   }
   _impl_.time_ = nullptr;
+}
+void HistoryQuote::clear_time_utc() {
+  if (GetArenaForAllocation() == nullptr && _impl_.time_utc_ != nullptr) {
+    delete _impl_.time_utc_;
+  }
+  _impl_.time_utc_ = nullptr;
 }
 HistoryQuote::HistoryQuote(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -3805,6 +3970,7 @@ HistoryQuote::HistoryQuote(const HistoryQuote& from)
   new (&_impl_) Impl_{
       decltype(_impl_.symbol_){}
     , decltype(_impl_.time_){nullptr}
+    , decltype(_impl_.time_utc_){nullptr}
     , decltype(_impl_.open_){}
     , decltype(_impl_.close_){}
     , decltype(_impl_.high_){}
@@ -3827,6 +3993,9 @@ HistoryQuote::HistoryQuote(const HistoryQuote& from)
   if (from._internal_has_time()) {
     _this->_impl_.time_ = new ::PROTOBUF_NAMESPACE_ID::Timestamp(*from._impl_.time_);
   }
+  if (from._internal_has_time_utc()) {
+    _this->_impl_.time_utc_ = new ::PROTOBUF_NAMESPACE_ID::Timestamp(*from._impl_.time_utc_);
+  }
   ::memcpy(&_impl_.open_, &from._impl_.open_,
     static_cast<size_t>(reinterpret_cast<char*>(&_impl_.tick_volume_) -
     reinterpret_cast<char*>(&_impl_.open_)) + sizeof(_impl_.tick_volume_));
@@ -3840,6 +4009,7 @@ inline void HistoryQuote::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_.symbol_){}
     , decltype(_impl_.time_){nullptr}
+    , decltype(_impl_.time_utc_){nullptr}
     , decltype(_impl_.open_){0}
     , decltype(_impl_.close_){0}
     , decltype(_impl_.high_){0}
@@ -3869,6 +4039,7 @@ inline void HistoryQuote::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.symbol_.Destroy();
   if (this != internal_default_instance()) delete _impl_.time_;
+  if (this != internal_default_instance()) delete _impl_.time_utc_;
 }
 
 void HistoryQuote::SetCachedSize(int size) const {
@@ -3886,6 +4057,10 @@ void HistoryQuote::Clear() {
     delete _impl_.time_;
   }
   _impl_.time_ = nullptr;
+  if (GetArenaForAllocation() == nullptr && _impl_.time_utc_ != nullptr) {
+    delete _impl_.time_utc_;
+  }
+  _impl_.time_utc_ = nullptr;
   ::memset(&_impl_.open_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&_impl_.tick_volume_) -
       reinterpret_cast<char*>(&_impl_.open_)) + sizeof(_impl_.tick_volume_));
@@ -3976,6 +4151,14 @@ const char* HistoryQuote::_InternalParse(const char* ptr, ::_pbi::ParseContext* 
       case 10:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 80)) {
           _impl_.spread_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // .google.protobuf.Timestamp time_utc = 11;
+      case 11:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 90)) {
+          ptr = ctx->ParseMessage(_internal_mutable_time_utc(), ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -4090,6 +4273,13 @@ uint8_t* HistoryQuote::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(10, this->_internal_spread(), target);
   }
 
+  // .google.protobuf.Timestamp time_utc = 11;
+  if (this->_internal_has_time_utc()) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(11, _Internal::time_utc(this),
+        _Internal::time_utc(this).GetCachedSize(), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -4118,6 +4308,13 @@ size_t HistoryQuote::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
         *_impl_.time_);
+  }
+
+  // .google.protobuf.Timestamp time_utc = 11;
+  if (this->_internal_has_time_utc()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.time_utc_);
   }
 
   // double open = 4;
@@ -4200,6 +4397,10 @@ void HistoryQuote::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::P
   if (from._internal_has_time()) {
     _this->_internal_mutable_time()->::PROTOBUF_NAMESPACE_ID::Timestamp::MergeFrom(
         from._internal_time());
+  }
+  if (from._internal_has_time_utc()) {
+    _this->_internal_mutable_time_utc()->::PROTOBUF_NAMESPACE_ID::Timestamp::MergeFrom(
+        from._internal_time_utc());
   }
   static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
   double tmp_open = from._internal_open();

@@ -269,29 +269,29 @@ const char descriptor_table_protodef_mt4_2dterm_2dapi_2dinternal_2dcharts_2eprot
   "de\030\002 \001(\0162\037.mt4_term_api.ChartTemplateMod"
   "e\"+\n\016ChartOpenReply\022\031\n\021chart_terminal_id"
   "\030\001 \001(\003\".\n\021ChartCloseRequest\022\031\n\021chart_ter"
-  "minal_id\030\001 \001(\003\"\021\n\017ChartCloseReply*m\n\021Cha"
+  "minal_id\030\001 \001(\003\"\021\n\017ChartCloseReply*y\n\021Cha"
   "rtTemplateMode\022\014\n\010ON_TRADE\020\000\022\034\n\030ON_OPENE"
   "D_ORDERS_TICKETS\020\001\022\023\n\017ON_ORDER_PROFIT\020\002\022"
-  "\027\n\023ON_SYMBOL_INFO_TICK\020\0032\363\003\n\016InternalCha"
-  "rts\022I\n\tChartOpen\022\036.mt4_term_api.ChartOpe"
-  "nRequest\032\034.mt4_term_api.ChartOpenReply\022L"
-  "\n\nChartClose\022\037.mt4_term_api.ChartCloseRe"
-  "quest\032\035.mt4_term_api.ChartCloseReply\022[\n\017"
-  "CustomChartOpen\022$.mt4_term_api.CustomCha"
-  "rtOpenRequest\032\".mt4_term_api.CustomChart"
-  "OpenReply\022s\n\027CustomChartSaveTemplate\022,.m"
-  "t4_term_api.CustomChartSaveTemplateReque"
-  "st\032*.mt4_term_api.CustomChartSaveTemplat"
-  "eReply\022v\n\030CustomChartApplyTemplate\022-.mt4"
-  "_term_api.CustomChartApplyTemplateReques"
-  "t\032+.mt4_term_api.CustomChartApplyTemplat"
-  "eReplyBBZ1git.mtapi.io/root/mrpc-proto.g"
-  "it/mt4/libraries/go\252\002\014mt4_term_apib\006prot"
-  "o3"
+  "\027\n\023ON_SYMBOL_INFO_TICK\020\003\022\n\n\006EVENTS\020\0042\363\003\n"
+  "\016InternalCharts\022I\n\tChartOpen\022\036.mt4_term_"
+  "api.ChartOpenRequest\032\034.mt4_term_api.Char"
+  "tOpenReply\022L\n\nChartClose\022\037.mt4_term_api."
+  "ChartCloseRequest\032\035.mt4_term_api.ChartCl"
+  "oseReply\022[\n\017CustomChartOpen\022$.mt4_term_a"
+  "pi.CustomChartOpenRequest\032\".mt4_term_api"
+  ".CustomChartOpenReply\022s\n\027CustomChartSave"
+  "Template\022,.mt4_term_api.CustomChartSaveT"
+  "emplateRequest\032*.mt4_term_api.CustomChar"
+  "tSaveTemplateReply\022v\n\030CustomChartApplyTe"
+  "mplate\022-.mt4_term_api.CustomChartApplyTe"
+  "mplateRequest\032+.mt4_term_api.CustomChart"
+  "ApplyTemplateReplyBBZ1git.mtapi.io/root/"
+  "mrpc-proto.git/mt4/libraries/go\252\002\014mt4_te"
+  "rm_apib\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_mt4_2dterm_2dapi_2dinternal_2dcharts_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_mt4_2dterm_2dapi_2dinternal_2dcharts_2eproto = {
-    false, false, 1282, descriptor_table_protodef_mt4_2dterm_2dapi_2dinternal_2dcharts_2eproto,
+    false, false, 1294, descriptor_table_protodef_mt4_2dterm_2dapi_2dinternal_2dcharts_2eproto,
     "mt4-term-api-internal-charts.proto",
     &descriptor_table_mt4_2dterm_2dapi_2dinternal_2dcharts_2eproto_once, nullptr, 0, 10,
     schemas, file_default_instances, TableStruct_mt4_2dterm_2dapi_2dinternal_2dcharts_2eproto::offsets,
@@ -315,6 +315,7 @@ bool ChartTemplateMode_IsValid(int value) {
     case 1:
     case 2:
     case 3:
+    case 4:
       return true;
     default:
       return false;

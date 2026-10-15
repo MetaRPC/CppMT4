@@ -97,12 +97,13 @@ enum ChartTemplateMode : int {
   ON_OPENED_ORDERS_TICKETS = 1,
   ON_ORDER_PROFIT = 2,
   ON_SYMBOL_INFO_TICK = 3,
+  EVENTS = 4,
   ChartTemplateMode_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   ChartTemplateMode_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool ChartTemplateMode_IsValid(int value);
 constexpr ChartTemplateMode ChartTemplateMode_MIN = ON_TRADE;
-constexpr ChartTemplateMode ChartTemplateMode_MAX = ON_SYMBOL_INFO_TICK;
+constexpr ChartTemplateMode ChartTemplateMode_MAX = EVENTS;
 constexpr int ChartTemplateMode_ARRAYSIZE = ChartTemplateMode_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ChartTemplateMode_descriptor();
