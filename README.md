@@ -12,7 +12,7 @@
 ## 📦 Installation
 
 ```bash
-vcpkg install cppmt4
+git clone https://github.com/MetaRPC/CppMT4.git
 ```
 
 ---

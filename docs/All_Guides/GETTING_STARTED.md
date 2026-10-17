@@ -18,10 +18,10 @@
 
 ## 📦 Installation
 
-Install CppMT4 via your standard C++ package manager:
+CppMT4 is not published on a package registry; get it from the repository:
 
 ```bash
-vcpkg install metarpc-mt4
+git clone https://github.com/MetaRPC/CppMT4.git
 ```
 
 ---
