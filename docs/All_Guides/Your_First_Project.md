@@ -34,14 +34,38 @@ git clone https://github.com/MetaRPC/CppMT4.git
 
 Create your main application file and paste the following snippet:
 
-```
-#include <metarpc/mt4_account.hpp>
+```cpp
+#include <metarpc/mt4.hpp>
+#include <iostream>
 
-// Session ID generation on Connect and authentication are handled automatically
-metarpc::MT4Account account(user, password, grpc_server, apiKey);
-account.connect_by_server_name(server_name, "EURUSD", 30);
-auto summary = account.account_summary();
-std::cout << "Balance: " << summary.account_balance << std::endl;
+int main() {
+    metarpc::MT4Client client("mt4.mrpc.pro", 443);
+
+    if (client.connect(100234, "account_password")) {
+        std::cout << "Connected to MT4!" << std::endl;
+
+        metarpc::AccountInfo acc = client.getAccountInfo();
+        std::cout << "Balance: " << acc.balance << " " << acc.currency << std::endl;
+
+        // Subscribe to EURUSD ticks
+        client.subscribeQuotes({"EURUSD"}, [](const metarpc::Quote& quote) {
+            std::cout << "[" << quote.symbol << "] Bid: " << quote.bid 
+                      << " Ask: " << quote.ask << std::endl;
+        });
+
+        // Send a 0.01 lot Buy order
+        metarpc::OrderRequest req;
+        req.symbol = "EURUSD";
+        req.type = metarpc::OrderType::Buy;
+        req.lots = 0.01;
+        req.comment = "CppMT4 Quickstart";
+
+        metarpc::OrderResult result = client.orderSend(req);
+        std::cout << "Order executed! Ticket #" << result.ticket << std::endl;
+    }
+
+    return 0;
+}
 ```
 
 ---
@@ -51,9 +75,12 @@ std::cout << "Balance: " << summary.account_balance << std::endl;
 Run your application:
 
 ```bash
-# Verify connection output
-# Balance: 10000.00, Equity: 10000.00
+cmake -B build -S . -DBUILD_EXAMPLES=ON
+cmake --build build --config Release
+./build/quickstart        # Windows: .\build\quickstart.exe or .\build\Release\quickstart.exe
 ```
+
+Run it from the cloned repository: its `examples/quickstart` does the same thing.
 
 ---
 

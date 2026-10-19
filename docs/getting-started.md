@@ -1,5 +1,7 @@
 # Getting Started with CppMT4
 
+> **Preview: this SDK does not talk to the server yet.** `connect`, the account and order calls return simulated values (a fixed balance, made-up order tickets) and nothing is traded. For real MT4 accounts use the Python, Node.js, C#, Go or Java SDK, or the [REST API](https://mrpc.pro/docs-legacy/mt4-client-api).
+
 ## Prerequisites
 - **C++17** compatible compiler (GCC 9+, Clang 10+, or MSVC 2019+)
 - **CMake 3.15+**
