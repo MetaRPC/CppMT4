@@ -60,10 +60,16 @@ PROTOBUF_CONSTEXPR AccountSummaryData::AccountSummaryData(
   , /*decltype(_impl_.account_equity_)*/0
   , /*decltype(_impl_.account_leverage_)*/int64_t{0}
   , /*decltype(_impl_.account_trade_mode_)*/0
-  , /*decltype(_impl_.is_investor_)*/false
-  , /*decltype(_impl_.account_credit_)*/0
   , /*decltype(_impl_.utc_server_time_shift_minutes_)*/0
-  , /*decltype(_impl_.server_utc_offset_seconds_)*/0} {}
+  , /*decltype(_impl_.account_credit_)*/0
+  , /*decltype(_impl_.account_margin_)*/0
+  , /*decltype(_impl_.account_margin_free_)*/0
+  , /*decltype(_impl_.server_utc_offset_seconds_)*/0
+  , /*decltype(_impl_.is_investor_)*/false
+  , /*decltype(_impl_.account_trade_allowed_)*/false
+  , /*decltype(_impl_.account_trade_expert_)*/false
+  , /*decltype(_impl_.account_margin_level_)*/0
+  , /*decltype(_impl_.account_margin_mode_)*/0} {}
 struct AccountSummaryDataDefaultTypeInternal {
   PROTOBUF_CONSTEXPR AccountSummaryDataDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -450,7 +456,7 @@ struct SymbolTickValueWithSizeInfoDefaultTypeInternal {
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 SymbolTickValueWithSizeInfoDefaultTypeInternal _SymbolTickValueWithSizeInfo_default_instance_;
 }  // namespace mt4_term_api
 static ::_pb::Metadata file_level_metadata_mt4_2dterm_2dapi_2daccount_2dhelper_2eproto[22];
-static const ::_pb::EnumDescriptor* file_level_enum_descriptors_mt4_2dterm_2dapi_2daccount_2dhelper_2eproto[7];
+static const ::_pb::EnumDescriptor* file_level_enum_descriptors_mt4_2dterm_2dapi_2daccount_2dhelper_2eproto[8];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_mt4_2dterm_2dapi_2daccount_2dhelper_2eproto = nullptr;
 
 const uint32_t TableStruct_mt4_2dterm_2dapi_2daccount_2dhelper_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -489,6 +495,12 @@ const uint32_t TableStruct_mt4_2dterm_2dapi_2daccount_2dhelper_2eproto::offsets[
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::AccountSummaryData, _impl_.is_investor_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::AccountSummaryData, _impl_.utc_server_time_shift_minutes_),
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::AccountSummaryData, _impl_.server_utc_offset_seconds_),
+  PROTOBUF_FIELD_OFFSET(::mt4_term_api::AccountSummaryData, _impl_.account_margin_),
+  PROTOBUF_FIELD_OFFSET(::mt4_term_api::AccountSummaryData, _impl_.account_margin_free_),
+  PROTOBUF_FIELD_OFFSET(::mt4_term_api::AccountSummaryData, _impl_.account_margin_level_),
+  PROTOBUF_FIELD_OFFSET(::mt4_term_api::AccountSummaryData, _impl_.account_margin_mode_),
+  PROTOBUF_FIELD_OFFSET(::mt4_term_api::AccountSummaryData, _impl_.account_trade_allowed_),
+  PROTOBUF_FIELD_OFFSET(::mt4_term_api::AccountSummaryData, _impl_.account_trade_expert_),
   ~0u,
   ~0u,
   ~0u,
@@ -503,6 +515,12 @@ const uint32_t TableStruct_mt4_2dterm_2dapi_2daccount_2dhelper_2eproto::offsets[
   ~0u,
   ~0u,
   0,
+  ~0u,
+  ~0u,
+  ~0u,
+  ~0u,
+  ~0u,
+  ~0u,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::OpenedOrdersRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -781,26 +799,26 @@ const uint32_t TableStruct_mt4_2dterm_2dapi_2daccount_2dhelper_2eproto::offsets[
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, -1, sizeof(::mt4_term_api::AccountSummaryRequest)},
   { 6, -1, -1, sizeof(::mt4_term_api::AccountSummaryReply)},
-  { 15, 35, -1, sizeof(::mt4_term_api::AccountSummaryData)},
-  { 49, -1, -1, sizeof(::mt4_term_api::OpenedOrdersRequest)},
-  { 56, -1, -1, sizeof(::mt4_term_api::OpenedOrdersReply)},
-  { 65, -1, -1, sizeof(::mt4_term_api::OpenedOrdersData)},
-  { 72, -1, -1, sizeof(::mt4_term_api::OpenedOrderInfo)},
-  { 97, -1, -1, sizeof(::mt4_term_api::OpenedOrdersTicketsRequest)},
-  { 103, -1, -1, sizeof(::mt4_term_api::OpenedOrdersTicketsReply)},
-  { 112, -1, -1, sizeof(::mt4_term_api::OpenedOrdersTicketsData)},
-  { 119, -1, -1, sizeof(::mt4_term_api::OrdersHistoryReply)},
-  { 128, -1, -1, sizeof(::mt4_term_api::OrdersHistoryData)},
-  { 137, -1, -1, sizeof(::mt4_term_api::HistoryOrderInfo)},
-  { 165, 180, -1, sizeof(::mt4_term_api::OrdersHistoryRequest)},
-  { 189, 196, -1, sizeof(::mt4_term_api::SymbolParamsManyRequest)},
-  { 197, -1, -1, sizeof(::mt4_term_api::SymbolParamsManyReply)},
-  { 206, -1, -1, sizeof(::mt4_term_api::SymbolParamsManyData)},
-  { 213, -1, -1, sizeof(::mt4_term_api::SymbolParamsManyInfo)},
-  { 289, -1, -1, sizeof(::mt4_term_api::TickValueWithSizeRequest)},
-  { 296, -1, -1, sizeof(::mt4_term_api::TickValueWithSizeReply)},
-  { 305, -1, -1, sizeof(::mt4_term_api::TickValueWithSizeData)},
-  { 312, -1, -1, sizeof(::mt4_term_api::SymbolTickValueWithSizeInfo)},
+  { 15, 41, -1, sizeof(::mt4_term_api::AccountSummaryData)},
+  { 61, -1, -1, sizeof(::mt4_term_api::OpenedOrdersRequest)},
+  { 68, -1, -1, sizeof(::mt4_term_api::OpenedOrdersReply)},
+  { 77, -1, -1, sizeof(::mt4_term_api::OpenedOrdersData)},
+  { 84, -1, -1, sizeof(::mt4_term_api::OpenedOrderInfo)},
+  { 109, -1, -1, sizeof(::mt4_term_api::OpenedOrdersTicketsRequest)},
+  { 115, -1, -1, sizeof(::mt4_term_api::OpenedOrdersTicketsReply)},
+  { 124, -1, -1, sizeof(::mt4_term_api::OpenedOrdersTicketsData)},
+  { 131, -1, -1, sizeof(::mt4_term_api::OrdersHistoryReply)},
+  { 140, -1, -1, sizeof(::mt4_term_api::OrdersHistoryData)},
+  { 149, -1, -1, sizeof(::mt4_term_api::HistoryOrderInfo)},
+  { 177, 192, -1, sizeof(::mt4_term_api::OrdersHistoryRequest)},
+  { 201, 208, -1, sizeof(::mt4_term_api::SymbolParamsManyRequest)},
+  { 209, -1, -1, sizeof(::mt4_term_api::SymbolParamsManyReply)},
+  { 218, -1, -1, sizeof(::mt4_term_api::SymbolParamsManyData)},
+  { 225, -1, -1, sizeof(::mt4_term_api::SymbolParamsManyInfo)},
+  { 301, -1, -1, sizeof(::mt4_term_api::TickValueWithSizeRequest)},
+  { 308, -1, -1, sizeof(::mt4_term_api::TickValueWithSizeReply)},
+  { 317, -1, -1, sizeof(::mt4_term_api::TickValueWithSizeData)},
+  { 324, -1, -1, sizeof(::mt4_term_api::SymbolTickValueWithSizeInfo)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -836,7 +854,7 @@ const char descriptor_table_protodef_mt4_2dterm_2dapi_2daccount_2dhelper_2eproto
   "y\n\023AccountSummaryReply\0220\n\004data\030\001 \001(\0132 .m"
   "t4_term_api.AccountSummaryDataH\000\022$\n\005erro"
   "r\030\002 \001(\0132\023.mt4_term_api.ErrorH\000B\n\n\010respon"
-  "se\"\211\004\n\022AccountSummaryData\022\025\n\raccount_log"
+  "se\"\333\005\n\022AccountSummaryData\022\025\n\raccount_log"
   "in\030\001 \001(\003\022\027\n\017account_balance\030\002 \001(\001\022\026\n\016acc"
   "ount_equity\030\003 \001(\001\022\031\n\021account_user_name\030\004"
   " \001(\t\022\030\n\020account_leverage\030\005 \001(\003\022>\n\022accoun"
@@ -848,18 +866,48 @@ const char descriptor_table_protodef_mt4_2dterm_2dapi_2daccount_2dhelper_2eproto
   "uf.Timestamp\022\026\n\016account_credit\030\n \001(\001\022\023\n\013"
   "is_investor\030\013 \001(\010\022%\n\035utc_server_time_shi"
   "ft_minutes\030\014 \001(\005\022&\n\031server_utc_offset_se"
-  "conds\030\016 \001(\005H\000\210\001\001B\034\n\032_server_utc_offset_s"
-  "econds\"O\n\023OpenedOrdersRequest\0228\n\tsort_ty"
-  "pe\030\001 \001(\0162%.mt4_term_api.EnumOpenedOrderS"
-  "ortType\"u\n\021OpenedOrdersReply\022.\n\004data\030\001 \001"
-  "(\0132\036.mt4_term_api.OpenedOrdersDataH\000\022$\n\005"
-  "error\030\002 \001(\0132\023.mt4_term_api.ErrorH\000B\n\n\010re"
-  "sponse\"F\n\020OpenedOrdersData\0222\n\013order_info"
-  "s\030\001 \003(\0132\035.mt4_term_api.OpenedOrderInfo\"\231"
-  "\004\n\017OpenedOrderInfo\022\017\n\007comment\030\001 \001(\t\022\021\n\tc"
+  "conds\030\016 \001(\005H\000\210\001\001\022\026\n\016account_margin\030\r \001(\001"
+  "\022\033\n\023account_margin_free\030\020 \001(\001\022\034\n\024account"
+  "_margin_level\030\021 \001(\001\022@\n\023account_margin_mo"
+  "de\030\022 \001(\0162#.mt4_term_api.EnumAccountMargi"
+  "nMode\022\035\n\025account_trade_allowed\030\023 \001(\010\022\034\n\024"
+  "account_trade_expert\030\024 \001(\010B\034\n\032_server_ut"
+  "c_offset_seconds\"O\n\023OpenedOrdersRequest\022"
+  "8\n\tsort_type\030\001 \001(\0162%.mt4_term_api.EnumOp"
+  "enedOrderSortType\"u\n\021OpenedOrdersReply\022."
+  "\n\004data\030\001 \001(\0132\036.mt4_term_api.OpenedOrders"
+  "DataH\000\022$\n\005error\030\002 \001(\0132\023.mt4_term_api.Err"
+  "orH\000B\n\n\010response\"F\n\020OpenedOrdersData\0222\n\013"
+  "order_infos\030\001 \003(\0132\035.mt4_term_api.OpenedO"
+  "rderInfo\"\231\004\n\017OpenedOrderInfo\022\017\n\007comment\030"
+  "\001 \001(\t\022\021\n\tcommision\030\002 \001(\001\0223\n\017expiration_t"
+  "ime\030\003 \001(\0132\032.google.protobuf.Timestamp\0227\n"
+  "\023expiration_time_utc\030\022 \001(\0132\032.google.prot"
+  "obuf.Timestamp\022\014\n\004lots\030\004 \001(\001\022\024\n\014magic_nu"
+  "mber\030\005 \001(\005\022\022\n\nopen_price\030\006 \001(\001\022\016\n\006profit"
+  "\030\007 \001(\001\022\021\n\tstop_loss\030\010 \001(\001\022\014\n\004swap\030\t \001(\001\022"
+  "\016\n\006symbol\030\n \001(\t\022\023\n\013take_profit\030\013 \001(\001\022\016\n\006"
+  "ticket\030\014 \001(\005\022\026\n\016position_index\030\r \001(\005\0221\n\n"
+  "order_type\030\016 \001(\0162\035.mt4_term_api.OpenedOr"
+  "derType\022\022\n\nsort_index\030\017 \001(\005\022-\n\topen_time"
+  "\030\020 \001(\0132\032.google.protobuf.Timestamp\0221\n\rop"
+  "en_time_utc\030\023 \001(\0132\032.google.protobuf.Time"
+  "stamp\022\025\n\raccount_login\030\021 \001(\003\"\034\n\032OpenedOr"
+  "dersTicketsRequest\"\203\001\n\030OpenedOrdersTicke"
+  "tsReply\0225\n\004data\030\001 \001(\0132%.mt4_term_api.Ope"
+  "nedOrdersTicketsDataH\000\022$\n\005error\030\002 \001(\0132\023."
+  "mt4_term_api.ErrorH\000B\n\n\010response\"*\n\027Open"
+  "edOrdersTicketsData\022\017\n\007tickets\030\001 \003(\005\"w\n\022"
+  "OrdersHistoryReply\022/\n\004data\030\001 \001(\0132\037.mt4_t"
+  "erm_api.OrdersHistoryDataH\000\022$\n\005error\030\002 \001"
+  "(\0132\023.mt4_term_api.ErrorH\000B\n\n\010response\"v\n"
+  "\021OrdersHistoryData\0223\n\013orders_info\030\001 \003(\0132"
+  "\036.mt4_term_api.HistoryOrderInfo\022\023\n\013total"
+  "_count\030\002 \001(\005\022\027\n\017next_page_token\030\003 \001(\t\"\223\005"
+  "\n\020HistoryOrderInfo\022\017\n\007comment\030\001 \001(\t\022\021\n\tc"
   "ommision\030\002 \001(\001\0223\n\017expiration_time\030\003 \001(\0132"
   "\032.google.protobuf.Timestamp\0227\n\023expiratio"
-  "n_time_utc\030\022 \001(\0132\032.google.protobuf.Times"
+  "n_time_utc\030\024 \001(\0132\032.google.protobuf.Times"
   "tamp\022\014\n\004lots\030\004 \001(\001\022\024\n\014magic_number\030\005 \001(\005"
   "\022\022\n\nopen_price\030\006 \001(\001\022\016\n\006profit\030\007 \001(\001\022\021\n\t"
   "stop_loss\030\010 \001(\001\022\014\n\004swap\030\t \001(\001\022\016\n\006symbol\030"
@@ -868,159 +916,139 @@ const char descriptor_table_protodef_mt4_2dterm_2dapi_2daccount_2dhelper_2eproto
   "\030\016 \001(\0162\035.mt4_term_api.OpenedOrderType\022\022\n"
   "\nsort_index\030\017 \001(\005\022-\n\topen_time\030\020 \001(\0132\032.g"
   "oogle.protobuf.Timestamp\0221\n\ropen_time_ut"
-  "c\030\023 \001(\0132\032.google.protobuf.Timestamp\022\025\n\ra"
-  "ccount_login\030\021 \001(\003\"\034\n\032OpenedOrdersTicket"
-  "sRequest\"\203\001\n\030OpenedOrdersTicketsReply\0225\n"
-  "\004data\030\001 \001(\0132%.mt4_term_api.OpenedOrdersT"
-  "icketsDataH\000\022$\n\005error\030\002 \001(\0132\023.mt4_term_a"
-  "pi.ErrorH\000B\n\n\010response\"*\n\027OpenedOrdersTi"
-  "cketsData\022\017\n\007tickets\030\001 \003(\005\"w\n\022OrdersHist"
-  "oryReply\022/\n\004data\030\001 \001(\0132\037.mt4_term_api.Or"
-  "dersHistoryDataH\000\022$\n\005error\030\002 \001(\0132\023.mt4_t"
-  "erm_api.ErrorH\000B\n\n\010response\"v\n\021OrdersHis"
-  "toryData\0223\n\013orders_info\030\001 \003(\0132\036.mt4_term"
-  "_api.HistoryOrderInfo\022\023\n\013total_count\030\002 \001"
-  "(\005\022\027\n\017next_page_token\030\003 \001(\t\"\223\005\n\020HistoryO"
-  "rderInfo\022\017\n\007comment\030\001 \001(\t\022\021\n\tcommision\030\002"
-  " \001(\001\0223\n\017expiration_time\030\003 \001(\0132\032.google.p"
-  "rotobuf.Timestamp\0227\n\023expiration_time_utc"
-  "\030\024 \001(\0132\032.google.protobuf.Timestamp\022\014\n\004lo"
-  "ts\030\004 \001(\001\022\024\n\014magic_number\030\005 \001(\005\022\022\n\nopen_p"
-  "rice\030\006 \001(\001\022\016\n\006profit\030\007 \001(\001\022\021\n\tstop_loss\030"
-  "\010 \001(\001\022\014\n\004swap\030\t \001(\001\022\016\n\006symbol\030\n \001(\t\022\023\n\013t"
-  "ake_profit\030\013 \001(\001\022\016\n\006ticket\030\014 \001(\005\022\026\n\016posi"
-  "tion_index\030\r \001(\005\0221\n\norder_type\030\016 \001(\0162\035.m"
-  "t4_term_api.OpenedOrderType\022\022\n\nsort_inde"
-  "x\030\017 \001(\005\022-\n\topen_time\030\020 \001(\0132\032.google.prot"
-  "obuf.Timestamp\0221\n\ropen_time_utc\030\025 \001(\0132\032."
-  "google.protobuf.Timestamp\022.\n\nclose_time\030"
-  "\021 \001(\0132\032.google.protobuf.Timestamp\0222\n\016clo"
-  "se_time_utc\030\026 \001(\0132\032.google.protobuf.Time"
-  "stamp\022\023\n\013close_price\030\022 \001(\001\022\025\n\raccount_lo"
-  "gin\030\023 \001(\003\"\360\003\n\024OrdersHistoryRequest\022\?\n\017in"
-  "put_sort_mode\030\001 \001(\0162&.mt4_term_api.EnumO"
-  "rderHistorySortType\0223\n\ninput_from\030\002 \001(\0132"
-  "\032.google.protobuf.TimestampH\000\210\001\001\0227\n\016inpu"
-  "t_from_utc\030\010 \001(\0132\032.google.protobuf.Times"
-  "tampH\001\210\001\001\0221\n\010input_to\030\003 \001(\0132\032.google.pro"
-  "tobuf.TimestampH\002\210\001\001\0225\n\014input_to_utc\030\t \001"
-  "(\0132\032.google.protobuf.TimestampH\003\210\001\001\022\030\n\013p"
-  "age_number\030\004 \001(\005H\004\210\001\001\022\033\n\016items_per_page\030"
-  "\005 \001(\005H\005\210\001\001\022\022\n\npage_token\030\006 \001(\t\022\021\n\tpage_s"
-  "ize\030\007 \001(\005B\r\n\013_input_fromB\021\n\017_input_from_"
-  "utcB\013\n\t_input_toB\017\n\r_input_to_utcB\016\n\014_pa"
-  "ge_numberB\021\n\017_items_per_page\"C\n\027SymbolPa"
-  "ramsManyRequest\022\030\n\013symbol_name\030\001 \001(\tH\000\210\001"
-  "\001B\016\n\014_symbol_name\"}\n\025SymbolParamsManyRep"
-  "ly\0222\n\004data\030\001 \001(\0132\".mt4_term_api.SymbolPa"
-  "ramsManyDataH\000\022$\n\005error\030\002 \001(\0132\023.mt4_term"
-  "_api.ErrorH\000B\n\n\010response\"P\n\024SymbolParams"
-  "ManyData\0228\n\014symbol_infos\030\001 \003(\0132\".mt4_ter"
-  "m_api.SymbolParamsManyInfo\"\361\r\n\024SymbolPar"
-  "amsManyInfo\022\023\n\013is_selected\030\001 \001(\010\022\017\n\007visi"
-  "ble\030\002 \001(\010\022\025\n\rsession_deals\030\003 \001(\003\022\032\n\022sess"
-  "ion_buy_orders\030\004 \001(\003\022\033\n\023session_sell_ord"
-  "ers\030\005 \001(\003\022\016\n\006volume\030\006 \001(\003\022\023\n\013volume_high"
-  "\030\007 \001(\003\022\021\n\tVolumeLow\030\010 \001(\003\022\014\n\004Time\030\t \001(\003\022"
-  "\017\n\007TimeUtc\030D \001(\003\022\016\n\006Digits\030\n \001(\005\022\023\n\013Spre"
-  "adFloat\030\013 \001(\010\022\026\n\016TicksBookDepth\030\014 \001(\005\022<\n"
-  "\rTradeCalcMode\030\r \001(\0162%.mt4_term_api.SP_E"
-  "NUM_TRADE_CALC_MODE\022:\n\tTradeMode\030\016 \001(\0162\'"
-  ".mt4_term_api.SP_ENUM_SYMBOL_TRADE_MODE\022"
-  "-\n\tStartTime\030\017 \001(\0132\032.google.protobuf.Tim"
-  "estamp\0220\n\014StartTimeUtc\030E \001(\0132\032.google.pr"
-  "otobuf.Timestamp\0222\n\016ExpirationTime\030\020 \001(\013"
-  "2\032.google.protobuf.Timestamp\0225\n\021Expirati"
-  "onTimeUtc\030F \001(\0132\032.google.protobuf.Timest"
-  "amp\022\027\n\017TradeStopsLevel\030\021 \001(\005\022\030\n\020TradeFre"
-  "ezeLevel\030\022 \001(\005\022B\n\014TradeExeMode\030\023 \001(\0162,.m"
-  "t4_term_api.SP_ENUM_SYMBOL_TRADE_EXECUTI"
-  "ON\022\020\n\010SwapMode\030\024 \001(\005\022\031\n\021SwapRollover3Day"
-  "s\030\025 \001(\005\022\017\n\007TheLast\030\026 \001(\001\022\020\n\010LastHigh\030\027 \001"
-  "(\001\022\017\n\007LastLow\030\030 \001(\001\022\r\n\005Point\030\031 \001(\001\022\026\n\016Tr"
-  "adeTickValue\030\032 \001(\001\022\034\n\024TradeTickValueProf"
-  "it\030\033 \001(\001\022\032\n\022TradeTickValueLoss\030\034 \001(\001\022\025\n\r"
-  "TradeTickSize\030\035 \001(\001\022\031\n\021TradeContractSize"
-  "\030\036 \001(\001\022\021\n\tVolumeMin\030\037 \001(\001\022\021\n\tVolumeMax\030 "
-  " \001(\001\022\022\n\nVolumeStep\030! \001(\001\022\023\n\013VolumeLimit\030"
-  "\" \001(\001\022\020\n\010SwapLong\030# \001(\001\022\021\n\tSwapShort\030$ \001"
-  "(\001\022\025\n\rMarginInitial\030% \001(\001\022\031\n\021MarginMaint"
-  "enance\030& \001(\001\022\022\n\nMarginLong\030\' \001(\001\022\023\n\013Marg"
-  "inShort\030( \001(\001\022\023\n\013MarginLimit\030) \001(\001\022\022\n\nMa"
-  "rginStop\030* \001(\001\022\027\n\017MarginStopLimit\030+ \001(\001\022"
-  "\025\n\rSessionVolume\030, \001(\001\022\027\n\017SessionTurnove"
-  "r\030- \001(\001\022\027\n\017SessionInterest\030. \001(\001\022\036\n\026Sess"
-  "ionBuyOrdersVolume\030/ \001(\001\022\037\n\027SessionSellO"
-  "rdersVolume\0300 \001(\001\022\023\n\013SessionOpen\0301 \001(\001\022\024"
-  "\n\014SessionClose\0302 \001(\001\022\021\n\tSessionAW\0303 \001(\001\022"
-  "\036\n\026SessionPriceSettlement\0304 \001(\001\022\034\n\024Sessi"
-  "onPriceLimitMin\0305 \001(\001\022\034\n\024SessionPriceLim"
-  "itMax\0306 \001(\001\022\013\n\003Bid\0307 \001(\001\022\017\n\007BidHigh\0308 \001("
-  "\001\022\016\n\006BidLow\0309 \001(\001\022\017\n\007AskHigh\030: \001(\001\022\016\n\006As"
-  "kLow\030; \001(\001\022\024\n\014CurrencyBase\030< \001(\t\022\026\n\016Curr"
-  "encyProfit\030= \001(\t\022\026\n\016CurrencyMargin\030> \001(\t"
-  "\022\014\n\004Bank\030\? \001(\t\022\026\n\016SymDescription\030@ \001(\t\022\014"
-  "\n\004Isin\030A \001(\t\022\014\n\004Path\030B \001(\t\022\022\n\nSymbolName"
-  "\030C \001(\t\"0\n\030TickValueWithSizeRequest\022\024\n\014sy"
-  "mbol_names\030\001 \003(\t\"\177\n\026TickValueWithSizeRep"
-  "ly\0223\n\004data\030\001 \001(\0132#.mt4_term_api.TickValu"
-  "eWithSizeDataH\000\022$\n\005error\030\002 \001(\0132\023.mt4_ter"
-  "m_api.ErrorH\000B\n\n\010response\"Q\n\025TickValueWi"
-  "thSizeData\0228\n\005infos\030\001 \003(\0132).mt4_term_api"
-  ".SymbolTickValueWithSizeInfo\"\212\001\n\033SymbolT"
-  "ickValueWithSizeInfo\022\r\n\005index\030\001 \001(\005\022\022\n\ns"
-  "ymbolName\030\002 \001(\t\022\026\n\016TradeTickValue\030\003 \001(\001\022"
-  "\025\n\rTradeTickSize\030\004 \001(\001\022\031\n\021TradeContractS"
-  "ize\030\005 \001(\001*p\n\024EnumAccountTradeMode\022\033\n\027ACC"
-  "OUNT_TRADE_MODE_DEMO\020\000\022\036\n\032ACCOUNT_TRADE_"
-  "MODE_CONTEST\020\001\022\033\n\027ACCOUNT_TRADE_MODE_REA"
-  "L\020\002*\223\001\n\027EnumOpenedOrderSortType\022\031\n\025SORT_"
-  "BY_OPEN_TIME_ASC\020\000\022\032\n\026SORT_BY_OPEN_TIME_"
-  "DESC\020\001\022\037\n\033SORT_BY_ORDER_TICKET_ID_ASC\020\002\022"
-  " \n\034SORT_BY_ORDER_TICKET_ID_DESC\020\003*\200\001\n\017Op"
-  "enedOrderType\022\r\n\tOO_OP_BUY\020\000\022\016\n\nOO_OP_SE"
-  "LL\020\001\022\022\n\016OO_OP_BUYLIMIT\020\002\022\023\n\017OO_OP_SELLLI"
-  "MIT\020\003\022\021\n\rOO_OP_BUYSTOP\020\004\022\022\n\016OO_OP_SELLST"
-  "OP\020\005*\375\001\n\030EnumOrderHistorySortType\022!\n\035HIS"
-  "TORY_SORT_BY_OPEN_TIME_ASC\020\000\022\"\n\036HISTORY_"
-  "SORT_BY_OPEN_TIME_DESC\020\001\022\"\n\036HISTORY_SORT"
-  "_BY_CLOSE_TIME_ASC\020\002\022#\n\037HISTORY_SORT_BY_"
-  "CLOSE_TIME_DESC\020\003\022\'\n#HISTORY_SORT_BY_ORD"
-  "ER_TICKET_ID_ASC\020\004\022(\n$HISTORY_SORT_BY_OR"
-  "DER_TICKET_ID_DESC\020\005*\271\001\n\031SP_ENUM_SYMBOL_"
-  "TRADE_MODE\022\036\n\032SYMBOL_TRADE_MODE_DISABLED"
-  "\020\000\022\036\n\032SYMBOL_TRADE_MODE_LONGONLY\020\001\022\037\n\033SY"
-  "MBOL_TRADE_MODE_SHORTONLY\020\002\022\037\n\033SYMBOL_TR"
-  "ADE_MODE_CLOSEONLY\020\003\022\032\n\026SYMBOL_TRADE_MOD"
-  "E_FULL\020\004*\260\001\n\036SP_ENUM_SYMBOL_TRADE_EXECUT"
-  "ION\022\"\n\036SYMBOL_TRADE_EXECUTION_REQUEST\020\000\022"
-  "\"\n\036SYMBOL_TRADE_EXECUTION_INSTANT\020\001\022!\n\035S"
-  "YMBOL_TRADE_EXECUTION_MARKET\020\002\022#\n\037SYMBOL"
-  "_TRADE_EXECUTION_EXCHANGE\020\003*\227\001\n\027SP_ENUM_"
-  "TRADE_CALC_MODE\022(\n$SYMBOL_TRADE_MARGINE_"
-  "CALC_MODE_FOREX\020\000\022*\n&SYMBOL_TRADE_MARGIN"
-  "E_CALC_MODE_FUTURES\020\001\022&\n\"SYMBOL_TRADE_MA"
-  "RGINE_CALC_MODE_CFD\020\0022\336\005\n\rAccountHelper\022"
-  "q\n\016AccountSummary\022#.mt4_term_api.Account"
-  "SummaryRequest\032!.mt4_term_api.AccountSum"
-  "maryReply\"\027\202\323\344\223\002\021\022\017/AccountSummary\022i\n\014Op"
-  "enedOrders\022!.mt4_term_api.OpenedOrdersRe"
-  "quest\032\037.mt4_term_api.OpenedOrdersReply\"\025"
-  "\202\323\344\223\002\017\022\r/OpenedOrders\022\205\001\n\023OpenedOrdersTi"
-  "ckets\022(.mt4_term_api.OpenedOrdersTickets"
-  "Request\032&.mt4_term_api.OpenedOrdersTicke"
-  "tsReply\"\034\202\323\344\223\002\026\022\024/OpenedOrdersTickets\022m\n"
-  "\rOrdersHistory\022\".mt4_term_api.OrdersHist"
-  "oryRequest\032 .mt4_term_api.OrdersHistoryR"
-  "eply\"\026\202\323\344\223\002\020\022\016/OrdersHistory\022y\n\020SymbolPa"
-  "ramsMany\022%.mt4_term_api.SymbolParamsMany"
-  "Request\032#.mt4_term_api.SymbolParamsManyR"
-  "eply\"\031\202\323\344\223\002\023\022\021/SymbolParamsMany\022}\n\021TickV"
-  "alueWithSize\022&.mt4_term_api.TickValueWit"
-  "hSizeRequest\032$.mt4_term_api.TickValueWit"
-  "hSizeReply\"\032\202\323\344\223\002\024\022\022/TickValueWithSizeBB"
-  "Z1git.mtapi.io/root/mrpc-proto.git/mt4/l"
-  "ibraries/go\252\002\014mt4_term_apib\006proto3"
+  "c\030\025 \001(\0132\032.google.protobuf.Timestamp\022.\n\nc"
+  "lose_time\030\021 \001(\0132\032.google.protobuf.Timest"
+  "amp\0222\n\016close_time_utc\030\026 \001(\0132\032.google.pro"
+  "tobuf.Timestamp\022\023\n\013close_price\030\022 \001(\001\022\025\n\r"
+  "account_login\030\023 \001(\003\"\360\003\n\024OrdersHistoryReq"
+  "uest\022\?\n\017input_sort_mode\030\001 \001(\0162&.mt4_term"
+  "_api.EnumOrderHistorySortType\0223\n\ninput_f"
+  "rom\030\002 \001(\0132\032.google.protobuf.TimestampH\000\210"
+  "\001\001\0227\n\016input_from_utc\030\010 \001(\0132\032.google.prot"
+  "obuf.TimestampH\001\210\001\001\0221\n\010input_to\030\003 \001(\0132\032."
+  "google.protobuf.TimestampH\002\210\001\001\0225\n\014input_"
+  "to_utc\030\t \001(\0132\032.google.protobuf.Timestamp"
+  "H\003\210\001\001\022\030\n\013page_number\030\004 \001(\005H\004\210\001\001\022\033\n\016items"
+  "_per_page\030\005 \001(\005H\005\210\001\001\022\022\n\npage_token\030\006 \001(\t"
+  "\022\021\n\tpage_size\030\007 \001(\005B\r\n\013_input_fromB\021\n\017_i"
+  "nput_from_utcB\013\n\t_input_toB\017\n\r_input_to_"
+  "utcB\016\n\014_page_numberB\021\n\017_items_per_page\"C"
+  "\n\027SymbolParamsManyRequest\022\030\n\013symbol_name"
+  "\030\001 \001(\tH\000\210\001\001B\016\n\014_symbol_name\"}\n\025SymbolPar"
+  "amsManyReply\0222\n\004data\030\001 \001(\0132\".mt4_term_ap"
+  "i.SymbolParamsManyDataH\000\022$\n\005error\030\002 \001(\0132"
+  "\023.mt4_term_api.ErrorH\000B\n\n\010response\"P\n\024Sy"
+  "mbolParamsManyData\0228\n\014symbol_infos\030\001 \003(\013"
+  "2\".mt4_term_api.SymbolParamsManyInfo\"\361\r\n"
+  "\024SymbolParamsManyInfo\022\023\n\013is_selected\030\001 \001"
+  "(\010\022\017\n\007visible\030\002 \001(\010\022\025\n\rsession_deals\030\003 \001"
+  "(\003\022\032\n\022session_buy_orders\030\004 \001(\003\022\033\n\023sessio"
+  "n_sell_orders\030\005 \001(\003\022\016\n\006volume\030\006 \001(\003\022\023\n\013v"
+  "olume_high\030\007 \001(\003\022\021\n\tVolumeLow\030\010 \001(\003\022\014\n\004T"
+  "ime\030\t \001(\003\022\017\n\007TimeUtc\030D \001(\003\022\016\n\006Digits\030\n \001"
+  "(\005\022\023\n\013SpreadFloat\030\013 \001(\010\022\026\n\016TicksBookDept"
+  "h\030\014 \001(\005\022<\n\rTradeCalcMode\030\r \001(\0162%.mt4_ter"
+  "m_api.SP_ENUM_TRADE_CALC_MODE\022:\n\tTradeMo"
+  "de\030\016 \001(\0162\'.mt4_term_api.SP_ENUM_SYMBOL_T"
+  "RADE_MODE\022-\n\tStartTime\030\017 \001(\0132\032.google.pr"
+  "otobuf.Timestamp\0220\n\014StartTimeUtc\030E \001(\0132\032"
+  ".google.protobuf.Timestamp\0222\n\016Expiration"
+  "Time\030\020 \001(\0132\032.google.protobuf.Timestamp\0225"
+  "\n\021ExpirationTimeUtc\030F \001(\0132\032.google.proto"
+  "buf.Timestamp\022\027\n\017TradeStopsLevel\030\021 \001(\005\022\030"
+  "\n\020TradeFreezeLevel\030\022 \001(\005\022B\n\014TradeExeMode"
+  "\030\023 \001(\0162,.mt4_term_api.SP_ENUM_SYMBOL_TRA"
+  "DE_EXECUTION\022\020\n\010SwapMode\030\024 \001(\005\022\031\n\021SwapRo"
+  "llover3Days\030\025 \001(\005\022\017\n\007TheLast\030\026 \001(\001\022\020\n\010La"
+  "stHigh\030\027 \001(\001\022\017\n\007LastLow\030\030 \001(\001\022\r\n\005Point\030\031"
+  " \001(\001\022\026\n\016TradeTickValue\030\032 \001(\001\022\034\n\024TradeTic"
+  "kValueProfit\030\033 \001(\001\022\032\n\022TradeTickValueLoss"
+  "\030\034 \001(\001\022\025\n\rTradeTickSize\030\035 \001(\001\022\031\n\021TradeCo"
+  "ntractSize\030\036 \001(\001\022\021\n\tVolumeMin\030\037 \001(\001\022\021\n\tV"
+  "olumeMax\030  \001(\001\022\022\n\nVolumeStep\030! \001(\001\022\023\n\013Vo"
+  "lumeLimit\030\" \001(\001\022\020\n\010SwapLong\030# \001(\001\022\021\n\tSwa"
+  "pShort\030$ \001(\001\022\025\n\rMarginInitial\030% \001(\001\022\031\n\021M"
+  "arginMaintenance\030& \001(\001\022\022\n\nMarginLong\030\' \001"
+  "(\001\022\023\n\013MarginShort\030( \001(\001\022\023\n\013MarginLimit\030)"
+  " \001(\001\022\022\n\nMarginStop\030* \001(\001\022\027\n\017MarginStopLi"
+  "mit\030+ \001(\001\022\025\n\rSessionVolume\030, \001(\001\022\027\n\017Sess"
+  "ionTurnover\030- \001(\001\022\027\n\017SessionInterest\030. \001"
+  "(\001\022\036\n\026SessionBuyOrdersVolume\030/ \001(\001\022\037\n\027Se"
+  "ssionSellOrdersVolume\0300 \001(\001\022\023\n\013SessionOp"
+  "en\0301 \001(\001\022\024\n\014SessionClose\0302 \001(\001\022\021\n\tSessio"
+  "nAW\0303 \001(\001\022\036\n\026SessionPriceSettlement\0304 \001("
+  "\001\022\034\n\024SessionPriceLimitMin\0305 \001(\001\022\034\n\024Sessi"
+  "onPriceLimitMax\0306 \001(\001\022\013\n\003Bid\0307 \001(\001\022\017\n\007Bi"
+  "dHigh\0308 \001(\001\022\016\n\006BidLow\0309 \001(\001\022\017\n\007AskHigh\030:"
+  " \001(\001\022\016\n\006AskLow\030; \001(\001\022\024\n\014CurrencyBase\030< \001"
+  "(\t\022\026\n\016CurrencyProfit\030= \001(\t\022\026\n\016CurrencyMa"
+  "rgin\030> \001(\t\022\014\n\004Bank\030\? \001(\t\022\026\n\016SymDescripti"
+  "on\030@ \001(\t\022\014\n\004Isin\030A \001(\t\022\014\n\004Path\030B \001(\t\022\022\n\n"
+  "SymbolName\030C \001(\t\"0\n\030TickValueWithSizeReq"
+  "uest\022\024\n\014symbol_names\030\001 \003(\t\"\177\n\026TickValueW"
+  "ithSizeReply\0223\n\004data\030\001 \001(\0132#.mt4_term_ap"
+  "i.TickValueWithSizeDataH\000\022$\n\005error\030\002 \001(\013"
+  "2\023.mt4_term_api.ErrorH\000B\n\n\010response\"Q\n\025T"
+  "ickValueWithSizeData\0228\n\005infos\030\001 \003(\0132).mt"
+  "4_term_api.SymbolTickValueWithSizeInfo\"\212"
+  "\001\n\033SymbolTickValueWithSizeInfo\022\r\n\005index\030"
+  "\001 \001(\005\022\022\n\nsymbolName\030\002 \001(\t\022\026\n\016TradeTickVa"
+  "lue\030\003 \001(\001\022\025\n\rTradeTickSize\030\004 \001(\001\022\031\n\021Trad"
+  "eContractSize\030\005 \001(\001*\211\001\n\025EnumAccountMargi"
+  "nMode\022&\n\"ACCOUNT_MARGIN_MODE_RETAIL_NETT"
+  "ING\020\000\022 \n\034ACCOUNT_MARGIN_MODE_EXCHANGE\020\001\022"
+  "&\n\"ACCOUNT_MARGIN_MODE_RETAIL_HEDGING\020\002*"
+  "p\n\024EnumAccountTradeMode\022\033\n\027ACCOUNT_TRADE"
+  "_MODE_DEMO\020\000\022\036\n\032ACCOUNT_TRADE_MODE_CONTE"
+  "ST\020\001\022\033\n\027ACCOUNT_TRADE_MODE_REAL\020\002*\223\001\n\027En"
+  "umOpenedOrderSortType\022\031\n\025SORT_BY_OPEN_TI"
+  "ME_ASC\020\000\022\032\n\026SORT_BY_OPEN_TIME_DESC\020\001\022\037\n\033"
+  "SORT_BY_ORDER_TICKET_ID_ASC\020\002\022 \n\034SORT_BY"
+  "_ORDER_TICKET_ID_DESC\020\003*\245\001\n\017OpenedOrderT"
+  "ype\022\r\n\tOO_OP_BUY\020\000\022\016\n\nOO_OP_SELL\020\001\022\022\n\016OO"
+  "_OP_BUYLIMIT\020\002\022\023\n\017OO_OP_SELLLIMIT\020\003\022\021\n\rO"
+  "O_OP_BUYSTOP\020\004\022\022\n\016OO_OP_SELLSTOP\020\005\022\021\n\rOO"
+  "_OP_BALANCE\020\006\022\020\n\014OO_OP_CREDIT\020\007*\375\001\n\030Enum"
+  "OrderHistorySortType\022!\n\035HISTORY_SORT_BY_"
+  "OPEN_TIME_ASC\020\000\022\"\n\036HISTORY_SORT_BY_OPEN_"
+  "TIME_DESC\020\001\022\"\n\036HISTORY_SORT_BY_CLOSE_TIM"
+  "E_ASC\020\002\022#\n\037HISTORY_SORT_BY_CLOSE_TIME_DE"
+  "SC\020\003\022\'\n#HISTORY_SORT_BY_ORDER_TICKET_ID_"
+  "ASC\020\004\022(\n$HISTORY_SORT_BY_ORDER_TICKET_ID"
+  "_DESC\020\005*\271\001\n\031SP_ENUM_SYMBOL_TRADE_MODE\022\036\n"
+  "\032SYMBOL_TRADE_MODE_DISABLED\020\000\022\036\n\032SYMBOL_"
+  "TRADE_MODE_LONGONLY\020\001\022\037\n\033SYMBOL_TRADE_MO"
+  "DE_SHORTONLY\020\002\022\037\n\033SYMBOL_TRADE_MODE_CLOS"
+  "EONLY\020\003\022\032\n\026SYMBOL_TRADE_MODE_FULL\020\004*\260\001\n\036"
+  "SP_ENUM_SYMBOL_TRADE_EXECUTION\022\"\n\036SYMBOL"
+  "_TRADE_EXECUTION_REQUEST\020\000\022\"\n\036SYMBOL_TRA"
+  "DE_EXECUTION_INSTANT\020\001\022!\n\035SYMBOL_TRADE_E"
+  "XECUTION_MARKET\020\002\022#\n\037SYMBOL_TRADE_EXECUT"
+  "ION_EXCHANGE\020\003*\227\001\n\027SP_ENUM_TRADE_CALC_MO"
+  "DE\022(\n$SYMBOL_TRADE_MARGINE_CALC_MODE_FOR"
+  "EX\020\000\022*\n&SYMBOL_TRADE_MARGINE_CALC_MODE_F"
+  "UTURES\020\001\022&\n\"SYMBOL_TRADE_MARGINE_CALC_MO"
+  "DE_CFD\020\0022\336\005\n\rAccountHelper\022q\n\016AccountSum"
+  "mary\022#.mt4_term_api.AccountSummaryReques"
+  "t\032!.mt4_term_api.AccountSummaryReply\"\027\202\323"
+  "\344\223\002\021\022\017/AccountSummary\022i\n\014OpenedOrders\022!."
+  "mt4_term_api.OpenedOrdersRequest\032\037.mt4_t"
+  "erm_api.OpenedOrdersReply\"\025\202\323\344\223\002\017\022\r/Open"
+  "edOrders\022\205\001\n\023OpenedOrdersTickets\022(.mt4_t"
+  "erm_api.OpenedOrdersTicketsRequest\032&.mt4"
+  "_term_api.OpenedOrdersTicketsReply\"\034\202\323\344\223"
+  "\002\026\022\024/OpenedOrdersTickets\022m\n\rOrdersHistor"
+  "y\022\".mt4_term_api.OrdersHistoryRequest\032 ."
+  "mt4_term_api.OrdersHistoryReply\"\026\202\323\344\223\002\020\022"
+  "\016/OrdersHistory\022y\n\020SymbolParamsMany\022%.mt"
+  "4_term_api.SymbolParamsManyRequest\032#.mt4"
+  "_term_api.SymbolParamsManyReply\"\031\202\323\344\223\002\023\022"
+  "\021/SymbolParamsMany\022}\n\021TickValueWithSize\022"
+  "&.mt4_term_api.TickValueWithSizeRequest\032"
+  "$.mt4_term_api.TickValueWithSizeReply\"\032\202"
+  "\323\344\223\002\024\022\022/TickValueWithSizeBBZ1git.mtapi.i"
+  "o/root/mrpc-proto.git/mt4/libraries/go\252\002"
+  "\014mt4_term_apib\006proto3"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_mt4_2dterm_2dapi_2daccount_2dhelper_2eproto_deps[3] = {
   &::descriptor_table_google_2fapi_2fannotations_2eproto,
@@ -1029,7 +1057,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_mt4_2dterm_2dapi_2d
 };
 static ::_pbi::once_flag descriptor_table_mt4_2dterm_2dapi_2daccount_2dhelper_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_mt4_2dterm_2dapi_2daccount_2dhelper_2eproto = {
-    false, false, 7674, descriptor_table_protodef_mt4_2dterm_2dapi_2daccount_2dhelper_2eproto,
+    false, false, 8061, descriptor_table_protodef_mt4_2dterm_2dapi_2daccount_2dhelper_2eproto,
     "mt4-term-api-account-helper.proto",
     &descriptor_table_mt4_2dterm_2dapi_2daccount_2dhelper_2eproto_once, descriptor_table_mt4_2dterm_2dapi_2daccount_2dhelper_2eproto_deps, 3, 22,
     schemas, file_default_instances, TableStruct_mt4_2dterm_2dapi_2daccount_2dhelper_2eproto::offsets,
@@ -1043,9 +1071,24 @@ PROTOBUF_ATTRIBUTE_WEAK const ::_pbi::DescriptorTable* descriptor_table_mt4_2dte
 // Force running AddDescriptors() at dynamic initialization time.
 PROTOBUF_ATTRIBUTE_INIT_PRIORITY2 static ::_pbi::AddDescriptorsRunner dynamic_init_dummy_mt4_2dterm_2dapi_2daccount_2dhelper_2eproto(&descriptor_table_mt4_2dterm_2dapi_2daccount_2dhelper_2eproto);
 namespace mt4_term_api {
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EnumAccountTradeMode_descriptor() {
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EnumAccountMarginMode_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_mt4_2dterm_2dapi_2daccount_2dhelper_2eproto);
   return file_level_enum_descriptors_mt4_2dterm_2dapi_2daccount_2dhelper_2eproto[0];
+}
+bool EnumAccountMarginMode_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EnumAccountTradeMode_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_mt4_2dterm_2dapi_2daccount_2dhelper_2eproto);
+  return file_level_enum_descriptors_mt4_2dterm_2dapi_2daccount_2dhelper_2eproto[1];
 }
 bool EnumAccountTradeMode_IsValid(int value) {
   switch (value) {
@@ -1060,7 +1103,7 @@ bool EnumAccountTradeMode_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EnumOpenedOrderSortType_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_mt4_2dterm_2dapi_2daccount_2dhelper_2eproto);
-  return file_level_enum_descriptors_mt4_2dterm_2dapi_2daccount_2dhelper_2eproto[1];
+  return file_level_enum_descriptors_mt4_2dterm_2dapi_2daccount_2dhelper_2eproto[2];
 }
 bool EnumOpenedOrderSortType_IsValid(int value) {
   switch (value) {
@@ -1076,7 +1119,7 @@ bool EnumOpenedOrderSortType_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* OpenedOrderType_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_mt4_2dterm_2dapi_2daccount_2dhelper_2eproto);
-  return file_level_enum_descriptors_mt4_2dterm_2dapi_2daccount_2dhelper_2eproto[2];
+  return file_level_enum_descriptors_mt4_2dterm_2dapi_2daccount_2dhelper_2eproto[3];
 }
 bool OpenedOrderType_IsValid(int value) {
   switch (value) {
@@ -1086,6 +1129,8 @@ bool OpenedOrderType_IsValid(int value) {
     case 3:
     case 4:
     case 5:
+    case 6:
+    case 7:
       return true;
     default:
       return false;
@@ -1094,7 +1139,7 @@ bool OpenedOrderType_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EnumOrderHistorySortType_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_mt4_2dterm_2dapi_2daccount_2dhelper_2eproto);
-  return file_level_enum_descriptors_mt4_2dterm_2dapi_2daccount_2dhelper_2eproto[3];
+  return file_level_enum_descriptors_mt4_2dterm_2dapi_2daccount_2dhelper_2eproto[4];
 }
 bool EnumOrderHistorySortType_IsValid(int value) {
   switch (value) {
@@ -1112,7 +1157,7 @@ bool EnumOrderHistorySortType_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SP_ENUM_SYMBOL_TRADE_MODE_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_mt4_2dterm_2dapi_2daccount_2dhelper_2eproto);
-  return file_level_enum_descriptors_mt4_2dterm_2dapi_2daccount_2dhelper_2eproto[4];
+  return file_level_enum_descriptors_mt4_2dterm_2dapi_2daccount_2dhelper_2eproto[5];
 }
 bool SP_ENUM_SYMBOL_TRADE_MODE_IsValid(int value) {
   switch (value) {
@@ -1129,7 +1174,7 @@ bool SP_ENUM_SYMBOL_TRADE_MODE_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SP_ENUM_SYMBOL_TRADE_EXECUTION_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_mt4_2dterm_2dapi_2daccount_2dhelper_2eproto);
-  return file_level_enum_descriptors_mt4_2dterm_2dapi_2daccount_2dhelper_2eproto[5];
+  return file_level_enum_descriptors_mt4_2dterm_2dapi_2daccount_2dhelper_2eproto[6];
 }
 bool SP_ENUM_SYMBOL_TRADE_EXECUTION_IsValid(int value) {
   switch (value) {
@@ -1145,7 +1190,7 @@ bool SP_ENUM_SYMBOL_TRADE_EXECUTION_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* SP_ENUM_TRADE_CALC_MODE_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_mt4_2dterm_2dapi_2daccount_2dhelper_2eproto);
-  return file_level_enum_descriptors_mt4_2dterm_2dapi_2daccount_2dhelper_2eproto[6];
+  return file_level_enum_descriptors_mt4_2dterm_2dapi_2daccount_2dhelper_2eproto[7];
 }
 bool SP_ENUM_TRADE_CALC_MODE_IsValid(int value) {
   switch (value) {
@@ -1567,10 +1612,16 @@ AccountSummaryData::AccountSummaryData(const AccountSummaryData& from)
     , decltype(_impl_.account_equity_){}
     , decltype(_impl_.account_leverage_){}
     , decltype(_impl_.account_trade_mode_){}
-    , decltype(_impl_.is_investor_){}
-    , decltype(_impl_.account_credit_){}
     , decltype(_impl_.utc_server_time_shift_minutes_){}
-    , decltype(_impl_.server_utc_offset_seconds_){}};
+    , decltype(_impl_.account_credit_){}
+    , decltype(_impl_.account_margin_){}
+    , decltype(_impl_.account_margin_free_){}
+    , decltype(_impl_.server_utc_offset_seconds_){}
+    , decltype(_impl_.is_investor_){}
+    , decltype(_impl_.account_trade_allowed_){}
+    , decltype(_impl_.account_trade_expert_){}
+    , decltype(_impl_.account_margin_level_){}
+    , decltype(_impl_.account_margin_mode_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   _impl_.account_user_name_.InitDefault();
@@ -1604,8 +1655,8 @@ AccountSummaryData::AccountSummaryData(const AccountSummaryData& from)
     _this->_impl_.server_time_utc_ = new ::PROTOBUF_NAMESPACE_ID::Timestamp(*from._impl_.server_time_utc_);
   }
   ::memcpy(&_impl_.account_login_, &from._impl_.account_login_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.server_utc_offset_seconds_) -
-    reinterpret_cast<char*>(&_impl_.account_login_)) + sizeof(_impl_.server_utc_offset_seconds_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.account_margin_mode_) -
+    reinterpret_cast<char*>(&_impl_.account_login_)) + sizeof(_impl_.account_margin_mode_));
   // @@protoc_insertion_point(copy_constructor:mt4_term_api.AccountSummaryData)
 }
 
@@ -1626,10 +1677,16 @@ inline void AccountSummaryData::SharedCtor(
     , decltype(_impl_.account_equity_){0}
     , decltype(_impl_.account_leverage_){int64_t{0}}
     , decltype(_impl_.account_trade_mode_){0}
-    , decltype(_impl_.is_investor_){false}
-    , decltype(_impl_.account_credit_){0}
     , decltype(_impl_.utc_server_time_shift_minutes_){0}
+    , decltype(_impl_.account_credit_){0}
+    , decltype(_impl_.account_margin_){0}
+    , decltype(_impl_.account_margin_free_){0}
     , decltype(_impl_.server_utc_offset_seconds_){0}
+    , decltype(_impl_.is_investor_){false}
+    , decltype(_impl_.account_trade_allowed_){false}
+    , decltype(_impl_.account_trade_expert_){false}
+    , decltype(_impl_.account_margin_level_){0}
+    , decltype(_impl_.account_margin_mode_){0}
   };
   _impl_.account_user_name_.InitDefault();
   #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
@@ -1685,9 +1742,12 @@ void AccountSummaryData::Clear() {
   }
   _impl_.server_time_utc_ = nullptr;
   ::memset(&_impl_.account_login_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&_impl_.utc_server_time_shift_minutes_) -
-      reinterpret_cast<char*>(&_impl_.account_login_)) + sizeof(_impl_.utc_server_time_shift_minutes_));
+      reinterpret_cast<char*>(&_impl_.account_margin_free_) -
+      reinterpret_cast<char*>(&_impl_.account_login_)) + sizeof(_impl_.account_margin_free_));
   _impl_.server_utc_offset_seconds_ = 0;
+  ::memset(&_impl_.is_investor_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.account_margin_mode_) -
+      reinterpret_cast<char*>(&_impl_.is_investor_)) + sizeof(_impl_.account_margin_mode_));
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -1802,6 +1862,14 @@ const char* AccountSummaryData::_InternalParse(const char* ptr, ::_pbi::ParseCon
         } else
           goto handle_unusual;
         continue;
+      // double account_margin = 13;
+      case 13:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 105)) {
+          _impl_.account_margin_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else
+          goto handle_unusual;
+        continue;
       // optional int32 server_utc_offset_seconds = 14;
       case 14:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 112)) {
@@ -1815,6 +1883,47 @@ const char* AccountSummaryData::_InternalParse(const char* ptr, ::_pbi::ParseCon
       case 15:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 122)) {
           ptr = ctx->ParseMessage(_internal_mutable_server_time_utc(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // double account_margin_free = 16;
+      case 16:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 129)) {
+          _impl_.account_margin_free_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else
+          goto handle_unusual;
+        continue;
+      // double account_margin_level = 17;
+      case 17:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 137)) {
+          _impl_.account_margin_level_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+          ptr += sizeof(double);
+        } else
+          goto handle_unusual;
+        continue;
+      // .mt4_term_api.EnumAccountMarginMode account_margin_mode = 18;
+      case 18:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 144)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          _internal_set_account_margin_mode(static_cast<::mt4_term_api::EnumAccountMarginMode>(val));
+        } else
+          goto handle_unusual;
+        continue;
+      // bool account_trade_allowed = 19;
+      case 19:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 152)) {
+          _impl_.account_trade_allowed_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // bool account_trade_expert = 20;
+      case 20:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 160)) {
+          _impl_.account_trade_expert_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1947,6 +2056,16 @@ uint8_t* AccountSummaryData::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(12, this->_internal_utc_server_time_shift_minutes(), target);
   }
 
+  // double account_margin = 13;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_account_margin = this->_internal_account_margin();
+  uint64_t raw_account_margin;
+  memcpy(&raw_account_margin, &tmp_account_margin, sizeof(tmp_account_margin));
+  if (raw_account_margin != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteDoubleToArray(13, this->_internal_account_margin(), target);
+  }
+
   // optional int32 server_utc_offset_seconds = 14;
   if (_internal_has_server_utc_offset_seconds()) {
     target = stream->EnsureSpace(target);
@@ -1958,6 +2077,45 @@ uint8_t* AccountSummaryData::_InternalSerialize(
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(15, _Internal::server_time_utc(this),
         _Internal::server_time_utc(this).GetCachedSize(), target, stream);
+  }
+
+  // double account_margin_free = 16;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_account_margin_free = this->_internal_account_margin_free();
+  uint64_t raw_account_margin_free;
+  memcpy(&raw_account_margin_free, &tmp_account_margin_free, sizeof(tmp_account_margin_free));
+  if (raw_account_margin_free != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteDoubleToArray(16, this->_internal_account_margin_free(), target);
+  }
+
+  // double account_margin_level = 17;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_account_margin_level = this->_internal_account_margin_level();
+  uint64_t raw_account_margin_level;
+  memcpy(&raw_account_margin_level, &tmp_account_margin_level, sizeof(tmp_account_margin_level));
+  if (raw_account_margin_level != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteDoubleToArray(17, this->_internal_account_margin_level(), target);
+  }
+
+  // .mt4_term_api.EnumAccountMarginMode account_margin_mode = 18;
+  if (this->_internal_account_margin_mode() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
+      18, this->_internal_account_margin_mode(), target);
+  }
+
+  // bool account_trade_allowed = 19;
+  if (this->_internal_account_trade_allowed() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(19, this->_internal_account_trade_allowed(), target);
+  }
+
+  // bool account_trade_expert = 20;
+  if (this->_internal_account_trade_expert() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(20, this->_internal_account_trade_expert(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -2045,9 +2203,9 @@ size_t AccountSummaryData::ByteSizeLong() const {
       ::_pbi::WireFormatLite::EnumSize(this->_internal_account_trade_mode());
   }
 
-  // bool is_investor = 11;
-  if (this->_internal_is_investor() != 0) {
-    total_size += 1 + 1;
+  // int32 utc_server_time_shift_minutes = 12;
+  if (this->_internal_utc_server_time_shift_minutes() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_utc_server_time_shift_minutes());
   }
 
   // double account_credit = 10;
@@ -2059,15 +2217,58 @@ size_t AccountSummaryData::ByteSizeLong() const {
     total_size += 1 + 8;
   }
 
-  // int32 utc_server_time_shift_minutes = 12;
-  if (this->_internal_utc_server_time_shift_minutes() != 0) {
-    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_utc_server_time_shift_minutes());
+  // double account_margin = 13;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_account_margin = this->_internal_account_margin();
+  uint64_t raw_account_margin;
+  memcpy(&raw_account_margin, &tmp_account_margin, sizeof(tmp_account_margin));
+  if (raw_account_margin != 0) {
+    total_size += 1 + 8;
+  }
+
+  // double account_margin_free = 16;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_account_margin_free = this->_internal_account_margin_free();
+  uint64_t raw_account_margin_free;
+  memcpy(&raw_account_margin_free, &tmp_account_margin_free, sizeof(tmp_account_margin_free));
+  if (raw_account_margin_free != 0) {
+    total_size += 2 + 8;
   }
 
   // optional int32 server_utc_offset_seconds = 14;
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_server_utc_offset_seconds());
+  }
+
+  // bool is_investor = 11;
+  if (this->_internal_is_investor() != 0) {
+    total_size += 1 + 1;
+  }
+
+  // bool account_trade_allowed = 19;
+  if (this->_internal_account_trade_allowed() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // bool account_trade_expert = 20;
+  if (this->_internal_account_trade_expert() != 0) {
+    total_size += 2 + 1;
+  }
+
+  // double account_margin_level = 17;
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_account_margin_level = this->_internal_account_margin_level();
+  uint64_t raw_account_margin_level;
+  memcpy(&raw_account_margin_level, &tmp_account_margin_level, sizeof(tmp_account_margin_level));
+  if (raw_account_margin_level != 0) {
+    total_size += 2 + 8;
+  }
+
+  // .mt4_term_api.EnumAccountMarginMode account_margin_mode = 18;
+  if (this->_internal_account_margin_mode() != 0) {
+    total_size += 2 +
+      ::_pbi::WireFormatLite::EnumSize(this->_internal_account_margin_mode());
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
@@ -2128,8 +2329,8 @@ void AccountSummaryData::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, con
   if (from._internal_account_trade_mode() != 0) {
     _this->_internal_set_account_trade_mode(from._internal_account_trade_mode());
   }
-  if (from._internal_is_investor() != 0) {
-    _this->_internal_set_is_investor(from._internal_is_investor());
+  if (from._internal_utc_server_time_shift_minutes() != 0) {
+    _this->_internal_set_utc_server_time_shift_minutes(from._internal_utc_server_time_shift_minutes());
   }
   static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
   double tmp_account_credit = from._internal_account_credit();
@@ -2138,11 +2339,41 @@ void AccountSummaryData::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, con
   if (raw_account_credit != 0) {
     _this->_internal_set_account_credit(from._internal_account_credit());
   }
-  if (from._internal_utc_server_time_shift_minutes() != 0) {
-    _this->_internal_set_utc_server_time_shift_minutes(from._internal_utc_server_time_shift_minutes());
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_account_margin = from._internal_account_margin();
+  uint64_t raw_account_margin;
+  memcpy(&raw_account_margin, &tmp_account_margin, sizeof(tmp_account_margin));
+  if (raw_account_margin != 0) {
+    _this->_internal_set_account_margin(from._internal_account_margin());
+  }
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_account_margin_free = from._internal_account_margin_free();
+  uint64_t raw_account_margin_free;
+  memcpy(&raw_account_margin_free, &tmp_account_margin_free, sizeof(tmp_account_margin_free));
+  if (raw_account_margin_free != 0) {
+    _this->_internal_set_account_margin_free(from._internal_account_margin_free());
   }
   if (from._internal_has_server_utc_offset_seconds()) {
     _this->_internal_set_server_utc_offset_seconds(from._internal_server_utc_offset_seconds());
+  }
+  if (from._internal_is_investor() != 0) {
+    _this->_internal_set_is_investor(from._internal_is_investor());
+  }
+  if (from._internal_account_trade_allowed() != 0) {
+    _this->_internal_set_account_trade_allowed(from._internal_account_trade_allowed());
+  }
+  if (from._internal_account_trade_expert() != 0) {
+    _this->_internal_set_account_trade_expert(from._internal_account_trade_expert());
+  }
+  static_assert(sizeof(uint64_t) == sizeof(double), "Code assumes uint64_t and double are the same size.");
+  double tmp_account_margin_level = from._internal_account_margin_level();
+  uint64_t raw_account_margin_level;
+  memcpy(&raw_account_margin_level, &tmp_account_margin_level, sizeof(tmp_account_margin_level));
+  if (raw_account_margin_level != 0) {
+    _this->_internal_set_account_margin_level(from._internal_account_margin_level());
+  }
+  if (from._internal_account_margin_mode() != 0) {
+    _this->_internal_set_account_margin_mode(from._internal_account_margin_mode());
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -2177,8 +2408,8 @@ void AccountSummaryData::InternalSwap(AccountSummaryData* other) {
       &other->_impl_.account_currency_, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(AccountSummaryData, _impl_.server_utc_offset_seconds_)
-      + sizeof(AccountSummaryData::_impl_.server_utc_offset_seconds_)
+      PROTOBUF_FIELD_OFFSET(AccountSummaryData, _impl_.account_margin_mode_)
+      + sizeof(AccountSummaryData::_impl_.account_margin_mode_)
       - PROTOBUF_FIELD_OFFSET(AccountSummaryData, _impl_.server_time_)>(
           reinterpret_cast<char*>(&_impl_.server_time_),
           reinterpret_cast<char*>(&other->_impl_.server_time_));

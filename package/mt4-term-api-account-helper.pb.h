@@ -143,6 +143,32 @@ template<> ::mt4_term_api::TickValueWithSizeRequest* Arena::CreateMaybeMessage<:
 PROTOBUF_NAMESPACE_CLOSE
 namespace mt4_term_api {
 
+enum EnumAccountMarginMode : int {
+  ACCOUNT_MARGIN_MODE_RETAIL_NETTING = 0,
+  ACCOUNT_MARGIN_MODE_EXCHANGE = 1,
+  ACCOUNT_MARGIN_MODE_RETAIL_HEDGING = 2,
+  EnumAccountMarginMode_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
+  EnumAccountMarginMode_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
+};
+bool EnumAccountMarginMode_IsValid(int value);
+constexpr EnumAccountMarginMode EnumAccountMarginMode_MIN = ACCOUNT_MARGIN_MODE_RETAIL_NETTING;
+constexpr EnumAccountMarginMode EnumAccountMarginMode_MAX = ACCOUNT_MARGIN_MODE_RETAIL_HEDGING;
+constexpr int EnumAccountMarginMode_ARRAYSIZE = EnumAccountMarginMode_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EnumAccountMarginMode_descriptor();
+template<typename T>
+inline const std::string& EnumAccountMarginMode_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, EnumAccountMarginMode>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function EnumAccountMarginMode_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    EnumAccountMarginMode_descriptor(), enum_t_value);
+}
+inline bool EnumAccountMarginMode_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, EnumAccountMarginMode* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<EnumAccountMarginMode>(
+    EnumAccountMarginMode_descriptor(), name, value);
+}
 enum EnumAccountTradeMode : int {
   ACCOUNT_TRADE_MODE_DEMO = 0,
   ACCOUNT_TRADE_MODE_CONTEST = 1,
@@ -203,12 +229,14 @@ enum OpenedOrderType : int {
   OO_OP_SELLLIMIT = 3,
   OO_OP_BUYSTOP = 4,
   OO_OP_SELLSTOP = 5,
+  OO_OP_BALANCE = 6,
+  OO_OP_CREDIT = 7,
   OpenedOrderType_INT_MIN_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::min(),
   OpenedOrderType_INT_MAX_SENTINEL_DO_NOT_USE_ = std::numeric_limits<int32_t>::max()
 };
 bool OpenedOrderType_IsValid(int value);
 constexpr OpenedOrderType OpenedOrderType_MIN = OO_OP_BUY;
-constexpr OpenedOrderType OpenedOrderType_MAX = OO_OP_SELLSTOP;
+constexpr OpenedOrderType OpenedOrderType_MAX = OO_OP_CREDIT;
 constexpr int OpenedOrderType_ARRAYSIZE = OpenedOrderType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* OpenedOrderType_descriptor();
@@ -782,10 +810,16 @@ class AccountSummaryData final :
     kAccountEquityFieldNumber = 3,
     kAccountLeverageFieldNumber = 5,
     kAccountTradeModeFieldNumber = 6,
-    kIsInvestorFieldNumber = 11,
-    kAccountCreditFieldNumber = 10,
     kUtcServerTimeShiftMinutesFieldNumber = 12,
+    kAccountCreditFieldNumber = 10,
+    kAccountMarginFieldNumber = 13,
+    kAccountMarginFreeFieldNumber = 16,
     kServerUtcOffsetSecondsFieldNumber = 14,
+    kIsInvestorFieldNumber = 11,
+    kAccountTradeAllowedFieldNumber = 19,
+    kAccountTradeExpertFieldNumber = 20,
+    kAccountMarginLevelFieldNumber = 17,
+    kAccountMarginModeFieldNumber = 18,
   };
   // string account_user_name = 4;
   void clear_account_user_name();
@@ -910,13 +944,13 @@ class AccountSummaryData final :
   void _internal_set_account_trade_mode(::mt4_term_api::EnumAccountTradeMode value);
   public:
 
-  // bool is_investor = 11;
-  void clear_is_investor();
-  bool is_investor() const;
-  void set_is_investor(bool value);
+  // int32 utc_server_time_shift_minutes = 12;
+  void clear_utc_server_time_shift_minutes();
+  int32_t utc_server_time_shift_minutes() const;
+  void set_utc_server_time_shift_minutes(int32_t value);
   private:
-  bool _internal_is_investor() const;
-  void _internal_set_is_investor(bool value);
+  int32_t _internal_utc_server_time_shift_minutes() const;
+  void _internal_set_utc_server_time_shift_minutes(int32_t value);
   public:
 
   // double account_credit = 10;
@@ -928,13 +962,22 @@ class AccountSummaryData final :
   void _internal_set_account_credit(double value);
   public:
 
-  // int32 utc_server_time_shift_minutes = 12;
-  void clear_utc_server_time_shift_minutes();
-  int32_t utc_server_time_shift_minutes() const;
-  void set_utc_server_time_shift_minutes(int32_t value);
+  // double account_margin = 13;
+  void clear_account_margin();
+  double account_margin() const;
+  void set_account_margin(double value);
   private:
-  int32_t _internal_utc_server_time_shift_minutes() const;
-  void _internal_set_utc_server_time_shift_minutes(int32_t value);
+  double _internal_account_margin() const;
+  void _internal_set_account_margin(double value);
+  public:
+
+  // double account_margin_free = 16;
+  void clear_account_margin_free();
+  double account_margin_free() const;
+  void set_account_margin_free(double value);
+  private:
+  double _internal_account_margin_free() const;
+  void _internal_set_account_margin_free(double value);
   public:
 
   // optional int32 server_utc_offset_seconds = 14;
@@ -948,6 +991,51 @@ class AccountSummaryData final :
   private:
   int32_t _internal_server_utc_offset_seconds() const;
   void _internal_set_server_utc_offset_seconds(int32_t value);
+  public:
+
+  // bool is_investor = 11;
+  void clear_is_investor();
+  bool is_investor() const;
+  void set_is_investor(bool value);
+  private:
+  bool _internal_is_investor() const;
+  void _internal_set_is_investor(bool value);
+  public:
+
+  // bool account_trade_allowed = 19;
+  void clear_account_trade_allowed();
+  bool account_trade_allowed() const;
+  void set_account_trade_allowed(bool value);
+  private:
+  bool _internal_account_trade_allowed() const;
+  void _internal_set_account_trade_allowed(bool value);
+  public:
+
+  // bool account_trade_expert = 20;
+  void clear_account_trade_expert();
+  bool account_trade_expert() const;
+  void set_account_trade_expert(bool value);
+  private:
+  bool _internal_account_trade_expert() const;
+  void _internal_set_account_trade_expert(bool value);
+  public:
+
+  // double account_margin_level = 17;
+  void clear_account_margin_level();
+  double account_margin_level() const;
+  void set_account_margin_level(double value);
+  private:
+  double _internal_account_margin_level() const;
+  void _internal_set_account_margin_level(double value);
+  public:
+
+  // .mt4_term_api.EnumAccountMarginMode account_margin_mode = 18;
+  void clear_account_margin_mode();
+  ::mt4_term_api::EnumAccountMarginMode account_margin_mode() const;
+  void set_account_margin_mode(::mt4_term_api::EnumAccountMarginMode value);
+  private:
+  ::mt4_term_api::EnumAccountMarginMode _internal_account_margin_mode() const;
+  void _internal_set_account_margin_mode(::mt4_term_api::EnumAccountMarginMode value);
   public:
 
   // @@protoc_insertion_point(class_scope:mt4_term_api.AccountSummaryData)
@@ -970,10 +1058,16 @@ class AccountSummaryData final :
     double account_equity_;
     int64_t account_leverage_;
     int account_trade_mode_;
-    bool is_investor_;
-    double account_credit_;
     int32_t utc_server_time_shift_minutes_;
+    double account_credit_;
+    double account_margin_;
+    double account_margin_free_;
     int32_t server_utc_offset_seconds_;
+    bool is_investor_;
+    bool account_trade_allowed_;
+    bool account_trade_expert_;
+    double account_margin_level_;
+    int account_margin_mode_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_mt4_2dterm_2dapi_2daccount_2dhelper_2eproto;
@@ -6337,6 +6431,126 @@ inline void AccountSummaryData::_internal_set_server_utc_offset_seconds(int32_t 
 inline void AccountSummaryData::set_server_utc_offset_seconds(int32_t value) {
   _internal_set_server_utc_offset_seconds(value);
   // @@protoc_insertion_point(field_set:mt4_term_api.AccountSummaryData.server_utc_offset_seconds)
+}
+
+// double account_margin = 13;
+inline void AccountSummaryData::clear_account_margin() {
+  _impl_.account_margin_ = 0;
+}
+inline double AccountSummaryData::_internal_account_margin() const {
+  return _impl_.account_margin_;
+}
+inline double AccountSummaryData::account_margin() const {
+  // @@protoc_insertion_point(field_get:mt4_term_api.AccountSummaryData.account_margin)
+  return _internal_account_margin();
+}
+inline void AccountSummaryData::_internal_set_account_margin(double value) {
+  
+  _impl_.account_margin_ = value;
+}
+inline void AccountSummaryData::set_account_margin(double value) {
+  _internal_set_account_margin(value);
+  // @@protoc_insertion_point(field_set:mt4_term_api.AccountSummaryData.account_margin)
+}
+
+// double account_margin_free = 16;
+inline void AccountSummaryData::clear_account_margin_free() {
+  _impl_.account_margin_free_ = 0;
+}
+inline double AccountSummaryData::_internal_account_margin_free() const {
+  return _impl_.account_margin_free_;
+}
+inline double AccountSummaryData::account_margin_free() const {
+  // @@protoc_insertion_point(field_get:mt4_term_api.AccountSummaryData.account_margin_free)
+  return _internal_account_margin_free();
+}
+inline void AccountSummaryData::_internal_set_account_margin_free(double value) {
+  
+  _impl_.account_margin_free_ = value;
+}
+inline void AccountSummaryData::set_account_margin_free(double value) {
+  _internal_set_account_margin_free(value);
+  // @@protoc_insertion_point(field_set:mt4_term_api.AccountSummaryData.account_margin_free)
+}
+
+// double account_margin_level = 17;
+inline void AccountSummaryData::clear_account_margin_level() {
+  _impl_.account_margin_level_ = 0;
+}
+inline double AccountSummaryData::_internal_account_margin_level() const {
+  return _impl_.account_margin_level_;
+}
+inline double AccountSummaryData::account_margin_level() const {
+  // @@protoc_insertion_point(field_get:mt4_term_api.AccountSummaryData.account_margin_level)
+  return _internal_account_margin_level();
+}
+inline void AccountSummaryData::_internal_set_account_margin_level(double value) {
+  
+  _impl_.account_margin_level_ = value;
+}
+inline void AccountSummaryData::set_account_margin_level(double value) {
+  _internal_set_account_margin_level(value);
+  // @@protoc_insertion_point(field_set:mt4_term_api.AccountSummaryData.account_margin_level)
+}
+
+// .mt4_term_api.EnumAccountMarginMode account_margin_mode = 18;
+inline void AccountSummaryData::clear_account_margin_mode() {
+  _impl_.account_margin_mode_ = 0;
+}
+inline ::mt4_term_api::EnumAccountMarginMode AccountSummaryData::_internal_account_margin_mode() const {
+  return static_cast< ::mt4_term_api::EnumAccountMarginMode >(_impl_.account_margin_mode_);
+}
+inline ::mt4_term_api::EnumAccountMarginMode AccountSummaryData::account_margin_mode() const {
+  // @@protoc_insertion_point(field_get:mt4_term_api.AccountSummaryData.account_margin_mode)
+  return _internal_account_margin_mode();
+}
+inline void AccountSummaryData::_internal_set_account_margin_mode(::mt4_term_api::EnumAccountMarginMode value) {
+  
+  _impl_.account_margin_mode_ = value;
+}
+inline void AccountSummaryData::set_account_margin_mode(::mt4_term_api::EnumAccountMarginMode value) {
+  _internal_set_account_margin_mode(value);
+  // @@protoc_insertion_point(field_set:mt4_term_api.AccountSummaryData.account_margin_mode)
+}
+
+// bool account_trade_allowed = 19;
+inline void AccountSummaryData::clear_account_trade_allowed() {
+  _impl_.account_trade_allowed_ = false;
+}
+inline bool AccountSummaryData::_internal_account_trade_allowed() const {
+  return _impl_.account_trade_allowed_;
+}
+inline bool AccountSummaryData::account_trade_allowed() const {
+  // @@protoc_insertion_point(field_get:mt4_term_api.AccountSummaryData.account_trade_allowed)
+  return _internal_account_trade_allowed();
+}
+inline void AccountSummaryData::_internal_set_account_trade_allowed(bool value) {
+  
+  _impl_.account_trade_allowed_ = value;
+}
+inline void AccountSummaryData::set_account_trade_allowed(bool value) {
+  _internal_set_account_trade_allowed(value);
+  // @@protoc_insertion_point(field_set:mt4_term_api.AccountSummaryData.account_trade_allowed)
+}
+
+// bool account_trade_expert = 20;
+inline void AccountSummaryData::clear_account_trade_expert() {
+  _impl_.account_trade_expert_ = false;
+}
+inline bool AccountSummaryData::_internal_account_trade_expert() const {
+  return _impl_.account_trade_expert_;
+}
+inline bool AccountSummaryData::account_trade_expert() const {
+  // @@protoc_insertion_point(field_get:mt4_term_api.AccountSummaryData.account_trade_expert)
+  return _internal_account_trade_expert();
+}
+inline void AccountSummaryData::_internal_set_account_trade_expert(bool value) {
+  
+  _impl_.account_trade_expert_ = value;
+}
+inline void AccountSummaryData::set_account_trade_expert(bool value) {
+  _internal_set_account_trade_expert(value);
+  // @@protoc_insertion_point(field_set:mt4_term_api.AccountSummaryData.account_trade_expert)
 }
 
 // -------------------------------------------------------------------
@@ -11766,6 +11980,11 @@ inline void SymbolTickValueWithSizeInfo::set_tradecontractsize(double value) {
 
 PROTOBUF_NAMESPACE_OPEN
 
+template <> struct is_proto_enum< ::mt4_term_api::EnumAccountMarginMode> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::mt4_term_api::EnumAccountMarginMode>() {
+  return ::mt4_term_api::EnumAccountMarginMode_descriptor();
+}
 template <> struct is_proto_enum< ::mt4_term_api::EnumAccountTradeMode> : ::std::true_type {};
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::mt4_term_api::EnumAccountTradeMode>() {

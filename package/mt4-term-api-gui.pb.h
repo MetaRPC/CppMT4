@@ -49,6 +49,15 @@ struct TableStruct_mt4_2dterm_2dapi_2dgui_2eproto {
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto;
 namespace mt4_term_api {
+class GuiDemoCompany;
+struct GuiDemoCompanyDefaultTypeInternal;
+extern GuiDemoCompanyDefaultTypeInternal _GuiDemoCompany_default_instance_;
+class GuiDemoFindCompaniesReply;
+struct GuiDemoFindCompaniesReplyDefaultTypeInternal;
+extern GuiDemoFindCompaniesReplyDefaultTypeInternal _GuiDemoFindCompaniesReply_default_instance_;
+class GuiDemoFindCompaniesRequest;
+struct GuiDemoFindCompaniesRequestDefaultTypeInternal;
+extern GuiDemoFindCompaniesRequestDefaultTypeInternal _GuiDemoFindCompaniesRequest_default_instance_;
 class GuiDemoInteractiveCancelSession;
 struct GuiDemoInteractiveCancelSessionDefaultTypeInternal;
 extern GuiDemoInteractiveCancelSessionDefaultTypeInternal _GuiDemoInteractiveCancelSession_default_instance_;
@@ -115,8 +124,17 @@ extern GuiDemoOpenAccountReplyDefaultTypeInternal _GuiDemoOpenAccountReply_defau
 class GuiDemoOpenAccountRequest;
 struct GuiDemoOpenAccountRequestDefaultTypeInternal;
 extern GuiDemoOpenAccountRequestDefaultTypeInternal _GuiDemoOpenAccountRequest_default_instance_;
+class GuiDemoServersAndTypesReply;
+struct GuiDemoServersAndTypesReplyDefaultTypeInternal;
+extern GuiDemoServersAndTypesReplyDefaultTypeInternal _GuiDemoServersAndTypesReply_default_instance_;
+class GuiDemoServersAndTypesRequest;
+struct GuiDemoServersAndTypesRequestDefaultTypeInternal;
+extern GuiDemoServersAndTypesRequestDefaultTypeInternal _GuiDemoServersAndTypesRequest_default_instance_;
 }  // namespace mt4_term_api
 PROTOBUF_NAMESPACE_OPEN
+template<> ::mt4_term_api::GuiDemoCompany* Arena::CreateMaybeMessage<::mt4_term_api::GuiDemoCompany>(Arena*);
+template<> ::mt4_term_api::GuiDemoFindCompaniesReply* Arena::CreateMaybeMessage<::mt4_term_api::GuiDemoFindCompaniesReply>(Arena*);
+template<> ::mt4_term_api::GuiDemoFindCompaniesRequest* Arena::CreateMaybeMessage<::mt4_term_api::GuiDemoFindCompaniesRequest>(Arena*);
 template<> ::mt4_term_api::GuiDemoInteractiveCancelSession* Arena::CreateMaybeMessage<::mt4_term_api::GuiDemoInteractiveCancelSession>(Arena*);
 template<> ::mt4_term_api::GuiDemoInteractiveClientMessage* Arena::CreateMaybeMessage<::mt4_term_api::GuiDemoInteractiveClientMessage>(Arena*);
 template<> ::mt4_term_api::GuiDemoInteractiveCompanyItem* Arena::CreateMaybeMessage<::mt4_term_api::GuiDemoInteractiveCompanyItem>(Arena*);
@@ -139,6 +157,8 @@ template<> ::mt4_term_api::GuiDemoInteractiveSubmitTwoFactor* Arena::CreateMaybe
 template<> ::mt4_term_api::GuiDemoInteractiveTwoFactorChallenge* Arena::CreateMaybeMessage<::mt4_term_api::GuiDemoInteractiveTwoFactorChallenge>(Arena*);
 template<> ::mt4_term_api::GuiDemoOpenAccountReply* Arena::CreateMaybeMessage<::mt4_term_api::GuiDemoOpenAccountReply>(Arena*);
 template<> ::mt4_term_api::GuiDemoOpenAccountRequest* Arena::CreateMaybeMessage<::mt4_term_api::GuiDemoOpenAccountRequest>(Arena*);
+template<> ::mt4_term_api::GuiDemoServersAndTypesReply* Arena::CreateMaybeMessage<::mt4_term_api::GuiDemoServersAndTypesReply>(Arena*);
+template<> ::mt4_term_api::GuiDemoServersAndTypesRequest* Arena::CreateMaybeMessage<::mt4_term_api::GuiDemoServersAndTypesRequest>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
 namespace mt4_term_api {
 
@@ -200,6 +220,955 @@ inline bool GuiTwoFactorType_Parse(
 }
 // ===================================================================
 
+class GuiDemoFindCompaniesRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:mt4_term_api.GuiDemoFindCompaniesRequest) */ {
+ public:
+  inline GuiDemoFindCompaniesRequest() : GuiDemoFindCompaniesRequest(nullptr) {}
+  ~GuiDemoFindCompaniesRequest() override;
+  explicit PROTOBUF_CONSTEXPR GuiDemoFindCompaniesRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  GuiDemoFindCompaniesRequest(const GuiDemoFindCompaniesRequest& from);
+  GuiDemoFindCompaniesRequest(GuiDemoFindCompaniesRequest&& from) noexcept
+    : GuiDemoFindCompaniesRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline GuiDemoFindCompaniesRequest& operator=(const GuiDemoFindCompaniesRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline GuiDemoFindCompaniesRequest& operator=(GuiDemoFindCompaniesRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const GuiDemoFindCompaniesRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const GuiDemoFindCompaniesRequest* internal_default_instance() {
+    return reinterpret_cast<const GuiDemoFindCompaniesRequest*>(
+               &_GuiDemoFindCompaniesRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    0;
+
+  friend void swap(GuiDemoFindCompaniesRequest& a, GuiDemoFindCompaniesRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(GuiDemoFindCompaniesRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(GuiDemoFindCompaniesRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  GuiDemoFindCompaniesRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<GuiDemoFindCompaniesRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const GuiDemoFindCompaniesRequest& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const GuiDemoFindCompaniesRequest& from) {
+    GuiDemoFindCompaniesRequest::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(GuiDemoFindCompaniesRequest* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "mt4_term_api.GuiDemoFindCompaniesRequest";
+  }
+  protected:
+  explicit GuiDemoFindCompaniesRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kSearchTextFieldNumber = 1,
+    kTimeoutSecondsFieldNumber = 2,
+  };
+  // string search_text = 1;
+  void clear_search_text();
+  const std::string& search_text() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_search_text(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_search_text();
+  PROTOBUF_NODISCARD std::string* release_search_text();
+  void set_allocated_search_text(std::string* search_text);
+  private:
+  const std::string& _internal_search_text() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_search_text(const std::string& value);
+  std::string* _internal_mutable_search_text();
+  public:
+
+  // int32 timeout_seconds = 2;
+  void clear_timeout_seconds();
+  int32_t timeout_seconds() const;
+  void set_timeout_seconds(int32_t value);
+  private:
+  int32_t _internal_timeout_seconds() const;
+  void _internal_set_timeout_seconds(int32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:mt4_term_api.GuiDemoFindCompaniesRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr search_text_;
+    int32_t timeout_seconds_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_mt4_2dterm_2dapi_2dgui_2eproto;
+};
+// -------------------------------------------------------------------
+
+class GuiDemoFindCompaniesReply final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:mt4_term_api.GuiDemoFindCompaniesReply) */ {
+ public:
+  inline GuiDemoFindCompaniesReply() : GuiDemoFindCompaniesReply(nullptr) {}
+  ~GuiDemoFindCompaniesReply() override;
+  explicit PROTOBUF_CONSTEXPR GuiDemoFindCompaniesReply(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  GuiDemoFindCompaniesReply(const GuiDemoFindCompaniesReply& from);
+  GuiDemoFindCompaniesReply(GuiDemoFindCompaniesReply&& from) noexcept
+    : GuiDemoFindCompaniesReply() {
+    *this = ::std::move(from);
+  }
+
+  inline GuiDemoFindCompaniesReply& operator=(const GuiDemoFindCompaniesReply& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline GuiDemoFindCompaniesReply& operator=(GuiDemoFindCompaniesReply&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const GuiDemoFindCompaniesReply& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const GuiDemoFindCompaniesReply* internal_default_instance() {
+    return reinterpret_cast<const GuiDemoFindCompaniesReply*>(
+               &_GuiDemoFindCompaniesReply_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    1;
+
+  friend void swap(GuiDemoFindCompaniesReply& a, GuiDemoFindCompaniesReply& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(GuiDemoFindCompaniesReply* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(GuiDemoFindCompaniesReply* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  GuiDemoFindCompaniesReply* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<GuiDemoFindCompaniesReply>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const GuiDemoFindCompaniesReply& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const GuiDemoFindCompaniesReply& from) {
+    GuiDemoFindCompaniesReply::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(GuiDemoFindCompaniesReply* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "mt4_term_api.GuiDemoFindCompaniesReply";
+  }
+  protected:
+  explicit GuiDemoFindCompaniesReply(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kCompaniesFieldNumber = 2,
+    kDebugLogFieldNumber = 3,
+    kResultCodeFieldNumber = 1,
+  };
+  // repeated .mt4_term_api.GuiDemoCompany companies = 2;
+  int companies_size() const;
+  private:
+  int _internal_companies_size() const;
+  public:
+  void clear_companies();
+  ::mt4_term_api::GuiDemoCompany* mutable_companies(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::mt4_term_api::GuiDemoCompany >*
+      mutable_companies();
+  private:
+  const ::mt4_term_api::GuiDemoCompany& _internal_companies(int index) const;
+  ::mt4_term_api::GuiDemoCompany* _internal_add_companies();
+  public:
+  const ::mt4_term_api::GuiDemoCompany& companies(int index) const;
+  ::mt4_term_api::GuiDemoCompany* add_companies();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::mt4_term_api::GuiDemoCompany >&
+      companies() const;
+
+  // string debug_log = 3;
+  void clear_debug_log();
+  const std::string& debug_log() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_debug_log(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_debug_log();
+  PROTOBUF_NODISCARD std::string* release_debug_log();
+  void set_allocated_debug_log(std::string* debug_log);
+  private:
+  const std::string& _internal_debug_log() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_debug_log(const std::string& value);
+  std::string* _internal_mutable_debug_log();
+  public:
+
+  // int32 result_code = 1;
+  void clear_result_code();
+  int32_t result_code() const;
+  void set_result_code(int32_t value);
+  private:
+  int32_t _internal_result_code() const;
+  void _internal_set_result_code(int32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:mt4_term_api.GuiDemoFindCompaniesReply)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::mt4_term_api::GuiDemoCompany > companies_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr debug_log_;
+    int32_t result_code_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_mt4_2dterm_2dapi_2dgui_2eproto;
+};
+// -------------------------------------------------------------------
+
+class GuiDemoCompany final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:mt4_term_api.GuiDemoCompany) */ {
+ public:
+  inline GuiDemoCompany() : GuiDemoCompany(nullptr) {}
+  ~GuiDemoCompany() override;
+  explicit PROTOBUF_CONSTEXPR GuiDemoCompany(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  GuiDemoCompany(const GuiDemoCompany& from);
+  GuiDemoCompany(GuiDemoCompany&& from) noexcept
+    : GuiDemoCompany() {
+    *this = ::std::move(from);
+  }
+
+  inline GuiDemoCompany& operator=(const GuiDemoCompany& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline GuiDemoCompany& operator=(GuiDemoCompany&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const GuiDemoCompany& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const GuiDemoCompany* internal_default_instance() {
+    return reinterpret_cast<const GuiDemoCompany*>(
+               &_GuiDemoCompany_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    2;
+
+  friend void swap(GuiDemoCompany& a, GuiDemoCompany& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(GuiDemoCompany* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(GuiDemoCompany* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  GuiDemoCompany* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<GuiDemoCompany>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const GuiDemoCompany& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const GuiDemoCompany& from) {
+    GuiDemoCompany::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(GuiDemoCompany* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "mt4_term_api.GuiDemoCompany";
+  }
+  protected:
+  explicit GuiDemoCompany(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kNameFieldNumber = 1,
+    kShortNameFieldNumber = 2,
+  };
+  // string name = 1;
+  void clear_name();
+  const std::string& name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_name();
+  PROTOBUF_NODISCARD std::string* release_name();
+  void set_allocated_name(std::string* name);
+  private:
+  const std::string& _internal_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_name(const std::string& value);
+  std::string* _internal_mutable_name();
+  public:
+
+  // string short_name = 2;
+  void clear_short_name();
+  const std::string& short_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_short_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_short_name();
+  PROTOBUF_NODISCARD std::string* release_short_name();
+  void set_allocated_short_name(std::string* short_name);
+  private:
+  const std::string& _internal_short_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_short_name(const std::string& value);
+  std::string* _internal_mutable_short_name();
+  public:
+
+  // @@protoc_insertion_point(class_scope:mt4_term_api.GuiDemoCompany)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr short_name_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_mt4_2dterm_2dapi_2dgui_2eproto;
+};
+// -------------------------------------------------------------------
+
+class GuiDemoServersAndTypesRequest final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:mt4_term_api.GuiDemoServersAndTypesRequest) */ {
+ public:
+  inline GuiDemoServersAndTypesRequest() : GuiDemoServersAndTypesRequest(nullptr) {}
+  ~GuiDemoServersAndTypesRequest() override;
+  explicit PROTOBUF_CONSTEXPR GuiDemoServersAndTypesRequest(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  GuiDemoServersAndTypesRequest(const GuiDemoServersAndTypesRequest& from);
+  GuiDemoServersAndTypesRequest(GuiDemoServersAndTypesRequest&& from) noexcept
+    : GuiDemoServersAndTypesRequest() {
+    *this = ::std::move(from);
+  }
+
+  inline GuiDemoServersAndTypesRequest& operator=(const GuiDemoServersAndTypesRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline GuiDemoServersAndTypesRequest& operator=(GuiDemoServersAndTypesRequest&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const GuiDemoServersAndTypesRequest& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const GuiDemoServersAndTypesRequest* internal_default_instance() {
+    return reinterpret_cast<const GuiDemoServersAndTypesRequest*>(
+               &_GuiDemoServersAndTypesRequest_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    3;
+
+  friend void swap(GuiDemoServersAndTypesRequest& a, GuiDemoServersAndTypesRequest& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(GuiDemoServersAndTypesRequest* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(GuiDemoServersAndTypesRequest* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  GuiDemoServersAndTypesRequest* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<GuiDemoServersAndTypesRequest>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const GuiDemoServersAndTypesRequest& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const GuiDemoServersAndTypesRequest& from) {
+    GuiDemoServersAndTypesRequest::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(GuiDemoServersAndTypesRequest* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "mt4_term_api.GuiDemoServersAndTypesRequest";
+  }
+  protected:
+  explicit GuiDemoServersAndTypesRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kCompanyNameFieldNumber = 1,
+    kTimeoutSecondsFieldNumber = 2,
+  };
+  // string company_name = 1;
+  void clear_company_name();
+  const std::string& company_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_company_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_company_name();
+  PROTOBUF_NODISCARD std::string* release_company_name();
+  void set_allocated_company_name(std::string* company_name);
+  private:
+  const std::string& _internal_company_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_company_name(const std::string& value);
+  std::string* _internal_mutable_company_name();
+  public:
+
+  // int32 timeout_seconds = 2;
+  void clear_timeout_seconds();
+  int32_t timeout_seconds() const;
+  void set_timeout_seconds(int32_t value);
+  private:
+  int32_t _internal_timeout_seconds() const;
+  void _internal_set_timeout_seconds(int32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:mt4_term_api.GuiDemoServersAndTypesRequest)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr company_name_;
+    int32_t timeout_seconds_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_mt4_2dterm_2dapi_2dgui_2eproto;
+};
+// -------------------------------------------------------------------
+
+class GuiDemoServersAndTypesReply final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:mt4_term_api.GuiDemoServersAndTypesReply) */ {
+ public:
+  inline GuiDemoServersAndTypesReply() : GuiDemoServersAndTypesReply(nullptr) {}
+  ~GuiDemoServersAndTypesReply() override;
+  explicit PROTOBUF_CONSTEXPR GuiDemoServersAndTypesReply(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  GuiDemoServersAndTypesReply(const GuiDemoServersAndTypesReply& from);
+  GuiDemoServersAndTypesReply(GuiDemoServersAndTypesReply&& from) noexcept
+    : GuiDemoServersAndTypesReply() {
+    *this = ::std::move(from);
+  }
+
+  inline GuiDemoServersAndTypesReply& operator=(const GuiDemoServersAndTypesReply& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline GuiDemoServersAndTypesReply& operator=(GuiDemoServersAndTypesReply&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const GuiDemoServersAndTypesReply& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const GuiDemoServersAndTypesReply* internal_default_instance() {
+    return reinterpret_cast<const GuiDemoServersAndTypesReply*>(
+               &_GuiDemoServersAndTypesReply_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    4;
+
+  friend void swap(GuiDemoServersAndTypesReply& a, GuiDemoServersAndTypesReply& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(GuiDemoServersAndTypesReply* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(GuiDemoServersAndTypesReply* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  GuiDemoServersAndTypesReply* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<GuiDemoServersAndTypesReply>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const GuiDemoServersAndTypesReply& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const GuiDemoServersAndTypesReply& from) {
+    GuiDemoServersAndTypesReply::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(GuiDemoServersAndTypesReply* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "mt4_term_api.GuiDemoServersAndTypesReply";
+  }
+  protected:
+  explicit GuiDemoServersAndTypesReply(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kServersFieldNumber = 2,
+    kAccountTypesFieldNumber = 3,
+    kDepositsFieldNumber = 4,
+    kLeveragesFieldNumber = 5,
+    kDebugLogFieldNumber = 6,
+    kResultCodeFieldNumber = 1,
+  };
+  // repeated string servers = 2;
+  int servers_size() const;
+  private:
+  int _internal_servers_size() const;
+  public:
+  void clear_servers();
+  const std::string& servers(int index) const;
+  std::string* mutable_servers(int index);
+  void set_servers(int index, const std::string& value);
+  void set_servers(int index, std::string&& value);
+  void set_servers(int index, const char* value);
+  void set_servers(int index, const char* value, size_t size);
+  std::string* add_servers();
+  void add_servers(const std::string& value);
+  void add_servers(std::string&& value);
+  void add_servers(const char* value);
+  void add_servers(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& servers() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_servers();
+  private:
+  const std::string& _internal_servers(int index) const;
+  std::string* _internal_add_servers();
+  public:
+
+  // repeated string account_types = 3;
+  int account_types_size() const;
+  private:
+  int _internal_account_types_size() const;
+  public:
+  void clear_account_types();
+  const std::string& account_types(int index) const;
+  std::string* mutable_account_types(int index);
+  void set_account_types(int index, const std::string& value);
+  void set_account_types(int index, std::string&& value);
+  void set_account_types(int index, const char* value);
+  void set_account_types(int index, const char* value, size_t size);
+  std::string* add_account_types();
+  void add_account_types(const std::string& value);
+  void add_account_types(std::string&& value);
+  void add_account_types(const char* value);
+  void add_account_types(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& account_types() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_account_types();
+  private:
+  const std::string& _internal_account_types(int index) const;
+  std::string* _internal_add_account_types();
+  public:
+
+  // repeated string deposits = 4;
+  int deposits_size() const;
+  private:
+  int _internal_deposits_size() const;
+  public:
+  void clear_deposits();
+  const std::string& deposits(int index) const;
+  std::string* mutable_deposits(int index);
+  void set_deposits(int index, const std::string& value);
+  void set_deposits(int index, std::string&& value);
+  void set_deposits(int index, const char* value);
+  void set_deposits(int index, const char* value, size_t size);
+  std::string* add_deposits();
+  void add_deposits(const std::string& value);
+  void add_deposits(std::string&& value);
+  void add_deposits(const char* value);
+  void add_deposits(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& deposits() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_deposits();
+  private:
+  const std::string& _internal_deposits(int index) const;
+  std::string* _internal_add_deposits();
+  public:
+
+  // repeated string leverages = 5;
+  int leverages_size() const;
+  private:
+  int _internal_leverages_size() const;
+  public:
+  void clear_leverages();
+  const std::string& leverages(int index) const;
+  std::string* mutable_leverages(int index);
+  void set_leverages(int index, const std::string& value);
+  void set_leverages(int index, std::string&& value);
+  void set_leverages(int index, const char* value);
+  void set_leverages(int index, const char* value, size_t size);
+  std::string* add_leverages();
+  void add_leverages(const std::string& value);
+  void add_leverages(std::string&& value);
+  void add_leverages(const char* value);
+  void add_leverages(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& leverages() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_leverages();
+  private:
+  const std::string& _internal_leverages(int index) const;
+  std::string* _internal_add_leverages();
+  public:
+
+  // string debug_log = 6;
+  void clear_debug_log();
+  const std::string& debug_log() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_debug_log(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_debug_log();
+  PROTOBUF_NODISCARD std::string* release_debug_log();
+  void set_allocated_debug_log(std::string* debug_log);
+  private:
+  const std::string& _internal_debug_log() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_debug_log(const std::string& value);
+  std::string* _internal_mutable_debug_log();
+  public:
+
+  // int32 result_code = 1;
+  void clear_result_code();
+  int32_t result_code() const;
+  void set_result_code(int32_t value);
+  private:
+  int32_t _internal_result_code() const;
+  void _internal_set_result_code(int32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:mt4_term_api.GuiDemoServersAndTypesReply)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> servers_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> account_types_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> deposits_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> leverages_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr debug_log_;
+    int32_t result_code_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_mt4_2dterm_2dapi_2dgui_2eproto;
+};
+// -------------------------------------------------------------------
+
 class GuiDemoOpenAccountRequest final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:mt4_term_api.GuiDemoOpenAccountRequest) */ {
  public:
@@ -248,7 +1217,7 @@ class GuiDemoOpenAccountRequest final :
                &_GuiDemoOpenAccountRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    0;
+    5;
 
   friend void swap(GuiDemoOpenAccountRequest& a, GuiDemoOpenAccountRequest& b) {
     a.Swap(&b);
@@ -508,7 +1477,7 @@ class GuiDemoOpenAccountReply final :
                &_GuiDemoOpenAccountReply_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    1;
+    6;
 
   friend void swap(GuiDemoOpenAccountReply& a, GuiDemoOpenAccountReply& b) {
     a.Swap(&b);
@@ -746,7 +1715,7 @@ class GuiDemoInteractiveClientMessage final :
                &_GuiDemoInteractiveClientMessage_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    2;
+    7;
 
   friend void swap(GuiDemoInteractiveClientMessage& a, GuiDemoInteractiveClientMessage& b) {
     a.Swap(&b);
@@ -1036,7 +2005,7 @@ class GuiDemoInteractiveSearchCompany final :
                &_GuiDemoInteractiveSearchCompany_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    3;
+    8;
 
   friend void swap(GuiDemoInteractiveSearchCompany& a, GuiDemoInteractiveSearchCompany& b) {
     a.Swap(&b);
@@ -1200,7 +2169,7 @@ class GuiDemoInteractiveSelectCompany final :
                &_GuiDemoInteractiveSelectCompany_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    4;
+    9;
 
   friend void swap(GuiDemoInteractiveSelectCompany& a, GuiDemoInteractiveSelectCompany& b) {
     a.Swap(&b);
@@ -1447,7 +2416,7 @@ class GuiDemoInteractiveSubmitForm final :
                &_GuiDemoInteractiveSubmitForm_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    12;
 
   friend void swap(GuiDemoInteractiveSubmitForm& a, GuiDemoInteractiveSubmitForm& b) {
     a.Swap(&b);
@@ -1644,7 +2613,7 @@ class GuiDemoInteractiveSubmitTwoFactor final :
                &_GuiDemoInteractiveSubmitTwoFactor_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    13;
 
   friend void swap(GuiDemoInteractiveSubmitTwoFactor& a, GuiDemoInteractiveSubmitTwoFactor& b) {
     a.Swap(&b);
@@ -1797,7 +2766,7 @@ class GuiDemoInteractiveCancelSession final :
                &_GuiDemoInteractiveCancelSession_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    14;
 
   friend void swap(GuiDemoInteractiveCancelSession& a, GuiDemoInteractiveCancelSession& b) {
     a.Swap(&b);
@@ -1950,7 +2919,7 @@ class GuiDemoInteractiveRequestScreenshot final :
                &_GuiDemoInteractiveRequestScreenshot_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    15;
 
   friend void swap(GuiDemoInteractiveRequestScreenshot& a, GuiDemoInteractiveRequestScreenshot& b) {
     a.Swap(&b);
@@ -2114,7 +3083,7 @@ class GuiDemoInteractiveServerMessage final :
                &_GuiDemoInteractiveServerMessage_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    16;
 
   friend void swap(GuiDemoInteractiveServerMessage& a, GuiDemoInteractiveServerMessage& b) {
     a.Swap(&b);
@@ -2436,7 +3405,7 @@ class GuiDemoInteractiveCompanyItem final :
                &_GuiDemoInteractiveCompanyItem_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    17;
 
   friend void swap(GuiDemoInteractiveCompanyItem& a, GuiDemoInteractiveCompanyItem& b) {
     a.Swap(&b);
@@ -2627,7 +3596,7 @@ class GuiDemoInteractiveCompanyList final :
                &_GuiDemoInteractiveCompanyList_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    18;
 
   friend void swap(GuiDemoInteractiveCompanyList& a, GuiDemoInteractiveCompanyList& b) {
     a.Swap(&b);
@@ -2811,7 +3780,7 @@ class GuiDemoInteractiveFormField final :
                &_GuiDemoInteractiveFormField_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    19;
 
   friend void swap(GuiDemoInteractiveFormField& a, GuiDemoInteractiveFormField& b) {
     a.Swap(&b);
@@ -3029,7 +3998,7 @@ class GuiDemoInteractiveDropdown final :
                &_GuiDemoInteractiveDropdown_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    20;
 
   friend void swap(GuiDemoInteractiveDropdown& a, GuiDemoInteractiveDropdown& b) {
     a.Swap(&b);
@@ -3262,7 +4231,7 @@ class GuiDemoInteractiveFormSchema final :
                &_GuiDemoInteractiveFormSchema_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    21;
 
   friend void swap(GuiDemoInteractiveFormSchema& a, GuiDemoInteractiveFormSchema& b) {
     a.Swap(&b);
@@ -3504,7 +4473,7 @@ class GuiDemoInteractiveTwoFactorChallenge final :
                &_GuiDemoInteractiveTwoFactorChallenge_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    22;
 
   friend void swap(GuiDemoInteractiveTwoFactorChallenge& a, GuiDemoInteractiveTwoFactorChallenge& b) {
     a.Swap(&b);
@@ -3717,7 +4686,7 @@ class GuiDemoInteractiveCompleted final :
                &_GuiDemoInteractiveCompleted_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    23;
 
   friend void swap(GuiDemoInteractiveCompleted& a, GuiDemoInteractiveCompleted& b) {
     a.Swap(&b);
@@ -3940,7 +4909,7 @@ class GuiDemoInteractiveProgress final :
                &_GuiDemoInteractiveProgress_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    24;
 
   friend void swap(GuiDemoInteractiveProgress& a, GuiDemoInteractiveProgress& b) {
     a.Swap(&b);
@@ -4120,7 +5089,7 @@ class GuiDemoInteractiveError final :
                &_GuiDemoInteractiveError_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    25;
 
   friend void swap(GuiDemoInteractiveError& a, GuiDemoInteractiveError& b) {
     a.Swap(&b);
@@ -4311,7 +5280,7 @@ class GuiDemoInteractiveScreenshot final :
                &_GuiDemoInteractiveScreenshot_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    26;
 
   friend void swap(GuiDemoInteractiveScreenshot& a, GuiDemoInteractiveScreenshot& b) {
     a.Swap(&b);
@@ -4455,6 +5424,746 @@ class GuiDemoInteractiveScreenshot final :
   #pragma GCC diagnostic push
   #pragma GCC diagnostic ignored "-Wstrict-aliasing"
 #endif  // __GNUC__
+// GuiDemoFindCompaniesRequest
+
+// string search_text = 1;
+inline void GuiDemoFindCompaniesRequest::clear_search_text() {
+  _impl_.search_text_.ClearToEmpty();
+}
+inline const std::string& GuiDemoFindCompaniesRequest::search_text() const {
+  // @@protoc_insertion_point(field_get:mt4_term_api.GuiDemoFindCompaniesRequest.search_text)
+  return _internal_search_text();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void GuiDemoFindCompaniesRequest::set_search_text(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.search_text_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:mt4_term_api.GuiDemoFindCompaniesRequest.search_text)
+}
+inline std::string* GuiDemoFindCompaniesRequest::mutable_search_text() {
+  std::string* _s = _internal_mutable_search_text();
+  // @@protoc_insertion_point(field_mutable:mt4_term_api.GuiDemoFindCompaniesRequest.search_text)
+  return _s;
+}
+inline const std::string& GuiDemoFindCompaniesRequest::_internal_search_text() const {
+  return _impl_.search_text_.Get();
+}
+inline void GuiDemoFindCompaniesRequest::_internal_set_search_text(const std::string& value) {
+  
+  _impl_.search_text_.Set(value, GetArenaForAllocation());
+}
+inline std::string* GuiDemoFindCompaniesRequest::_internal_mutable_search_text() {
+  
+  return _impl_.search_text_.Mutable(GetArenaForAllocation());
+}
+inline std::string* GuiDemoFindCompaniesRequest::release_search_text() {
+  // @@protoc_insertion_point(field_release:mt4_term_api.GuiDemoFindCompaniesRequest.search_text)
+  return _impl_.search_text_.Release();
+}
+inline void GuiDemoFindCompaniesRequest::set_allocated_search_text(std::string* search_text) {
+  if (search_text != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.search_text_.SetAllocated(search_text, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.search_text_.IsDefault()) {
+    _impl_.search_text_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:mt4_term_api.GuiDemoFindCompaniesRequest.search_text)
+}
+
+// int32 timeout_seconds = 2;
+inline void GuiDemoFindCompaniesRequest::clear_timeout_seconds() {
+  _impl_.timeout_seconds_ = 0;
+}
+inline int32_t GuiDemoFindCompaniesRequest::_internal_timeout_seconds() const {
+  return _impl_.timeout_seconds_;
+}
+inline int32_t GuiDemoFindCompaniesRequest::timeout_seconds() const {
+  // @@protoc_insertion_point(field_get:mt4_term_api.GuiDemoFindCompaniesRequest.timeout_seconds)
+  return _internal_timeout_seconds();
+}
+inline void GuiDemoFindCompaniesRequest::_internal_set_timeout_seconds(int32_t value) {
+  
+  _impl_.timeout_seconds_ = value;
+}
+inline void GuiDemoFindCompaniesRequest::set_timeout_seconds(int32_t value) {
+  _internal_set_timeout_seconds(value);
+  // @@protoc_insertion_point(field_set:mt4_term_api.GuiDemoFindCompaniesRequest.timeout_seconds)
+}
+
+// -------------------------------------------------------------------
+
+// GuiDemoFindCompaniesReply
+
+// int32 result_code = 1;
+inline void GuiDemoFindCompaniesReply::clear_result_code() {
+  _impl_.result_code_ = 0;
+}
+inline int32_t GuiDemoFindCompaniesReply::_internal_result_code() const {
+  return _impl_.result_code_;
+}
+inline int32_t GuiDemoFindCompaniesReply::result_code() const {
+  // @@protoc_insertion_point(field_get:mt4_term_api.GuiDemoFindCompaniesReply.result_code)
+  return _internal_result_code();
+}
+inline void GuiDemoFindCompaniesReply::_internal_set_result_code(int32_t value) {
+  
+  _impl_.result_code_ = value;
+}
+inline void GuiDemoFindCompaniesReply::set_result_code(int32_t value) {
+  _internal_set_result_code(value);
+  // @@protoc_insertion_point(field_set:mt4_term_api.GuiDemoFindCompaniesReply.result_code)
+}
+
+// repeated .mt4_term_api.GuiDemoCompany companies = 2;
+inline int GuiDemoFindCompaniesReply::_internal_companies_size() const {
+  return _impl_.companies_.size();
+}
+inline int GuiDemoFindCompaniesReply::companies_size() const {
+  return _internal_companies_size();
+}
+inline void GuiDemoFindCompaniesReply::clear_companies() {
+  _impl_.companies_.Clear();
+}
+inline ::mt4_term_api::GuiDemoCompany* GuiDemoFindCompaniesReply::mutable_companies(int index) {
+  // @@protoc_insertion_point(field_mutable:mt4_term_api.GuiDemoFindCompaniesReply.companies)
+  return _impl_.companies_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::mt4_term_api::GuiDemoCompany >*
+GuiDemoFindCompaniesReply::mutable_companies() {
+  // @@protoc_insertion_point(field_mutable_list:mt4_term_api.GuiDemoFindCompaniesReply.companies)
+  return &_impl_.companies_;
+}
+inline const ::mt4_term_api::GuiDemoCompany& GuiDemoFindCompaniesReply::_internal_companies(int index) const {
+  return _impl_.companies_.Get(index);
+}
+inline const ::mt4_term_api::GuiDemoCompany& GuiDemoFindCompaniesReply::companies(int index) const {
+  // @@protoc_insertion_point(field_get:mt4_term_api.GuiDemoFindCompaniesReply.companies)
+  return _internal_companies(index);
+}
+inline ::mt4_term_api::GuiDemoCompany* GuiDemoFindCompaniesReply::_internal_add_companies() {
+  return _impl_.companies_.Add();
+}
+inline ::mt4_term_api::GuiDemoCompany* GuiDemoFindCompaniesReply::add_companies() {
+  ::mt4_term_api::GuiDemoCompany* _add = _internal_add_companies();
+  // @@protoc_insertion_point(field_add:mt4_term_api.GuiDemoFindCompaniesReply.companies)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::mt4_term_api::GuiDemoCompany >&
+GuiDemoFindCompaniesReply::companies() const {
+  // @@protoc_insertion_point(field_list:mt4_term_api.GuiDemoFindCompaniesReply.companies)
+  return _impl_.companies_;
+}
+
+// string debug_log = 3;
+inline void GuiDemoFindCompaniesReply::clear_debug_log() {
+  _impl_.debug_log_.ClearToEmpty();
+}
+inline const std::string& GuiDemoFindCompaniesReply::debug_log() const {
+  // @@protoc_insertion_point(field_get:mt4_term_api.GuiDemoFindCompaniesReply.debug_log)
+  return _internal_debug_log();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void GuiDemoFindCompaniesReply::set_debug_log(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.debug_log_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:mt4_term_api.GuiDemoFindCompaniesReply.debug_log)
+}
+inline std::string* GuiDemoFindCompaniesReply::mutable_debug_log() {
+  std::string* _s = _internal_mutable_debug_log();
+  // @@protoc_insertion_point(field_mutable:mt4_term_api.GuiDemoFindCompaniesReply.debug_log)
+  return _s;
+}
+inline const std::string& GuiDemoFindCompaniesReply::_internal_debug_log() const {
+  return _impl_.debug_log_.Get();
+}
+inline void GuiDemoFindCompaniesReply::_internal_set_debug_log(const std::string& value) {
+  
+  _impl_.debug_log_.Set(value, GetArenaForAllocation());
+}
+inline std::string* GuiDemoFindCompaniesReply::_internal_mutable_debug_log() {
+  
+  return _impl_.debug_log_.Mutable(GetArenaForAllocation());
+}
+inline std::string* GuiDemoFindCompaniesReply::release_debug_log() {
+  // @@protoc_insertion_point(field_release:mt4_term_api.GuiDemoFindCompaniesReply.debug_log)
+  return _impl_.debug_log_.Release();
+}
+inline void GuiDemoFindCompaniesReply::set_allocated_debug_log(std::string* debug_log) {
+  if (debug_log != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.debug_log_.SetAllocated(debug_log, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.debug_log_.IsDefault()) {
+    _impl_.debug_log_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:mt4_term_api.GuiDemoFindCompaniesReply.debug_log)
+}
+
+// -------------------------------------------------------------------
+
+// GuiDemoCompany
+
+// string name = 1;
+inline void GuiDemoCompany::clear_name() {
+  _impl_.name_.ClearToEmpty();
+}
+inline const std::string& GuiDemoCompany::name() const {
+  // @@protoc_insertion_point(field_get:mt4_term_api.GuiDemoCompany.name)
+  return _internal_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void GuiDemoCompany::set_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:mt4_term_api.GuiDemoCompany.name)
+}
+inline std::string* GuiDemoCompany::mutable_name() {
+  std::string* _s = _internal_mutable_name();
+  // @@protoc_insertion_point(field_mutable:mt4_term_api.GuiDemoCompany.name)
+  return _s;
+}
+inline const std::string& GuiDemoCompany::_internal_name() const {
+  return _impl_.name_.Get();
+}
+inline void GuiDemoCompany::_internal_set_name(const std::string& value) {
+  
+  _impl_.name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* GuiDemoCompany::_internal_mutable_name() {
+  
+  return _impl_.name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* GuiDemoCompany::release_name() {
+  // @@protoc_insertion_point(field_release:mt4_term_api.GuiDemoCompany.name)
+  return _impl_.name_.Release();
+}
+inline void GuiDemoCompany::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.name_.SetAllocated(name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.name_.IsDefault()) {
+    _impl_.name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:mt4_term_api.GuiDemoCompany.name)
+}
+
+// string short_name = 2;
+inline void GuiDemoCompany::clear_short_name() {
+  _impl_.short_name_.ClearToEmpty();
+}
+inline const std::string& GuiDemoCompany::short_name() const {
+  // @@protoc_insertion_point(field_get:mt4_term_api.GuiDemoCompany.short_name)
+  return _internal_short_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void GuiDemoCompany::set_short_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.short_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:mt4_term_api.GuiDemoCompany.short_name)
+}
+inline std::string* GuiDemoCompany::mutable_short_name() {
+  std::string* _s = _internal_mutable_short_name();
+  // @@protoc_insertion_point(field_mutable:mt4_term_api.GuiDemoCompany.short_name)
+  return _s;
+}
+inline const std::string& GuiDemoCompany::_internal_short_name() const {
+  return _impl_.short_name_.Get();
+}
+inline void GuiDemoCompany::_internal_set_short_name(const std::string& value) {
+  
+  _impl_.short_name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* GuiDemoCompany::_internal_mutable_short_name() {
+  
+  return _impl_.short_name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* GuiDemoCompany::release_short_name() {
+  // @@protoc_insertion_point(field_release:mt4_term_api.GuiDemoCompany.short_name)
+  return _impl_.short_name_.Release();
+}
+inline void GuiDemoCompany::set_allocated_short_name(std::string* short_name) {
+  if (short_name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.short_name_.SetAllocated(short_name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.short_name_.IsDefault()) {
+    _impl_.short_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:mt4_term_api.GuiDemoCompany.short_name)
+}
+
+// -------------------------------------------------------------------
+
+// GuiDemoServersAndTypesRequest
+
+// string company_name = 1;
+inline void GuiDemoServersAndTypesRequest::clear_company_name() {
+  _impl_.company_name_.ClearToEmpty();
+}
+inline const std::string& GuiDemoServersAndTypesRequest::company_name() const {
+  // @@protoc_insertion_point(field_get:mt4_term_api.GuiDemoServersAndTypesRequest.company_name)
+  return _internal_company_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void GuiDemoServersAndTypesRequest::set_company_name(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.company_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:mt4_term_api.GuiDemoServersAndTypesRequest.company_name)
+}
+inline std::string* GuiDemoServersAndTypesRequest::mutable_company_name() {
+  std::string* _s = _internal_mutable_company_name();
+  // @@protoc_insertion_point(field_mutable:mt4_term_api.GuiDemoServersAndTypesRequest.company_name)
+  return _s;
+}
+inline const std::string& GuiDemoServersAndTypesRequest::_internal_company_name() const {
+  return _impl_.company_name_.Get();
+}
+inline void GuiDemoServersAndTypesRequest::_internal_set_company_name(const std::string& value) {
+  
+  _impl_.company_name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* GuiDemoServersAndTypesRequest::_internal_mutable_company_name() {
+  
+  return _impl_.company_name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* GuiDemoServersAndTypesRequest::release_company_name() {
+  // @@protoc_insertion_point(field_release:mt4_term_api.GuiDemoServersAndTypesRequest.company_name)
+  return _impl_.company_name_.Release();
+}
+inline void GuiDemoServersAndTypesRequest::set_allocated_company_name(std::string* company_name) {
+  if (company_name != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.company_name_.SetAllocated(company_name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.company_name_.IsDefault()) {
+    _impl_.company_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:mt4_term_api.GuiDemoServersAndTypesRequest.company_name)
+}
+
+// int32 timeout_seconds = 2;
+inline void GuiDemoServersAndTypesRequest::clear_timeout_seconds() {
+  _impl_.timeout_seconds_ = 0;
+}
+inline int32_t GuiDemoServersAndTypesRequest::_internal_timeout_seconds() const {
+  return _impl_.timeout_seconds_;
+}
+inline int32_t GuiDemoServersAndTypesRequest::timeout_seconds() const {
+  // @@protoc_insertion_point(field_get:mt4_term_api.GuiDemoServersAndTypesRequest.timeout_seconds)
+  return _internal_timeout_seconds();
+}
+inline void GuiDemoServersAndTypesRequest::_internal_set_timeout_seconds(int32_t value) {
+  
+  _impl_.timeout_seconds_ = value;
+}
+inline void GuiDemoServersAndTypesRequest::set_timeout_seconds(int32_t value) {
+  _internal_set_timeout_seconds(value);
+  // @@protoc_insertion_point(field_set:mt4_term_api.GuiDemoServersAndTypesRequest.timeout_seconds)
+}
+
+// -------------------------------------------------------------------
+
+// GuiDemoServersAndTypesReply
+
+// int32 result_code = 1;
+inline void GuiDemoServersAndTypesReply::clear_result_code() {
+  _impl_.result_code_ = 0;
+}
+inline int32_t GuiDemoServersAndTypesReply::_internal_result_code() const {
+  return _impl_.result_code_;
+}
+inline int32_t GuiDemoServersAndTypesReply::result_code() const {
+  // @@protoc_insertion_point(field_get:mt4_term_api.GuiDemoServersAndTypesReply.result_code)
+  return _internal_result_code();
+}
+inline void GuiDemoServersAndTypesReply::_internal_set_result_code(int32_t value) {
+  
+  _impl_.result_code_ = value;
+}
+inline void GuiDemoServersAndTypesReply::set_result_code(int32_t value) {
+  _internal_set_result_code(value);
+  // @@protoc_insertion_point(field_set:mt4_term_api.GuiDemoServersAndTypesReply.result_code)
+}
+
+// repeated string servers = 2;
+inline int GuiDemoServersAndTypesReply::_internal_servers_size() const {
+  return _impl_.servers_.size();
+}
+inline int GuiDemoServersAndTypesReply::servers_size() const {
+  return _internal_servers_size();
+}
+inline void GuiDemoServersAndTypesReply::clear_servers() {
+  _impl_.servers_.Clear();
+}
+inline std::string* GuiDemoServersAndTypesReply::add_servers() {
+  std::string* _s = _internal_add_servers();
+  // @@protoc_insertion_point(field_add_mutable:mt4_term_api.GuiDemoServersAndTypesReply.servers)
+  return _s;
+}
+inline const std::string& GuiDemoServersAndTypesReply::_internal_servers(int index) const {
+  return _impl_.servers_.Get(index);
+}
+inline const std::string& GuiDemoServersAndTypesReply::servers(int index) const {
+  // @@protoc_insertion_point(field_get:mt4_term_api.GuiDemoServersAndTypesReply.servers)
+  return _internal_servers(index);
+}
+inline std::string* GuiDemoServersAndTypesReply::mutable_servers(int index) {
+  // @@protoc_insertion_point(field_mutable:mt4_term_api.GuiDemoServersAndTypesReply.servers)
+  return _impl_.servers_.Mutable(index);
+}
+inline void GuiDemoServersAndTypesReply::set_servers(int index, const std::string& value) {
+  _impl_.servers_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set:mt4_term_api.GuiDemoServersAndTypesReply.servers)
+}
+inline void GuiDemoServersAndTypesReply::set_servers(int index, std::string&& value) {
+  _impl_.servers_.Mutable(index)->assign(std::move(value));
+  // @@protoc_insertion_point(field_set:mt4_term_api.GuiDemoServersAndTypesReply.servers)
+}
+inline void GuiDemoServersAndTypesReply::set_servers(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.servers_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:mt4_term_api.GuiDemoServersAndTypesReply.servers)
+}
+inline void GuiDemoServersAndTypesReply::set_servers(int index, const char* value, size_t size) {
+  _impl_.servers_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:mt4_term_api.GuiDemoServersAndTypesReply.servers)
+}
+inline std::string* GuiDemoServersAndTypesReply::_internal_add_servers() {
+  return _impl_.servers_.Add();
+}
+inline void GuiDemoServersAndTypesReply::add_servers(const std::string& value) {
+  _impl_.servers_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:mt4_term_api.GuiDemoServersAndTypesReply.servers)
+}
+inline void GuiDemoServersAndTypesReply::add_servers(std::string&& value) {
+  _impl_.servers_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:mt4_term_api.GuiDemoServersAndTypesReply.servers)
+}
+inline void GuiDemoServersAndTypesReply::add_servers(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.servers_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:mt4_term_api.GuiDemoServersAndTypesReply.servers)
+}
+inline void GuiDemoServersAndTypesReply::add_servers(const char* value, size_t size) {
+  _impl_.servers_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:mt4_term_api.GuiDemoServersAndTypesReply.servers)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+GuiDemoServersAndTypesReply::servers() const {
+  // @@protoc_insertion_point(field_list:mt4_term_api.GuiDemoServersAndTypesReply.servers)
+  return _impl_.servers_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+GuiDemoServersAndTypesReply::mutable_servers() {
+  // @@protoc_insertion_point(field_mutable_list:mt4_term_api.GuiDemoServersAndTypesReply.servers)
+  return &_impl_.servers_;
+}
+
+// repeated string account_types = 3;
+inline int GuiDemoServersAndTypesReply::_internal_account_types_size() const {
+  return _impl_.account_types_.size();
+}
+inline int GuiDemoServersAndTypesReply::account_types_size() const {
+  return _internal_account_types_size();
+}
+inline void GuiDemoServersAndTypesReply::clear_account_types() {
+  _impl_.account_types_.Clear();
+}
+inline std::string* GuiDemoServersAndTypesReply::add_account_types() {
+  std::string* _s = _internal_add_account_types();
+  // @@protoc_insertion_point(field_add_mutable:mt4_term_api.GuiDemoServersAndTypesReply.account_types)
+  return _s;
+}
+inline const std::string& GuiDemoServersAndTypesReply::_internal_account_types(int index) const {
+  return _impl_.account_types_.Get(index);
+}
+inline const std::string& GuiDemoServersAndTypesReply::account_types(int index) const {
+  // @@protoc_insertion_point(field_get:mt4_term_api.GuiDemoServersAndTypesReply.account_types)
+  return _internal_account_types(index);
+}
+inline std::string* GuiDemoServersAndTypesReply::mutable_account_types(int index) {
+  // @@protoc_insertion_point(field_mutable:mt4_term_api.GuiDemoServersAndTypesReply.account_types)
+  return _impl_.account_types_.Mutable(index);
+}
+inline void GuiDemoServersAndTypesReply::set_account_types(int index, const std::string& value) {
+  _impl_.account_types_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set:mt4_term_api.GuiDemoServersAndTypesReply.account_types)
+}
+inline void GuiDemoServersAndTypesReply::set_account_types(int index, std::string&& value) {
+  _impl_.account_types_.Mutable(index)->assign(std::move(value));
+  // @@protoc_insertion_point(field_set:mt4_term_api.GuiDemoServersAndTypesReply.account_types)
+}
+inline void GuiDemoServersAndTypesReply::set_account_types(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.account_types_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:mt4_term_api.GuiDemoServersAndTypesReply.account_types)
+}
+inline void GuiDemoServersAndTypesReply::set_account_types(int index, const char* value, size_t size) {
+  _impl_.account_types_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:mt4_term_api.GuiDemoServersAndTypesReply.account_types)
+}
+inline std::string* GuiDemoServersAndTypesReply::_internal_add_account_types() {
+  return _impl_.account_types_.Add();
+}
+inline void GuiDemoServersAndTypesReply::add_account_types(const std::string& value) {
+  _impl_.account_types_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:mt4_term_api.GuiDemoServersAndTypesReply.account_types)
+}
+inline void GuiDemoServersAndTypesReply::add_account_types(std::string&& value) {
+  _impl_.account_types_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:mt4_term_api.GuiDemoServersAndTypesReply.account_types)
+}
+inline void GuiDemoServersAndTypesReply::add_account_types(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.account_types_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:mt4_term_api.GuiDemoServersAndTypesReply.account_types)
+}
+inline void GuiDemoServersAndTypesReply::add_account_types(const char* value, size_t size) {
+  _impl_.account_types_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:mt4_term_api.GuiDemoServersAndTypesReply.account_types)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+GuiDemoServersAndTypesReply::account_types() const {
+  // @@protoc_insertion_point(field_list:mt4_term_api.GuiDemoServersAndTypesReply.account_types)
+  return _impl_.account_types_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+GuiDemoServersAndTypesReply::mutable_account_types() {
+  // @@protoc_insertion_point(field_mutable_list:mt4_term_api.GuiDemoServersAndTypesReply.account_types)
+  return &_impl_.account_types_;
+}
+
+// repeated string deposits = 4;
+inline int GuiDemoServersAndTypesReply::_internal_deposits_size() const {
+  return _impl_.deposits_.size();
+}
+inline int GuiDemoServersAndTypesReply::deposits_size() const {
+  return _internal_deposits_size();
+}
+inline void GuiDemoServersAndTypesReply::clear_deposits() {
+  _impl_.deposits_.Clear();
+}
+inline std::string* GuiDemoServersAndTypesReply::add_deposits() {
+  std::string* _s = _internal_add_deposits();
+  // @@protoc_insertion_point(field_add_mutable:mt4_term_api.GuiDemoServersAndTypesReply.deposits)
+  return _s;
+}
+inline const std::string& GuiDemoServersAndTypesReply::_internal_deposits(int index) const {
+  return _impl_.deposits_.Get(index);
+}
+inline const std::string& GuiDemoServersAndTypesReply::deposits(int index) const {
+  // @@protoc_insertion_point(field_get:mt4_term_api.GuiDemoServersAndTypesReply.deposits)
+  return _internal_deposits(index);
+}
+inline std::string* GuiDemoServersAndTypesReply::mutable_deposits(int index) {
+  // @@protoc_insertion_point(field_mutable:mt4_term_api.GuiDemoServersAndTypesReply.deposits)
+  return _impl_.deposits_.Mutable(index);
+}
+inline void GuiDemoServersAndTypesReply::set_deposits(int index, const std::string& value) {
+  _impl_.deposits_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set:mt4_term_api.GuiDemoServersAndTypesReply.deposits)
+}
+inline void GuiDemoServersAndTypesReply::set_deposits(int index, std::string&& value) {
+  _impl_.deposits_.Mutable(index)->assign(std::move(value));
+  // @@protoc_insertion_point(field_set:mt4_term_api.GuiDemoServersAndTypesReply.deposits)
+}
+inline void GuiDemoServersAndTypesReply::set_deposits(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.deposits_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:mt4_term_api.GuiDemoServersAndTypesReply.deposits)
+}
+inline void GuiDemoServersAndTypesReply::set_deposits(int index, const char* value, size_t size) {
+  _impl_.deposits_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:mt4_term_api.GuiDemoServersAndTypesReply.deposits)
+}
+inline std::string* GuiDemoServersAndTypesReply::_internal_add_deposits() {
+  return _impl_.deposits_.Add();
+}
+inline void GuiDemoServersAndTypesReply::add_deposits(const std::string& value) {
+  _impl_.deposits_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:mt4_term_api.GuiDemoServersAndTypesReply.deposits)
+}
+inline void GuiDemoServersAndTypesReply::add_deposits(std::string&& value) {
+  _impl_.deposits_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:mt4_term_api.GuiDemoServersAndTypesReply.deposits)
+}
+inline void GuiDemoServersAndTypesReply::add_deposits(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.deposits_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:mt4_term_api.GuiDemoServersAndTypesReply.deposits)
+}
+inline void GuiDemoServersAndTypesReply::add_deposits(const char* value, size_t size) {
+  _impl_.deposits_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:mt4_term_api.GuiDemoServersAndTypesReply.deposits)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+GuiDemoServersAndTypesReply::deposits() const {
+  // @@protoc_insertion_point(field_list:mt4_term_api.GuiDemoServersAndTypesReply.deposits)
+  return _impl_.deposits_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+GuiDemoServersAndTypesReply::mutable_deposits() {
+  // @@protoc_insertion_point(field_mutable_list:mt4_term_api.GuiDemoServersAndTypesReply.deposits)
+  return &_impl_.deposits_;
+}
+
+// repeated string leverages = 5;
+inline int GuiDemoServersAndTypesReply::_internal_leverages_size() const {
+  return _impl_.leverages_.size();
+}
+inline int GuiDemoServersAndTypesReply::leverages_size() const {
+  return _internal_leverages_size();
+}
+inline void GuiDemoServersAndTypesReply::clear_leverages() {
+  _impl_.leverages_.Clear();
+}
+inline std::string* GuiDemoServersAndTypesReply::add_leverages() {
+  std::string* _s = _internal_add_leverages();
+  // @@protoc_insertion_point(field_add_mutable:mt4_term_api.GuiDemoServersAndTypesReply.leverages)
+  return _s;
+}
+inline const std::string& GuiDemoServersAndTypesReply::_internal_leverages(int index) const {
+  return _impl_.leverages_.Get(index);
+}
+inline const std::string& GuiDemoServersAndTypesReply::leverages(int index) const {
+  // @@protoc_insertion_point(field_get:mt4_term_api.GuiDemoServersAndTypesReply.leverages)
+  return _internal_leverages(index);
+}
+inline std::string* GuiDemoServersAndTypesReply::mutable_leverages(int index) {
+  // @@protoc_insertion_point(field_mutable:mt4_term_api.GuiDemoServersAndTypesReply.leverages)
+  return _impl_.leverages_.Mutable(index);
+}
+inline void GuiDemoServersAndTypesReply::set_leverages(int index, const std::string& value) {
+  _impl_.leverages_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set:mt4_term_api.GuiDemoServersAndTypesReply.leverages)
+}
+inline void GuiDemoServersAndTypesReply::set_leverages(int index, std::string&& value) {
+  _impl_.leverages_.Mutable(index)->assign(std::move(value));
+  // @@protoc_insertion_point(field_set:mt4_term_api.GuiDemoServersAndTypesReply.leverages)
+}
+inline void GuiDemoServersAndTypesReply::set_leverages(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.leverages_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:mt4_term_api.GuiDemoServersAndTypesReply.leverages)
+}
+inline void GuiDemoServersAndTypesReply::set_leverages(int index, const char* value, size_t size) {
+  _impl_.leverages_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:mt4_term_api.GuiDemoServersAndTypesReply.leverages)
+}
+inline std::string* GuiDemoServersAndTypesReply::_internal_add_leverages() {
+  return _impl_.leverages_.Add();
+}
+inline void GuiDemoServersAndTypesReply::add_leverages(const std::string& value) {
+  _impl_.leverages_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:mt4_term_api.GuiDemoServersAndTypesReply.leverages)
+}
+inline void GuiDemoServersAndTypesReply::add_leverages(std::string&& value) {
+  _impl_.leverages_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:mt4_term_api.GuiDemoServersAndTypesReply.leverages)
+}
+inline void GuiDemoServersAndTypesReply::add_leverages(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  _impl_.leverages_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:mt4_term_api.GuiDemoServersAndTypesReply.leverages)
+}
+inline void GuiDemoServersAndTypesReply::add_leverages(const char* value, size_t size) {
+  _impl_.leverages_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:mt4_term_api.GuiDemoServersAndTypesReply.leverages)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+GuiDemoServersAndTypesReply::leverages() const {
+  // @@protoc_insertion_point(field_list:mt4_term_api.GuiDemoServersAndTypesReply.leverages)
+  return _impl_.leverages_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+GuiDemoServersAndTypesReply::mutable_leverages() {
+  // @@protoc_insertion_point(field_mutable_list:mt4_term_api.GuiDemoServersAndTypesReply.leverages)
+  return &_impl_.leverages_;
+}
+
+// string debug_log = 6;
+inline void GuiDemoServersAndTypesReply::clear_debug_log() {
+  _impl_.debug_log_.ClearToEmpty();
+}
+inline const std::string& GuiDemoServersAndTypesReply::debug_log() const {
+  // @@protoc_insertion_point(field_get:mt4_term_api.GuiDemoServersAndTypesReply.debug_log)
+  return _internal_debug_log();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void GuiDemoServersAndTypesReply::set_debug_log(ArgT0&& arg0, ArgT... args) {
+ 
+ _impl_.debug_log_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:mt4_term_api.GuiDemoServersAndTypesReply.debug_log)
+}
+inline std::string* GuiDemoServersAndTypesReply::mutable_debug_log() {
+  std::string* _s = _internal_mutable_debug_log();
+  // @@protoc_insertion_point(field_mutable:mt4_term_api.GuiDemoServersAndTypesReply.debug_log)
+  return _s;
+}
+inline const std::string& GuiDemoServersAndTypesReply::_internal_debug_log() const {
+  return _impl_.debug_log_.Get();
+}
+inline void GuiDemoServersAndTypesReply::_internal_set_debug_log(const std::string& value) {
+  
+  _impl_.debug_log_.Set(value, GetArenaForAllocation());
+}
+inline std::string* GuiDemoServersAndTypesReply::_internal_mutable_debug_log() {
+  
+  return _impl_.debug_log_.Mutable(GetArenaForAllocation());
+}
+inline std::string* GuiDemoServersAndTypesReply::release_debug_log() {
+  // @@protoc_insertion_point(field_release:mt4_term_api.GuiDemoServersAndTypesReply.debug_log)
+  return _impl_.debug_log_.Release();
+}
+inline void GuiDemoServersAndTypesReply::set_allocated_debug_log(std::string* debug_log) {
+  if (debug_log != nullptr) {
+    
+  } else {
+    
+  }
+  _impl_.debug_log_.SetAllocated(debug_log, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.debug_log_.IsDefault()) {
+    _impl_.debug_log_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:mt4_term_api.GuiDemoServersAndTypesReply.debug_log)
+}
+
+// -------------------------------------------------------------------
+
 // GuiDemoOpenAccountRequest
 
 // string company = 1;
@@ -8513,6 +10222,16 @@ inline void GuiDemoInteractiveScreenshot::set_allocated_mime_type(std::string* m
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

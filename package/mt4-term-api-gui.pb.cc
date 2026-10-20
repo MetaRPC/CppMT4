@@ -21,6 +21,81 @@ namespace _pb = ::PROTOBUF_NAMESPACE_ID;
 namespace _pbi = _pb::internal;
 
 namespace mt4_term_api {
+PROTOBUF_CONSTEXPR GuiDemoFindCompaniesRequest::GuiDemoFindCompaniesRequest(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.search_text_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.timeout_seconds_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct GuiDemoFindCompaniesRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR GuiDemoFindCompaniesRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~GuiDemoFindCompaniesRequestDefaultTypeInternal() {}
+  union {
+    GuiDemoFindCompaniesRequest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GuiDemoFindCompaniesRequestDefaultTypeInternal _GuiDemoFindCompaniesRequest_default_instance_;
+PROTOBUF_CONSTEXPR GuiDemoFindCompaniesReply::GuiDemoFindCompaniesReply(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.companies_)*/{}
+  , /*decltype(_impl_.debug_log_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.result_code_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct GuiDemoFindCompaniesReplyDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR GuiDemoFindCompaniesReplyDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~GuiDemoFindCompaniesReplyDefaultTypeInternal() {}
+  union {
+    GuiDemoFindCompaniesReply _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GuiDemoFindCompaniesReplyDefaultTypeInternal _GuiDemoFindCompaniesReply_default_instance_;
+PROTOBUF_CONSTEXPR GuiDemoCompany::GuiDemoCompany(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.short_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct GuiDemoCompanyDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR GuiDemoCompanyDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~GuiDemoCompanyDefaultTypeInternal() {}
+  union {
+    GuiDemoCompany _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GuiDemoCompanyDefaultTypeInternal _GuiDemoCompany_default_instance_;
+PROTOBUF_CONSTEXPR GuiDemoServersAndTypesRequest::GuiDemoServersAndTypesRequest(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.company_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.timeout_seconds_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct GuiDemoServersAndTypesRequestDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR GuiDemoServersAndTypesRequestDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~GuiDemoServersAndTypesRequestDefaultTypeInternal() {}
+  union {
+    GuiDemoServersAndTypesRequest _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GuiDemoServersAndTypesRequestDefaultTypeInternal _GuiDemoServersAndTypesRequest_default_instance_;
+PROTOBUF_CONSTEXPR GuiDemoServersAndTypesReply::GuiDemoServersAndTypesReply(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.servers_)*/{}
+  , /*decltype(_impl_.account_types_)*/{}
+  , /*decltype(_impl_.deposits_)*/{}
+  , /*decltype(_impl_.leverages_)*/{}
+  , /*decltype(_impl_.debug_log_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.result_code_)*/0
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct GuiDemoServersAndTypesReplyDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR GuiDemoServersAndTypesReplyDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~GuiDemoServersAndTypesReplyDefaultTypeInternal() {}
+  union {
+    GuiDemoServersAndTypesReply _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GuiDemoServersAndTypesReplyDefaultTypeInternal _GuiDemoServersAndTypesReply_default_instance_;
 PROTOBUF_CONSTEXPR GuiDemoOpenAccountRequest::GuiDemoOpenAccountRequest(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_.company_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
@@ -365,11 +440,56 @@ struct GuiDemoInteractiveScreenshotDefaultTypeInternal {
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 GuiDemoInteractiveScreenshotDefaultTypeInternal _GuiDemoInteractiveScreenshot_default_instance_;
 }  // namespace mt4_term_api
-static ::_pb::Metadata file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[22];
+static ::_pb::Metadata file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[27];
 static const ::_pb::EnumDescriptor* file_level_enum_descriptors_mt4_2dterm_2dapi_2dgui_2eproto[2];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_mt4_2dterm_2dapi_2dgui_2eproto = nullptr;
 
 const uint32_t TableStruct_mt4_2dterm_2dapi_2dgui_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::mt4_term_api::GuiDemoFindCompaniesRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::mt4_term_api::GuiDemoFindCompaniesRequest, _impl_.search_text_),
+  PROTOBUF_FIELD_OFFSET(::mt4_term_api::GuiDemoFindCompaniesRequest, _impl_.timeout_seconds_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::mt4_term_api::GuiDemoFindCompaniesReply, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::mt4_term_api::GuiDemoFindCompaniesReply, _impl_.result_code_),
+  PROTOBUF_FIELD_OFFSET(::mt4_term_api::GuiDemoFindCompaniesReply, _impl_.companies_),
+  PROTOBUF_FIELD_OFFSET(::mt4_term_api::GuiDemoFindCompaniesReply, _impl_.debug_log_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::mt4_term_api::GuiDemoCompany, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::mt4_term_api::GuiDemoCompany, _impl_.name_),
+  PROTOBUF_FIELD_OFFSET(::mt4_term_api::GuiDemoCompany, _impl_.short_name_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::mt4_term_api::GuiDemoServersAndTypesRequest, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::mt4_term_api::GuiDemoServersAndTypesRequest, _impl_.company_name_),
+  PROTOBUF_FIELD_OFFSET(::mt4_term_api::GuiDemoServersAndTypesRequest, _impl_.timeout_seconds_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::mt4_term_api::GuiDemoServersAndTypesReply, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::mt4_term_api::GuiDemoServersAndTypesReply, _impl_.result_code_),
+  PROTOBUF_FIELD_OFFSET(::mt4_term_api::GuiDemoServersAndTypesReply, _impl_.servers_),
+  PROTOBUF_FIELD_OFFSET(::mt4_term_api::GuiDemoServersAndTypesReply, _impl_.account_types_),
+  PROTOBUF_FIELD_OFFSET(::mt4_term_api::GuiDemoServersAndTypesReply, _impl_.deposits_),
+  PROTOBUF_FIELD_OFFSET(::mt4_term_api::GuiDemoServersAndTypesReply, _impl_.leverages_),
+  PROTOBUF_FIELD_OFFSET(::mt4_term_api::GuiDemoServersAndTypesReply, _impl_.debug_log_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::GuiDemoOpenAccountRequest, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -604,31 +724,41 @@ const uint32_t TableStruct_mt4_2dterm_2dapi_2dgui_2eproto::offsets[] PROTOBUF_SE
   PROTOBUF_FIELD_OFFSET(::mt4_term_api::GuiDemoInteractiveScreenshot, _impl_.mime_type_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, -1, -1, sizeof(::mt4_term_api::GuiDemoOpenAccountRequest)},
-  { 14, -1, -1, sizeof(::mt4_term_api::GuiDemoOpenAccountReply)},
-  { 26, -1, -1, sizeof(::mt4_term_api::GuiDemoInteractiveClientMessage)},
-  { 40, -1, -1, sizeof(::mt4_term_api::GuiDemoInteractiveSearchCompany)},
-  { 48, -1, -1, sizeof(::mt4_term_api::GuiDemoInteractiveSelectCompany)},
-  { 58, 66, -1, sizeof(::mt4_term_api::GuiDemoInteractiveSubmitForm_FieldsEntry_DoNotUse)},
-  { 68, 76, -1, sizeof(::mt4_term_api::GuiDemoInteractiveSubmitForm_DropdownSelectionsEntry_DoNotUse)},
-  { 78, -1, -1, sizeof(::mt4_term_api::GuiDemoInteractiveSubmitForm)},
-  { 87, -1, -1, sizeof(::mt4_term_api::GuiDemoInteractiveSubmitTwoFactor)},
-  { 94, -1, -1, sizeof(::mt4_term_api::GuiDemoInteractiveCancelSession)},
-  { 101, -1, -1, sizeof(::mt4_term_api::GuiDemoInteractiveRequestScreenshot)},
-  { 108, -1, -1, sizeof(::mt4_term_api::GuiDemoInteractiveServerMessage)},
-  { 124, -1, -1, sizeof(::mt4_term_api::GuiDemoInteractiveCompanyItem)},
-  { 134, -1, -1, sizeof(::mt4_term_api::GuiDemoInteractiveCompanyList)},
-  { 143, -1, -1, sizeof(::mt4_term_api::GuiDemoInteractiveFormField)},
-  { 155, -1, -1, sizeof(::mt4_term_api::GuiDemoInteractiveDropdown)},
-  { 167, -1, -1, sizeof(::mt4_term_api::GuiDemoInteractiveFormSchema)},
-  { 180, -1, -1, sizeof(::mt4_term_api::GuiDemoInteractiveTwoFactorChallenge)},
-  { 192, -1, -1, sizeof(::mt4_term_api::GuiDemoInteractiveCompleted)},
-  { 204, -1, -1, sizeof(::mt4_term_api::GuiDemoInteractiveProgress)},
-  { 213, -1, -1, sizeof(::mt4_term_api::GuiDemoInteractiveError)},
-  { 223, -1, -1, sizeof(::mt4_term_api::GuiDemoInteractiveScreenshot)},
+  { 0, -1, -1, sizeof(::mt4_term_api::GuiDemoFindCompaniesRequest)},
+  { 8, -1, -1, sizeof(::mt4_term_api::GuiDemoFindCompaniesReply)},
+  { 17, -1, -1, sizeof(::mt4_term_api::GuiDemoCompany)},
+  { 25, -1, -1, sizeof(::mt4_term_api::GuiDemoServersAndTypesRequest)},
+  { 33, -1, -1, sizeof(::mt4_term_api::GuiDemoServersAndTypesReply)},
+  { 45, -1, -1, sizeof(::mt4_term_api::GuiDemoOpenAccountRequest)},
+  { 59, -1, -1, sizeof(::mt4_term_api::GuiDemoOpenAccountReply)},
+  { 71, -1, -1, sizeof(::mt4_term_api::GuiDemoInteractiveClientMessage)},
+  { 85, -1, -1, sizeof(::mt4_term_api::GuiDemoInteractiveSearchCompany)},
+  { 93, -1, -1, sizeof(::mt4_term_api::GuiDemoInteractiveSelectCompany)},
+  { 103, 111, -1, sizeof(::mt4_term_api::GuiDemoInteractiveSubmitForm_FieldsEntry_DoNotUse)},
+  { 113, 121, -1, sizeof(::mt4_term_api::GuiDemoInteractiveSubmitForm_DropdownSelectionsEntry_DoNotUse)},
+  { 123, -1, -1, sizeof(::mt4_term_api::GuiDemoInteractiveSubmitForm)},
+  { 132, -1, -1, sizeof(::mt4_term_api::GuiDemoInteractiveSubmitTwoFactor)},
+  { 139, -1, -1, sizeof(::mt4_term_api::GuiDemoInteractiveCancelSession)},
+  { 146, -1, -1, sizeof(::mt4_term_api::GuiDemoInteractiveRequestScreenshot)},
+  { 153, -1, -1, sizeof(::mt4_term_api::GuiDemoInteractiveServerMessage)},
+  { 169, -1, -1, sizeof(::mt4_term_api::GuiDemoInteractiveCompanyItem)},
+  { 179, -1, -1, sizeof(::mt4_term_api::GuiDemoInteractiveCompanyList)},
+  { 188, -1, -1, sizeof(::mt4_term_api::GuiDemoInteractiveFormField)},
+  { 200, -1, -1, sizeof(::mt4_term_api::GuiDemoInteractiveDropdown)},
+  { 212, -1, -1, sizeof(::mt4_term_api::GuiDemoInteractiveFormSchema)},
+  { 225, -1, -1, sizeof(::mt4_term_api::GuiDemoInteractiveTwoFactorChallenge)},
+  { 237, -1, -1, sizeof(::mt4_term_api::GuiDemoInteractiveCompleted)},
+  { 249, -1, -1, sizeof(::mt4_term_api::GuiDemoInteractiveProgress)},
+  { 258, -1, -1, sizeof(::mt4_term_api::GuiDemoInteractiveError)},
+  { 268, -1, -1, sizeof(::mt4_term_api::GuiDemoInteractiveScreenshot)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
+  &::mt4_term_api::_GuiDemoFindCompaniesRequest_default_instance_._instance,
+  &::mt4_term_api::_GuiDemoFindCompaniesReply_default_instance_._instance,
+  &::mt4_term_api::_GuiDemoCompany_default_instance_._instance,
+  &::mt4_term_api::_GuiDemoServersAndTypesRequest_default_instance_._instance,
+  &::mt4_term_api::_GuiDemoServersAndTypesReply_default_instance_._instance,
   &::mt4_term_api::_GuiDemoOpenAccountRequest_default_instance_._instance,
   &::mt4_term_api::_GuiDemoOpenAccountReply_default_instance_._instance,
   &::mt4_term_api::_GuiDemoInteractiveClientMessage_default_instance_._instance,
@@ -654,118 +784,135 @@ static const ::_pb::Message* const file_default_instances[] = {
 };
 
 const char descriptor_table_protodef_mt4_2dterm_2dapi_2dgui_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\026mt4-term-api-gui.proto\022\014mt4_term_api\"\260"
-  "\001\n\031GuiDemoOpenAccountRequest\022\017\n\007company\030"
-  "\001 \001(\t\022\022\n\nfirst_name\030\002 \001(\t\022\021\n\tlast_name\030\003"
-  " \001(\t\022\r\n\005email\030\004 \001(\t\022\r\n\005phone\030\005 \001(\t\022\016\n\006se"
-  "rver\030\006 \001(\t\022\024\n\014account_type\030\007 \001(\t\022\027\n\017time"
-  "out_seconds\030\010 \001(\005\"\204\001\n\027GuiDemoOpenAccount"
-  "Reply\022\023\n\013result_code\030\001 \001(\005\022\r\n\005login\030\002 \001("
-  "\t\022\020\n\010password\030\003 \001(\t\022\020\n\010investor\030\004 \001(\t\022\016\n"
-  "\006server\030\005 \001(\t\022\021\n\tdebug_log\030\006 \001(\t\"\375\003\n\037Gui"
-  "DemoInteractiveClientMessage\022\022\n\nsession_"
-  "id\030\001 \001(\t\022G\n\016search_company\030\002 \001(\0132-.mt4_t"
-  "erm_api.GuiDemoInteractiveSearchCompanyH"
-  "\000\022G\n\016select_company\030\003 \001(\0132-.mt4_term_api"
-  ".GuiDemoInteractiveSelectCompanyH\000\022A\n\013su"
-  "bmit_form\030\004 \001(\0132*.mt4_term_api.GuiDemoIn"
-  "teractiveSubmitFormH\000\022L\n\021submit_two_fact"
-  "or\030\005 \001(\0132/.mt4_term_api.GuiDemoInteracti"
-  "veSubmitTwoFactorH\000\022G\n\016cancel_session\030\006 "
-  "\001(\0132-.mt4_term_api.GuiDemoInteractiveCan"
-  "celSessionH\000\022O\n\022request_screenshot\030\007 \001(\013"
-  "21.mt4_term_api.GuiDemoInteractiveReques"
-  "tScreenshotH\000B\t\n\007payload\"P\n\037GuiDemoInter"
-  "activeSearchCompany\022\024\n\014search_query\030\001 \001("
-  "\t\022\027\n\017timeout_seconds\030\002 \001(\005\"y\n\037GuiDemoInt"
-  "eractiveSelectCompany\022\025\n\rcompany_index\030\001"
-  " \001(\005\022\024\n\014company_name\030\002 \001(\t\022\023\n\013server_nam"
-  "e\030\003 \001(\t\022\024\n\014account_mode\030\004 \001(\005\"\311\002\n\034GuiDem"
-  "oInteractiveSubmitForm\022F\n\006fields\030\001 \003(\01326"
-  ".mt4_term_api.GuiDemoInteractiveSubmitFo"
-  "rm.FieldsEntry\022_\n\023dropdown_selections\030\002 "
-  "\003(\0132B.mt4_term_api.GuiDemoInteractiveSub"
-  "mitForm.DropdownSelectionsEntry\022\026\n\016agree"
-  "_to_terms\030\003 \001(\010\032-\n\013FieldsEntry\022\013\n\003key\030\001 "
-  "\001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\0329\n\027DropdownSelect"
-  "ionsEntry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028"
-  "\001\"1\n!GuiDemoInteractiveSubmitTwoFactor\022\014"
-  "\n\004code\030\001 \001(\t\"1\n\037GuiDemoInteractiveCancel"
-  "Session\022\016\n\006reason\030\001 \001(\t\"2\n#GuiDemoIntera"
-  "ctiveRequestScreenshot\022\013\n\003tag\030\001 \001(\t\"\252\004\n\037"
-  "GuiDemoInteractiveServerMessage\022\022\n\nsessi"
-  "on_id\030\001 \001(\t\022\024\n\014timestamp_ms\030\002 \001(\003\022C\n\014com"
-  "pany_list\030\003 \001(\0132+.mt4_term_api.GuiDemoIn"
-  "teractiveCompanyListH\000\022A\n\013form_schema\030\004 "
-  "\001(\0132*.mt4_term_api.GuiDemoInteractiveFor"
-  "mSchemaH\000\022R\n\024two_factor_challenge\030\005 \001(\0132"
-  "2.mt4_term_api.GuiDemoInteractiveTwoFact"
-  "orChallengeH\000\022>\n\tcompleted\030\006 \001(\0132).mt4_t"
-  "erm_api.GuiDemoInteractiveCompletedH\000\022<\n"
-  "\010progress\030\007 \001(\0132(.mt4_term_api.GuiDemoIn"
-  "teractiveProgressH\000\0226\n\005error\030\010 \001(\0132%.mt4"
-  "_term_api.GuiDemoInteractiveErrorH\000\022@\n\ns"
-  "creenshot\030\t \001(\0132*.mt4_term_api.GuiDemoIn"
-  "teractiveScreenshotH\000B\t\n\007payload\"j\n\035GuiD"
-  "emoInteractiveCompanyItem\022\r\n\005index\030\001 \001(\005"
+  "\n\026mt4-term-api-gui.proto\022\014mt4_term_api\"K"
+  "\n\033GuiDemoFindCompaniesRequest\022\023\n\013search_"
+  "text\030\001 \001(\t\022\027\n\017timeout_seconds\030\002 \001(\005\"t\n\031G"
+  "uiDemoFindCompaniesReply\022\023\n\013result_code\030"
+  "\001 \001(\005\022/\n\tcompanies\030\002 \003(\0132\034.mt4_term_api."
+  "GuiDemoCompany\022\021\n\tdebug_log\030\003 \001(\t\"2\n\016Gui"
+  "DemoCompany\022\014\n\004name\030\001 \001(\t\022\022\n\nshort_name\030"
+  "\002 \001(\t\"N\n\035GuiDemoServersAndTypesRequest\022\024"
+  "\n\014company_name\030\001 \001(\t\022\027\n\017timeout_seconds\030"
+  "\002 \001(\005\"\222\001\n\033GuiDemoServersAndTypesReply\022\023\n"
+  "\013result_code\030\001 \001(\005\022\017\n\007servers\030\002 \003(\t\022\025\n\ra"
+  "ccount_types\030\003 \003(\t\022\020\n\010deposits\030\004 \003(\t\022\021\n\t"
+  "leverages\030\005 \003(\t\022\021\n\tdebug_log\030\006 \001(\t\"\260\001\n\031G"
+  "uiDemoOpenAccountRequest\022\017\n\007company\030\001 \001("
+  "\t\022\022\n\nfirst_name\030\002 \001(\t\022\021\n\tlast_name\030\003 \001(\t"
+  "\022\r\n\005email\030\004 \001(\t\022\r\n\005phone\030\005 \001(\t\022\016\n\006server"
+  "\030\006 \001(\t\022\024\n\014account_type\030\007 \001(\t\022\027\n\017timeout_"
+  "seconds\030\010 \001(\005\"\204\001\n\027GuiDemoOpenAccountRepl"
+  "y\022\023\n\013result_code\030\001 \001(\005\022\r\n\005login\030\002 \001(\t\022\020\n"
+  "\010password\030\003 \001(\t\022\020\n\010investor\030\004 \001(\t\022\016\n\006ser"
+  "ver\030\005 \001(\t\022\021\n\tdebug_log\030\006 \001(\t\"\375\003\n\037GuiDemo"
+  "InteractiveClientMessage\022\022\n\nsession_id\030\001"
+  " \001(\t\022G\n\016search_company\030\002 \001(\0132-.mt4_term_"
+  "api.GuiDemoInteractiveSearchCompanyH\000\022G\n"
+  "\016select_company\030\003 \001(\0132-.mt4_term_api.Gui"
+  "DemoInteractiveSelectCompanyH\000\022A\n\013submit"
+  "_form\030\004 \001(\0132*.mt4_term_api.GuiDemoIntera"
+  "ctiveSubmitFormH\000\022L\n\021submit_two_factor\030\005"
+  " \001(\0132/.mt4_term_api.GuiDemoInteractiveSu"
+  "bmitTwoFactorH\000\022G\n\016cancel_session\030\006 \001(\0132"
+  "-.mt4_term_api.GuiDemoInteractiveCancelS"
+  "essionH\000\022O\n\022request_screenshot\030\007 \001(\01321.m"
+  "t4_term_api.GuiDemoInteractiveRequestScr"
+  "eenshotH\000B\t\n\007payload\"P\n\037GuiDemoInteracti"
+  "veSearchCompany\022\024\n\014search_query\030\001 \001(\t\022\027\n"
+  "\017timeout_seconds\030\002 \001(\005\"y\n\037GuiDemoInterac"
+  "tiveSelectCompany\022\025\n\rcompany_index\030\001 \001(\005"
   "\022\024\n\014company_name\030\002 \001(\t\022\023\n\013server_name\030\003 "
-  "\001(\t\022\017\n\007ping_ms\030\004 \001(\005\"\213\001\n\035GuiDemoInteract"
-  "iveCompanyList\022>\n\tcompanies\030\001 \003(\0132+.mt4_"
-  "term_api.GuiDemoInteractiveCompanyItem\022\025"
-  "\n\rcurrent_query\030\002 \001(\t\022\023\n\013can_proceed\030\003 \001"
-  "(\010\"\264\001\n\033GuiDemoInteractiveFormField\022\022\n\nco"
-  "ntrol_id\030\001 \001(\005\022\022\n\nfield_name\030\002 \001(\t\022\r\n\005la"
-  "bel\030\003 \001(\t\022\025\n\rcurrent_value\030\004 \001(\t\022\023\n\013is_r"
-  "equired\030\005 \001(\010\0222\n\nfield_type\030\006 \001(\0162\036.mt4_"
-  "term_api.GuiFormFieldType\"\227\001\n\032GuiDemoInt"
-  "eractiveDropdown\022\022\n\ncontrol_id\030\001 \001(\005\022\025\n\r"
-  "dropdown_name\030\002 \001(\t\022\r\n\005label\030\003 \001(\t\022\026\n\016se"
-  "lected_index\030\004 \001(\005\022\026\n\016selected_value\030\005 \001"
-  "(\t\022\017\n\007options\030\006 \003(\t\"\211\002\n\034GuiDemoInteracti"
-  "veFormSchema\022\022\n\npage_title\030\001 \001(\t\022\022\n\npage"
-  "_index\030\002 \001(\005\0229\n\006fields\030\003 \003(\0132).mt4_term_"
-  "api.GuiDemoInteractiveFormField\022;\n\tdropd"
-  "owns\030\004 \003(\0132(.mt4_term_api.GuiDemoInterac"
-  "tiveDropdown\022\033\n\023has_terms_agreement\030\005 \001("
-  "\010\022\024\n\014terms_agreed\030\006 \001(\010\022\026\n\016prompt_messag"
-  "e\030\007 \001(\t\"\317\001\n$GuiDemoInteractiveTwoFactorC"
-  "hallenge\022,\n\004type\030\001 \001(\0162\036.mt4_term_api.Gu"
-  "iTwoFactorType\022\023\n\013prompt_text\030\002 \001(\t\022\032\n\022d"
-  "estination_masked\030\003 \001(\t\022\023\n\013code_length\030\004"
-  " \001(\005\022\027\n\017timeout_seconds\030\005 \001(\005\022\032\n\022remaini"
-  "ng_attempts\030\006 \001(\005\"\241\001\n\033GuiDemoInteractive"
-  "Completed\022\r\n\005login\030\001 \001(\003\022\020\n\010password\030\002 \001"
-  "(\t\022\031\n\021investor_password\030\003 \001(\t\022\016\n\006server\030"
-  "\004 \001(\t\022\030\n\020is_live_verified\030\005 \001(\010\022\034\n\024trade"
-  "_server_message\030\006 \001(\t\"]\n\032GuiDemoInteract"
-  "iveProgress\022\021\n\tstep_name\030\001 \001(\t\022\017\n\007messag"
-  "e\030\002 \001(\t\022\033\n\023progress_percentage\030\003 \001(\005\"r\n\027"
-  "GuiDemoInteractiveError\022\022\n\nerror_code\030\001 "
-  "\001(\005\022\025\n\rerror_message\030\002 \001(\t\022\024\n\014current_st"
-  "ep\030\003 \001(\t\022\026\n\016is_recoverable\030\004 \001(\010\"R\n\034GuiD"
-  "emoInteractiveScreenshot\022\013\n\003tag\030\001 \001(\t\022\022\n"
-  "\nimage_data\030\002 \001(\014\022\021\n\tmime_type\030\003 \001(\t*\234\001\n"
-  "\020GuiFormFieldType\022\023\n\017FIELD_TYPE_TEXT\020\000\022\024"
-  "\n\020FIELD_TYPE_EMAIL\020\001\022\024\n\020FIELD_TYPE_PHONE"
-  "\020\002\022\025\n\021FIELD_TYPE_NUMBER\020\003\022\027\n\023FIELD_TYPE_"
-  "CHECKBOX\020\004\022\027\n\023FIELD_TYPE_PASSWORD\020\005*v\n\020G"
-  "uiTwoFactorType\022\026\n\022TWO_FACTOR_UNKNOWN\020\000\022"
-  "\024\n\020TWO_FACTOR_EMAIL\020\001\022\022\n\016TWO_FACTOR_SMS\020"
-  "\002\022 \n\034TWO_FACTOR_APP_AUTHENTICATOR\020\0032\350\001\n\003"
-  "Gui\022a\n\017DemoOpenAccount\022\'.mt4_term_api.Gu"
-  "iDemoOpenAccountRequest\032%.mt4_term_api.G"
-  "uiDemoOpenAccountReply\022~\n\032DemoOpenAccoun"
-  "tInteractive\022-.mt4_term_api.GuiDemoInter"
-  "activeClientMessage\032-.mt4_term_api.GuiDe"
-  "moInteractiveServerMessage(\0010\001BBZ1git.mt"
-  "api.io/root/mrpc-proto.git/mt4/libraries"
-  "/go\252\002\014mt4_term_apib\006proto3"
+  "\001(\t\022\024\n\014account_mode\030\004 \001(\005\"\311\002\n\034GuiDemoInt"
+  "eractiveSubmitForm\022F\n\006fields\030\001 \003(\01326.mt4"
+  "_term_api.GuiDemoInteractiveSubmitForm.F"
+  "ieldsEntry\022_\n\023dropdown_selections\030\002 \003(\0132"
+  "B.mt4_term_api.GuiDemoInteractiveSubmitF"
+  "orm.DropdownSelectionsEntry\022\026\n\016agree_to_"
+  "terms\030\003 \001(\010\032-\n\013FieldsEntry\022\013\n\003key\030\001 \001(\t\022"
+  "\r\n\005value\030\002 \001(\t:\0028\001\0329\n\027DropdownSelections"
+  "Entry\022\013\n\003key\030\001 \001(\t\022\r\n\005value\030\002 \001(\t:\0028\001\"1\n"
+  "!GuiDemoInteractiveSubmitTwoFactor\022\014\n\004co"
+  "de\030\001 \001(\t\"1\n\037GuiDemoInteractiveCancelSess"
+  "ion\022\016\n\006reason\030\001 \001(\t\"2\n#GuiDemoInteractiv"
+  "eRequestScreenshot\022\013\n\003tag\030\001 \001(\t\"\252\004\n\037GuiD"
+  "emoInteractiveServerMessage\022\022\n\nsession_i"
+  "d\030\001 \001(\t\022\024\n\014timestamp_ms\030\002 \001(\003\022C\n\014company"
+  "_list\030\003 \001(\0132+.mt4_term_api.GuiDemoIntera"
+  "ctiveCompanyListH\000\022A\n\013form_schema\030\004 \001(\0132"
+  "*.mt4_term_api.GuiDemoInteractiveFormSch"
+  "emaH\000\022R\n\024two_factor_challenge\030\005 \001(\01322.mt"
+  "4_term_api.GuiDemoInteractiveTwoFactorCh"
+  "allengeH\000\022>\n\tcompleted\030\006 \001(\0132).mt4_term_"
+  "api.GuiDemoInteractiveCompletedH\000\022<\n\010pro"
+  "gress\030\007 \001(\0132(.mt4_term_api.GuiDemoIntera"
+  "ctiveProgressH\000\0226\n\005error\030\010 \001(\0132%.mt4_ter"
+  "m_api.GuiDemoInteractiveErrorH\000\022@\n\nscree"
+  "nshot\030\t \001(\0132*.mt4_term_api.GuiDemoIntera"
+  "ctiveScreenshotH\000B\t\n\007payload\"j\n\035GuiDemoI"
+  "nteractiveCompanyItem\022\r\n\005index\030\001 \001(\005\022\024\n\014"
+  "company_name\030\002 \001(\t\022\023\n\013server_name\030\003 \001(\t\022"
+  "\017\n\007ping_ms\030\004 \001(\005\"\213\001\n\035GuiDemoInteractiveC"
+  "ompanyList\022>\n\tcompanies\030\001 \003(\0132+.mt4_term"
+  "_api.GuiDemoInteractiveCompanyItem\022\025\n\rcu"
+  "rrent_query\030\002 \001(\t\022\023\n\013can_proceed\030\003 \001(\010\"\264"
+  "\001\n\033GuiDemoInteractiveFormField\022\022\n\ncontro"
+  "l_id\030\001 \001(\005\022\022\n\nfield_name\030\002 \001(\t\022\r\n\005label\030"
+  "\003 \001(\t\022\025\n\rcurrent_value\030\004 \001(\t\022\023\n\013is_requi"
+  "red\030\005 \001(\010\0222\n\nfield_type\030\006 \001(\0162\036.mt4_term"
+  "_api.GuiFormFieldType\"\227\001\n\032GuiDemoInterac"
+  "tiveDropdown\022\022\n\ncontrol_id\030\001 \001(\005\022\025\n\rdrop"
+  "down_name\030\002 \001(\t\022\r\n\005label\030\003 \001(\t\022\026\n\016select"
+  "ed_index\030\004 \001(\005\022\026\n\016selected_value\030\005 \001(\t\022\017"
+  "\n\007options\030\006 \003(\t\"\211\002\n\034GuiDemoInteractiveFo"
+  "rmSchema\022\022\n\npage_title\030\001 \001(\t\022\022\n\npage_ind"
+  "ex\030\002 \001(\005\0229\n\006fields\030\003 \003(\0132).mt4_term_api."
+  "GuiDemoInteractiveFormField\022;\n\tdropdowns"
+  "\030\004 \003(\0132(.mt4_term_api.GuiDemoInteractive"
+  "Dropdown\022\033\n\023has_terms_agreement\030\005 \001(\010\022\024\n"
+  "\014terms_agreed\030\006 \001(\010\022\026\n\016prompt_message\030\007 "
+  "\001(\t\"\317\001\n$GuiDemoInteractiveTwoFactorChall"
+  "enge\022,\n\004type\030\001 \001(\0162\036.mt4_term_api.GuiTwo"
+  "FactorType\022\023\n\013prompt_text\030\002 \001(\t\022\032\n\022desti"
+  "nation_masked\030\003 \001(\t\022\023\n\013code_length\030\004 \001(\005"
+  "\022\027\n\017timeout_seconds\030\005 \001(\005\022\032\n\022remaining_a"
+  "ttempts\030\006 \001(\005\"\241\001\n\033GuiDemoInteractiveComp"
+  "leted\022\r\n\005login\030\001 \001(\003\022\020\n\010password\030\002 \001(\t\022\031"
+  "\n\021investor_password\030\003 \001(\t\022\016\n\006server\030\004 \001("
+  "\t\022\030\n\020is_live_verified\030\005 \001(\010\022\034\n\024trade_ser"
+  "ver_message\030\006 \001(\t\"]\n\032GuiDemoInteractiveP"
+  "rogress\022\021\n\tstep_name\030\001 \001(\t\022\017\n\007message\030\002 "
+  "\001(\t\022\033\n\023progress_percentage\030\003 \001(\005\"r\n\027GuiD"
+  "emoInteractiveError\022\022\n\nerror_code\030\001 \001(\005\022"
+  "\025\n\rerror_message\030\002 \001(\t\022\024\n\014current_step\030\003"
+  " \001(\t\022\026\n\016is_recoverable\030\004 \001(\010\"R\n\034GuiDemoI"
+  "nteractiveScreenshot\022\013\n\003tag\030\001 \001(\t\022\022\n\nima"
+  "ge_data\030\002 \001(\014\022\021\n\tmime_type\030\003 \001(\t*\234\001\n\020Gui"
+  "FormFieldType\022\023\n\017FIELD_TYPE_TEXT\020\000\022\024\n\020FI"
+  "ELD_TYPE_EMAIL\020\001\022\024\n\020FIELD_TYPE_PHONE\020\002\022\025"
+  "\n\021FIELD_TYPE_NUMBER\020\003\022\027\n\023FIELD_TYPE_CHEC"
+  "KBOX\020\004\022\027\n\023FIELD_TYPE_PASSWORD\020\005*v\n\020GuiTw"
+  "oFactorType\022\026\n\022TWO_FACTOR_UNKNOWN\020\000\022\024\n\020T"
+  "WO_FACTOR_EMAIL\020\001\022\022\n\016TWO_FACTOR_SMS\020\002\022 \n"
+  "\034TWO_FACTOR_APP_AUTHENTICATOR\020\0032\300\003\n\003Gui\022"
+  "g\n\021DemoFindCompanies\022).mt4_term_api.GuiD"
+  "emoFindCompaniesRequest\032\'.mt4_term_api.G"
+  "uiDemoFindCompaniesReply\022m\n\023DemoServersA"
+  "ndTypes\022+.mt4_term_api.GuiDemoServersAnd"
+  "TypesRequest\032).mt4_term_api.GuiDemoServe"
+  "rsAndTypesReply\022a\n\017DemoOpenAccount\022\'.mt4"
+  "_term_api.GuiDemoOpenAccountRequest\032%.mt"
+  "4_term_api.GuiDemoOpenAccountReply\022~\n\032De"
+  "moOpenAccountInteractive\022-.mt4_term_api."
+  "GuiDemoInteractiveClientMessage\032-.mt4_te"
+  "rm_api.GuiDemoInteractiveServerMessage(\001"
+  "0\001BBZ1git.mtapi.io/root/mrpc-proto.git/m"
+  "t4/libraries/go\252\002\014mt4_term_apib\006proto3"
   ;
 static ::_pbi::once_flag descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto = {
-    false, false, 4226, descriptor_table_protodef_mt4_2dterm_2dapi_2dgui_2eproto,
+    false, false, 4918, descriptor_table_protodef_mt4_2dterm_2dapi_2dgui_2eproto,
     "mt4-term-api-gui.proto",
-    &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_once, nullptr, 0, 22,
+    &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_once, nullptr, 0, 27,
     schemas, file_default_instances, TableStruct_mt4_2dterm_2dapi_2dgui_2eproto::offsets,
     file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto, file_level_enum_descriptors_mt4_2dterm_2dapi_2dgui_2eproto,
     file_level_service_descriptors_mt4_2dterm_2dapi_2dgui_2eproto,
@@ -811,6 +958,1369 @@ bool GuiTwoFactorType_IsValid(int value) {
   }
 }
 
+
+// ===================================================================
+
+class GuiDemoFindCompaniesRequest::_Internal {
+ public:
+};
+
+GuiDemoFindCompaniesRequest::GuiDemoFindCompaniesRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:mt4_term_api.GuiDemoFindCompaniesRequest)
+}
+GuiDemoFindCompaniesRequest::GuiDemoFindCompaniesRequest(const GuiDemoFindCompaniesRequest& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  GuiDemoFindCompaniesRequest* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.search_text_){}
+    , decltype(_impl_.timeout_seconds_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.search_text_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.search_text_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_search_text().empty()) {
+    _this->_impl_.search_text_.Set(from._internal_search_text(), 
+      _this->GetArenaForAllocation());
+  }
+  _this->_impl_.timeout_seconds_ = from._impl_.timeout_seconds_;
+  // @@protoc_insertion_point(copy_constructor:mt4_term_api.GuiDemoFindCompaniesRequest)
+}
+
+inline void GuiDemoFindCompaniesRequest::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.search_text_){}
+    , decltype(_impl_.timeout_seconds_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.search_text_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.search_text_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+GuiDemoFindCompaniesRequest::~GuiDemoFindCompaniesRequest() {
+  // @@protoc_insertion_point(destructor:mt4_term_api.GuiDemoFindCompaniesRequest)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void GuiDemoFindCompaniesRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.search_text_.Destroy();
+}
+
+void GuiDemoFindCompaniesRequest::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void GuiDemoFindCompaniesRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:mt4_term_api.GuiDemoFindCompaniesRequest)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.search_text_.ClearToEmpty();
+  _impl_.timeout_seconds_ = 0;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* GuiDemoFindCompaniesRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // string search_text = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_search_text();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "mt4_term_api.GuiDemoFindCompaniesRequest.search_text"));
+        } else
+          goto handle_unusual;
+        continue;
+      // int32 timeout_seconds = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _impl_.timeout_seconds_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* GuiDemoFindCompaniesRequest::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:mt4_term_api.GuiDemoFindCompaniesRequest)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string search_text = 1;
+  if (!this->_internal_search_text().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_search_text().data(), static_cast<int>(this->_internal_search_text().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "mt4_term_api.GuiDemoFindCompaniesRequest.search_text");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_search_text(), target);
+  }
+
+  // int32 timeout_seconds = 2;
+  if (this->_internal_timeout_seconds() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_timeout_seconds(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:mt4_term_api.GuiDemoFindCompaniesRequest)
+  return target;
+}
+
+size_t GuiDemoFindCompaniesRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:mt4_term_api.GuiDemoFindCompaniesRequest)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string search_text = 1;
+  if (!this->_internal_search_text().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_search_text());
+  }
+
+  // int32 timeout_seconds = 2;
+  if (this->_internal_timeout_seconds() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_timeout_seconds());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData GuiDemoFindCompaniesRequest::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    GuiDemoFindCompaniesRequest::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GuiDemoFindCompaniesRequest::GetClassData() const { return &_class_data_; }
+
+
+void GuiDemoFindCompaniesRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<GuiDemoFindCompaniesRequest*>(&to_msg);
+  auto& from = static_cast<const GuiDemoFindCompaniesRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:mt4_term_api.GuiDemoFindCompaniesRequest)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_search_text().empty()) {
+    _this->_internal_set_search_text(from._internal_search_text());
+  }
+  if (from._internal_timeout_seconds() != 0) {
+    _this->_internal_set_timeout_seconds(from._internal_timeout_seconds());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void GuiDemoFindCompaniesRequest::CopyFrom(const GuiDemoFindCompaniesRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:mt4_term_api.GuiDemoFindCompaniesRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool GuiDemoFindCompaniesRequest::IsInitialized() const {
+  return true;
+}
+
+void GuiDemoFindCompaniesRequest::InternalSwap(GuiDemoFindCompaniesRequest* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.search_text_, lhs_arena,
+      &other->_impl_.search_text_, rhs_arena
+  );
+  swap(_impl_.timeout_seconds_, other->_impl_.timeout_seconds_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata GuiDemoFindCompaniesRequest::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_once,
+      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[0]);
+}
+
+// ===================================================================
+
+class GuiDemoFindCompaniesReply::_Internal {
+ public:
+};
+
+GuiDemoFindCompaniesReply::GuiDemoFindCompaniesReply(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:mt4_term_api.GuiDemoFindCompaniesReply)
+}
+GuiDemoFindCompaniesReply::GuiDemoFindCompaniesReply(const GuiDemoFindCompaniesReply& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  GuiDemoFindCompaniesReply* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.companies_){from._impl_.companies_}
+    , decltype(_impl_.debug_log_){}
+    , decltype(_impl_.result_code_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.debug_log_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.debug_log_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_debug_log().empty()) {
+    _this->_impl_.debug_log_.Set(from._internal_debug_log(), 
+      _this->GetArenaForAllocation());
+  }
+  _this->_impl_.result_code_ = from._impl_.result_code_;
+  // @@protoc_insertion_point(copy_constructor:mt4_term_api.GuiDemoFindCompaniesReply)
+}
+
+inline void GuiDemoFindCompaniesReply::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.companies_){arena}
+    , decltype(_impl_.debug_log_){}
+    , decltype(_impl_.result_code_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.debug_log_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.debug_log_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+GuiDemoFindCompaniesReply::~GuiDemoFindCompaniesReply() {
+  // @@protoc_insertion_point(destructor:mt4_term_api.GuiDemoFindCompaniesReply)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void GuiDemoFindCompaniesReply::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.companies_.~RepeatedPtrField();
+  _impl_.debug_log_.Destroy();
+}
+
+void GuiDemoFindCompaniesReply::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void GuiDemoFindCompaniesReply::Clear() {
+// @@protoc_insertion_point(message_clear_start:mt4_term_api.GuiDemoFindCompaniesReply)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.companies_.Clear();
+  _impl_.debug_log_.ClearToEmpty();
+  _impl_.result_code_ = 0;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* GuiDemoFindCompaniesReply::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // int32 result_code = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.result_code_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated .mt4_term_api.GuiDemoCompany companies = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_companies(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // string debug_log = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          auto str = _internal_mutable_debug_log();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "mt4_term_api.GuiDemoFindCompaniesReply.debug_log"));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* GuiDemoFindCompaniesReply::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:mt4_term_api.GuiDemoFindCompaniesReply)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 result_code = 1;
+  if (this->_internal_result_code() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_result_code(), target);
+  }
+
+  // repeated .mt4_term_api.GuiDemoCompany companies = 2;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_companies_size()); i < n; i++) {
+    const auto& repfield = this->_internal_companies(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(2, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  // string debug_log = 3;
+  if (!this->_internal_debug_log().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_debug_log().data(), static_cast<int>(this->_internal_debug_log().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "mt4_term_api.GuiDemoFindCompaniesReply.debug_log");
+    target = stream->WriteStringMaybeAliased(
+        3, this->_internal_debug_log(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:mt4_term_api.GuiDemoFindCompaniesReply)
+  return target;
+}
+
+size_t GuiDemoFindCompaniesReply::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:mt4_term_api.GuiDemoFindCompaniesReply)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .mt4_term_api.GuiDemoCompany companies = 2;
+  total_size += 1UL * this->_internal_companies_size();
+  for (const auto& msg : this->_impl_.companies_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // string debug_log = 3;
+  if (!this->_internal_debug_log().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_debug_log());
+  }
+
+  // int32 result_code = 1;
+  if (this->_internal_result_code() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_result_code());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData GuiDemoFindCompaniesReply::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    GuiDemoFindCompaniesReply::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GuiDemoFindCompaniesReply::GetClassData() const { return &_class_data_; }
+
+
+void GuiDemoFindCompaniesReply::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<GuiDemoFindCompaniesReply*>(&to_msg);
+  auto& from = static_cast<const GuiDemoFindCompaniesReply&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:mt4_term_api.GuiDemoFindCompaniesReply)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.companies_.MergeFrom(from._impl_.companies_);
+  if (!from._internal_debug_log().empty()) {
+    _this->_internal_set_debug_log(from._internal_debug_log());
+  }
+  if (from._internal_result_code() != 0) {
+    _this->_internal_set_result_code(from._internal_result_code());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void GuiDemoFindCompaniesReply::CopyFrom(const GuiDemoFindCompaniesReply& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:mt4_term_api.GuiDemoFindCompaniesReply)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool GuiDemoFindCompaniesReply::IsInitialized() const {
+  return true;
+}
+
+void GuiDemoFindCompaniesReply::InternalSwap(GuiDemoFindCompaniesReply* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.companies_.InternalSwap(&other->_impl_.companies_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.debug_log_, lhs_arena,
+      &other->_impl_.debug_log_, rhs_arena
+  );
+  swap(_impl_.result_code_, other->_impl_.result_code_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata GuiDemoFindCompaniesReply::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_once,
+      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[1]);
+}
+
+// ===================================================================
+
+class GuiDemoCompany::_Internal {
+ public:
+};
+
+GuiDemoCompany::GuiDemoCompany(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:mt4_term_api.GuiDemoCompany)
+}
+GuiDemoCompany::GuiDemoCompany(const GuiDemoCompany& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  GuiDemoCompany* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.name_){}
+    , decltype(_impl_.short_name_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_name().empty()) {
+    _this->_impl_.name_.Set(from._internal_name(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.short_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.short_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_short_name().empty()) {
+    _this->_impl_.short_name_.Set(from._internal_short_name(), 
+      _this->GetArenaForAllocation());
+  }
+  // @@protoc_insertion_point(copy_constructor:mt4_term_api.GuiDemoCompany)
+}
+
+inline void GuiDemoCompany::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.name_){}
+    , decltype(_impl_.short_name_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.short_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.short_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+GuiDemoCompany::~GuiDemoCompany() {
+  // @@protoc_insertion_point(destructor:mt4_term_api.GuiDemoCompany)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void GuiDemoCompany::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.name_.Destroy();
+  _impl_.short_name_.Destroy();
+}
+
+void GuiDemoCompany::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void GuiDemoCompany::Clear() {
+// @@protoc_insertion_point(message_clear_start:mt4_term_api.GuiDemoCompany)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.name_.ClearToEmpty();
+  _impl_.short_name_.ClearToEmpty();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* GuiDemoCompany::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // string name = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_name();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "mt4_term_api.GuiDemoCompany.name"));
+        } else
+          goto handle_unusual;
+        continue;
+      // string short_name = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_short_name();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "mt4_term_api.GuiDemoCompany.short_name"));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* GuiDemoCompany::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:mt4_term_api.GuiDemoCompany)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string name = 1;
+  if (!this->_internal_name().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "mt4_term_api.GuiDemoCompany.name");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_name(), target);
+  }
+
+  // string short_name = 2;
+  if (!this->_internal_short_name().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_short_name().data(), static_cast<int>(this->_internal_short_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "mt4_term_api.GuiDemoCompany.short_name");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_short_name(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:mt4_term_api.GuiDemoCompany)
+  return target;
+}
+
+size_t GuiDemoCompany::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:mt4_term_api.GuiDemoCompany)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string name = 1;
+  if (!this->_internal_name().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_name());
+  }
+
+  // string short_name = 2;
+  if (!this->_internal_short_name().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_short_name());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData GuiDemoCompany::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    GuiDemoCompany::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GuiDemoCompany::GetClassData() const { return &_class_data_; }
+
+
+void GuiDemoCompany::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<GuiDemoCompany*>(&to_msg);
+  auto& from = static_cast<const GuiDemoCompany&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:mt4_term_api.GuiDemoCompany)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_name().empty()) {
+    _this->_internal_set_name(from._internal_name());
+  }
+  if (!from._internal_short_name().empty()) {
+    _this->_internal_set_short_name(from._internal_short_name());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void GuiDemoCompany::CopyFrom(const GuiDemoCompany& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:mt4_term_api.GuiDemoCompany)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool GuiDemoCompany::IsInitialized() const {
+  return true;
+}
+
+void GuiDemoCompany::InternalSwap(GuiDemoCompany* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.name_, lhs_arena,
+      &other->_impl_.name_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.short_name_, lhs_arena,
+      &other->_impl_.short_name_, rhs_arena
+  );
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata GuiDemoCompany::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_once,
+      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[2]);
+}
+
+// ===================================================================
+
+class GuiDemoServersAndTypesRequest::_Internal {
+ public:
+};
+
+GuiDemoServersAndTypesRequest::GuiDemoServersAndTypesRequest(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:mt4_term_api.GuiDemoServersAndTypesRequest)
+}
+GuiDemoServersAndTypesRequest::GuiDemoServersAndTypesRequest(const GuiDemoServersAndTypesRequest& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  GuiDemoServersAndTypesRequest* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.company_name_){}
+    , decltype(_impl_.timeout_seconds_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.company_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.company_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_company_name().empty()) {
+    _this->_impl_.company_name_.Set(from._internal_company_name(), 
+      _this->GetArenaForAllocation());
+  }
+  _this->_impl_.timeout_seconds_ = from._impl_.timeout_seconds_;
+  // @@protoc_insertion_point(copy_constructor:mt4_term_api.GuiDemoServersAndTypesRequest)
+}
+
+inline void GuiDemoServersAndTypesRequest::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.company_name_){}
+    , decltype(_impl_.timeout_seconds_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.company_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.company_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+GuiDemoServersAndTypesRequest::~GuiDemoServersAndTypesRequest() {
+  // @@protoc_insertion_point(destructor:mt4_term_api.GuiDemoServersAndTypesRequest)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void GuiDemoServersAndTypesRequest::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.company_name_.Destroy();
+}
+
+void GuiDemoServersAndTypesRequest::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void GuiDemoServersAndTypesRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:mt4_term_api.GuiDemoServersAndTypesRequest)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.company_name_.ClearToEmpty();
+  _impl_.timeout_seconds_ = 0;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* GuiDemoServersAndTypesRequest::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // string company_name = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_company_name();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "mt4_term_api.GuiDemoServersAndTypesRequest.company_name"));
+        } else
+          goto handle_unusual;
+        continue;
+      // int32 timeout_seconds = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _impl_.timeout_seconds_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* GuiDemoServersAndTypesRequest::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:mt4_term_api.GuiDemoServersAndTypesRequest)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // string company_name = 1;
+  if (!this->_internal_company_name().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_company_name().data(), static_cast<int>(this->_internal_company_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "mt4_term_api.GuiDemoServersAndTypesRequest.company_name");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_company_name(), target);
+  }
+
+  // int32 timeout_seconds = 2;
+  if (this->_internal_timeout_seconds() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_timeout_seconds(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:mt4_term_api.GuiDemoServersAndTypesRequest)
+  return target;
+}
+
+size_t GuiDemoServersAndTypesRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:mt4_term_api.GuiDemoServersAndTypesRequest)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string company_name = 1;
+  if (!this->_internal_company_name().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_company_name());
+  }
+
+  // int32 timeout_seconds = 2;
+  if (this->_internal_timeout_seconds() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_timeout_seconds());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData GuiDemoServersAndTypesRequest::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    GuiDemoServersAndTypesRequest::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GuiDemoServersAndTypesRequest::GetClassData() const { return &_class_data_; }
+
+
+void GuiDemoServersAndTypesRequest::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<GuiDemoServersAndTypesRequest*>(&to_msg);
+  auto& from = static_cast<const GuiDemoServersAndTypesRequest&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:mt4_term_api.GuiDemoServersAndTypesRequest)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (!from._internal_company_name().empty()) {
+    _this->_internal_set_company_name(from._internal_company_name());
+  }
+  if (from._internal_timeout_seconds() != 0) {
+    _this->_internal_set_timeout_seconds(from._internal_timeout_seconds());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void GuiDemoServersAndTypesRequest::CopyFrom(const GuiDemoServersAndTypesRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:mt4_term_api.GuiDemoServersAndTypesRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool GuiDemoServersAndTypesRequest::IsInitialized() const {
+  return true;
+}
+
+void GuiDemoServersAndTypesRequest::InternalSwap(GuiDemoServersAndTypesRequest* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.company_name_, lhs_arena,
+      &other->_impl_.company_name_, rhs_arena
+  );
+  swap(_impl_.timeout_seconds_, other->_impl_.timeout_seconds_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata GuiDemoServersAndTypesRequest::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_once,
+      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[3]);
+}
+
+// ===================================================================
+
+class GuiDemoServersAndTypesReply::_Internal {
+ public:
+};
+
+GuiDemoServersAndTypesReply::GuiDemoServersAndTypesReply(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:mt4_term_api.GuiDemoServersAndTypesReply)
+}
+GuiDemoServersAndTypesReply::GuiDemoServersAndTypesReply(const GuiDemoServersAndTypesReply& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  GuiDemoServersAndTypesReply* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.servers_){from._impl_.servers_}
+    , decltype(_impl_.account_types_){from._impl_.account_types_}
+    , decltype(_impl_.deposits_){from._impl_.deposits_}
+    , decltype(_impl_.leverages_){from._impl_.leverages_}
+    , decltype(_impl_.debug_log_){}
+    , decltype(_impl_.result_code_){}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.debug_log_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.debug_log_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (!from._internal_debug_log().empty()) {
+    _this->_impl_.debug_log_.Set(from._internal_debug_log(), 
+      _this->GetArenaForAllocation());
+  }
+  _this->_impl_.result_code_ = from._impl_.result_code_;
+  // @@protoc_insertion_point(copy_constructor:mt4_term_api.GuiDemoServersAndTypesReply)
+}
+
+inline void GuiDemoServersAndTypesReply::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.servers_){arena}
+    , decltype(_impl_.account_types_){arena}
+    , decltype(_impl_.deposits_){arena}
+    , decltype(_impl_.leverages_){arena}
+    , decltype(_impl_.debug_log_){}
+    , decltype(_impl_.result_code_){0}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+  _impl_.debug_log_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.debug_log_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+GuiDemoServersAndTypesReply::~GuiDemoServersAndTypesReply() {
+  // @@protoc_insertion_point(destructor:mt4_term_api.GuiDemoServersAndTypesReply)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void GuiDemoServersAndTypesReply::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.servers_.~RepeatedPtrField();
+  _impl_.account_types_.~RepeatedPtrField();
+  _impl_.deposits_.~RepeatedPtrField();
+  _impl_.leverages_.~RepeatedPtrField();
+  _impl_.debug_log_.Destroy();
+}
+
+void GuiDemoServersAndTypesReply::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void GuiDemoServersAndTypesReply::Clear() {
+// @@protoc_insertion_point(message_clear_start:mt4_term_api.GuiDemoServersAndTypesReply)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.servers_.Clear();
+  _impl_.account_types_.Clear();
+  _impl_.deposits_.Clear();
+  _impl_.leverages_.Clear();
+  _impl_.debug_log_.ClearToEmpty();
+  _impl_.result_code_ = 0;
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* GuiDemoServersAndTypesReply::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // int32 result_code = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _impl_.result_code_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated string servers = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            auto str = _internal_add_servers();
+            ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+            CHK_(ptr);
+            CHK_(::_pbi::VerifyUTF8(str, "mt4_term_api.GuiDemoServersAndTypesReply.servers"));
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated string account_types = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            auto str = _internal_add_account_types();
+            ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+            CHK_(ptr);
+            CHK_(::_pbi::VerifyUTF8(str, "mt4_term_api.GuiDemoServersAndTypesReply.account_types"));
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated string deposits = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            auto str = _internal_add_deposits();
+            ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+            CHK_(ptr);
+            CHK_(::_pbi::VerifyUTF8(str, "mt4_term_api.GuiDemoServersAndTypesReply.deposits"));
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated string leverages = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            auto str = _internal_add_leverages();
+            ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+            CHK_(ptr);
+            CHK_(::_pbi::VerifyUTF8(str, "mt4_term_api.GuiDemoServersAndTypesReply.leverages"));
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<42>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // string debug_log = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 50)) {
+          auto str = _internal_mutable_debug_log();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          CHK_(::_pbi::VerifyUTF8(str, "mt4_term_api.GuiDemoServersAndTypesReply.debug_log"));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* GuiDemoServersAndTypesReply::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:mt4_term_api.GuiDemoServersAndTypesReply)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // int32 result_code = 1;
+  if (this->_internal_result_code() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_result_code(), target);
+  }
+
+  // repeated string servers = 2;
+  for (int i = 0, n = this->_internal_servers_size(); i < n; i++) {
+    const auto& s = this->_internal_servers(i);
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      s.data(), static_cast<int>(s.length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "mt4_term_api.GuiDemoServersAndTypesReply.servers");
+    target = stream->WriteString(2, s, target);
+  }
+
+  // repeated string account_types = 3;
+  for (int i = 0, n = this->_internal_account_types_size(); i < n; i++) {
+    const auto& s = this->_internal_account_types(i);
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      s.data(), static_cast<int>(s.length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "mt4_term_api.GuiDemoServersAndTypesReply.account_types");
+    target = stream->WriteString(3, s, target);
+  }
+
+  // repeated string deposits = 4;
+  for (int i = 0, n = this->_internal_deposits_size(); i < n; i++) {
+    const auto& s = this->_internal_deposits(i);
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      s.data(), static_cast<int>(s.length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "mt4_term_api.GuiDemoServersAndTypesReply.deposits");
+    target = stream->WriteString(4, s, target);
+  }
+
+  // repeated string leverages = 5;
+  for (int i = 0, n = this->_internal_leverages_size(); i < n; i++) {
+    const auto& s = this->_internal_leverages(i);
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      s.data(), static_cast<int>(s.length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "mt4_term_api.GuiDemoServersAndTypesReply.leverages");
+    target = stream->WriteString(5, s, target);
+  }
+
+  // string debug_log = 6;
+  if (!this->_internal_debug_log().empty()) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_debug_log().data(), static_cast<int>(this->_internal_debug_log().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "mt4_term_api.GuiDemoServersAndTypesReply.debug_log");
+    target = stream->WriteStringMaybeAliased(
+        6, this->_internal_debug_log(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:mt4_term_api.GuiDemoServersAndTypesReply)
+  return target;
+}
+
+size_t GuiDemoServersAndTypesReply::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:mt4_term_api.GuiDemoServersAndTypesReply)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated string servers = 2;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(_impl_.servers_.size());
+  for (int i = 0, n = _impl_.servers_.size(); i < n; i++) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      _impl_.servers_.Get(i));
+  }
+
+  // repeated string account_types = 3;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(_impl_.account_types_.size());
+  for (int i = 0, n = _impl_.account_types_.size(); i < n; i++) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      _impl_.account_types_.Get(i));
+  }
+
+  // repeated string deposits = 4;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(_impl_.deposits_.size());
+  for (int i = 0, n = _impl_.deposits_.size(); i < n; i++) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      _impl_.deposits_.Get(i));
+  }
+
+  // repeated string leverages = 5;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(_impl_.leverages_.size());
+  for (int i = 0, n = _impl_.leverages_.size(); i < n; i++) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      _impl_.leverages_.Get(i));
+  }
+
+  // string debug_log = 6;
+  if (!this->_internal_debug_log().empty()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_debug_log());
+  }
+
+  // int32 result_code = 1;
+  if (this->_internal_result_code() != 0) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_result_code());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData GuiDemoServersAndTypesReply::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    GuiDemoServersAndTypesReply::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GuiDemoServersAndTypesReply::GetClassData() const { return &_class_data_; }
+
+
+void GuiDemoServersAndTypesReply::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<GuiDemoServersAndTypesReply*>(&to_msg);
+  auto& from = static_cast<const GuiDemoServersAndTypesReply&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:mt4_term_api.GuiDemoServersAndTypesReply)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.servers_.MergeFrom(from._impl_.servers_);
+  _this->_impl_.account_types_.MergeFrom(from._impl_.account_types_);
+  _this->_impl_.deposits_.MergeFrom(from._impl_.deposits_);
+  _this->_impl_.leverages_.MergeFrom(from._impl_.leverages_);
+  if (!from._internal_debug_log().empty()) {
+    _this->_internal_set_debug_log(from._internal_debug_log());
+  }
+  if (from._internal_result_code() != 0) {
+    _this->_internal_set_result_code(from._internal_result_code());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void GuiDemoServersAndTypesReply::CopyFrom(const GuiDemoServersAndTypesReply& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:mt4_term_api.GuiDemoServersAndTypesReply)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool GuiDemoServersAndTypesReply::IsInitialized() const {
+  return true;
+}
+
+void GuiDemoServersAndTypesReply::InternalSwap(GuiDemoServersAndTypesReply* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.servers_.InternalSwap(&other->_impl_.servers_);
+  _impl_.account_types_.InternalSwap(&other->_impl_.account_types_);
+  _impl_.deposits_.InternalSwap(&other->_impl_.deposits_);
+  _impl_.leverages_.InternalSwap(&other->_impl_.leverages_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.debug_log_, lhs_arena,
+      &other->_impl_.debug_log_, rhs_arena
+  );
+  swap(_impl_.result_code_, other->_impl_.result_code_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata GuiDemoServersAndTypesReply::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_once,
+      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[4]);
+}
 
 // ===================================================================
 
@@ -1339,7 +2849,7 @@ void GuiDemoOpenAccountRequest::InternalSwap(GuiDemoOpenAccountRequest* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata GuiDemoOpenAccountRequest::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[0]);
+      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[5]);
 }
 
 // ===================================================================
@@ -1769,7 +3279,7 @@ void GuiDemoOpenAccountReply::InternalSwap(GuiDemoOpenAccountReply* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata GuiDemoOpenAccountReply::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[1]);
+      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[6]);
 }
 
 // ===================================================================
@@ -2358,7 +3868,7 @@ void GuiDemoInteractiveClientMessage::InternalSwap(GuiDemoInteractiveClientMessa
 ::PROTOBUF_NAMESPACE_ID::Metadata GuiDemoInteractiveClientMessage::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[2]);
+      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[7]);
 }
 
 // ===================================================================
@@ -2588,7 +4098,7 @@ void GuiDemoInteractiveSearchCompany::InternalSwap(GuiDemoInteractiveSearchCompa
 ::PROTOBUF_NAMESPACE_ID::Metadata GuiDemoInteractiveSearchCompany::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[3]);
+      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[8]);
 }
 
 // ===================================================================
@@ -2901,7 +4411,7 @@ void GuiDemoInteractiveSelectCompany::InternalSwap(GuiDemoInteractiveSelectCompa
 ::PROTOBUF_NAMESPACE_ID::Metadata GuiDemoInteractiveSelectCompany::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[4]);
+      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[9]);
 }
 
 // ===================================================================
@@ -2915,7 +4425,7 @@ void GuiDemoInteractiveSubmitForm_FieldsEntry_DoNotUse::MergeFrom(const GuiDemoI
 ::PROTOBUF_NAMESPACE_ID::Metadata GuiDemoInteractiveSubmitForm_FieldsEntry_DoNotUse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[5]);
+      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[10]);
 }
 
 // ===================================================================
@@ -2929,7 +4439,7 @@ void GuiDemoInteractiveSubmitForm_DropdownSelectionsEntry_DoNotUse::MergeFrom(co
 ::PROTOBUF_NAMESPACE_ID::Metadata GuiDemoInteractiveSubmitForm_DropdownSelectionsEntry_DoNotUse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[6]);
+      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[11]);
 }
 
 // ===================================================================
@@ -3236,7 +4746,7 @@ void GuiDemoInteractiveSubmitForm::InternalSwap(GuiDemoInteractiveSubmitForm* ot
 ::PROTOBUF_NAMESPACE_ID::Metadata GuiDemoInteractiveSubmitForm::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[7]);
+      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[12]);
 }
 
 // ===================================================================
@@ -3439,7 +4949,7 @@ void GuiDemoInteractiveSubmitTwoFactor::InternalSwap(GuiDemoInteractiveSubmitTwo
 ::PROTOBUF_NAMESPACE_ID::Metadata GuiDemoInteractiveSubmitTwoFactor::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[8]);
+      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[13]);
 }
 
 // ===================================================================
@@ -3642,7 +5152,7 @@ void GuiDemoInteractiveCancelSession::InternalSwap(GuiDemoInteractiveCancelSessi
 ::PROTOBUF_NAMESPACE_ID::Metadata GuiDemoInteractiveCancelSession::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[9]);
+      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[14]);
 }
 
 // ===================================================================
@@ -3845,7 +5355,7 @@ void GuiDemoInteractiveRequestScreenshot::InternalSwap(GuiDemoInteractiveRequest
 ::PROTOBUF_NAMESPACE_ID::Metadata GuiDemoInteractiveRequestScreenshot::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[10]);
+      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[15]);
 }
 
 // ===================================================================
@@ -4519,7 +6029,7 @@ void GuiDemoInteractiveServerMessage::InternalSwap(GuiDemoInteractiveServerMessa
 ::PROTOBUF_NAMESPACE_ID::Metadata GuiDemoInteractiveServerMessage::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[11]);
+      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[16]);
 }
 
 // ===================================================================
@@ -4832,7 +6342,7 @@ void GuiDemoInteractiveCompanyItem::InternalSwap(GuiDemoInteractiveCompanyItem* 
 ::PROTOBUF_NAMESPACE_ID::Metadata GuiDemoInteractiveCompanyItem::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[12]);
+      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[17]);
 }
 
 // ===================================================================
@@ -5096,7 +6606,7 @@ void GuiDemoInteractiveCompanyList::InternalSwap(GuiDemoInteractiveCompanyList* 
 ::PROTOBUF_NAMESPACE_ID::Metadata GuiDemoInteractiveCompanyList::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[13]);
+      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[18]);
 }
 
 // ===================================================================
@@ -5486,7 +6996,7 @@ void GuiDemoInteractiveFormField::InternalSwap(GuiDemoInteractiveFormField* othe
 ::PROTOBUF_NAMESPACE_ID::Metadata GuiDemoInteractiveFormField::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[14]);
+      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[19]);
 }
 
 // ===================================================================
@@ -5888,7 +7398,7 @@ void GuiDemoInteractiveDropdown::InternalSwap(GuiDemoInteractiveDropdown* other)
 ::PROTOBUF_NAMESPACE_ID::Metadata GuiDemoInteractiveDropdown::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[15]);
+      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[20]);
 }
 
 // ===================================================================
@@ -6293,7 +7803,7 @@ void GuiDemoInteractiveFormSchema::InternalSwap(GuiDemoInteractiveFormSchema* ot
 ::PROTOBUF_NAMESPACE_ID::Metadata GuiDemoInteractiveFormSchema::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[16]);
+      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[21]);
 }
 
 // ===================================================================
@@ -6657,7 +8167,7 @@ void GuiDemoInteractiveTwoFactorChallenge::InternalSwap(GuiDemoInteractiveTwoFac
 ::PROTOBUF_NAMESPACE_ID::Metadata GuiDemoInteractiveTwoFactorChallenge::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[17]);
+      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[22]);
 }
 
 // ===================================================================
@@ -7070,7 +8580,7 @@ void GuiDemoInteractiveCompleted::InternalSwap(GuiDemoInteractiveCompleted* othe
 ::PROTOBUF_NAMESPACE_ID::Metadata GuiDemoInteractiveCompleted::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[18]);
+      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[23]);
 }
 
 // ===================================================================
@@ -7350,7 +8860,7 @@ void GuiDemoInteractiveProgress::InternalSwap(GuiDemoInteractiveProgress* other)
 ::PROTOBUF_NAMESPACE_ID::Metadata GuiDemoInteractiveProgress::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[19]);
+      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[24]);
 }
 
 // ===================================================================
@@ -7663,7 +9173,7 @@ void GuiDemoInteractiveError::InternalSwap(GuiDemoInteractiveError* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata GuiDemoInteractiveError::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[20]);
+      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[25]);
 }
 
 // ===================================================================
@@ -7961,12 +9471,32 @@ void GuiDemoInteractiveScreenshot::InternalSwap(GuiDemoInteractiveScreenshot* ot
 ::PROTOBUF_NAMESPACE_ID::Metadata GuiDemoInteractiveScreenshot::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_getter, &descriptor_table_mt4_2dterm_2dapi_2dgui_2eproto_once,
-      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[21]);
+      file_level_metadata_mt4_2dterm_2dapi_2dgui_2eproto[26]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
 }  // namespace mt4_term_api
 PROTOBUF_NAMESPACE_OPEN
+template<> PROTOBUF_NOINLINE ::mt4_term_api::GuiDemoFindCompaniesRequest*
+Arena::CreateMaybeMessage< ::mt4_term_api::GuiDemoFindCompaniesRequest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::mt4_term_api::GuiDemoFindCompaniesRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::mt4_term_api::GuiDemoFindCompaniesReply*
+Arena::CreateMaybeMessage< ::mt4_term_api::GuiDemoFindCompaniesReply >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::mt4_term_api::GuiDemoFindCompaniesReply >(arena);
+}
+template<> PROTOBUF_NOINLINE ::mt4_term_api::GuiDemoCompany*
+Arena::CreateMaybeMessage< ::mt4_term_api::GuiDemoCompany >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::mt4_term_api::GuiDemoCompany >(arena);
+}
+template<> PROTOBUF_NOINLINE ::mt4_term_api::GuiDemoServersAndTypesRequest*
+Arena::CreateMaybeMessage< ::mt4_term_api::GuiDemoServersAndTypesRequest >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::mt4_term_api::GuiDemoServersAndTypesRequest >(arena);
+}
+template<> PROTOBUF_NOINLINE ::mt4_term_api::GuiDemoServersAndTypesReply*
+Arena::CreateMaybeMessage< ::mt4_term_api::GuiDemoServersAndTypesReply >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::mt4_term_api::GuiDemoServersAndTypesReply >(arena);
+}
 template<> PROTOBUF_NOINLINE ::mt4_term_api::GuiDemoOpenAccountRequest*
 Arena::CreateMaybeMessage< ::mt4_term_api::GuiDemoOpenAccountRequest >(Arena* arena) {
   return Arena::CreateMessageInternal< ::mt4_term_api::GuiDemoOpenAccountRequest >(arena);
