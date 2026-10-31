@@ -209,6 +209,15 @@ class AdminApi final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mrpc_admin::StopTerminalLocalReply>> PrepareAsyncStopTerminalLocal(::grpc::ClientContext* context, const ::mrpc_admin::StopTerminalLocalRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mrpc_admin::StopTerminalLocalReply>>(PrepareAsyncStopTerminalLocalRaw(context, request, cq));
     }
+    // Grants or revokes the dedicated-IP add-on entitlement for ONE terminal (see the mt5 admin proto for the canonical
+    // definition; this copy exists for the mt4 client libs). ADMIN_KEY required.
+    virtual ::grpc::Status SetDedicatedIpEntitlement(::grpc::ClientContext* context, const ::mrpc_admin::SetDedicatedIpEntitlementRequest& request, ::mrpc_admin::SetDedicatedIpEntitlementReply* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mrpc_admin::SetDedicatedIpEntitlementReply>> AsyncSetDedicatedIpEntitlement(::grpc::ClientContext* context, const ::mrpc_admin::SetDedicatedIpEntitlementRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mrpc_admin::SetDedicatedIpEntitlementReply>>(AsyncSetDedicatedIpEntitlementRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mrpc_admin::SetDedicatedIpEntitlementReply>> PrepareAsyncSetDedicatedIpEntitlement(::grpc::ClientContext* context, const ::mrpc_admin::SetDedicatedIpEntitlementRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::mrpc_admin::SetDedicatedIpEntitlementReply>>(PrepareAsyncSetDedicatedIpEntitlementRaw(context, request, cq));
+    }
     class async_interface {
      public:
       virtual ~async_interface() {}
@@ -290,6 +299,10 @@ class AdminApi final {
       // InternalReap are accepted. Callers must check reply.error.
       virtual void StopTerminalLocal(::grpc::ClientContext* context, const ::mrpc_admin::StopTerminalLocalRequest* request, ::mrpc_admin::StopTerminalLocalReply* response, std::function<void(::grpc::Status)>) = 0;
       virtual void StopTerminalLocal(::grpc::ClientContext* context, const ::mrpc_admin::StopTerminalLocalRequest* request, ::mrpc_admin::StopTerminalLocalReply* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      // Grants or revokes the dedicated-IP add-on entitlement for ONE terminal (see the mt5 admin proto for the canonical
+      // definition; this copy exists for the mt4 client libs). ADMIN_KEY required.
+      virtual void SetDedicatedIpEntitlement(::grpc::ClientContext* context, const ::mrpc_admin::SetDedicatedIpEntitlementRequest* request, ::mrpc_admin::SetDedicatedIpEntitlementReply* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void SetDedicatedIpEntitlement(::grpc::ClientContext* context, const ::mrpc_admin::SetDedicatedIpEntitlementRequest* request, ::mrpc_admin::SetDedicatedIpEntitlementReply* response, ::grpc::ClientUnaryReactor* reactor) = 0;
     };
     typedef class async_interface experimental_async_interface;
     virtual class async_interface* async() { return nullptr; }
@@ -329,6 +342,8 @@ class AdminApi final {
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::mrpc_admin::DrainReply>* PrepareAsyncDrainRaw(::grpc::ClientContext* context, const ::mrpc_admin::DrainRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::mrpc_admin::StopTerminalLocalReply>* AsyncStopTerminalLocalRaw(::grpc::ClientContext* context, const ::mrpc_admin::StopTerminalLocalRequest& request, ::grpc::CompletionQueue* cq) = 0;
     virtual ::grpc::ClientAsyncResponseReaderInterface< ::mrpc_admin::StopTerminalLocalReply>* PrepareAsyncStopTerminalLocalRaw(::grpc::ClientContext* context, const ::mrpc_admin::StopTerminalLocalRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::mrpc_admin::SetDedicatedIpEntitlementReply>* AsyncSetDedicatedIpEntitlementRaw(::grpc::ClientContext* context, const ::mrpc_admin::SetDedicatedIpEntitlementRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::mrpc_admin::SetDedicatedIpEntitlementReply>* PrepareAsyncSetDedicatedIpEntitlementRaw(::grpc::ClientContext* context, const ::mrpc_admin::SetDedicatedIpEntitlementRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
@@ -452,6 +467,13 @@ class AdminApi final {
     std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mrpc_admin::StopTerminalLocalReply>> PrepareAsyncStopTerminalLocal(::grpc::ClientContext* context, const ::mrpc_admin::StopTerminalLocalRequest& request, ::grpc::CompletionQueue* cq) {
       return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mrpc_admin::StopTerminalLocalReply>>(PrepareAsyncStopTerminalLocalRaw(context, request, cq));
     }
+    ::grpc::Status SetDedicatedIpEntitlement(::grpc::ClientContext* context, const ::mrpc_admin::SetDedicatedIpEntitlementRequest& request, ::mrpc_admin::SetDedicatedIpEntitlementReply* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mrpc_admin::SetDedicatedIpEntitlementReply>> AsyncSetDedicatedIpEntitlement(::grpc::ClientContext* context, const ::mrpc_admin::SetDedicatedIpEntitlementRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mrpc_admin::SetDedicatedIpEntitlementReply>>(AsyncSetDedicatedIpEntitlementRaw(context, request, cq));
+    }
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mrpc_admin::SetDedicatedIpEntitlementReply>> PrepareAsyncSetDedicatedIpEntitlement(::grpc::ClientContext* context, const ::mrpc_admin::SetDedicatedIpEntitlementRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::mrpc_admin::SetDedicatedIpEntitlementReply>>(PrepareAsyncSetDedicatedIpEntitlementRaw(context, request, cq));
+    }
     class async final :
       public StubInterface::async_interface {
      public:
@@ -489,6 +511,8 @@ class AdminApi final {
       void Drain(::grpc::ClientContext* context, const ::mrpc_admin::DrainRequest* request, ::mrpc_admin::DrainReply* response, ::grpc::ClientUnaryReactor* reactor) override;
       void StopTerminalLocal(::grpc::ClientContext* context, const ::mrpc_admin::StopTerminalLocalRequest* request, ::mrpc_admin::StopTerminalLocalReply* response, std::function<void(::grpc::Status)>) override;
       void StopTerminalLocal(::grpc::ClientContext* context, const ::mrpc_admin::StopTerminalLocalRequest* request, ::mrpc_admin::StopTerminalLocalReply* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void SetDedicatedIpEntitlement(::grpc::ClientContext* context, const ::mrpc_admin::SetDedicatedIpEntitlementRequest* request, ::mrpc_admin::SetDedicatedIpEntitlementReply* response, std::function<void(::grpc::Status)>) override;
+      void SetDedicatedIpEntitlement(::grpc::ClientContext* context, const ::mrpc_admin::SetDedicatedIpEntitlementRequest* request, ::mrpc_admin::SetDedicatedIpEntitlementReply* response, ::grpc::ClientUnaryReactor* reactor) override;
      private:
       friend class Stub;
       explicit async(Stub* stub): stub_(stub) { }
@@ -534,6 +558,8 @@ class AdminApi final {
     ::grpc::ClientAsyncResponseReader< ::mrpc_admin::DrainReply>* PrepareAsyncDrainRaw(::grpc::ClientContext* context, const ::mrpc_admin::DrainRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::mrpc_admin::StopTerminalLocalReply>* AsyncStopTerminalLocalRaw(::grpc::ClientContext* context, const ::mrpc_admin::StopTerminalLocalRequest& request, ::grpc::CompletionQueue* cq) override;
     ::grpc::ClientAsyncResponseReader< ::mrpc_admin::StopTerminalLocalReply>* PrepareAsyncStopTerminalLocalRaw(::grpc::ClientContext* context, const ::mrpc_admin::StopTerminalLocalRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::mrpc_admin::SetDedicatedIpEntitlementReply>* AsyncSetDedicatedIpEntitlementRaw(::grpc::ClientContext* context, const ::mrpc_admin::SetDedicatedIpEntitlementRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::mrpc_admin::SetDedicatedIpEntitlementReply>* PrepareAsyncSetDedicatedIpEntitlementRaw(::grpc::ClientContext* context, const ::mrpc_admin::SetDedicatedIpEntitlementRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_ActiveTerminals_;
     const ::grpc::internal::RpcMethod rpcmethod_ActiveTerminalsCluster_;
     const ::grpc::internal::RpcMethod rpcmethod_SystemUsage_;
@@ -551,6 +577,7 @@ class AdminApi final {
     const ::grpc::internal::RpcMethod rpcmethod_KillAllTrialTerminalsLocal_;
     const ::grpc::internal::RpcMethod rpcmethod_Drain_;
     const ::grpc::internal::RpcMethod rpcmethod_StopTerminalLocal_;
+    const ::grpc::internal::RpcMethod rpcmethod_SetDedicatedIpEntitlement_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -619,6 +646,9 @@ class AdminApi final {
     // records any stop intent). cause is a StopCause name; only customer/API/admin/delete/test stops and
     // InternalReap are accepted. Callers must check reply.error.
     virtual ::grpc::Status StopTerminalLocal(::grpc::ServerContext* context, const ::mrpc_admin::StopTerminalLocalRequest* request, ::mrpc_admin::StopTerminalLocalReply* response);
+    // Grants or revokes the dedicated-IP add-on entitlement for ONE terminal (see the mt5 admin proto for the canonical
+    // definition; this copy exists for the mt4 client libs). ADMIN_KEY required.
+    virtual ::grpc::Status SetDedicatedIpEntitlement(::grpc::ServerContext* context, const ::mrpc_admin::SetDedicatedIpEntitlementRequest* request, ::mrpc_admin::SetDedicatedIpEntitlementReply* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_ActiveTerminals : public BaseClass {
@@ -960,7 +990,27 @@ class AdminApi final {
       ::grpc::Service::RequestAsyncUnary(16, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_ActiveTerminals<WithAsyncMethod_ActiveTerminalsCluster<WithAsyncMethod_SystemUsage<WithAsyncMethod_ListLogFiles<WithAsyncMethod_GetLogFile<WithAsyncMethod_GetEventLogEntries<WithAsyncMethod_CaptureSessionScreenshot<WithAsyncMethod_CaptureSessionScreenshotOnPod<WithAsyncMethod_RefreshMrpcRest<WithAsyncMethod_GetVersion<WithAsyncMethod_GetAllLogs<WithAsyncMethod_GetSessionRestoreLogs<WithAsyncMethod_GetSessionRestoreStatus<WithAsyncMethod_KillAllTrialTerminals<WithAsyncMethod_KillAllTrialTerminalsLocal<WithAsyncMethod_Drain<WithAsyncMethod_StopTerminalLocal<Service > > > > > > > > > > > > > > > > > AsyncService;
+  template <class BaseClass>
+  class WithAsyncMethod_SetDedicatedIpEntitlement : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithAsyncMethod_SetDedicatedIpEntitlement() {
+      ::grpc::Service::MarkMethodAsync(17);
+    }
+    ~WithAsyncMethod_SetDedicatedIpEntitlement() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SetDedicatedIpEntitlement(::grpc::ServerContext* /*context*/, const ::mrpc_admin::SetDedicatedIpEntitlementRequest* /*request*/, ::mrpc_admin::SetDedicatedIpEntitlementReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSetDedicatedIpEntitlement(::grpc::ServerContext* context, ::mrpc_admin::SetDedicatedIpEntitlementRequest* request, ::grpc::ServerAsyncResponseWriter< ::mrpc_admin::SetDedicatedIpEntitlementReply>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(17, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_ActiveTerminals<WithAsyncMethod_ActiveTerminalsCluster<WithAsyncMethod_SystemUsage<WithAsyncMethod_ListLogFiles<WithAsyncMethod_GetLogFile<WithAsyncMethod_GetEventLogEntries<WithAsyncMethod_CaptureSessionScreenshot<WithAsyncMethod_CaptureSessionScreenshotOnPod<WithAsyncMethod_RefreshMrpcRest<WithAsyncMethod_GetVersion<WithAsyncMethod_GetAllLogs<WithAsyncMethod_GetSessionRestoreLogs<WithAsyncMethod_GetSessionRestoreStatus<WithAsyncMethod_KillAllTrialTerminals<WithAsyncMethod_KillAllTrialTerminalsLocal<WithAsyncMethod_Drain<WithAsyncMethod_StopTerminalLocal<WithAsyncMethod_SetDedicatedIpEntitlement<Service > > > > > > > > > > > > > > > > > > AsyncService;
   template <class BaseClass>
   class WithCallbackMethod_ActiveTerminals : public BaseClass {
    private:
@@ -1420,7 +1470,34 @@ class AdminApi final {
     virtual ::grpc::ServerUnaryReactor* StopTerminalLocal(
       ::grpc::CallbackServerContext* /*context*/, const ::mrpc_admin::StopTerminalLocalRequest* /*request*/, ::mrpc_admin::StopTerminalLocalReply* /*response*/)  { return nullptr; }
   };
-  typedef WithCallbackMethod_ActiveTerminals<WithCallbackMethod_ActiveTerminalsCluster<WithCallbackMethod_SystemUsage<WithCallbackMethod_ListLogFiles<WithCallbackMethod_GetLogFile<WithCallbackMethod_GetEventLogEntries<WithCallbackMethod_CaptureSessionScreenshot<WithCallbackMethod_CaptureSessionScreenshotOnPod<WithCallbackMethod_RefreshMrpcRest<WithCallbackMethod_GetVersion<WithCallbackMethod_GetAllLogs<WithCallbackMethod_GetSessionRestoreLogs<WithCallbackMethod_GetSessionRestoreStatus<WithCallbackMethod_KillAllTrialTerminals<WithCallbackMethod_KillAllTrialTerminalsLocal<WithCallbackMethod_Drain<WithCallbackMethod_StopTerminalLocal<Service > > > > > > > > > > > > > > > > > CallbackService;
+  template <class BaseClass>
+  class WithCallbackMethod_SetDedicatedIpEntitlement : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithCallbackMethod_SetDedicatedIpEntitlement() {
+      ::grpc::Service::MarkMethodCallback(17,
+          new ::grpc::internal::CallbackUnaryHandler< ::mrpc_admin::SetDedicatedIpEntitlementRequest, ::mrpc_admin::SetDedicatedIpEntitlementReply>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::mrpc_admin::SetDedicatedIpEntitlementRequest* request, ::mrpc_admin::SetDedicatedIpEntitlementReply* response) { return this->SetDedicatedIpEntitlement(context, request, response); }));}
+    void SetMessageAllocatorFor_SetDedicatedIpEntitlement(
+        ::grpc::MessageAllocator< ::mrpc_admin::SetDedicatedIpEntitlementRequest, ::mrpc_admin::SetDedicatedIpEntitlementReply>* allocator) {
+      ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(17);
+      static_cast<::grpc::internal::CallbackUnaryHandler< ::mrpc_admin::SetDedicatedIpEntitlementRequest, ::mrpc_admin::SetDedicatedIpEntitlementReply>*>(handler)
+              ->SetMessageAllocator(allocator);
+    }
+    ~WithCallbackMethod_SetDedicatedIpEntitlement() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SetDedicatedIpEntitlement(::grpc::ServerContext* /*context*/, const ::mrpc_admin::SetDedicatedIpEntitlementRequest* /*request*/, ::mrpc_admin::SetDedicatedIpEntitlementReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* SetDedicatedIpEntitlement(
+      ::grpc::CallbackServerContext* /*context*/, const ::mrpc_admin::SetDedicatedIpEntitlementRequest* /*request*/, ::mrpc_admin::SetDedicatedIpEntitlementReply* /*response*/)  { return nullptr; }
+  };
+  typedef WithCallbackMethod_ActiveTerminals<WithCallbackMethod_ActiveTerminalsCluster<WithCallbackMethod_SystemUsage<WithCallbackMethod_ListLogFiles<WithCallbackMethod_GetLogFile<WithCallbackMethod_GetEventLogEntries<WithCallbackMethod_CaptureSessionScreenshot<WithCallbackMethod_CaptureSessionScreenshotOnPod<WithCallbackMethod_RefreshMrpcRest<WithCallbackMethod_GetVersion<WithCallbackMethod_GetAllLogs<WithCallbackMethod_GetSessionRestoreLogs<WithCallbackMethod_GetSessionRestoreStatus<WithCallbackMethod_KillAllTrialTerminals<WithCallbackMethod_KillAllTrialTerminalsLocal<WithCallbackMethod_Drain<WithCallbackMethod_StopTerminalLocal<WithCallbackMethod_SetDedicatedIpEntitlement<Service > > > > > > > > > > > > > > > > > > CallbackService;
   typedef CallbackService ExperimentalCallbackService;
   template <class BaseClass>
   class WithGenericMethod_ActiveTerminals : public BaseClass {
@@ -1707,6 +1784,23 @@ class AdminApi final {
     }
     // disable synchronous version of this method
     ::grpc::Status StopTerminalLocal(::grpc::ServerContext* /*context*/, const ::mrpc_admin::StopTerminalLocalRequest* /*request*/, ::mrpc_admin::StopTerminalLocalReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_SetDedicatedIpEntitlement : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithGenericMethod_SetDedicatedIpEntitlement() {
+      ::grpc::Service::MarkMethodGeneric(17);
+    }
+    ~WithGenericMethod_SetDedicatedIpEntitlement() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SetDedicatedIpEntitlement(::grpc::ServerContext* /*context*/, const ::mrpc_admin::SetDedicatedIpEntitlementRequest* /*request*/, ::mrpc_admin::SetDedicatedIpEntitlementReply* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -2049,6 +2143,26 @@ class AdminApi final {
     }
     void RequestStopTerminalLocal(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(16, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithRawMethod_SetDedicatedIpEntitlement : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawMethod_SetDedicatedIpEntitlement() {
+      ::grpc::Service::MarkMethodRaw(17);
+    }
+    ~WithRawMethod_SetDedicatedIpEntitlement() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SetDedicatedIpEntitlement(::grpc::ServerContext* /*context*/, const ::mrpc_admin::SetDedicatedIpEntitlementRequest* /*request*/, ::mrpc_admin::SetDedicatedIpEntitlementReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSetDedicatedIpEntitlement(::grpc::ServerContext* context, ::grpc::ByteBuffer* request, ::grpc::ServerAsyncResponseWriter< ::grpc::ByteBuffer>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(17, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
@@ -2423,6 +2537,28 @@ class AdminApi final {
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     virtual ::grpc::ServerUnaryReactor* StopTerminalLocal(
+      ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
+  };
+  template <class BaseClass>
+  class WithRawCallbackMethod_SetDedicatedIpEntitlement : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithRawCallbackMethod_SetDedicatedIpEntitlement() {
+      ::grpc::Service::MarkMethodRawCallback(17,
+          new ::grpc::internal::CallbackUnaryHandler< ::grpc::ByteBuffer, ::grpc::ByteBuffer>(
+            [this](
+                   ::grpc::CallbackServerContext* context, const ::grpc::ByteBuffer* request, ::grpc::ByteBuffer* response) { return this->SetDedicatedIpEntitlement(context, request, response); }));
+    }
+    ~WithRawCallbackMethod_SetDedicatedIpEntitlement() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SetDedicatedIpEntitlement(::grpc::ServerContext* /*context*/, const ::mrpc_admin::SetDedicatedIpEntitlementRequest* /*request*/, ::mrpc_admin::SetDedicatedIpEntitlementReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    virtual ::grpc::ServerUnaryReactor* SetDedicatedIpEntitlement(
       ::grpc::CallbackServerContext* /*context*/, const ::grpc::ByteBuffer* /*request*/, ::grpc::ByteBuffer* /*response*/)  { return nullptr; }
   };
   template <class BaseClass>
@@ -2884,9 +3020,36 @@ class AdminApi final {
     // replace default version of method with streamed unary
     virtual ::grpc::Status StreamedStopTerminalLocal(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::mrpc_admin::StopTerminalLocalRequest,::mrpc_admin::StopTerminalLocalReply>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_ActiveTerminals<WithStreamedUnaryMethod_ActiveTerminalsCluster<WithStreamedUnaryMethod_SystemUsage<WithStreamedUnaryMethod_ListLogFiles<WithStreamedUnaryMethod_GetLogFile<WithStreamedUnaryMethod_GetEventLogEntries<WithStreamedUnaryMethod_CaptureSessionScreenshot<WithStreamedUnaryMethod_CaptureSessionScreenshotOnPod<WithStreamedUnaryMethod_RefreshMrpcRest<WithStreamedUnaryMethod_GetVersion<WithStreamedUnaryMethod_GetAllLogs<WithStreamedUnaryMethod_GetSessionRestoreLogs<WithStreamedUnaryMethod_GetSessionRestoreStatus<WithStreamedUnaryMethod_KillAllTrialTerminals<WithStreamedUnaryMethod_KillAllTrialTerminalsLocal<WithStreamedUnaryMethod_Drain<WithStreamedUnaryMethod_StopTerminalLocal<Service > > > > > > > > > > > > > > > > > StreamedUnaryService;
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_SetDedicatedIpEntitlement : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service* /*service*/) {}
+   public:
+    WithStreamedUnaryMethod_SetDedicatedIpEntitlement() {
+      ::grpc::Service::MarkMethodStreamed(17,
+        new ::grpc::internal::StreamedUnaryHandler<
+          ::mrpc_admin::SetDedicatedIpEntitlementRequest, ::mrpc_admin::SetDedicatedIpEntitlementReply>(
+            [this](::grpc::ServerContext* context,
+                   ::grpc::ServerUnaryStreamer<
+                     ::mrpc_admin::SetDedicatedIpEntitlementRequest, ::mrpc_admin::SetDedicatedIpEntitlementReply>* streamer) {
+                       return this->StreamedSetDedicatedIpEntitlement(context,
+                         streamer);
+                  }));
+    }
+    ~WithStreamedUnaryMethod_SetDedicatedIpEntitlement() override {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status SetDedicatedIpEntitlement(::grpc::ServerContext* /*context*/, const ::mrpc_admin::SetDedicatedIpEntitlementRequest* /*request*/, ::mrpc_admin::SetDedicatedIpEntitlementReply* /*response*/) override {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedSetDedicatedIpEntitlement(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::mrpc_admin::SetDedicatedIpEntitlementRequest,::mrpc_admin::SetDedicatedIpEntitlementReply>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_ActiveTerminals<WithStreamedUnaryMethod_ActiveTerminalsCluster<WithStreamedUnaryMethod_SystemUsage<WithStreamedUnaryMethod_ListLogFiles<WithStreamedUnaryMethod_GetLogFile<WithStreamedUnaryMethod_GetEventLogEntries<WithStreamedUnaryMethod_CaptureSessionScreenshot<WithStreamedUnaryMethod_CaptureSessionScreenshotOnPod<WithStreamedUnaryMethod_RefreshMrpcRest<WithStreamedUnaryMethod_GetVersion<WithStreamedUnaryMethod_GetAllLogs<WithStreamedUnaryMethod_GetSessionRestoreLogs<WithStreamedUnaryMethod_GetSessionRestoreStatus<WithStreamedUnaryMethod_KillAllTrialTerminals<WithStreamedUnaryMethod_KillAllTrialTerminalsLocal<WithStreamedUnaryMethod_Drain<WithStreamedUnaryMethod_StopTerminalLocal<WithStreamedUnaryMethod_SetDedicatedIpEntitlement<Service > > > > > > > > > > > > > > > > > > StreamedUnaryService;
   typedef Service SplitStreamedService;
-  typedef WithStreamedUnaryMethod_ActiveTerminals<WithStreamedUnaryMethod_ActiveTerminalsCluster<WithStreamedUnaryMethod_SystemUsage<WithStreamedUnaryMethod_ListLogFiles<WithStreamedUnaryMethod_GetLogFile<WithStreamedUnaryMethod_GetEventLogEntries<WithStreamedUnaryMethod_CaptureSessionScreenshot<WithStreamedUnaryMethod_CaptureSessionScreenshotOnPod<WithStreamedUnaryMethod_RefreshMrpcRest<WithStreamedUnaryMethod_GetVersion<WithStreamedUnaryMethod_GetAllLogs<WithStreamedUnaryMethod_GetSessionRestoreLogs<WithStreamedUnaryMethod_GetSessionRestoreStatus<WithStreamedUnaryMethod_KillAllTrialTerminals<WithStreamedUnaryMethod_KillAllTrialTerminalsLocal<WithStreamedUnaryMethod_Drain<WithStreamedUnaryMethod_StopTerminalLocal<Service > > > > > > > > > > > > > > > > > StreamedService;
+  typedef WithStreamedUnaryMethod_ActiveTerminals<WithStreamedUnaryMethod_ActiveTerminalsCluster<WithStreamedUnaryMethod_SystemUsage<WithStreamedUnaryMethod_ListLogFiles<WithStreamedUnaryMethod_GetLogFile<WithStreamedUnaryMethod_GetEventLogEntries<WithStreamedUnaryMethod_CaptureSessionScreenshot<WithStreamedUnaryMethod_CaptureSessionScreenshotOnPod<WithStreamedUnaryMethod_RefreshMrpcRest<WithStreamedUnaryMethod_GetVersion<WithStreamedUnaryMethod_GetAllLogs<WithStreamedUnaryMethod_GetSessionRestoreLogs<WithStreamedUnaryMethod_GetSessionRestoreStatus<WithStreamedUnaryMethod_KillAllTrialTerminals<WithStreamedUnaryMethod_KillAllTrialTerminalsLocal<WithStreamedUnaryMethod_Drain<WithStreamedUnaryMethod_StopTerminalLocal<WithStreamedUnaryMethod_SetDedicatedIpEntitlement<Service > > > > > > > > > > > > > > > > > > StreamedService;
 };
 
 }  // namespace mrpc_admin
