@@ -29,6 +29,8 @@ cmake -B build -S . -DBUILD_EXAMPLES=ON
 cmake --build build --config Release
 ```
 
+The generated gRPC code in `package/` is not used by the preview client. To compile it as well, add `-DCPPMT4_BUILD_PROTO=ON` (needs protobuf 3.21.x and gRPC C++; Debian 12 / Ubuntu 24.04: `sudo apt install libprotobuf-dev protobuf-compiler libgrpc++-dev protobuf-compiler-grpc pkg-config`).
+
 ### 2. Run with Default TRIAL Key
 ```bash
 # On Linux / macOS:

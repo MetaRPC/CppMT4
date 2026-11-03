@@ -17,11 +17,17 @@ jobs:
       with:
         persist-credentials: false
 
+    - name: Install protobuf and gRPC
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y --no-install-recommends libprotobuf-dev protobuf-compiler libgrpc++-dev protobuf-compiler-grpc pkg-config
+
     - name: Configure CMake
-      run: cmake -B build -S .
+      # CPPMT4_BUILD_PROTO=ON also compiles the generated code in package/ (protoc 3.21.x, libprotobuf 3.21.12 on ubuntu-24.04).
+      run: cmake -B build -S . -DCPPMT4_BUILD_PROTO=ON
 
     - name: Build
-      run: cmake --build build --config Release
+      run: cmake --build build --config Release --parallel
 
     - name: Run Tests
       run: ctest --test-dir build --output-on-failure -C Release
@@ -32,7 +38,7 @@ jobs:
         python-version: '3.11'
 
     - name: Install MkDocs
-      run: pip install mkdocs mkdocs-material
+      run: pip install mkdocs==1.6.1 mkdocs-material==9.8.0 pymdown-extensions==12.3
 
     - name: Validate Docs Build
       run: mkdocs build
