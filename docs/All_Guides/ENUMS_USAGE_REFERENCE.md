@@ -1,244 +1,249 @@
-# ENUMs Usage Reference - MT4Account (Python)
+# ENUMs Usage Reference — CppMT4
 
+> Every enumeration the CppMT4 API uses, with exact values and where it appears. The protobuf enums are generated into the `mt4_term_api` namespace (`namespace pb = mt4_term_api;`); the friendly [`MT4Service`](../MT4Service/MT4Service.Overview.md) layer exposes `enum class` mirrors.
 
+## How enums work here
 
-> ENUM presence lookup table for all MT4Account low-level methods
+protobuf's C++ codegen puts enum **values at namespace scope** — they are *not* `enum class`. You write the bare constant and compare it directly:
 
+```cpp
+namespace pb = mt4_term_api;
 
+pb::OpenedOrdersRequest req;
+req.set_sort_type(pb::SORT_BY_OPEN_TIME_ASC);          // just the value
 
----
-
-
-
-## ✅ Summary Statistics
-
-
-
-| Method Group | With ENUMs | Total | Percentage |
-|--------------|------------|-------|------------|
-| **Account Information** | 4 | 4 | 100% |
-| **Symbol Information** | 7 | 13 | 54% |
-| **Positions & Orders** | 3 | 6 | 50% |
-| **Market Depth/DOM** | 1 | 3 | 33% |
-| **Trading Operations** | 6 | 6 | 100% |
-| **Streaming Methods** | 3 | 5 | 60% |
-| **TOTAL** | **24** | **37** | **65%** |
-
-
-
----
-
-
-
-
-
-## 👤 1. Account Information (4 methods)
-
-
-
-### 4/4 methods use ENUMs (100%)
-
-
-
-| Method | ENUMs Count | Description | Input ENUMs | Output ENUMs |
-|--------|-------------|-------------|-------------|--------------|
-| **account_summary** | **[In: 0, Out: 1]**<br>Total: 1 ENUM (3 values) | Get all account data in one call (RECOMMENDED) | - | `MrpcEnumAccountTradeMode` (3 values) - Account type: DEMO, CONTEST, REAL |
-| **account_info_double** | **[In: 1, Out: 0]**<br>Total: 1 ENUM (14 values) | Get double properties (Balance, Equity, Margin, etc.) | `AccountInfoDoublePropertyType` (14 values): ACCOUNT_BALANCE, ACCOUNT_CREDIT, ACCOUNT_PROFIT, ACCOUNT_EQUITY, ACCOUNT_MARGIN, ACCOUNT_MARGIN_FREE, ACCOUNT_MARGIN_LEVEL, ACCOUNT_MARGIN_SO_CALL, ACCOUNT_MARGIN_SO_SO, ACCOUNT_MARGIN_INITIAL, ACCOUNT_MARGIN_MAINTENANCE, ACCOUNT_ASSETS, ACCOUNT_LIABILITIES, ACCOUNT_COMMISSION_BLOCKED | - |
-| **account_info_integer** | **[In: 1, Out: 0]**<br>Total: 1 ENUM (11 values) | Get integer properties (Login, Leverage, etc.) | `AccountInfoIntegerPropertyType` (11 values): ACCOUNT_LOGIN, ACCOUNT_TRADE_MODE, ACCOUNT_LEVERAGE, ACCOUNT_LIMIT_ORDERS, ACCOUNT_MARGIN_SO_MODE, ACCOUNT_TRADE_ALLOWED, ACCOUNT_TRADE_EXPERT, ACCOUNT_MARGIN_MODE, ACCOUNT_CURRENCY_DIGITS, ACCOUNT_FIFO_CLOSE, ACCOUNT_HEDGE_ALLOWED | - |
-| **account_info_string** | **[In: 1, Out: 0]**<br>Total: 1 ENUM (4 values) | Get string properties (Currency, Company, etc.) | `AccountInfoStringPropertyType` (4 values): ACCOUNT_NAME, ACCOUNT_SERVER, ACCOUNT_CURRENCY, ACCOUNT_COMPANY | - |
-
-
-
----
-
-
-
-## 📊 2. Symbol Information (13 methods)
-
-
-
-### 7/13 methods use ENUMs (54%)
-
-
-
-| Method | ENUMs Count | Description | Input ENUMs | Output ENUMs |
-|--------|-------------|-------------|-------------|--------------|
-| **symbols_total** | **[In: 0, Out: 0]**<br>Total: 0 ENUMs | Count total/selected symbols | - | - |
-| **symbol_exist** | **[In: 0, Out: 0]**<br>Total: 0 ENUMs | Check if symbol exists | - | - |
-| **symbol_name** | **[In: 0, Out: 0]**<br>Total: 0 ENUMs | Get symbol name by index | - | - |
-| **symbol_select** | **[In: 0, Out: 0]**<br>Total: 0 ENUMs | Add/remove symbol from Market Watch | - | - |
-| **symbol_is_synchronized** | **[In: 0, Out: 0]**<br>Total: 0 ENUMs | Check sync status with server | - | - |
-| **symbol_info_double** | **[In: 1, Out: 0]**<br>Total: 1 ENUM (60 values) | Get double properties (Bid, Ask, Point, etc.) | `SymbolInfoDoubleProperty` (60 values) - Property selector | - |
-| **symbol_info_integer** | **[In: 1, Out: 0]**<br>Total: 1 ENUM (37 values) | Get integer properties (Digits, Spread, etc.) | `SymbolInfoIntegerProperty` (37 values) - Property selector | - |
-| **symbol_info_string** | **[In: 1, Out: 0]**<br>Total: 1 ENUM (15 values) | Get string properties (Description, etc.) | `SymbolInfoStringProperty` (15 values) - Property selector | - |
-| **symbol_info_margin_rate** | **[In: 1, Out: 0]**<br>Total: 1 ENUM (9 values) | Get margin requirements for order types | `ENUM_ORDER_TYPE` (9 values) - Order type | - |
-| **symbol_info_tick** | **[In: 0, Out: 0]**<br>Total: 0 ENUMs | Get last tick data with timestamp | - | - |
-| **symbol_info_session_quote** | **[In: 1, Out: 0]**<br>Total: 1 ENUM (7 values) | Get quote session times | `BMT4_ENUM_DAY_OF_WEEK` (7 values) - Day of week | - |
-| **symbol_info_session_trade** | **[In: 1, Out: 0]**<br>Total: 1 ENUM (7 values) | Get trade session times | `BMT4_ENUM_DAY_OF_WEEK` (7 values) - Day of week | - |
-| **symbol_params_many** | **[In: 1, Out: 13]**<br>Total: 14 ENUMs | Get detailed parameters for multiple symbols | `AH_SYMBOL_PARAMS_MANY_SORT_TYPE` (4 values) - Sort mode | **13 ENUMs in SymbolParameters:** BMT4_ENUM_SYMBOL_SECTOR, BMT4_ENUM_SYMBOL_INDUSTRY, BMT4_ENUM_SYMBOL_CHART_MODE, BMT4_ENUM_SYMBOL_CALC_MODE, BMT4_ENUM_SYMBOL_TRADE_MODE, BMT4_ENUM_SYMBOL_TRADE_EXECUTION, BMT4_ENUM_SYMBOL_SWAP_MODE, BMT4_ENUM_DAY_OF_WEEK, BMT4_ENUM_ORDER_TYPE_FILLING, BMT4_ENUM_ORDER_TYPE, BMT4_ENUM_SYMBOL_ORDER_GTC_MODE, BMT4_ENUM_SYMBOL_OPTION_MODE, BMT4_ENUM_SYMBOL_OPTION_RIGHT |
-
-
-
----
-
-
-
-## 📋 3. Positions & Orders Information (6 methods)
-
-
-
-### 3/6 methods use ENUMs (50%)
-
-
-
-| Method | ENUMs Count | Description | Input ENUMs | Output ENUMs |
-|--------|-------------|-------------|-------------|--------------|
-| **positions_total** | **[In: 0, Out: 0]**<br>Total: 0 ENUMs | Count open positions | - | - |
-| **opened_orders** | **[In: 1, Out: 6]**<br>Total: 7 ENUMs | Get all opened orders & positions | `BMT4_ENUM_OPENED_ORDER_SORT_TYPE` (4 values) - Sort mode | **6 ENUMs:**<br>**In PositionInfo:** BMT4_ENUM_POSITION_TYPE, BMT4_ENUM_POSITION_REASON<br>**In OpenedOrderInfo:** BMT4_ENUM_ORDER_TYPE, BMT4_ENUM_ORDER_STATE, BMT4_ENUM_ORDER_TYPE_FILLING, BMT4_ENUM_ORDER_TYPE_TIME |
-| **opened_orders_tickets** | **[In: 0, Out: 0]**<br>Total: 0 ENUMs | Get only ticket numbers (lightweight) | - | - |
-| **order_history** | **[In: 1, Out: 7]**<br>Total: 8 ENUMs | Get historical orders with pagination | `BMT4_ENUM_ORDER_HISTORY_SORT_TYPE` (6 values) - Sort mode | **7 ENUMs:**<br>**In OrderHistoryData:** BMT4_ENUM_ORDER_STATE, BMT4_ENUM_ORDER_TYPE, BMT4_ENUM_ORDER_TYPE_FILLING, BMT4_ENUM_ORDER_TYPE_TIME<br>**In DealHistoryData:** BMT4_ENUM_DEAL_ENTRY_TYPE, BMT4_ENUM_DEAL_TYPE, BMT4_ENUM_DEAL_REASON |
-| **positions_history** | **[In: 1, Out: 1]**<br>Total: 2 ENUMs | Get historical positions with P&L | `AH_ENUM_POSITIONS_HISTORY_SORT_TYPE` (4 values) - Sort mode | `AH_ENUM_POSITIONS_HISTORY_ORDER_TYPE` (9 values) - Order type |
-| **tick_value_with_size** | **[In: 0, Out: 0]**<br>Total: 0 ENUMs | Get tick value and size for symbols | - | - |
-
-
-
----
-
-
-
-## 📚 4. Market Depth / DOM (3 methods)
-
-
-
-### 1/3 methods use ENUMs (33%)
-
-
-
-| Method | ENUMs Count | Description | Input ENUMs | Output ENUMs |
-|--------|-------------|-------------|-------------|--------------|
-| **market_book_add** | **[In: 0, Out: 0]**<br>Total: 0 ENUMs | Subscribe to Depth of Market updates | - | - |
-| **market_book_release** | **[In: 0, Out: 0]**<br>Total: 0 ENUMs | Unsubscribe from DOM | - | - |
-| **market_book_get** | **[In: 0, Out: 1]**<br>Total: 1 ENUM (4 values) | Get current market depth snapshot | - | `BookType` (4 values) - Order type in book: BOOK_TYPE_SELL, BOOK_TYPE_BUY, BOOK_TYPE_SELL_MARKET, BOOK_TYPE_BUY_MARKET |
-
-
-
----
-
-
-
-## 💰 5. Trading Operations (6 methods)
-
-
-
-### 6/6 methods use ENUMs (100%)
-
-
-
-| Method | ENUMs Count | Description | Input ENUMs | Output ENUMs |
-|--------|-------------|-------------|-------------|--------------|
-| **order_send** | **[In: 2, Out: 0]**<br>Total: 2 ENUMs (13 values) | Send market or pending order | **2 ENUMs:**<br>`TMT4_ENUM_ORDER_TYPE` (9 values) - Order type<br>`TMT4_ENUM_ORDER_TYPE_TIME` (4 values) - Order lifetime | - |
-| **order_modify** | **[In: 1, Out: 0]**<br>Total: 1 ENUM (4 values) | Modify existing order parameters | `TMT4_ENUM_ORDER_TYPE_TIME` (4 values) - Order lifetime | - |
-| **order_close** | **[In: 0, Out: 1]**<br>Total: 1 ENUM (3 values) | Close market or pending order | - | `MRPC_ORDER_CLOSE_MODE` (3 values): MRPC_MARKET_ORDER_CLOSE, MRPC_MARKET_ORDER_PARTIAL_CLOSE, MRPC_PENDING_ORDER_REMOVE |
-| **order_check** | **[In: 4, Out: 0]**<br>Total: 4 ENUMs (23 values) | Validate order before sending | **4 ENUMs in MrpcMqlTradeRequest:**<br>`MRPC_ENUM_TRADE_REQUEST_ACTIONS` (6 values) - Trade action type<br>`ENUM_ORDER_TYPE_TF` (9 values) - Order type<br>`MRPC_ENUM_ORDER_TYPE_FILLING` (4 values) - Order filling policy<br>`MRPC_ENUM_ORDER_TYPE_TIME` (4 values) - Order lifetime | - |
-| **order_calc_margin** | **[In: 1, Out: 0]**<br>Total: 1 ENUM (9 values) | Calculate required margin | `ENUM_ORDER_TYPE_TF` (9 values) - Order type | - |
-| **order_calc_profit** | **[In: 1, Out: 0]**<br>Total: 1 ENUM (9 values) | Calculate potential profit/loss | `ENUM_ORDER_TYPE_TF` (9 values) - Order type | - |
-
-
-
----
-
-
-
-## 📡 6. Streaming Methods (5 methods)
-
-
-
-### 3/5 methods use ENUMs (60%)
-
-
-
-| Method | ENUMs Count | Description | Input ENUMs | Output ENUMs |
-|--------|-------------|-------------|-------------|--------------|
-| **on_symbol_tick** | **[In: 0, Out: 0]**<br>Total: 0 ENUMs | Stream tick data (Bid/Ask updates) | - | - |
-| **on_trade** | **[In: 0, Out: 1]**<br>Total: 11 ENUMs (68 values) | Stream trade events | - | **1 direct + 10 in nested structures:**<br>1. `MT4_SUB_ENUM_EVENT_GROUP_TYPE` (2 values) - OnTradeData.type<br>2-11. **In event_data nested structures:** SUB_ENUM_POSITION_TYPE (2), SUB_ENUM_POSITION_REASON (7), SUB_ENUM_ORDER_TYPE (9), SUB_ENUM_ORDER_STATE (10), SUB_ENUM_DEAL_TYPE (8), SUB_ENUM_ORDER_TYPE_TIME (4), SUB_ENUM_ORDER_TYPE_FILLING (4), SUB_ENUM_ORDER_REASON (7), SUB_ENUM_DEAL_ENTRY (4), SUB_ENUM_DEAL_REASON (11) |
-| **on_position_profit** | **[In: 0, Out: 1]**<br>Total: 1 ENUM (2 values) | Stream position P&L updates | - | `MT4_SUB_ENUM_EVENT_GROUP_TYPE` (2 values) - Event type in OnPositionProfitData.type field |
-| **on_positions_and_pending_orders_tickets** | **[In: 0, Out: 0]**<br>Total: 0 ENUMs | Stream ticket changes | - | - |
-| **on_trade_transaction** | **[In: 0, Out: 9]**<br>Total: 9 ENUMs (107 values) | Stream trade transaction events | - | **11 ENUM fields from 9 unique types:**<br>1. `MT4_SUB_ENUM_EVENT_GROUP_TYPE` (2 values) - OnTradeTransactionData.type<br>2-6. **In MqlTradeTransaction:** SUB_ENUM_TRADE_TRANSACTION_TYPE (11 values), SUB_ENUM_ORDER_TYPE (9 values), SUB_ENUM_ORDER_STATE (10 values), SUB_ENUM_DEAL_TYPE (18 values), SUB_ENUM_ORDER_TYPE_TIME (4 values)<br>7-10. **In MqlTradeRequest:** SUB_ENUM_TRADE_REQUEST_ACTIONS (7 values), SUB_ENUM_ORDER_TYPE (9 values), SUB_ENUM_ORDER_TYPE_FILLING (4 values), SUB_ENUM_ORDER_TYPE_TIME (4 values)<br>11. **In MqlTradeResult:** MqlErrorTradeCode (42 values) |
-
-
-
----
-
-
-
-## Important Notes
-
-
-
-### Python ENUM Access
-
-Python accesses ENUMs through protobuf modules:
-
-**Correct:**
-```python
-from MetaRpcMT4 import mt5_term_api_account_information_pb2 as account_info_pb2
-
-# Using ENUM
-property_id = account_info_pb2.AccountInfoDoublePropertyType.ACCOUNT_BALANCE
+pb::AccountSummaryData a = account.accountSummary();
+if (a.account_trade_mode() == pb::ACCOUNT_TRADE_MODE_REAL) { /* ... */ }
 ```
 
-**Incorrect:**
-```python
-ACCOUNT_BALANCE  # NameError: name 'ACCOUNT_BALANCE' is not defined
-```
+> The friendly layer uses typed `enum class` instead: `TradeMode`, `OrderType`, `Timeframe` — e.g. `svc.bars(sym, Timeframe::H1, from, to)`.
 
-
-
-### Special Cases
-
-
-
-**1. AccountInfoInteger and SymbolInfoInteger:**
-
-- Some properties return values that **represent ENUMs**, but are returned as `int64`
-
-- These are **NOT typed ENUMs**, just numbers!
-
-
-
-**2. ReturnedCode:**
-
-- ReturnedCode field in trading operations is **NOT an ENUM**
-
-- It's a plain uint32 operation return code
-
-
+> ⚠️ **Three order-type enums, same six values.** `OO_OP_*` when **reading** orders (`OpenedOrderType`), `OC_OP_*` when **sending** (`OrderSendOperationType`), `SUB_OP_*` in **stream** frames (`SUB_ORDER_OPERATION_TYPE`). Don't mix the prefixes.
 
 ---
 
+## 1. `EnumAccountTradeMode` — account type
 
+**Used by:** `accountSummary` → `AccountSummaryData.account_trade_mode()`.
 
-## See Also
+| Value | Int | Meaning |
+|-------|-----|---------|
+| `pb::ACCOUNT_TRADE_MODE_DEMO` | 0 | Demo account |
+| `pb::ACCOUNT_TRADE_MODE_CONTEST` | 1 | Contest account |
+| `pb::ACCOUNT_TRADE_MODE_REAL` | 2 | Live account |
 
+Friendly mirror: `metarpc::TradeMode { Demo, Contest, Real }` on `AccountInfo::tradeMode`.
 
+```cpp
+if (account.accountSummary().account_trade_mode() == pb::ACCOUNT_TRADE_MODE_REAL)
+    std::puts("LIVE account — be careful");
+```
 
-### Documentation by Group:
+---
 
+## 2. `EnumAccountMarginMode` — margin calculation mode
 
+**Used by:** `accountSummary` → `AccountSummaryData.account_margin_mode()`.
 
-- [Account Information Overview](../API_Reference/MT4Account.md)
+| Value | Int | Meaning |
+|-------|-----|---------|
+| `pb::ACCOUNT_MARGIN_MODE_RETAIL_NETTING` | 0 | Netting (parity with MT5) |
+| `pb::ACCOUNT_MARGIN_MODE_EXCHANGE` | 1 | Exchange |
+| `pb::ACCOUNT_MARGIN_MODE_RETAIL_HEDGING` | 2 | Hedging — typical MT4 |
 
-- [Symbol Information Overview](../API_Reference/MT4Account.md)
+> **MT4 is hedging** (several orders per symbol). The other values exist for parity with MT5.
 
-- [Positions & Orders Overview](../API_Reference/MT4Account.md)
+---
 
-- [Market Depth Overview](../API_Reference/MT4Account.md)
+## 3. `EnumOpenedOrderSortType` — open-order sort
 
-- [Trading Operations Overview](../API_Reference/MT4Account.md)
+**Used by:** `openedOrders` → `OpenedOrdersRequest.sort_type`.
 
-- [Streaming Methods Overview](../API_Reference/MT4Account.md)
+| Value | Int |
+|-------|-----|
+| `pb::SORT_BY_OPEN_TIME_ASC` | 0 |
+| `pb::SORT_BY_OPEN_TIME_DESC` | 1 |
+| `pb::SORT_BY_ORDER_TICKET_ID_ASC` | 2 |
+| `pb::SORT_BY_ORDER_TICKET_ID_DESC` | 3 |
 
+---
 
+## 4. `EnumOrderHistorySortType` — history sort
 
+**Used by:** `ordersHistory` → `OrdersHistoryRequest.input_sort_mode`.
 
+| Value | Int |
+|-------|-----|
+| `pb::HISTORY_SORT_BY_OPEN_TIME_ASC` | 0 |
+| `pb::HISTORY_SORT_BY_OPEN_TIME_DESC` | 1 |
+| `pb::HISTORY_SORT_BY_CLOSE_TIME_ASC` | 2 |
+| `pb::HISTORY_SORT_BY_CLOSE_TIME_DESC` | 3 |
+| `pb::HISTORY_SORT_BY_ORDER_TICKET_ID_ASC` | 4 |
+| `pb::HISTORY_SORT_BY_ORDER_TICKET_ID_DESC` | 5 |
 
+---
+
+## 5. Timeframes — **two different enums**
+
+### `ENUM_QUOTE_HISTORY_TIMEFRAME` — for `quoteHistory` (indices)
+
+**Used by:** `quoteHistory` → `QuoteHistoryRequest.timeframe`.
+
+| Value | Int | Period |
+|-------|-----|--------|
+| `pb::QH_PERIOD_M1` | 0 | 1 minute |
+| `pb::QH_PERIOD_M5` | 1 | 5 minutes |
+| `pb::QH_PERIOD_M15` | 2 | 15 minutes |
+| `pb::QH_PERIOD_M30` | 3 | 30 minutes |
+| `pb::QH_PERIOD_H1` | 4 | 1 hour |
+| `pb::QH_PERIOD_H4` | 5 | 4 hours |
+| `pb::QH_PERIOD_D1` | 6 | 1 day |
+| `pb::QH_PERIOD_W1` | 7 | 1 week |
+| `pb::QH_PERIOD_MN1` | 8 | 1 month |
+
+> ⚠️ **Ordinal 0–8, not minute counts.** `H1` is `4`, not `60`.
+
+### `QUOTE_HISTORY_TIMEFRAME` — for `bars` (minute counts)
+
+**Used by:** `bars` → `QuoteHistoryBarsRequest.timeframe`. This is the scheme the friendly `Timeframe` enum mirrors.
+
+| Value | Int | Friendly |
+|-------|-----|----------|
+| `pb::QHB_PERIOD_M1` | 1 | `Timeframe::M1` |
+| `pb::QHB_PERIOD_M5` | 5 | `Timeframe::M5` |
+| `pb::QHB_PERIOD_M15` | 15 | `Timeframe::M15` |
+| `pb::QHB_PERIOD_M30` | 30 | `Timeframe::M30` |
+| `pb::QHB_PERIOD_H1` | 60 | `Timeframe::H1` |
+| `pb::QHB_PERIOD_H4` | 240 | `Timeframe::H4` |
+| `pb::QHB_PERIOD_D1` | 1440 | `Timeframe::D1` |
+| `pb::QHB_PERIOD_W1` | 10080 | `Timeframe::W1` |
+| `pb::QHB_PERIOD_MN1` | 43200 | `Timeframe::MN1` |
+
+---
+
+## 6. `OrderSendOperationType` — order type (requests)
+
+**Used by:** `orderSend` → `OrderSendRequest.operation_type`.
+
+| Value | Int | Meaning |
+|-------|-----|---------|
+| `pb::OC_OP_BUY` | 0 | Market buy |
+| `pb::OC_OP_SELL` | 1 | Market sell |
+| `pb::OC_OP_BUYLIMIT` | 2 | Buy limit |
+| `pb::OC_OP_SELLLIMIT` | 3 | Sell limit |
+| `pb::OC_OP_BUYSTOP` | 4 | Buy stop |
+| `pb::OC_OP_SELLSTOP` | 5 | Sell stop |
+
+> Same numbering as MQL4 `OP_BUY`..`OP_SELLSTOP`. Friendly mirror: `OrderType` on `OrderRequest::type`.
+
+---
+
+## 7. `OpenedOrderType` — order type (reads)
+
+**Used by:** `openedOrders` / `ordersHistory` → `OpenedOrderInfo.order_type()` / `HistoryOrderInfo.order_type()`.
+
+| Value | Int | Meaning |
+|-------|-----|---------|
+| `pb::OO_OP_BUY` … `pb::OO_OP_SELLSTOP` | 0–5 | market / pending (as above) |
+| `pb::OO_OP_BALANCE` | 6 | Balance entry (history only — not a trade) |
+| `pb::OO_OP_CREDIT` | 7 | Credit entry (history only — not a trade) |
+
+Friendly mirror: `OrderType { Buy, Sell, BuyLimit, SellLimit, BuyStop, SellStop, Balance, Credit }` with `Order::isPending()` / `isBuy()`.
+
+---
+
+## 8. `OrderCloseDeleteMode` — what a close/delete did (reply)
+
+**Used by:** `orderCloseDelete` → `OrderCloseDeleteData.mode()`.
+
+| Value | Int | Meaning |
+|-------|-----|---------|
+| `pb::OCD_MARKET_ORDER` | 0 | A market order was closed |
+| `pb::OCD_PENDING_ORDER` | 1 | A pending order was deleted |
+
+---
+
+## 9. `SERVER_TIMEZONE_SOURCE` — where the UTC offset came from (reply)
+
+**Used by:** `serverTimezone` → `ServerTimezoneData.source()`.
+
+| Value | Int | Meaning |
+|-------|-----|---------|
+| `pb::SERVER_TIMEZONE_SOURCE_UNKNOWN` | 0 | Not read yet; `utc_offset_seconds` stays unset |
+| `pb::SERVER_TIMEZONE_SOURCE_LIVE` | 1 | Read live by this terminal |
+| `pb::SERVER_TIMEZONE_SOURCE_LAST_VALIDATED` | 2 | Last validated offset for this broker |
+
+---
+
+## 10. `MT4_SUB_ENUM_EVENT_GROUP_TYPE` — streaming event group (reply)
+
+**Used by:** `onTrade` → `OnTradeData.type()`; `onOpenedOrdersProfit` → `OnOpenedOrdersProfitData.type()`.
+
+| Value | Int |
+|-------|-----|
+| `pb::OrderProfit` | 0 |
+| `pb::OrderUpdate` | 1 |
+
+---
+
+## 11. `SUB_ORDER_OPERATION_TYPE` — order type in stream frames (reply)
+
+**Used by:** `onTrade` / `onOpenedOrdersProfit` order rows → `.type()` (`OnTradeOrderInfo`, `OnOpenedOrdersProfitOrderInfo`).
+
+| Value | Int | Meaning |
+|-------|-----|---------|
+| `pb::SUB_OP_BUY` … `pb::SUB_OP_SELLSTOP` | 0–5 | Buy / Sell / *Limit / *Stop |
+
+---
+
+## 12. Symbol-parameter enums (`SymbolParamsMany`)
+
+Three enums describe a symbol's trading rules, on `SymbolParamsManyInfo` (from `symbolParamsMany`).
+
+### `SP_ENUM_TRADE_CALC_MODE` — margin calculation
+
+**Used by:** `SymbolParamsManyInfo.tradecalcmode()`.
+
+| Value | Int | Meaning |
+|-------|-----|---------|
+| `pb::SYMBOL_TRADE_MARGINE_CALC_MODE_FOREX` | 0 | Forex |
+| `pb::SYMBOL_TRADE_MARGINE_CALC_MODE_FUTURES` | 1 | Futures |
+| `pb::SYMBOL_TRADE_MARGINE_CALC_MODE_CFD` | 2 | CFD |
+
+> Note the proto typo `MARGINE` (not `MARGIN`) — frozen into the contract.
+
+### `SP_ENUM_SYMBOL_TRADE_MODE` — what trading is allowed
+
+**Used by:** `SymbolParamsManyInfo.trademode()`.
+
+| Value | Int | Meaning |
+|-------|-----|---------|
+| `pb::SYMBOL_TRADE_MODE_DISABLED` | 0 | Trading disabled |
+| `pb::SYMBOL_TRADE_MODE_LONGONLY` | 1 | Long only |
+| `pb::SYMBOL_TRADE_MODE_SHORTONLY` | 2 | Short only |
+| `pb::SYMBOL_TRADE_MODE_CLOSEONLY` | 3 | Close only |
+| `pb::SYMBOL_TRADE_MODE_FULL` | 4 | Full access |
+
+### `SP_ENUM_SYMBOL_TRADE_EXECUTION` — execution mode
+
+**Used by:** `SymbolParamsManyInfo.tradeexemode()`.
+
+| Value | Int | Meaning |
+|-------|-----|---------|
+| `pb::SYMBOL_TRADE_EXECUTION_REQUEST` | 0 | Request execution |
+| `pb::SYMBOL_TRADE_EXECUTION_INSTANT` | 1 | Instant execution |
+| `pb::SYMBOL_TRADE_EXECUTION_MARKET` | 2 | Market execution |
+| `pb::SYMBOL_TRADE_EXECUTION_EXCHANGE` | 3 | Exchange execution |
+
+---
+
+## Not passed as values, but you'll meet them
+
+* **`MqlErrorCode`** — the MQL4 trade-error numbers (`0`, `130`, `132`, …) that arrive in `ApiError::mqlErrorCode`. Full table in [Return Codes](RETURN_CODES_REFERENCE.md).
+* **`ErrorType`** — the gateway `Error` payload's category (`type` field), folded into `ApiError` for you.
+
+> Other enums in the generated pool (`ChartTemplateMode`, `EA_PARAM_TYPE`, `GuiFormFieldType`, `LogType`, `TerminalType`, `ProxyTypes`, …) belong to admin / GUI / charting RPCs that the trading SDK (`MT4Account` / `MT4Service` / `MT4Sugar`) does not surface.
+
+---
+
+**See also:** [MT4Account — Master Overview](../MT4Account/MT4Account.Master.Overview.md) · [SymbolParamsMany](../MT4Account/3.%20Symbols_Quotes/SymbolParamsMany.md) · [Return Codes](RETURN_CODES_REFERENCE.md) · [MT4Service API](../MT4Service/MT4Service.Overview.md)

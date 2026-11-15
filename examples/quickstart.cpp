@@ -1,41 +1,85 @@
-#include "metarpc/mt4.hpp"
-#include <iostream>
+/*══════════════════════════════════════════════════════════════════════════════
+ FILE: quickstart.cpp - the smallest end-to-end CppMT4 program
+
+ PURPOSE:
+   Connect by broker server name, read the account, quote a symbol, then place and
+   close one tiny market order on a DEMO account — using the high-level MT4Sugar API.
+
+ ⚠ SAFETY: places a real (tiny, self-closing) order; it refuses to run on a non-DEMO account.
+
+ 🚀 HOW TO RUN:
+   export MRPC_API_KEY=mrpc_live_...
+   export MT4_LOGIN=12345678 MT4_PASSWORD=... MT4_SERVER=MetaQuotes-Demo
+   cmake -B build -DBUILD_EXAMPLES=ON && cmake --build build --target quickstart
+   ./build/quickstart
+══════════════════════════════════════════════════════════════════════════════*/
+
+#include "metarpc/mt4_sugar.hpp"
 #include <cstdlib>
+#include <iostream>
 
-int main(int argc, char* argv[]) {
-    const char* envApiKey = std::getenv("MRPC_API_KEY");
-    std::string apiKey = (argc > 1) ? argv[1] : (envApiKey ? envApiKey : "TRIAL");
+int main() {
+    using namespace metarpc;
 
-    metarpc::MT4Client client("mt4.mrpc.pro", 443, apiKey);
-
-    int login = 176136103;
-    std::string password = "nisl4vs";
-
-    try {
-        std::cout << "Connecting to MetaTrader 4 (mt4.mrpc.pro:443)..." << std::endl;
-        if (client.connect(login, password)) {
-            std::cout << "Connected successfully to MT4! Account ID: " << client.getId() << std::endl;
-
-            std::cout << "\nStep 1: Querying Account Balance..." << std::endl;
-            auto acc = client.getAccountInfo();
-            std::cout << "Account: " << acc.login << " (" << acc.name << ")" << std::endl;
-            std::cout << "Balance: " << acc.balance << " " << acc.currency << std::endl;
-
-            std::cout << "\nStep 2: Executing Market Order..." << std::endl;
-            metarpc::OrderRequest req;
-            req.symbol = "EURUSD";
-            req.type = metarpc::OrderType::Buy;
-            req.lots = 0.1;
-            req.comment = "Cpp MT4 Bot";
-
-            auto res = client.orderSend(req);
-            std::cout << "Order placed! Ticket: #" << res.ticket << " (Code: " << res.errorCode << ")" << std::endl;
-        }
-    } catch (const std::exception& ex) {
-        std::cerr << "Error: " << ex.what() << std::endl;
+    // Credentials come from the environment (see the header above).
+    const char* login    = std::getenv("MT4_LOGIN");
+    const char* password = std::getenv("MT4_PASSWORD");
+    const char* server   = std::getenv("MT4_SERVER");
+    if (!login || !password || !server) {
+        std::cerr << "set MT4_LOGIN, MT4_PASSWORD, MT4_SERVER (and MRPC_API_KEY)\n";
+        return 2;
     }
 
-    client.disconnect(true);
-    std::cout << "\nDisconnected successfully." << std::endl;
+    // Construct the high-level layer. The API key defaults to $MRPC_API_KEY (else "TRIAL").
+    MT4Sugar sugar("mt4.mrpc.pro", 443);
+
+    try {
+        // ──────────────────────────────────────────────────────────────────────
+        //  1  connect(login, password, server)
+        //     Starts/attaches the terminal; the session id is obtained and stored
+        //     automatically (no manual GetId). Throws on failure.
+        // ──────────────────────────────────────────────────────────────────────
+        sugar.connect(std::atoll(login), password, server, "cppmt4-quickstart");
+
+        // ──────────────────────────────────────────────────────────────────────
+        //  2  getAccountInfo()  → AccountInfo
+        //     Full account snapshot. Refuse to trade anywhere but a DEMO account.
+        // ──────────────────────────────────────────────────────────────────────
+        AccountInfo acc = sugar.getAccountInfo();
+        std::cout << "Account " << acc.login << " (" << acc.name << ") " << acc.balance << " "
+                  << acc.currency << "  leverage 1:" << acc.leverage << "\n";
+        if (acc.tradeMode != TradeMode::Demo) {
+            std::cerr << "refusing to trade on a non-DEMO account\n";
+            return 3;
+        }
+
+        const std::string symbol = "EURUSD";
+
+        // ──────────────────────────────────────────────────────────────────────
+        //  3  getSymbolInfo(symbol) → SymbolInfo   and   getPriceInfo(symbol) → PriceInfo
+        //     Symbol spec (digits, volume limits) and the current bid/ask.
+        // ──────────────────────────────────────────────────────────────────────
+        SymbolInfo info = sugar.getSymbolInfo(symbol);
+        PriceInfo  px   = sugar.getPriceInfo(symbol);
+        std::cout << symbol << "  bid=" << px.bid << " ask=" << px.ask
+                  << "  digits=" << info.digits << " volMin=" << info.volumeMin << "\n";
+
+        // ──────────────────────────────────────────────────────────────────────
+        //  4  buyMarket(symbol, volume)  ⚠ places a REAL (tiny) order
+        //     Returns the ticket, or 0 if rejected.
+        // ──────────────────────────────────────────────────────────────────────
+        int ticket = sugar.buyMarket(symbol, info.volumeMin);
+        if (ticket == 0) { std::cerr << "order rejected (market closed / no margin?)\n"; return 1; }
+        std::cout << "opened #" << ticket << "\n";
+
+        // ──────────────────────────────────────────────────────────────────────
+        //  5  closeOrder(ticket)  ⚠ closes the order we just opened
+        // ──────────────────────────────────────────────────────────────────────
+        std::cout << "close -> " << (sugar.closeOrder(ticket) ? "ok" : "FAILED") << "\n";
+    }
+    catch (const ApiError& e)       { std::cerr << "API error: " << e.what() << "\n";       return 1; }
+    catch (const TransportError& e) { std::cerr << "transport error: " << e.what() << "\n"; return 1; }
+
+    // No disconnect(): the terminal stays alive on the gateway for the next run.
     return 0;
 }

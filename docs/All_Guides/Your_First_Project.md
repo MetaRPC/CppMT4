@@ -1,92 +1,99 @@
 # Your First Project in 10 Minutes (C++)
 
-> **Hands-on Quick Start** - Create a working trading project with MetaTrader 4 and CppMT4 from scratch.
+> **Hands-on quick start** — build a working MetaTrader 4 bot with CppMT4 from scratch.
 
 ---
 
-## Step 0: Obtain Your API Key
+## Step 0 — API key (or TRIAL)
 
-To connect to MetaRPC endpoints (`mt4.mrpc.pro:443`), obtain your API key:
-1. Register for free at [https://mrpc.pro/signup](https://mrpc.pro/signup).
-2. Generate your API token in your dashboard at [https://mrpc.pro/my](https://mrpc.pro/my).
-3. Set your token in your environment or connection config.
+To reach the MetaRPC endpoint (`mt4.mrpc.pro:443`) you need either an API key or TRIAL access:
+
+1. Register at [mrpc.pro/signup](https://mrpc.pro/signup) and copy a key from [mrpc.pro/my](https://mrpc.pro/my), **or**
+2. leave the key empty to use TRIAL access (fine for demo accounts).
+
+You'll also need **demo account credentials** — login, password, and the broker **server name** (e.g. `EGlobal-Demo`).
 
 ---
 
-## Step 1: Create Your Project
+## Step 1 — get the SDK
 
-Create a new directory for your trading bot:
-
-```bash
-mkdir my_cppmt4_bot
-cd my_cppmt4_bot
-```
-
-Get the SDK (it is not on a package registry):
+Building a **C++ app**? Clone the whole project:
 
 ```bash
 git clone https://github.com/MetaRPC/CppMT4.git
+cd CppMT4
 ```
+
+The SDK is header + source under `include/metarpc/` and `src/`; the gRPC stubs are generated at build time from `proto/mt4_term_api.desc`.
+
+> Building in **another language** (or your own codegen) instead? You don't need the whole repo — just grab the single contract file [`proto/mt4_term_api.desc`](https://github.com/MetaRPC/CppMT4/blob/main/proto/mt4_term_api.desc) and run your own `protoc` on it. See [What to download](GETTING_STARTED.md#-what-to-download).
 
 ---
 
-## Step 2: Write Your Trading Code
+## Step 2 — write your bot
 
-Create your main application file and paste the following snippet:
+The fastest path is the high-level [`MT4Sugar`](../MT4Sugar/MT4Sugar.API_Overview.md) layer. Create `main.cpp`:
 
 ```cpp
-#include <metarpc/mt4.hpp>
-#include <iostream>
+#include <metarpc/mt4_sugar.hpp>
+#include <cstdio>
+using namespace metarpc;
 
 int main() {
-    metarpc::MT4Client client("mt4.mrpc.pro", 443);
+    // TRIAL access (empty API key). Pass your key as the 3rd arg if you have one.
+    MT4Sugar sugar("mt4.mrpc.pro", 443);
 
-    if (client.connect(100234, "account_password")) {
-        std::cout << "Connected to MT4!" << std::endl;
+    // login, password, broker server name
+    sugar.connect(1235959737, "password", "EGlobal-Demo");
+    std::printf("Connected. Balance %.2f  Equity %.2f\n",
+                sugar.getBalance(), sugar.getEquity());
 
-        metarpc::AccountInfo acc = client.getAccountInfo();
-        std::cout << "Balance: " << acc.balance << " " << acc.currency << std::endl;
+    // current price
+    std::printf("EURUSD %.5f / %.5f\n", sugar.getBid("EURUSD"), sugar.getAsk("EURUSD"));
 
-        // Subscribe to EURUSD ticks
-        client.subscribeQuotes({"EURUSD"}, [](const metarpc::Quote& quote) {
-            std::cout << "[" << quote.symbol << "] Bid: " << quote.bid 
-                      << " Ask: " << quote.ask << std::endl;
-        });
-
-        // Send a 0.01 lot Buy order
-        metarpc::OrderRequest req;
-        req.symbol = "EURUSD";
-        req.type = metarpc::OrderType::Buy;
-        req.lots = 0.01;
-        req.comment = "CppMT4 Quickstart";
-
-        metarpc::OrderResult result = client.orderSend(req);
-        std::cout << "Order executed! Ticket #" << result.ticket << std::endl;
+    // ⚠️ open a tiny demo BUY, then close it (returns 0 if the broker rejects it)
+    int ticket = sugar.buyMarket("EURUSD", 0.01);
+    if (ticket) {
+        std::printf("opened #%d\n", ticket);
+        sugar.closeOrder(ticket);
+        std::puts("closed");
+    } else {
+        std::puts("order rejected (market closed? try a 24/7 symbol like BTCUSD)");
     }
-
     return 0;
 }
 ```
 
+> **🆚 MT4:** `buyMarket` returns an **`int` ticket** — `0` means the broker rejected it (it never throws for an ordinary rejection). There are no "positions": you close the **order** with `closeOrder(ticket)`.
+
 ---
 
-## Step 3: Run the Program
+## Step 3 — build & run
 
-Run your application:
+CppMT4 builds with CMake (MSYS2 UCRT64 / protobuf 6.x on Windows). The repo ships a ready `examples/quickstart.cpp` that does exactly the above:
 
 ```bash
 cmake -B build -S . -DBUILD_EXAMPLES=ON
-cmake --build build --config Release
-./build/quickstart        # Windows: .\build\quickstart.exe or .\build\Release\quickstart.exe
+cmake --build build --target quickstart
+./build/quickstart        # Windows: .\build\quickstart.exe
 ```
 
-Run it from the cloned repository: its `examples/quickstart` does the same thing.
+Pass your credentials via environment variables and run the full demo menu instead:
+
+```bash
+# MT4_LOGIN / MT4_PASSWORD / MT4_SERVER (+ optional MT4_SYMBOL / MT4_VOLUME)
+cmake -B build -S . -DBUILD_DEMOS=ON
+cmake --build build --target demos
+./build/demos            # interactive menu of 14 demos
+```
 
 ---
 
-## 🚀 Next Steps
+## 🚀 Next steps
 
-Congratulations! You have successfully established a direct gRPC connection to MetaTrader 4. Next:
-- Explore **[gRPC Streaming](GRPC_STREAM_MANAGEMENT.md)** to listen to live ticks.
-- Check the **[API Reference](../API_Reference/MT4Account.md)** for all 40+ available terminal methods.
-- Learn about high-level risk management and auto-normalization in **[MT4Sugar](../API_Reference/MT4Sugar.md)**.
+You've made a live gRPC connection to MetaTrader 4. Next:
+
+- **[Project Map](PROJECT_MAP.md)** — how the three layers fit together.
+- **[gRPC Streaming](GRPC_STREAM_MANAGEMENT.md)** — subscribe to live ticks and trade events.
+- **[MT4Sugar](../MT4Sugar/MT4Sugar.API_Overview.md)** — risk-based sizing and one-liner trading.
+- **[MT4Account API](../API_Reference/MT4Account.md)** — every low-level terminal method.
