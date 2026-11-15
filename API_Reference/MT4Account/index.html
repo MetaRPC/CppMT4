@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#mt4account-api-reference" class="md-skip">
+        <a href="#mt4account-low-level-api-layer-1-of-3" class="md-skip">
           Skip to content
         </a>
       
@@ -762,10 +762,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#layer-overview" class="md-nav__link">
+  <a href="#mt4-vs-mt5-if-you-know-the-mt5-sdk" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📌 Layer Overview
+        🆚 MT4 vs MT5 (if you know the MT5 SDK)
       
     </span>
   </a>
@@ -773,74 +773,134 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#method-groups" class="md-nav__link">
+  <a href="#how-a-call-works" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📑 Method Groups
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="📑 Method Groups">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-connection-session" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Connection &amp; Session
+        How a call works
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#2-account-information" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#construction-identity" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Account Information
+        Construction &amp; identity
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#3-market-symbol-info" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#connection" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Market &amp; Symbol Info
+        Connection
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#4-trading-operations" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#account" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Trading Operations
+        Account
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#5-real-time-streaming" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#symbols-quotes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Real-Time Streaming
+        Symbols &amp; quotes
       
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#orders-market-pending-one-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orders (market + pending — one list)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trading
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bars" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bars
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trade-statistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trade statistics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#server-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Server &amp; time
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#streaming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Streaming
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See also
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1000,6 +1060,90 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Strategies/Orchestrators/TrailingStop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Trailing Stop
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Strategies/Orchestrators/GridTrader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grid Trader
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Strategies/Orchestrators/RiskManager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Risk Manager
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Strategies/Presets/AdaptiveMarketModePreset/" class="md-nav__link">
         
   
@@ -1007,7 +1151,7 @@
   <span class="md-ellipsis">
     
   
-    Presets
+    Adaptive Market Mode
   
 
     
@@ -1055,10 +1199,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#layer-overview" class="md-nav__link">
+  <a href="#mt4-vs-mt5-if-you-know-the-mt5-sdk" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📌 Layer Overview
+        🆚 MT4 vs MT5 (if you know the MT5 SDK)
       
     </span>
   </a>
@@ -1066,74 +1210,134 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#method-groups" class="md-nav__link">
+  <a href="#how-a-call-works" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📑 Method Groups
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="📑 Method Groups">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-connection-session" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Connection &amp; Session
+        How a call works
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#2-account-information" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#construction-identity" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Account Information
+        Construction &amp; identity
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#3-market-symbol-info" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#connection" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Market &amp; Symbol Info
+        Connection
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#4-trading-operations" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#account" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. Trading Operations
+        Account
       
     </span>
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#5-real-time-streaming" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#symbols-quotes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        5. Real-Time Streaming
+        Symbols &amp; quotes
       
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#orders-market-pending-one-list" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orders (market + pending — one list)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trading
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bars" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bars
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#trade-statistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trade statistics
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#server-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Server &amp; time
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#streaming" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Streaming
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See also
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1157,54 +1361,361 @@
   
 
 
-<h1 id="mt4account-api-reference">MT4Account API Reference<a class="headerlink" href="#mt4account-api-reference" title="Permanent link">¶</a></h1>
-<blockquote>
-<p>Complete API reference for <code>MT4Account</code> in MetaTrader 4 automation.</p>
-</blockquote>
-<hr />
-<h2 id="layer-overview">📌 Layer Overview<a class="headerlink" href="#layer-overview" title="Permanent link">¶</a></h2>
-<p><code>MT4Account</code> is a core component of the MetaRPC architecture.</p>
+<h1 id="mt4account-low-level-api-layer-1-of-3">MT4Account — Low-Level API (Layer 1 of 3)<a class="headerlink" href="#mt4account-low-level-api-layer-1-of-3" title="Permanent link">¶</a></h1>
+<p><code>metarpc::MT4Account</code> is the thin, 1:1-with-the-wire layer. Every method maps to a single
+gRPC RPC: you pass a protobuf <code>*Request</code> and get back the protobuf <code>*Data</code> payload of the
+reply. It owns the gRPC channel, the service stubs, the connection/identity state and the
+transport machinery — transient-failure retry with exponential back-off and an automatic
+<code>ConnectEx</code> re-attach on <code>TERMINAL_INSTANCE_NOT_FOUND</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;metarpc/mt4_account.hpp&gt;</span><span class="w">   </span><span class="c1">// pulls in the generated protobuf headers</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">When to use this layer</p>
+<p>Use <code>MT4Account</code> when you need a field the friendly layers do not expose, or full control
+over the exact request. For everyday work prefer <a href="../MT4Service/"><code>MT4Service</code></a> (friendly
+structs) or <a href="../MT4Sugar/"><code>MT4Sugar</code></a> (one-liners), which hide protobuf and compile fast.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Per-method deep dives</p>
+<p>This page is the compact reference. For a <strong>detailed write-up of every method</strong> (signature,
+request/reply, input/output tables, enums, worked examples) see the
+<a href="../../MT4Account/MT4Account.Master.Overview/"><strong>MT4Account — Master Overview</strong></a> and its
+section pages.</p>
+</div>
+<h2 id="mt4-vs-mt5-if-you-know-the-mt5-sdk">🆚 MT4 vs MT5 (if you know the MT5 SDK)<a class="headerlink" href="#mt4-vs-mt5-if-you-know-the-mt5-sdk" title="Permanent link">¶</a></h2>
 <ul>
-<li><strong><code>MT4Account</code></strong>: Layer 1 — low-level gRPC client communicating directly with the MT4 terminal gateway.</li>
-<li><strong><code>MT4Service</code></strong>: Layer 2 — typed wrapper methods providing clean signatures and native data structures.</li>
-<li><strong><code>MT4Sugar</code></strong>: Layer 3 — high-level convenience layer featuring risk-based volume sizing, auto-normalization, and batch order actions.</li>
+<li><strong>No "positions".</strong> There are only <strong>orders</strong> — <code>openedOrders()</code> returns market <strong>and</strong> pending orders in one list. Tickets are <code>int32</code>.</li>
+<li><strong>No DOM, no <code>orderCalcMargin</code> / <code>orderCalcProfit</code> / <code>orderCheck</code>.</strong> MT4 has no server-side pre-trade calculators.</li>
+<li><strong>Trades have no retcode.</strong> A rejected trade <strong>throws <code>ApiError</code></strong> carrying the MQL4 error code (e.g. <code>132</code> market closed, <code>130</code> invalid stops) — there is no <code>10009</code>-style status.</li>
+<li><strong>Timeframes are in MINUTES</strong> (M1=1, H1=60, D1=1440).</li>
+<li><strong>Every message carries both server time and a <code>_utc</code> field.</strong></li>
 </ul>
-<hr />
-<h2 id="method-groups">📑 Method Groups<a class="headerlink" href="#method-groups" title="Permanent link">¶</a></h2>
-<h3 id="1-connection-session">1. Connection &amp; Session<a class="headerlink" href="#1-connection-session" title="Permanent link">¶</a></h3>
+<h2 id="how-a-call-works">How a call works<a class="headerlink" href="#how-a-call-works" title="Permanent link">¶</a></h2>
 <ul>
-<li><code>connect_by_server_name</code> / <code>ConnectByServerNameAsync</code>: Connect via MT4 broker server name.</li>
-<li><code>connect_by_host_port</code> / <code>ConnectByHostPortAsync</code>: Direct connection to terminal IP and port.</li>
-<li><code>is_connected</code> / <code>IsConnected</code>: Check active channel health.</li>
-<li><code>disconnect</code> / <code>Disconnect</code>: Gracefully release gRPC connection.</li>
+<li><strong>Protobuf in, protobuf out.</strong> <code>accountSummary()</code> returns a <code>pb::AccountSummaryData</code>; you read
+  fields with the generated accessors (<code>.account_balance()</code>, <code>.account_login()</code>, …).</li>
+<li><strong>No UTC conversion.</strong> Times are raw broker server time (plus a <code>_utc</code> field on each message).
+  <code>MT4Service</code> is the layer that selects UTC for you.</li>
+<li><strong>Errors are exceptions</strong> (never error codes):<ul>
+<li><code>metarpc::ApiError</code> — the gateway/terminal answered with an error payload (bad login,
+  unknown symbol, trade rejected, …). Carries <code>code</code>, <code>message</code>, and the MQL4 code (<code>mqlErrorCode</code>).</li>
+<li><code>metarpc::TransportError</code> — a gRPC transport failure that outlived the retry budget.</li>
 </ul>
-<h3 id="2-account-information">2. Account Information<a class="headerlink" href="#2-account-information" title="Permanent link">¶</a></h3>
-<ul>
-<li><code>account_summary</code> / <code>AccountSummary</code>: Full balance, equity, margin, free margin, leverage, currency, trade mode.</li>
-<li><code>account_info_double</code>: Balance, equity, margin free, profit.</li>
-<li><code>account_info_integer</code>: Login, leverage, trade allowed, margin mode.</li>
-<li><code>account_info_string</code>: Currency, broker company, server name.</li>
+</li>
+<li><strong>Retry &amp; reconnect are automatic</strong> (see <code>ClientOptions</code>). You do not retry yourself.</li>
 </ul>
-<h3 id="3-market-symbol-info">3. Market &amp; Symbol Info<a class="headerlink" href="#3-market-symbol-info" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">metarpc</span><span class="p">;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">pb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">mt4_term_api</span><span class="p">;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">MT4Account</span><span class="w"> </span><span class="n">acc</span><span class="p">(</span><span class="s">"mt4.mrpc.pro"</span><span class="p">,</span><span class="w"> </span><span class="mi">443</span><span class="p">,</span><span class="w"> </span><span class="cm">/*apiKey*/</span><span class="w"> </span><span class="s">""</span><span class="p">);</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">acc</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="mi">1235959737</span><span class="p">,</span><span class="w"> </span><span class="s">"password"</span><span class="p">,</span><span class="w"> </span><span class="s">"EGlobal-Demo"</span><span class="p">);</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">    </span><span class="n">pb</span><span class="o">::</span><span class="n">AccountSummaryData</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">acc</span><span class="p">.</span><span class="n">accountSummary</span><span class="p">();</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">account_login</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"  "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">account_balance</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">s</span><span class="p">.</span><span class="n">account_currency</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">ApiError</span><span class="o">&amp;</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cerr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">code</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">": "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">message</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="p">}</span>
+</code></pre></div>
+<h2 id="construction-identity">Construction &amp; identity<a class="headerlink" href="#construction-identity" title="Permanent link">¶</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">MT4Account</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">host</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"mt4.mrpc.pro"</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">port</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">443</span><span class="p">,</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">           </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">apiKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">""</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">""</span><span class="p">);</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>uuid5(ns, name)</code> <em>(static)</em></td>
+<td>RFC 4122 v5 UUID from a namespace + name — the fleet convention for a stable terminal id</td>
+</tr>
+<tr>
+<td><code>computeDeterministicId(login, password)</code> <em>(static)</em></td>
+<td>Legacy SHA-256 id from credentials</td>
+</tr>
+<tr>
+<td><code>getId(login, password)</code> / <code>setId(id)</code> / <code>getId()</code></td>
+<td>The terminal id (set <strong>before</strong> <code>connect()</code>; keep it stable per account)</td>
+</tr>
+<tr>
+<td><code>setApiKey(k)</code> / <code>getApiKey()</code></td>
+<td>Gateway API key (<code>""</code> → <code>MRPC_API_KEY</code> env → <code>"TRIAL"</code>)</td>
+</tr>
+<tr>
+<td><code>setName(n)</code> / <code>getName()</code></td>
+<td>Terminal instance name</td>
+</tr>
+<tr>
+<td><code>options()</code></td>
+<td>Mutable <code>ClientOptions</code> (deadlines, retries, TLS roots, verbosity)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="connection">Connection<a class="headerlink" href="#connection" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Returns</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>connect(login, password, server, name="", timeoutSeconds=120)</code></td>
+<td><code>void</code></td>
+<td>ConnectEx by broker server name; stores creds for auto-reconnect; blocks until ready</td>
+</tr>
+<tr>
+<td><code>reconnect()</code></td>
+<td><code>void</code></td>
+<td>Re-issue ConnectEx (also done automatically on a lost terminal)</td>
+</tr>
+<tr>
+<td><code>isConnected()</code></td>
+<td><code>bool</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>terminalGuid()</code></td>
+<td><code>std::string</code></td>
+<td>The id the gateway returned</td>
+</tr>
+<tr>
+<td><code>disconnect(reason="")</code></td>
+<td><code>void</code></td>
+<td><strong>Stops</strong> the terminal on the gateway — avoid on normal shutdown</td>
+</tr>
+<tr>
+<td><code>close()</code></td>
+<td><code>void</code></td>
+<td>Drops the local channel only; the terminal keeps running</td>
+</tr>
+<tr>
+<td><code>serverOffsetSeconds()</code></td>
+<td><code>int64_t</code></td>
+<td>Broker clock minus UTC (cached from one <code>AccountSummary</code>)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="account">Account<a class="headerlink" href="#account" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>accountSummary(req = {})</code></td>
+<td><code>pb::AccountSummaryData</code> — full snapshot; also refreshes the cached server-time offset</td>
+</tr>
+</tbody>
+</table>
+<h2 id="symbols-quotes">Symbols &amp; quotes<a class="headerlink" href="#symbols-quotes" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>quote(req)</code></td>
+<td><code>pb::QuoteData</code> — latest bid/ask (+ session high/low) for one symbol</td>
+</tr>
+<tr>
+<td><code>quoteMany(req)</code></td>
+<td><code>pb::QuoteManyData</code> — latest quotes for several symbols</td>
+</tr>
+<tr>
+<td><code>quoteHistory(req)</code></td>
+<td><code>pb::QuoteHistoryData</code> — historical quotes</td>
+</tr>
+<tr>
+<td><code>symbols(req = {})</code></td>
+<td><code>pb::SymbolsData</code> — every symbol name (+ index)</td>
+</tr>
+<tr>
+<td><code>symbolSelect(req)</code></td>
+<td><code>pb::SymbolSelectData</code> — add/remove a symbol from Market Watch</td>
+</tr>
+<tr>
+<td><code>symbolParamsMany(req)</code></td>
+<td><code>pb::SymbolParamsManyData</code> — full params for one/many symbols (~70 fields each)</td>
+</tr>
+<tr>
+<td><code>tickValueWithSize(req)</code></td>
+<td><code>pb::TickValueWithSizeData</code> — tick value + size for several symbols</td>
+</tr>
+</tbody>
+</table>
+<h2 id="orders-market-pending-one-list">Orders (market + pending — one list)<a class="headerlink" href="#orders-market-pending-one-list" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>openedOrders(req)</code></td>
+<td><code>pb::OpenedOrdersData</code> — all live orders (market <strong>and</strong> pending)</td>
+</tr>
+<tr>
+<td><code>openedOrdersTickets(req)</code></td>
+<td><code>pb::OpenedOrdersTicketsData</code> — just the ticket list</td>
+</tr>
+<tr>
+<td><code>ordersHistory(req)</code></td>
+<td><code>pb::OrdersHistoryData</code> — closed orders in a window (paginated)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="trading">Trading<a class="headerlink" href="#trading" title="Permanent link">¶</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">No retcode</p>
+<p>A rejected trade <strong>throws <code>ApiError</code></strong> with the MQL4 error in <code>mqlErrorCode</code>. There is no success status field — a returned <code>*Data</code> means the trade was accepted.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>orderSend(req)</code></td>
+<td><code>pb::OrderSendData</code> — place a market/pending order (<code>ticket</code>, <code>volume</code>, <code>price</code>, <code>open_time</code>)</td>
+</tr>
+<tr>
+<td><code>orderModify(req)</code></td>
+<td><code>pb::OrderModifyData</code> — change SL/TP/price/expiry (<code>order_was_modified</code>)</td>
+</tr>
+<tr>
+<td><code>orderCloseDelete(req)</code></td>
+<td><code>pb::OrderCloseDeleteData</code> — close a market order / delete a pending</td>
+</tr>
+<tr>
+<td><code>orderCloseBy(req)</code></td>
+<td><code>pb::OrderCloseByData</code> — close one order by an opposite one</td>
+</tr>
+</tbody>
+</table>
+<h2 id="bars">Bars<a class="headerlink" href="#bars" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>bars(req)</code></td>
+<td><code>pb::QuoteHistoryBarsData</code> — OHLC bars (timeframe in minutes; <code>from_time</code> is <strong>required</strong>)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="trade-statistics">Trade statistics<a class="headerlink" href="#trade-statistics" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>tradeStats(req)</code></td>
+<td><code>pb::StatsData</code> — profit factor, drawdowns, Sharpe, …</td>
+</tr>
+<tr>
+<td><code>tradeStatsEquityHistory(req)</code></td>
+<td><code>pb::StatsWithChartsData</code> — stats + equity points + trades</td>
+</tr>
+<tr>
+<td><code>equityHistory(req)</code></td>
+<td><code>pb::EquityHistoryData</code> — balance/equity curve points</td>
+</tr>
+<tr>
+<td><code>tradeUnrealizedPL(req)</code></td>
+<td><code>pb::TradeUnrealizedPLData</code> — max/min floating P&amp;L per open order</td>
+</tr>
+</tbody>
+</table>
+<h2 id="server-time">Server &amp; time<a class="headerlink" href="#server-time" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>serverTimezone(req = {})</code></td>
+<td><code>pb::ServerTimezoneData</code> — broker timezone / UTC offset</td>
+</tr>
+</tbody>
+</table>
+<h2 id="streaming">Streaming<a class="headerlink" href="#streaming" title="Permanent link">¶</a></h2>
+<p>Every <code>onX()</code> opens a server stream and delivers raw protobuf payloads to your callback on a
+background thread. The returned <code>AccountStream</code> owns the subscription — keep it alive to keep
+receiving, destroy it (or call <code>stop()</code>) to cancel.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Callback payload</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>onSymbolTick(req, cb)</code></td>
+<td><code>pb::OnSymbolTickData</code></td>
+</tr>
+<tr>
+<td><code>onTrade(req, cb)</code></td>
+<td><code>pb::OnTradeData</code></td>
+</tr>
+<tr>
+<td><code>onOpenedOrdersProfit(req, cb)</code></td>
+<td><code>pb::OnOpenedOrdersProfitData</code></td>
+</tr>
+<tr>
+<td><code>onOpenedOrdersTickets(req, cb)</code></td>
+<td><code>pb::OnOpenedOrdersTicketsData</code></td>
+</tr>
+<tr>
+<td><code>onConnectState(req, cb)</code></td>
+<td><code>pb::ConnectStateData</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>AccountStream</code> exposes <code>stop()</code>, <code>running()</code>, <code>count()</code>, <code>lastError()</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">pb</span><span class="o">::</span><span class="n">OnSymbolTickRequest</span><span class="w"> </span><span class="n">req</span><span class="p">;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="n">req</span><span class="p">.</span><span class="n">add_symbol_names</span><span class="p">(</span><span class="s">"EURUSD"</span><span class="p">);</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">auto</span><span class="w"> </span><span class="n">stream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">acc</span><span class="p">.</span><span class="n">onSymbolTick</span><span class="p">(</span><span class="n">req</span><span class="p">,</span><span class="w"> </span><span class="p">[](</span><span class="k">const</span><span class="w"> </span><span class="n">pb</span><span class="o">::</span><span class="n">OnSymbolTickData</span><span class="o">&amp;</span><span class="w"> </span><span class="n">d</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">d</span><span class="p">.</span><span class="n">has_symbol_tick</span><span class="p">())</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">symbol_tick</span><span class="p">().</span><span class="n">symbol</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">" "</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">symbol_tick</span><span class="p">().</span><span class="n">bid</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="p">});</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="n">std</span><span class="o">::</span><span class="n">this_thread</span><span class="o">::</span><span class="n">sleep_for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">seconds</span><span class="p">(</span><span class="mi">5</span><span class="p">));</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="n">stream</span><span class="o">-&gt;</span><span class="n">stop</span><span class="p">();</span><span class="w">   </span><span class="c1">// (also happens automatically when `stream` is destroyed)</span>
+</code></pre></div>
+<h2 id="see-also">See also<a class="headerlink" href="#see-also" title="Permanent link">¶</a></h2>
 <ul>
-<li><code>symbol_info_tick</code>: Latest bid, ask, last, volume.</li>
-<li><code>symbol_params_many</code>: Batch query symbol specifications (point, digits, contract size, stops level).</li>
-<li><code>symbols_total</code>: Total available market symbols count.</li>
-<li><code>symbol_select</code>: Add or remove symbol from MarketWatch.</li>
-</ul>
-<h3 id="4-trading-operations">4. Trading Operations<a class="headerlink" href="#4-trading-operations" title="Permanent link">¶</a></h3>
-<ul>
-<li><code>order_send</code> / <code>OrderSend</code>: Send market orders, pending orders, modifications.</li>
-<li><code>order_close</code> / <code>OrderClose</code>: Close open orders or positions.</li>
-<li><code>order_modify</code> / <code>OrderModify</code>: Update Stop Loss and Take Profit levels.</li>
-<li><code>order_check</code> / <code>OrderCheck</code>: Pre-flight margin and parameter validation before execution.</li>
-</ul>
-<h3 id="5-real-time-streaming">5. Real-Time Streaming<a class="headerlink" href="#5-real-time-streaming" title="Permanent link">¶</a></h3>
-<ul>
-<li><code>on_symbol_tick</code> / <code>SubscribeToTicks</code>: Real-time streaming price tick feed.</li>
-<li><code>on_trade</code> / <code>SubscribeToTrades</code>: Execution reports and order state events.</li>
-<li><code>on_position_profit</code> / <code>SubscribeToPositionProfit</code>: Real-time P&amp;L changes across open positions.</li>
-<li><code>on_book_event</code> / <code>SubscribeToMarketBook</code>: Level II market depth (DOM) updates.</li>
+<li><a href="../../MT4Account/MT4Account.Master.Overview/"><strong>MT4Account — Master Overview</strong></a> — per-method deep dives, grouped.</li>
+<li><a href="../MT4Service/">MT4Service</a> — the same data as friendly C++ structs, with UTC conversion.</li>
+<li><a href="../MT4Sugar/">MT4Sugar</a> — one-line helpers on top of <code>MT4Service</code>.</li>
 </ul>
 
 

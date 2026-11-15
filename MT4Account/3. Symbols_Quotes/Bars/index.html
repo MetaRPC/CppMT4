@@ -1,0 +1,1702 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete C++ SDK for MetaTrader 4 trading automation via gRPC">
+      
+      
+      
+        <link rel="canonical" href="https://metarpc.github.io/CppMT4/MT4Account/3.%20Symbols_Quotes/Bars/">
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.0">
+    
+    
+      
+        <title>📊 Fetching OHLC Bars - CppMT4 SDK Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../styles/custom.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#fetching-ohlc-bars" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="CppMT4 SDK Documentation" class="md-header__button md-logo" aria-label="CppMT4 SDK Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m10.5 15.97.41 2.44c-.26.14-.68.27-1.24.39-.57.13-1.24.2-2.01.2-2.21-.04-3.87-.7-4.98-1.96Q1 15.135 1 12.21c.05-2.31.72-4.08 2-5.32C4.32 5.64 5.96 5 7.94 5c.75 0 1.4.07 1.94.19s.94.25 1.2.4l-.58 2.49-1.06-.34c-.4-.1-.86-.15-1.39-.15-1.16-.01-2.12.36-2.87 1.1-.76.73-1.15 1.85-1.18 3.34 0 1.36.37 2.42 1.08 3.2.71.77 1.71 1.17 2.99 1.18l1.33-.12c.43-.08.79-.19 1.1-.32M11 11h2V9h2v2h2v2h-2v2h-2v-2h-2zm7 0h2V9h2v2h2v2h-2v2h-2v-2h-2z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            CppMT4 SDK Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              📊 Fetching OHLC Bars
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/MetaRPC/CppMT4" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    MetaRPC/CppMT4
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="CppMT4 SDK Documentation" class="md-nav__button md-logo" aria-label="CppMT4 SDK Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m10.5 15.97.41 2.44c-.26.14-.68.27-1.24.39-.57.13-1.24.2-2.01.2-2.21-.04-3.87-.7-4.98-1.96Q1 15.135 1 12.21c.05-2.31.72-4.08 2-5.32C4.32 5.64 5.96 5 7.94 5c.75 0 1.4.07 1.94.19s.94.25 1.2.4l-.58 2.49-1.06-.34c-.4-.1-.86-.15-1.39-.15-1.16-.01-2.12.36-2.87 1.1-.76.73-1.15 1.85-1.18 3.34 0 1.36.37 2.42 1.08 3.2.71.77 1.71 1.17 2.99 1.18l1.33-.12c.43-.08.79-.19 1.1-.32M11 11h2V9h2v2h2v2h-2v2h-2v-2h-2zm7 0h2V9h2v2h2v2h-2v2h-2v-2h-2z"/></svg>
+
+    </a>
+    CppMT4 SDK Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/MetaRPC/CppMT4" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    MetaRPC/CppMT4
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guides
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../All_Guides/GETTING_STARTED/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../All_Guides/Your_First_Project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Your First Project
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../All_Guides/PROJECT_MAP/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Map
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../All_Guides/GLOSSARY/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../All_Guides/MT4_For_Beginners/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MT4 for Beginners
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../All_Guides/GRPC_STREAM_MANAGEMENT/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    gRPC Streaming
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../All_Guides/RETURN_CODES_REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Return Codes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../All_Guides/ENUMS_USAGE_REFERENCE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ENUMs Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../All_Guides/PROTOBUF_INSPECTOR_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protobuf Inspector
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../All_Guides/USERCODE_SANDBOX_GUIDE/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UserCode Sandbox
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../All_Guides/SYNC_VS_ASYNC/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sync vs Async
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    API Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../API_Reference/MT4Account/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MT4Account API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../API_Reference/MT4Service/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MT4Service API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../API_Reference/MT4Sugar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MT4Sugar API
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Strategies
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Strategies
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Strategies/Strategies.Master.Overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Master Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Strategies/Orchestrators/TrailingStop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Trailing Stop
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Strategies/Orchestrators/GridTrader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grid Trader
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Strategies/Orchestrators/RiskManager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Risk Manager
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Strategies/Presets/AdaptiveMarketModePreset/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Adaptive Market Mode
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#rpc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        RPC
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#just-the-essentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💬 Just the essentials
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#purpose" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Purpose
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#signature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧱 Signature
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#input" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔽 Input
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#output-quotehistorybarsdata" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ⬆️ Output — QuoteHistoryBarsData
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="⬆️ Output — QuoteHistoryBarsData">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quotehistorybar-one-bar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QuoteHistoryBar (one bar)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-enum-quote_history_timeframe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧱 Related enum — QUOTE_HISTORY_TIMEFRAME
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes-tips" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🧩 Notes &amp; Tips
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔗 Usage Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔗 Usage Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-basic-last-week-of-h1-bars" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1) Basic — last week of H1 bars
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-page-through-a-long-range" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2) Page through a long range
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-print-bars-with-utc-time" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3) Print bars with UTC time
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-atr-average-true-range" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4) ATR (Average True Range)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-daily-bars-for-the-last-30-days" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5) Daily bars for the last 30 days
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-error-handling-missing-from_time-is-a-common-mistake" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6) Error handling (missing from_time is a common mistake)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔧 Common Patterns
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 Common Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#last-n-bars-mirror-of-mt4servicelastbars" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Last N bars (mirror of MT4Service::lastBars)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#see-also" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 See Also
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="fetching-ohlc-bars">📊 Fetching OHLC Bars<a class="headerlink" href="#fetching-ohlc-bars" title="Permanent link">¶</a></h1>
+<blockquote>
+<p><strong>Request:</strong> OHLC <strong>bars</strong> (<code>QuoteHistoryBarsData</code>, a list of <code>QuoteHistoryBar</code>) for a symbol and timeframe, from <strong>MT4</strong>'s dedicated <code>QuoteHistory</code> service — paginated, with raw <code>int64</code> times.</p>
+</blockquote>
+<p><strong>API Information:</strong></p>
+<ul>
+<li><strong>Low-level API:</strong> <code>MT4Account::bars(...)</code> (from <code>#include &lt;metarpc/mt4_account.hpp&gt;</code>, namespace <code>metarpc</code>)</li>
+<li><strong>gRPC service:</strong> <code>mt4_term_api.QuoteHistory</code></li>
+<li><strong>Proto definition:</strong> <code>ShowQuoteHistory</code> / bars RPC (defined in <code>mt4-term-api-quote-history.proto</code>)</li>
+</ul>
+<h3 id="rpc">RPC<a class="headerlink" href="#rpc" title="Permanent link">¶</a></h3>
+<ul>
+<li><strong>Service:</strong> <code>mt4_term_api.QuoteHistory</code></li>
+<li><strong>Method:</strong> <code>Bars(QuoteHistoryBarsRequest) → QuoteHistoryBarsReply</code></li>
+<li><strong>Low-level client (generated):</strong> <code>QuoteHistory::Stub</code> bars method <code>(context, request, response)</code></li>
+</ul>
+<hr />
+<h2 id="just-the-essentials">💬 Just the essentials<a class="headerlink" href="#just-the-essentials" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>What it is.</strong> One RPC returning <strong>OHLC bars</strong> for a symbol/timeframe over a window, with pagination.</li>
+<li><strong>Why you need it.</strong> Classic candlestick data for charts, indicators and backtests.</li>
+<li><strong>Sanity check.</strong> <code>bars_size()</code> &gt; 0; each bar's <code>time()</code> falls inside your window.</li>
+</ul>
+<blockquote>
+<p><strong>⏱️ Timeframe enum alert.</strong> <code>bars</code> uses <strong><code>QUOTE_HISTORY_TIMEFRAME</code></strong> with <strong>minute counts</strong> (<code>QHB_PERIOD_H1 = 60</code>), <strong>not</strong> the index enum that <a href="../QuoteHistory/"><code>quoteHistory</code></a> uses. The friendly <code>MT4Service::Timeframe</code> matches <em>this</em> scheme.</p>
+<p><strong>⚠️ <code>from_time</code> is required.</strong> The MT4 gateway rejects a zero/implicit window (<code>QUOTE_HISTORY_FROM_TIME_REQUIRED</code>) — always set <code>from_time</code> (or <code>from_time_utc</code>). <code>MT4Service::lastBars()</code> computes a safe window for you.</p>
+</blockquote>
+<hr />
+<h2 id="purpose">🎯 Purpose<a class="headerlink" href="#purpose" title="Permanent link">¶</a></h2>
+<ul>
+<li>Build candlestick charts and compute indicators (MA, RSI, ATR…).</li>
+<li>Backtest on OHLC data.</li>
+<li>Prefer <code>bars</code> over <a href="../QuoteHistory/"><code>quoteHistory</code></a> when you want minute-count timeframes, pagination and raw <code>int64</code> times.</li>
+</ul>
+<hr />
+<h2 id="signature">🧱 Signature<a class="headerlink" href="#signature" title="Permanent link">¶</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">metarpc</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="k">class</span><span class="w"> </span><span class="nc">MT4Account</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">    </span><span class="c1">// ...</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="k">public</span><span class="o">:</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">    </span><span class="c1">// OHLC bars for a symbol/timeframe (timeframe in minutes; from_time REQUIRED).</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="c1">// Throws ApiError / TransportError on failure.</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">    </span><span class="n">pb</span><span class="o">::</span><span class="n">QuoteHistoryBarsData</span><span class="w"> </span><span class="n">bars</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">pb</span><span class="o">::</span><span class="n">QuoteHistoryBarsRequest</span><span class="o">&amp;</span><span class="w"> </span><span class="n">req</span><span class="p">);</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">};</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="p">}</span><span class="w"> </span><span class="c1">// namespace metarpc</span>
+</code></pre></div>
+<p><code>namespace pb = mt4_term_api;</code> — the generated protobuf namespace.</p>
+<p><strong>Request message:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">QuoteHistoryBarsRequest</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="kt">string</span><span class="w"> </span><span class="na">symbol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="n">QUOTE_HISTORY_TIMEFRAME</span><span class="w"> </span><span class="na">timeframe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w">   </span><span class="c1">// QHB_PERIOD_* (minute counts)</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="kt">int64</span><span class="w">  </span><span class="na">from_time</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w">                </span><span class="c1">// window start, broker clock (unix sec) — REQUIRED</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="kt">int64</span><span class="w">  </span><span class="na">to_time</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">;</span><span class="w">                </span><span class="c1">// window end,   broker clock (unix sec)</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="kt">int32</span><span class="w">  </span><span class="na">page_size</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w">                </span><span class="c1">// bars per page</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="kt">string</span><span class="w"> </span><span class="na">page_token</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">;</span><span class="w">                </span><span class="c1">// cursor for the next page</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">  </span><span class="kt">int64</span><span class="w">  </span><span class="na">from_time_utc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">;</span><span class="w">                </span><span class="c1">// window start, UTC (unix sec)</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">  </span><span class="kt">int64</span><span class="w">  </span><span class="na">to_time_utc</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w">                </span><span class="c1">// window end,   UTC (unix sec)</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="p">}</span>
+</code></pre></div>
+<p>Times here are <strong>raw <code>int64</code> unix seconds</strong>, not <code>Timestamp</code>. Use the broker-clock pair <em>or</em> the UTC pair.</p>
+<p><strong>Reply message:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">QuoteHistoryBarsReply</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="k">oneof</span><span class="w"> </span><span class="n">response</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="n">QuoteHistoryBarsData</span><span class="w"> </span><span class="na">data</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="n">Error</span><span class="w">                </span><span class="na">error</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="input">🔽 Input<a class="headerlink" href="#input" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>req</code></td>
+<td><code>const pb::QuoteHistoryBarsRequest&amp;</code></td>
+<td>Symbol, timeframe, window, paging.</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;ctime&gt;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kt">int64_t</span><span class="w"> </span><span class="n">now</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int64_t</span><span class="p">)</span><span class="n">std</span><span class="o">::</span><span class="n">time</span><span class="p">(</span><span class="nb">nullptr</span><span class="p">);</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kt">int64_t</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">24</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">3600</span><span class="p">;</span><span class="w">        </span><span class="c1">// last week</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="n">pb</span><span class="o">::</span><span class="n">QuoteHistoryBarsRequest</span><span class="w"> </span><span class="n">req</span><span class="p">;</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="n">req</span><span class="p">.</span><span class="n">set_symbol</span><span class="p">(</span><span class="s">"EURUSD"</span><span class="p">);</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="n">req</span><span class="p">.</span><span class="n">set_timeframe</span><span class="p">(</span><span class="n">pb</span><span class="o">::</span><span class="n">QHB_PERIOD_H1</span><span class="p">);</span><span class="w">      </span><span class="c1">// H1 = 60 here!</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="n">req</span><span class="p">.</span><span class="n">set_from_time_utc</span><span class="p">(</span><span class="n">from</span><span class="p">);</span><span class="w">               </span><span class="c1">// REQUIRED</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="n">req</span><span class="p">.</span><span class="n">set_to_time_utc</span><span class="p">(</span><span class="n">now</span><span class="p">);</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="n">req</span><span class="p">.</span><span class="n">set_page_size</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="n">pb</span><span class="o">::</span><span class="n">QuoteHistoryBarsData</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">account</span><span class="p">.</span><span class="n">bars</span><span class="p">(</span><span class="n">req</span><span class="p">);</span>
+</code></pre></div>
+<p><strong>There is no <code>ctx</code> parameter.</strong> Transient failures retry automatically.</p>
+<hr />
+<h2 id="output-quotehistorybarsdata">⬆️ Output — <code>QuoteHistoryBarsData</code><a class="headerlink" href="#output-quotehistorybarsdata" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Field (proto)</th>
+<th>C++ accessor</th>
+<th>C++ type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>symbol</code></td>
+<td><code>symbol()</code></td>
+<td><code>const std::string&amp;</code></td>
+<td>Instrument echoed back.</td>
+</tr>
+<tr>
+<td><code>timeframe</code></td>
+<td><code>timeframe()</code></td>
+<td><code>QUOTE_HISTORY_TIMEFRAME</code></td>
+<td>The timeframe echoed back.</td>
+</tr>
+<tr>
+<td><code>bars</code></td>
+<td><code>bars()</code></td>
+<td><code>RepeatedPtrField&lt;QuoteHistoryBar&gt;</code></td>
+<td>The bars. Use <code>bars_size()</code>.</td>
+</tr>
+<tr>
+<td><code>next_page_token</code></td>
+<td><code>next_page_token()</code></td>
+<td><code>const std::string&amp;</code></td>
+<td>Cursor for the next page (empty = last).</td>
+</tr>
+<tr>
+<td><code>server_first_time</code></td>
+<td><code>server_first_time()</code></td>
+<td><code>int64_t</code></td>
+<td>Earliest available bar time (broker).</td>
+</tr>
+<tr>
+<td><code>server_first_time_utc</code></td>
+<td><code>server_first_time_utc()</code></td>
+<td><code>int64_t</code></td>
+<td>Earliest available bar time (UTC).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="quotehistorybar-one-bar"><code>QuoteHistoryBar</code> (one bar)<a class="headerlink" href="#quotehistorybar-one-bar" title="Permanent link">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field (proto)</th>
+<th>C++ accessor</th>
+<th>C++ type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>time</code></td>
+<td><code>time()</code></td>
+<td><code>int64_t</code></td>
+<td>Bar open time, broker clock (unix sec).</td>
+</tr>
+<tr>
+<td><code>time_utc</code></td>
+<td><code>time_utc()</code></td>
+<td><code>int64_t</code></td>
+<td>Bar open time, UTC (unix sec).</td>
+</tr>
+<tr>
+<td><code>open</code></td>
+<td><code>open()</code></td>
+<td><code>double</code></td>
+<td>Open price.</td>
+</tr>
+<tr>
+<td><code>high</code></td>
+<td><code>high()</code></td>
+<td><code>double</code></td>
+<td>High price.</td>
+</tr>
+<tr>
+<td><code>low</code></td>
+<td><code>low()</code></td>
+<td><code>double</code></td>
+<td>Low price.</td>
+</tr>
+<tr>
+<td><code>close</code></td>
+<td><code>close()</code></td>
+<td><code>double</code></td>
+<td>Close price.</td>
+</tr>
+<tr>
+<td><code>tick_volume</code></td>
+<td><code>tick_volume()</code></td>
+<td><code>int64_t</code></td>
+<td>Tick (quote) volume.</td>
+</tr>
+<tr>
+<td><code>real_volume</code></td>
+<td><code>real_volume()</code></td>
+<td><code>int64_t</code></td>
+<td>Real (exchange) volume, if any.</td>
+</tr>
+<tr>
+<td><code>spread</code></td>
+<td><code>spread()</code></td>
+<td><code>int32_t</code></td>
+<td>Spread in points.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Times are <code>int64</code> unix seconds</strong> — no <code>Timestamp</code> conversion needed (pass straight to <code>std::gmtime</code>).</p>
+</blockquote>
+<hr />
+<h2 id="related-enum-quote_history_timeframe">🧱 Related enum — <code>QUOTE_HISTORY_TIMEFRAME</code><a class="headerlink" href="#related-enum-quote_history_timeframe" title="Permanent link">¶</a></h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">enum</span><span class="w"> </span><span class="n">QUOTE_HISTORY_TIMEFRAME</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="na">QHB_PERIOD_UNSPECIFIED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="na">QHB_PERIOD_M1</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">    </span><span class="na">QHB_PERIOD_M5</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w">    </span><span class="na">QHB_PERIOD_M15</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">15</span><span class="p">;</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="na">QHB_PERIOD_M30</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="p">;</span><span class="w">   </span><span class="na">QHB_PERIOD_H1</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">60</span><span class="p">;</span><span class="w">   </span><span class="na">QHB_PERIOD_H4</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">240</span><span class="p">;</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span><span class="na">QHB_PERIOD_D1</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">1440</span><span class="p">;</span><span class="w"> </span><span class="na">QHB_PERIOD_W1</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">10080</span><span class="p">;</span><span class="w"> </span><span class="na">QHB_PERIOD_MN1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">43200</span><span class="p">;</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="p">}</span>
+</code></pre></div>
+<blockquote>
+<p><strong>These are minute counts.</strong> <code>QHB_PERIOD_H1 = 60</code>, <code>QHB_PERIOD_D1 = 1440</code>. The friendly <code>MT4Service::Timeframe</code> uses the same numeric values.</p>
+</blockquote>
+<hr />
+<h2 id="notes-tips">🧩 Notes &amp; Tips<a class="headerlink" href="#notes-tips" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong><code>from_time</code> (or <code>from_time_utc</code>) is mandatory</strong> — omit it and the gateway returns <code>QUOTE_HISTORY_FROM_TIME_REQUIRED</code>.</li>
+<li><strong>Minute-count timeframe</strong> — don't pass a <code>QH_PERIOD_*</code> index here.</li>
+<li><strong>Paginate</strong> with <code>page_size</code> + <code>page_token</code> → <code>next_page_token</code> for long ranges.</li>
+<li><strong>Raw <code>int64</code> times</strong> — unlike <code>HistoryQuote</code>, no <code>Timestamp</code>.</li>
+<li><strong><code>server_first_time</code></strong> tells you how far back the broker's history goes.</li>
+<li><strong>Reconnection is automatic.</strong></li>
+</ul>
+<hr />
+<h2 id="usage-examples">🔗 Usage Examples<a class="headerlink" href="#usage-examples" title="Permanent link">¶</a></h2>
+<h3 id="1-basic-last-week-of-h1-bars">1) Basic — last week of H1 bars<a class="headerlink" href="#1-basic-last-week-of-h1-bars" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;metarpc/mt4_account.hpp&gt;</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;ctime&gt;</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cstdio&gt;</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">metarpc</span><span class="p">;</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="k">namespace</span><span class="w"> </span><span class="nn">pb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">mt4_term_api</span><span class="p">;</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">    </span><span class="n">MT4Account</span><span class="w"> </span><span class="n">account</span><span class="p">(</span><span class="s">"mt4.mrpc.pro"</span><span class="p">,</span><span class="w"> </span><span class="mi">443</span><span class="p">);</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span><span class="n">account</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="mi">1235959737</span><span class="p">,</span><span class="w"> </span><span class="s">"password"</span><span class="p">,</span><span class="w"> </span><span class="s">"EGlobal-Demo"</span><span class="p">);</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">    </span><span class="kt">int64_t</span><span class="w"> </span><span class="n">now</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int64_t</span><span class="p">)</span><span class="n">std</span><span class="o">::</span><span class="n">time</span><span class="p">(</span><span class="nb">nullptr</span><span class="p">);</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">    </span><span class="n">pb</span><span class="o">::</span><span class="n">QuoteHistoryBarsRequest</span><span class="w"> </span><span class="n">req</span><span class="p">;</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">    </span><span class="n">req</span><span class="p">.</span><span class="n">set_symbol</span><span class="p">(</span><span class="s">"EURUSD"</span><span class="p">);</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">    </span><span class="n">req</span><span class="p">.</span><span class="n">set_timeframe</span><span class="p">(</span><span class="n">pb</span><span class="o">::</span><span class="n">QHB_PERIOD_H1</span><span class="p">);</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">    </span><span class="n">req</span><span class="p">.</span><span class="n">set_from_time_utc</span><span class="p">(</span><span class="n">now</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">24</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">3600</span><span class="p">);</span><span class="w">     </span><span class="c1">// REQUIRED</span>
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">    </span><span class="n">req</span><span class="p">.</span><span class="n">set_to_time_utc</span><span class="p">(</span><span class="n">now</span><span class="p">);</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">    </span><span class="n">req</span><span class="p">.</span><span class="n">set_page_size</span><span class="p">(</span><span class="mi">500</span><span class="p">);</span>
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a>
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">    </span><span class="n">pb</span><span class="o">::</span><span class="n">QuoteHistoryBarsData</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">account</span><span class="p">.</span><span class="n">bars</span><span class="p">(</span><span class="n">req</span><span class="p">);</span>
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">printf</span><span class="p">(</span><span class="s">"%d bars</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">bars_size</span><span class="p">());</span>
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">bars</span><span class="p">())</span>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">printf</span><span class="p">(</span><span class="s">"  O %.5f H %.5f L %.5f C %.5f  vol %lld</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="w">                    </span><span class="n">b</span><span class="p">.</span><span class="n">open</span><span class="p">(),</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">high</span><span class="p">(),</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">low</span><span class="p">(),</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">close</span><span class="p">(),</span><span class="w"> </span><span class="p">(</span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="p">)</span><span class="n">b</span><span class="p">.</span><span class="n">tick_volume</span><span class="p">());</span>
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="2-page-through-a-long-range">2) Page through a long range<a class="headerlink" href="#2-page-through-a-long-range" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">pb</span><span class="o">::</span><span class="n">QuoteHistoryBar</span><span class="o">&gt;</span><span class="w"> </span><span class="n">allBars</span><span class="p">(</span><span class="n">MT4Account</span><span class="o">&amp;</span><span class="w"> </span><span class="n">account</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">sym</span><span class="p">,</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="w">        </span><span class="n">pb</span><span class="o">::</span><span class="n">QUOTE_HISTORY_TIMEFRAME</span><span class="w"> </span><span class="n">tf</span><span class="p">,</span><span class="w"> </span><span class="kt">int64_t</span><span class="w"> </span><span class="n">fromUnix</span><span class="p">,</span><span class="w"> </span><span class="kt">int64_t</span><span class="w"> </span><span class="n">toUnix</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">pb</span><span class="o">::</span><span class="n">QuoteHistoryBar</span><span class="o">&gt;</span><span class="w"> </span><span class="n">out</span><span class="p">;</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">    </span><span class="n">pb</span><span class="o">::</span><span class="n">QuoteHistoryBarsRequest</span><span class="w"> </span><span class="n">req</span><span class="p">;</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="w">    </span><span class="n">req</span><span class="p">.</span><span class="n">set_symbol</span><span class="p">(</span><span class="n">sym</span><span class="p">);</span><span class="w"> </span><span class="n">req</span><span class="p">.</span><span class="n">set_timeframe</span><span class="p">(</span><span class="n">tf</span><span class="p">);</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="w">    </span><span class="n">req</span><span class="p">.</span><span class="n">set_from_time_utc</span><span class="p">(</span><span class="n">fromUnix</span><span class="p">);</span><span class="w"> </span><span class="n">req</span><span class="p">.</span><span class="n">set_to_time_utc</span><span class="p">(</span><span class="n">toUnix</span><span class="p">);</span>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="w">    </span><span class="n">req</span><span class="p">.</span><span class="n">set_page_size</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(;;)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="w">        </span><span class="n">pb</span><span class="o">::</span><span class="n">QuoteHistoryBarsData</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">account</span><span class="p">.</span><span class="n">bars</span><span class="p">(</span><span class="n">req</span><span class="p">);</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">bars</span><span class="p">())</span><span class="w"> </span><span class="n">out</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">d</span><span class="p">.</span><span class="n">next_page_token</span><span class="p">().</span><span class="n">empty</span><span class="p">())</span><span class="w"> </span><span class="k">break</span><span class="p">;</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="w">        </span><span class="n">req</span><span class="p">.</span><span class="n">set_page_token</span><span class="p">(</span><span class="n">d</span><span class="p">.</span><span class="n">next_page_token</span><span class="p">());</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14" href="#__codelineno-6-14"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-6-15" name="__codelineno-6-15" href="#__codelineno-6-15"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">out</span><span class="p">;</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16" href="#__codelineno-6-16"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="3-print-bars-with-utc-time">3) Print bars with UTC time<a class="headerlink" href="#3-print-bars-with-utc-time" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="kt">void</span><span class="w"> </span><span class="nf">printBars</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">pb</span><span class="o">::</span><span class="n">QuoteHistoryBarsData</span><span class="o">&amp;</span><span class="w"> </span><span class="n">d</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">b</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">bars</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="kt">time_t</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="kt">time_t</span><span class="p">)</span><span class="n">b</span><span class="p">.</span><span class="n">time_utc</span><span class="p">();</span><span class="w">   </span><span class="c1">// already unix seconds</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">        </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">strftime</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="s">"%Y-%m-%d %H:%M"</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">gmtime</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">));</span>
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">printf</span><span class="p">(</span><span class="s">"[%s] O%.5f H%.5f L%.5f C%.5f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">                    </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">open</span><span class="p">(),</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">high</span><span class="p">(),</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">low</span><span class="p">(),</span><span class="w"> </span><span class="n">b</span><span class="p">.</span><span class="n">close</span><span class="p">());</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="4-atr-average-true-range">4) ATR (Average True Range)<a class="headerlink" href="#4-atr-average-true-range" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kt">double</span><span class="w"> </span><span class="nf">atr</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">pb</span><span class="o">::</span><span class="n">QuoteHistoryBarsData</span><span class="o">&amp;</span><span class="w"> </span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">period</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">bars_size</span><span class="p">();</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">period</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">    </span><span class="kt">double</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">period</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">bars</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">        </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="o">&amp;</span><span class="w"> </span><span class="n">prv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="p">.</span><span class="n">bars</span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">        </span><span class="kt">double</span><span class="w"> </span><span class="n">tr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">max</span><span class="p">({</span><span class="w"> </span><span class="n">cur</span><span class="p">.</span><span class="n">high</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">cur</span><span class="p">.</span><span class="n">low</span><span class="p">(),</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="w">                               </span><span class="n">std</span><span class="o">::</span><span class="n">fabs</span><span class="p">(</span><span class="n">cur</span><span class="p">.</span><span class="n">high</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">prv</span><span class="p">.</span><span class="n">close</span><span class="p">()),</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a><span class="w">                               </span><span class="n">std</span><span class="o">::</span><span class="n">fabs</span><span class="p">(</span><span class="n">cur</span><span class="p">.</span><span class="n">low</span><span class="p">()</span><span class="w">  </span><span class="o">-</span><span class="w"> </span><span class="n">prv</span><span class="p">.</span><span class="n">close</span><span class="p">())</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a><span class="w">        </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">tr</span><span class="p">;</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">period</span><span class="p">;</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="5-daily-bars-for-the-last-30-days">5) Daily bars for the last 30 days<a class="headerlink" href="#5-daily-bars-for-the-last-30-days" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">pb</span><span class="o">::</span><span class="n">QuoteHistoryBarsData</span><span class="w"> </span><span class="nf">dailyBars</span><span class="p">(</span><span class="n">MT4Account</span><span class="o">&amp;</span><span class="w"> </span><span class="n">account</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">sym</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="kt">int64_t</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int64_t</span><span class="p">)</span><span class="n">std</span><span class="o">::</span><span class="n">time</span><span class="p">(</span><span class="nb">nullptr</span><span class="p">);</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="n">pb</span><span class="o">::</span><span class="n">QuoteHistoryBarsRequest</span><span class="w"> </span><span class="n">req</span><span class="p">;</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">    </span><span class="n">req</span><span class="p">.</span><span class="n">set_symbol</span><span class="p">(</span><span class="n">sym</span><span class="p">);</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">    </span><span class="n">req</span><span class="p">.</span><span class="n">set_timeframe</span><span class="p">(</span><span class="n">pb</span><span class="o">::</span><span class="n">QHB_PERIOD_D1</span><span class="p">);</span><span class="w">          </span><span class="c1">// 1440</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">    </span><span class="n">req</span><span class="p">.</span><span class="n">set_from_time_utc</span><span class="p">(</span><span class="n">now</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">24</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">3600</span><span class="p">);</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">    </span><span class="n">req</span><span class="p">.</span><span class="n">set_to_time_utc</span><span class="p">(</span><span class="n">now</span><span class="p">);</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">    </span><span class="n">req</span><span class="p">.</span><span class="n">set_page_size</span><span class="p">(</span><span class="mi">60</span><span class="p">);</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">account</span><span class="p">.</span><span class="n">bars</span><span class="p">(</span><span class="n">req</span><span class="p">);</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="6-error-handling-missing-from_time-is-a-common-mistake">6) Error handling (missing from_time is a common mistake)<a class="headerlink" href="#6-error-handling-missing-from_time-is-a-common-mistake" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="kt">bool</span><span class="w"> </span><span class="nf">tryBars</span><span class="p">(</span><span class="n">MT4Account</span><span class="o">&amp;</span><span class="w"> </span><span class="n">account</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">pb</span><span class="o">::</span><span class="n">QuoteHistoryBarsRequest</span><span class="o">&amp;</span><span class="w"> </span><span class="n">req</span><span class="p">,</span><span class="w"> </span><span class="n">pb</span><span class="o">::</span><span class="n">QuoteHistoryBarsData</span><span class="o">&amp;</span><span class="w"> </span><span class="n">out</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">    </span><span class="k">try</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">account</span><span class="p">.</span><span class="n">bars</span><span class="p">(</span><span class="n">req</span><span class="p">);</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">    </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">ApiError</span><span class="o">&amp;</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">printf</span><span class="p">(</span><span class="s">"Bars rejected: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">what</span><span class="p">());</span><span class="w">   </span><span class="c1">// e.g. QUOTE_HISTORY_FROM_TIME_REQUIRED</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">TransportError</span><span class="o">&amp;</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a><span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">printf</span><span class="p">(</span><span class="s">"Transport error: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">.</span><span class="n">what</span><span class="p">());</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a><span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="common-patterns">🔧 Common Patterns<a class="headerlink" href="#common-patterns" title="Permanent link">¶</a></h2>
+<h3 id="last-n-bars-mirror-of-mt4servicelastbars">Last N bars (mirror of <code>MT4Service::lastBars</code>)<a class="headerlink" href="#last-n-bars-mirror-of-mt4servicelastbars" title="Permanent link">¶</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">pb</span><span class="o">::</span><span class="n">QuoteHistoryBarsData</span><span class="w"> </span><span class="nf">lastBars</span><span class="p">(</span><span class="n">MT4Account</span><span class="o">&amp;</span><span class="w"> </span><span class="n">account</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span><span class="w"> </span><span class="n">sym</span><span class="p">,</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">                                  </span><span class="n">pb</span><span class="o">::</span><span class="n">QUOTE_HISTORY_TIMEFRAME</span><span class="w"> </span><span class="n">tfMinutes</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="kt">int64_t</span><span class="w"> </span><span class="n">now</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int64_t</span><span class="p">)</span><span class="n">std</span><span class="o">::</span><span class="n">time</span><span class="p">(</span><span class="nb">nullptr</span><span class="p">);</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="kt">int64_t</span><span class="w"> </span><span class="n">span</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">int64_t</span><span class="p">)</span><span class="n">tfMinutes</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">60</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">count</span><span class="p">;</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="kt">int64_t</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">span</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">24</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">3600</span><span class="p">;</span><span class="w">    </span><span class="c1">// pad for gaps/weekends</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span><span class="n">pb</span><span class="o">::</span><span class="n">QuoteHistoryBarsRequest</span><span class="w"> </span><span class="n">req</span><span class="p">;</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">    </span><span class="n">req</span><span class="p">.</span><span class="n">set_symbol</span><span class="p">(</span><span class="n">sym</span><span class="p">);</span><span class="w"> </span><span class="n">req</span><span class="p">.</span><span class="n">set_timeframe</span><span class="p">(</span><span class="n">tfMinutes</span><span class="p">);</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">    </span><span class="n">req</span><span class="p">.</span><span class="n">set_from_time_utc</span><span class="p">(</span><span class="n">from</span><span class="p">);</span><span class="w"> </span><span class="n">req</span><span class="p">.</span><span class="n">set_to_time_utc</span><span class="p">(</span><span class="n">now</span><span class="p">);</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">    </span><span class="n">req</span><span class="p">.</span><span class="n">set_page_size</span><span class="p">(</span><span class="n">count</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">2</span><span class="p">);</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">account</span><span class="p">.</span><span class="n">bars</span><span class="p">(</span><span class="n">req</span><span class="p">);</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="p">}</span>
+</code></pre></div>
+<hr />
+<h2 id="see-also">📚 See Also<a class="headerlink" href="#see-also" title="Permanent link">¶</a></h2>
+<ul>
+<li><a href="../QuoteHistory/">QuoteHistory</a> — the <code>MarketInfo</code> history variant (index timeframe enum, <code>Timestamp</code> times)</li>
+<li><a href="../Symbols_Quotes.Overview/">Symbols &amp; Quotes — Overview</a> — the two-timeframe-enum table</li>
+<li><a href="../Quote/">Quote</a> — the latest price</li>
+<li><strong>Friendly layer:</strong> <code>MT4Service::bars(symbol, Timeframe, fromUnix, toUnix)</code> / <code>lastBars(symbol, Timeframe, count)</code> → <code>std::vector&lt;Bar&gt;</code> (UTC times; <code>Timeframe</code> values are the minute counts used here). <code>lastBars</code> supplies the required <code>from_time</code> for you.</li>
+<li><strong>Sugar layer:</strong> strategy helpers build on <code>MT4Service::lastBars()</code>.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2024–2025 MetaRPC. MT4 is a trademark of MetaQuotes Software Corp. This documentation is community-maintained and not affiliated with MetaQuotes.
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/MetaRPC/CppMT4" target="_blank" rel="noopener" title="CppMT4 on GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tracking", "navigation.expand", "navigation.top", "navigation.footer", "content.code.copy", "toc.follow"], "search": "../../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.c21346df.min.js"></script>
+      
+        <script src="../../../javascripts/ux.js"></script>
+      
+    
+  </body>
+</html>

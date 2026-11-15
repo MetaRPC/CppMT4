@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#synchronous-vs-asynchronous-methods-when-to-use-what-c" class="md-skip">
+        <a href="#synchronous-calls-vs-streaming-how-cppmt4-executes" class="md-skip">
           Skip to content
         </a>
       
@@ -678,10 +678,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#quick-comparison" class="md-nav__link">
+  <a href="#two-execution-modes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🎯 Quick Comparison
+        🎯 Two execution modes
       
     </span>
   </a>
@@ -689,49 +689,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#when-to-use-asynchronous-methods-recommended" class="md-nav__link">
+  <a href="#unary-calls-synchronous-and-blocking" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🚀 When to Use Asynchronous Methods (Recommended)
+        🔁 Unary calls — synchronous and blocking
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="🚀 When to Use Asynchronous Methods (Recommended)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-market-data-streaming" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Market Data Streaming
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-high-frequency-order-execution" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. High-Frequency Order Execution
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
+  <a href="#streaming-background-thread-callbacks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        💡 Summary
+        📡 Streaming — background thread + callbacks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rules-of-thumb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💡 Rules of thumb
       
     </span>
   </a>
@@ -978,6 +961,90 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Strategies/Orchestrators/TrailingStop/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Trailing Stop
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Strategies/Orchestrators/GridTrader/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Grid Trader
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Strategies/Orchestrators/RiskManager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Risk Manager
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../Strategies/Presets/AdaptiveMarketModePreset/" class="md-nav__link">
         
   
@@ -985,7 +1052,7 @@
   <span class="md-ellipsis">
     
   
-    Presets
+    Adaptive Market Mode
   
 
     
@@ -1033,10 +1100,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#quick-comparison" class="md-nav__link">
+  <a href="#two-execution-modes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🎯 Quick Comparison
+        🎯 Two execution modes
       
     </span>
   </a>
@@ -1044,49 +1111,32 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#when-to-use-asynchronous-methods-recommended" class="md-nav__link">
+  <a href="#unary-calls-synchronous-and-blocking" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🚀 When to Use Asynchronous Methods (Recommended)
+        🔁 Unary calls — synchronous and blocking
       
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="🚀 When to Use Asynchronous Methods (Recommended)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-market-data-streaming" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1. Market Data Streaming
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-high-frequency-order-execution" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2. High-Frequency Order Execution
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#summary" class="md-nav__link">
+  <a href="#streaming-background-thread-callbacks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        💡 Summary
+        📡 Streaming — background thread + callbacks
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rules-of-thumb" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💡 Rules of thumb
       
     </span>
   </a>
@@ -1113,63 +1163,82 @@
   
 
 
-<h1 id="synchronous-vs-asynchronous-methods-when-to-use-what-c">Synchronous vs Asynchronous Methods - When to Use What (C++)<a class="headerlink" href="#synchronous-vs-asynchronous-methods-when-to-use-what-c" title="Permanent link">¶</a></h1>
+<h1 id="synchronous-calls-vs-streaming-how-cppmt4-executes">Synchronous Calls vs Streaming — How CppMT4 Executes<a class="headerlink" href="#synchronous-calls-vs-streaming-how-cppmt4-executes" title="Permanent link">¶</a></h1>
 <blockquote>
-<p>Understanding execution models in CppMT4: non-blocking streaming vs synchronous execution.</p>
+<p>CppMT4's execution model in one line: <strong>unary calls block; streams run on a background thread and call you back.</strong> There is no <code>async</code>/<code>await</code> and no <code>CompletionQueue</code> to manage — the SDK hides the gRPC machinery.</p>
 </blockquote>
 <hr />
-<h2 id="quick-comparison">🎯 Quick Comparison<a class="headerlink" href="#quick-comparison" title="Permanent link">¶</a></h2>
-<p>High performance gRPC C++ async CompletionQueue stubs designed for low latency trading and quantitative finance models.</p>
+<h2 id="two-execution-modes">🎯 Two execution modes<a class="headerlink" href="#two-execution-modes" title="Permanent link">¶</a></h2>
 <table>
 <thead>
 <tr>
-<th>Aspect</th>
-<th>Asynchronous Pattern</th>
-<th>Synchronous Call</th>
+<th></th>
+<th>Unary (request → reply)</th>
+<th>Streaming (subscription)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Thread Blocking</strong></td>
-<td>❌ Non-blocking (high concurrency)</td>
-<td>✅ Blocks current thread</td>
+<td><strong>Style</strong></td>
+<td>synchronous, <strong>blocks</strong> until the reply</td>
+<td>callback on a <strong>background thread</strong></td>
 </tr>
 <tr>
-<td><strong>Throughput</strong></td>
-<td>✅ Handles thousands of events/sec</td>
-<td>❌ Limited by thread pool</td>
+<td><strong>Examples</strong></td>
+<td><code>accountSummary</code>, <code>quote</code>, <code>orderSend</code>, <code>ordersHistory</code></td>
+<td><code>onSymbolTick</code>, <code>onTrade</code>, <code>onOpenedOrdersProfit</code>, …</td>
 </tr>
 <tr>
-<td><strong>Real-Time Data</strong></td>
-<td>✅ Perfect for tick &amp; trade streams</td>
-<td>⚠️ Inefficient for streams</td>
+<td><strong>Returns</strong></td>
+<td>the value (or throws <code>ApiError</code> / <code>TransportError</code>)</td>
+<td>a stream handle; delivers payloads until stopped</td>
 </tr>
 <tr>
-<td><strong>Simplicity</strong></td>
-<td>Requires async runtime awareness</td>
-<td>Simple, linear execution</td>
+<td><strong>You manage</strong></td>
+<td>nothing — call it and read the result</td>
+<td>keep the handle alive; <code>stop()</code> to cancel</td>
 </tr>
 <tr>
-<td><strong>Recommended for</strong></td>
-<td>Automated bots, microservices, GUIs</td>
-<td>CLI scripts, notebooks, one-offs</td>
+<td><strong>Good for</strong></td>
+<td>account reads, placing/closing orders, history</td>
+<td>live ticks, trade events, health monitoring</td>
 </tr>
 </tbody>
 </table>
 <hr />
-<h2 id="when-to-use-asynchronous-methods-recommended">🚀 When to Use Asynchronous Methods (Recommended)<a class="headerlink" href="#when-to-use-asynchronous-methods-recommended" title="Permanent link">¶</a></h2>
-<h3 id="1-market-data-streaming">1. Market Data Streaming<a class="headerlink" href="#1-market-data-streaming" title="Permanent link">¶</a></h3>
-<p>Market ticks arrive at microsecond intervals during peak sessions. Asynchronous handlers ensure zero tick drops without freezing your execution thread:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>metarpc::MT4Account account(user, password, grpc_server);
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>account.connect_by_server_name(server_name, "EURUSD", 30);
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>auto summary = account.account_summary();
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>std::cout &lt;&lt; "Balance: " &lt;&lt; summary.account_balance &lt;&lt; std::endl;
+<h2 id="unary-calls-synchronous-and-blocking">🔁 Unary calls — synchronous and blocking<a class="headerlink" href="#unary-calls-synchronous-and-blocking" title="Permanent link">¶</a></h2>
+<p>Every non-streaming method is a blocking round-trip. Transient failures are retried with back-off and a dropped terminal is re-attached automatically, so you don't poll or retry yourself.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">MT4Sugar</span><span class="w"> </span><span class="n">sugar</span><span class="p">(</span><span class="s">"mt4.mrpc.pro"</span><span class="p">,</span><span class="w"> </span><span class="mi">443</span><span class="p">);</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">sugar</span><span class="p">.</span><span class="n">connect</span><span class="p">(</span><span class="mi">1235959737</span><span class="p">,</span><span class="w"> </span><span class="s">"password"</span><span class="p">,</span><span class="w"> </span><span class="s">"EGlobal-Demo"</span><span class="p">);</span><span class="w">   </span><span class="c1">// blocks until ready</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="kt">double</span><span class="w"> </span><span class="n">balance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sugar</span><span class="p">.</span><span class="n">getBalance</span><span class="p">();</span><span class="w">                     </span><span class="c1">// blocks, returns the value</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="kt">int</span><span class="w"> </span><span class="n">ticket</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="n">sugar</span><span class="p">.</span><span class="n">buyMarket</span><span class="p">(</span><span class="s">"EURUSD"</span><span class="p">,</span><span class="w"> </span><span class="mf">0.01</span><span class="p">);</span><span class="w">        </span><span class="c1">// blocks, returns the ticket (0 = rejected)</span>
 </code></pre></div>
-<h3 id="2-high-frequency-order-execution">2. High-Frequency Order Execution<a class="headerlink" href="#2-high-frequency-order-execution" title="Permanent link">¶</a></h3>
-<p>When operating across multiple currency pairs simultaneously, asynchronous dispatch allows your bot to send orders concurrently rather than sequentially.</p>
+<p>Deadlines come from <code>ClientOptions</code> (<code>unaryTimeoutMs</code> for reads, <code>tradeTimeoutMs</code> for trades). Tune them via <code>account().options()</code> / <code>service().options()</code>.</p>
 <hr />
-<h2 id="summary">💡 Summary<a class="headerlink" href="#summary" title="Permanent link">¶</a></h2>
-<p>Always prefer asynchronous paradigms for production bots, multi-symbol trading, and background services. Use synchronous wrappers for quick setup scripts, testing, or exploratory analysis.</p>
+<h2 id="streaming-background-thread-callbacks">📡 Streaming — background thread + callbacks<a class="headerlink" href="#streaming-background-thread-callbacks" title="Permanent link">¶</a></h2>
+<p>Each <code>onX()</code> / <code>stream*</code> opens a server stream and invokes your callback on a <strong>dedicated background thread</strong>. Keep the returned handle alive to keep receiving; destroy it or call <code>stop()</code> to cancel.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">auto</span><span class="w"> </span><span class="n">stream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sugar</span><span class="p">.</span><span class="n">service</span><span class="p">().</span><span class="n">subscribeTicks</span><span class="p">({</span><span class="s">"EURUSD"</span><span class="p">},</span><span class="w"> </span><span class="p">[](</span><span class="k">const</span><span class="w"> </span><span class="n">Tick</span><span class="o">&amp;</span><span class="w"> </span><span class="n">t</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="c1">// ⚠️ runs on another thread — synchronize shared state, keep this short</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">printf</span><span class="p">(</span><span class="s">"%s %.5f/%.5f</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">symbol</span><span class="p">.</span><span class="n">c_str</span><span class="p">(),</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">bid</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="p">.</span><span class="n">ask</span><span class="p">);</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="p">});</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="n">std</span><span class="o">::</span><span class="n">this_thread</span><span class="o">::</span><span class="n">sleep_for</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">chrono</span><span class="o">::</span><span class="n">seconds</span><span class="p">(</span><span class="mi">5</span><span class="p">));</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="n">stream</span><span class="o">-&gt;</span><span class="n">stop</span><span class="p">();</span><span class="w">   </span><span class="c1">// (also happens automatically when `stream` is destroyed)</span>
+</code></pre></div>
+<p>The handle exposes <code>stop()</code>, <code>running()</code>, <code>count()</code> and <code>lastError()</code> — see <a href="../GRPC_STREAM_MANAGEMENT/">gRPC Streaming</a>.</p>
+<hr />
+<h2 id="rules-of-thumb">💡 Rules of thumb<a class="headerlink" href="#rules-of-thumb" title="Permanent link">¶</a></h2>
+<ul>
+<li><strong>Reads and trades</strong> → call the unary method directly; it blocks and returns (or throws).</li>
+<li><strong>Live data / monitoring</strong> → subscribe to a stream; handle events in the callback.</li>
+<li><strong>Don't poll a quote in a tight loop</strong> when a tick stream will push it to you.</li>
+<li><strong>Guard callback state</strong> with a mutex/atomic — callbacks fire on a background thread.</li>
+<li><strong>One thread, many streams</strong> is fine; the SDK runs each stream's reader independently.</li>
+</ul>
+<blockquote>
+<p><strong>🆚 Coming from an async SDK (Rust/Python)?</strong> CppMT4 is <strong>not</strong> <code>async</code>/<code>await</code>-based. Unary calls simply block; concurrency comes from running your own threads and from the background reader threads behind streams.</p>
+</blockquote>
 
 
 
