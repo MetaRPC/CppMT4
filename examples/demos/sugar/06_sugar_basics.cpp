@@ -1,0 +1,103 @@
+/*══════════════════════════════════════════════════════════════════════════════
+ FILE: 06_sugar_basics.cpp - HIGH-LEVEL SUGAR API BASICS DEMO
+
+ PURPOSE:
+   Demonstrates MT4Sugar basics: connection health, account balance, and price
+   queries. This is the SIMPLEST way to talk to MT4 — perfect for quick scripts.
+
+ 🎯 WHO SHOULD USE THIS:
+   • Beginners learning the MT4 API
+   • Quick prototyping and testing
+   • Simple monitoring scripts
+
+ 📚 WHAT THIS DEMO COVERS (3 categories):
+
+   1. CONNECTION METHODS (3)
+      • isConnected() - connection status
+      • ping()        - round-trip health check
+      • account()     - reach the low-level layer for the terminal id
+
+   2. BALANCE / MARGIN METHODS (6)
+      • getBalance()      - account balance
+      • getEquity()       - current equity
+      • getMargin()       - used margin
+      • getFreeMargin()   - available margin
+      • getMarginLevel()  - margin level %
+      • getProfit()       - floating P&L (equity - balance)
+
+   3. PRICES & QUOTES (4)
+      • getBid()       - current BID
+      • getAsk()       - current ASK
+      • getSpread()    - ask - bid (price units)
+      • getPriceInfo() - bid/ask/spread/time in one call
+
+ 🔄 API LEVELS:
+   HIGH-LEVEL (Sugar)   - THIS FILE: one-liners, smart defaults
+   MID-LEVEL (Service)  - friendly structs, more control      → sugar.service()
+   LOW-LEVEL (Account)  - raw protobuf, maximum flexibility    → sugar.account()
+
+ 🚀 HOW TO RUN:
+   cmake --build build --target demos      (once)
+   ./build/demos 6                         (or pick [6] from the menu)
+══════════════════════════════════════════════════════════════════════════════*/
+
+#include <iostream>
+
+#include "metarpc/mt4.hpp"            // all three layers (MT4Account complete)
+#include "config/config.hpp"
+#include "helpers/connection.hpp"
+
+namespace demos {
+
+using namespace metarpc;             // friendly types: PriceInfo, Quote, Order, …
+
+void demo_sugar_basics(MT4Sugar& sugar, const Config& cfg) {
+    const std::string sym = cfg.testSymbol;
+
+    // ── 1. CONNECTION ────────────────────────────────────────────────────────
+    printSub("Connection");
+
+    // ──────────────────────────────────────────────────────────────────────────
+    //  1  isConnected()  → bool   — have we connected on this client?
+    //  2  ping()         → bool   — live round-trip health check (fetches the summary)
+    //  3  account()      → MT4Account&   — drop to the low level (terminalGuid() here)
+    // ──────────────────────────────────────────────────────────────────────────
+    std::cout << "  isConnected : " << (sugar.isConnected() ? "yes" : "no") << "\n";
+    std::cout << "  ping        : " << (sugar.ping() ? "ok" : "FAILED") << "\n";
+    std::cout << "  terminal id : " << sugar.account().terminalGuid() << "\n";
+
+    // ── 2. BALANCE / MARGIN ──────────────────────────────────────────────────
+    printSub("Balance / margin");
+
+    // ──────────────────────────────────────────────────────────────────────────
+    //  Account money, one getter each (all return double; each reads a fresh summary):
+    //    getBalance()  getEquity()  getMargin()  getFreeMargin()
+    //    getMarginLevel() (percent, 0 when flat)  getProfit() (floating P&L)
+    // ──────────────────────────────────────────────────────────────────────────
+    std::cout << "  balance     : " << sugar.getBalance() << "\n";
+    std::cout << "  equity      : " << sugar.getEquity() << "\n";
+    std::cout << "  margin      : " << sugar.getMargin() << "\n";
+    std::cout << "  free margin : " << sugar.getFreeMargin() << "\n";
+    std::cout << "  margin level: " << sugar.getMarginLevel() << " %\n";
+    std::cout << "  profit      : " << sugar.getProfit() << "\n";
+
+    // ── 3. PRICES & QUOTES ───────────────────────────────────────────────────
+    printSub(std::string("Prices for ") + sym);
+
+    // ──────────────────────────────────────────────────────────────────────────
+    //  getBid() / getAsk() / getSpread()  → double   — single values
+    // ──────────────────────────────────────────────────────────────────────────
+    std::cout << "  bid    : " << sugar.getBid(sym) << "\n";
+    std::cout << "  ask    : " << sugar.getAsk(sym) << "\n";
+    std::cout << "  spread : " << sugar.getSpread(sym) << "\n";
+
+    // ──────────────────────────────────────────────────────────────────────────
+    //  getPriceInfo(symbol)  — bid/ask/spread/time in ONE call
+    //     Returns: PriceInfo (bid, ask, spread, UTC time).
+    // ──────────────────────────────────────────────────────────────────────────
+    PriceInfo pi = sugar.getPriceInfo(sym);
+    std::cout << "  priceInfo: bid=" << pi.bid << " ask=" << pi.ask
+              << " spread=" << pi.spread << " time=" << pi.time << "\n";
+}
+
+} // namespace demos

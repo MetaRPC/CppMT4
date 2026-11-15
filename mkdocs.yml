@@ -96,4 +96,7 @@ nav:
 
   - Strategies:
     - Master Overview: Strategies/Strategies.Master.Overview.md
-    - Presets: Strategies/Presets/AdaptiveMarketModePreset.md
+    - Trailing Stop: Strategies/Orchestrators/TrailingStop.md
+    - Grid Trader: Strategies/Orchestrators/GridTrader.md
+    - Risk Manager: Strategies/Orchestrators/RiskManager.md
+    - Adaptive Market Mode: Strategies/Presets/AdaptiveMarketModePreset.md

@@ -1,40 +1,61 @@
-# Synchronous vs Asynchronous Methods - When to Use What (C++)
+# Synchronous Calls vs Streaming — How CppMT4 Executes
 
-> Understanding execution models in CppMT4: non-blocking streaming vs synchronous execution.
-
----
-
-## 🎯 Quick Comparison
-
-High performance gRPC C++ async CompletionQueue stubs designed for low latency trading and quantitative finance models.
-
-| Aspect | Asynchronous Pattern | Synchronous Call |
-|--------|----------------------|------------------|
-| **Thread Blocking** | ❌ Non-blocking (high concurrency) | ✅ Blocks current thread |
-| **Throughput** | ✅ Handles thousands of events/sec | ❌ Limited by thread pool |
-| **Real-Time Data** | ✅ Perfect for tick & trade streams | ⚠️ Inefficient for streams |
-| **Simplicity** | Requires async runtime awareness | Simple, linear execution |
-| **Recommended for** | Automated bots, microservices, GUIs | CLI scripts, notebooks, one-offs |
+> CppMT4's execution model in one line: **unary calls block; streams run on a background thread and call you back.** There is no `async`/`await` and no `CompletionQueue` to manage — the SDK hides the gRPC machinery.
 
 ---
 
-## 🚀 When to Use Asynchronous Methods (Recommended)
+## 🎯 Two execution modes
 
-### 1. Market Data Streaming
-Market ticks arrive at microsecond intervals during peak sessions. Asynchronous handlers ensure zero tick drops without freezing your execution thread:
+| | Unary (request → reply) | Streaming (subscription) |
+|---|---|---|
+| **Style** | synchronous, **blocks** until the reply | callback on a **background thread** |
+| **Examples** | `accountSummary`, `quote`, `orderSend`, `ordersHistory` | `onSymbolTick`, `onTrade`, `onOpenedOrdersProfit`, … |
+| **Returns** | the value (or throws `ApiError` / `TransportError`) | a stream handle; delivers payloads until stopped |
+| **You manage** | nothing — call it and read the result | keep the handle alive; `stop()` to cancel |
+| **Good for** | account reads, placing/closing orders, history | live ticks, trade events, health monitoring |
 
-```
-metarpc::MT4Account account(user, password, grpc_server);
-account.connect_by_server_name(server_name, "EURUSD", 30);
-auto summary = account.account_summary();
-std::cout << "Balance: " << summary.account_balance << std::endl;
+---
+
+## 🔁 Unary calls — synchronous and blocking
+
+Every non-streaming method is a blocking round-trip. Transient failures are retried with back-off and a dropped terminal is re-attached automatically, so you don't poll or retry yourself.
+
+```cpp
+MT4Sugar sugar("mt4.mrpc.pro", 443);
+sugar.connect(1235959737, "password", "EGlobal-Demo");   // blocks until ready
+
+double balance = sugar.getBalance();                     // blocks, returns the value
+int ticket     = sugar.buyMarket("EURUSD", 0.01);        // blocks, returns the ticket (0 = rejected)
 ```
 
-### 2. High-Frequency Order Execution
-When operating across multiple currency pairs simultaneously, asynchronous dispatch allows your bot to send orders concurrently rather than sequentially.
+Deadlines come from `ClientOptions` (`unaryTimeoutMs` for reads, `tradeTimeoutMs` for trades). Tune them via `account().options()` / `service().options()`.
 
 ---
 
-## 💡 Summary
+## 📡 Streaming — background thread + callbacks
 
-Always prefer asynchronous paradigms for production bots, multi-symbol trading, and background services. Use synchronous wrappers for quick setup scripts, testing, or exploratory analysis.
+Each `onX()` / `stream*` opens a server stream and invokes your callback on a **dedicated background thread**. Keep the returned handle alive to keep receiving; destroy it or call `stop()` to cancel.
+
+```cpp
+auto stream = sugar.service().subscribeTicks({"EURUSD"}, [](const Tick& t) {
+    // ⚠️ runs on another thread — synchronize shared state, keep this short
+    std::printf("%s %.5f/%.5f\n", t.symbol.c_str(), t.bid, t.ask);
+});
+
+std::this_thread::sleep_for(std::chrono::seconds(5));
+stream->stop();   // (also happens automatically when `stream` is destroyed)
+```
+
+The handle exposes `stop()`, `running()`, `count()` and `lastError()` — see [gRPC Streaming](GRPC_STREAM_MANAGEMENT.md).
+
+---
+
+## 💡 Rules of thumb
+
+- **Reads and trades** → call the unary method directly; it blocks and returns (or throws).
+- **Live data / monitoring** → subscribe to a stream; handle events in the callback.
+- **Don't poll a quote in a tight loop** when a tick stream will push it to you.
+- **Guard callback state** with a mutex/atomic — callbacks fire on a background thread.
+- **One thread, many streams** is fine; the SDK runs each stream's reader independently.
+
+> **🆚 Coming from an async SDK (Rust/Python)?** CppMT4 is **not** `async`/`await`-based. Unary calls simply block; concurrency comes from running your own threads and from the background reader threads behind streams.
