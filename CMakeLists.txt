@@ -9,6 +9,7 @@ if (NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
 endif()
 
 option(BUILD_EXAMPLES "Build examples" OFF)
+option(CPPMT4_BUILD_TESTS "Build the offline unit test" ON)
 
 # Dependencies: libprotobuf + grpc++ (via pkg-config), plus protoc + grpc_cpp_plugin.
 #   Debian 12: apt install libprotobuf-dev protobuf-compiler libgrpc++-dev protobuf-compiler-grpc pkg-config
@@ -100,6 +101,16 @@ target_link_libraries(metarpc_cppmt4 PUBLIC
 if (NOT MSVC)
     set_source_files_properties(${CPPMT4_PB_SOURCES} PROPERTIES COMPILE_OPTIONS "-O1;-w")
     target_compile_options(metarpc_cppmt4 PRIVATE -Wall -Wno-deprecated-declarations)
+endif()
+
+# --- tests: offline transport test against an in-process fake gateway (localhost) ----
+# tests/test_no_trade_replay.cpp checks that trade calls are never re-sent after a transport
+# failure, that reads still retry, and that API_KEY_* refusals fail fast. Run with ctest.
+if (CPPMT4_BUILD_TESTS)
+    enable_testing()
+    add_executable(test_no_trade_replay ${CMAKE_CURRENT_SOURCE_DIR}/tests/test_no_trade_replay.cpp)
+    target_link_libraries(test_no_trade_replay PRIVATE metarpc_cppmt4)
+    add_test(NAME no_trade_replay COMMAND test_no_trade_replay)
 endif()
 
 # --- demos: the examples/demos/ launcher (menu + per-layer demos) --------------------

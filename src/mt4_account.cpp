@@ -336,8 +336,14 @@ struct MT4Account::Impl {
     }
 
     // Core transport pattern: transient retry + auto ConnectEx re-attach + typed error mapping.
+    //
+    // tradeCall = true (OrderSend / OrderModify / OrderCloseDelete / OrderCloseBy): a transport
+    // failure with UNAVAILABLE / DEADLINE_EXCEEDED / UNKNOWN / INTERNAL may have happened AFTER the
+    // terminal executed the trade, so it is never re-sent; it surfaces as TradeOutcomeUnknownError.
+    // Only an in-band TERMINAL_INSTANCE_NOT_FOUND (answered by the gateway before any terminal saw
+    // the request) still re-attaches and re-sends. Reads keep the transient retry.
     template <class Reply, class Fn>
-    Reply call(const char* what, Fn&& fn, int timeoutMs, bool allowReconnect) {
+    Reply call(const char* what, Fn&& fn, int timeoutMs, bool allowReconnect, bool tradeCall = false) {
         ensureChannel();
         int attempt = 0;
         int delayMs = 500;
@@ -350,7 +356,17 @@ struct MT4Account::Impl {
 
             if (!st.ok()) {
                 auto c = st.error_code();
-                bool transient = (c == grpc::StatusCode::UNAVAILABLE || c == grpc::StatusCode::DEADLINE_EXCEEDED);
+                if (tradeCall && (c == grpc::StatusCode::UNAVAILABLE || c == grpc::StatusCode::DEADLINE_EXCEEDED ||
+                                  c == grpc::StatusCode::UNKNOWN || c == grpc::StatusCode::INTERNAL)) {
+                    log(std::string(what) + ": grpc " + std::to_string((int)c) + " " + st.error_message() +
+                        " -> trade outcome unknown, NOT re-sent");
+                    throw TradeOutcomeUnknownError(what, (int)c, st.error_message());
+                }
+                // A refused API key never becomes valid: no retry even if it arrives as a transport status.
+                bool apiKeyRefused = st.error_message().find("API_KEY_INVALID") != std::string::npos ||
+                                     st.error_message().find("API_KEY_REQUIRED") != std::string::npos;
+                bool transient = !apiKeyRefused &&
+                                 (c == grpc::StatusCode::UNAVAILABLE || c == grpc::StatusCode::DEADLINE_EXCEEDED);
                 if (transient && attempt < opts.maxRetries) {
                     log(std::string(what) + ": grpc " + std::to_string((int)c) + " -> retry in " + std::to_string(delayMs) + "ms");
                     ++attempt; sleepBackoff(delayMs); continue;
@@ -579,28 +595,28 @@ pb::OrdersHistoryData MT4Account::ordersHistory(const pb::OrdersHistoryRequest& 
 pb::OrderSendData MT4Account::orderSend(const pb::OrderSendRequest& req) {
     auto reply = m_impl->call<pb::OrderSendReply>("OrderSend",
         [&](grpc::ClientContext& ctx, pb::OrderSendReply& r) { return m_impl->trade->OrderSend(&ctx, req, &r); },
-        m_impl->opts.tradeTimeoutMs, true);
+        m_impl->opts.tradeTimeoutMs, true, /*tradeCall*/ true);
     return reply.data();
 }
 // Modify an order's SL/TP (and price/expiration for a pending order) by ticket.
 pb::OrderModifyData MT4Account::orderModify(const pb::OrderModifyRequest& req) {
     auto reply = m_impl->call<pb::OrderModifyReply>("OrderModify",
         [&](grpc::ClientContext& ctx, pb::OrderModifyReply& r) { return m_impl->trade->OrderModify(&ctx, req, &r); },
-        m_impl->opts.tradeTimeoutMs, true);
+        m_impl->opts.tradeTimeoutMs, true, /*tradeCall*/ true);
     return reply.data();
 }
 // Close a market order (full/partial) OR delete a pending order, by ticket.
 pb::OrderCloseDeleteData MT4Account::orderCloseDelete(const pb::OrderCloseDeleteRequest& req) {
     auto reply = m_impl->call<pb::OrderCloseDeleteReply>("OrderCloseDelete",
         [&](grpc::ClientContext& ctx, pb::OrderCloseDeleteReply& r) { return m_impl->trade->OrderCloseDelete(&ctx, req, &r); },
-        m_impl->opts.tradeTimeoutMs, true);
+        m_impl->opts.tradeTimeoutMs, true, /*tradeCall*/ true);
     return reply.data();
 }
 // Close one order against an opposite order on the same symbol (MT4 "close by").
 pb::OrderCloseByData MT4Account::orderCloseBy(const pb::OrderCloseByRequest& req) {
     auto reply = m_impl->call<pb::OrderCloseByReply>("OrderCloseBy",
         [&](grpc::ClientContext& ctx, pb::OrderCloseByReply& r) { return m_impl->trade->OrderCloseBy(&ctx, req, &r); },
-        m_impl->opts.tradeTimeoutMs, true);
+        m_impl->opts.tradeTimeoutMs, true, /*tradeCall*/ true);
     return reply.data();
 }
 #pragma endregion
