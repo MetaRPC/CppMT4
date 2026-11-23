@@ -99,7 +99,7 @@ MT4Account(const std::string& host = "mt4.mrpc.pro", int port = 443,
 | `quoteHistory(req)` | `pb::QuoteHistoryData` — historical quotes |
 | `symbols(req = {})` | `pb::SymbolsData` — every symbol name (+ index) |
 | `symbolSelect(req)` | `pb::SymbolSelectData` — add/remove a symbol from Market Watch |
-| `symbolParamsMany(req)` | `pb::SymbolParamsManyData` — full params for one/many symbols (~70 fields each) |
+| `symbolParamsMany(req)` | `pb::SymbolParamsManyData` — full params for one/many symbols (67 fields each) |
 | `tickValueWithSize(req)` | `pb::TickValueWithSizeData` — tick value + size for several symbols |
 
 ## Orders (market + pending — one list)

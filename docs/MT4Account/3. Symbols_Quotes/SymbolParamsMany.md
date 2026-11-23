@@ -1,6 +1,6 @@
 # 🧾 Getting Full Symbol Parameters
 
-> **Request:** the full specification (~70 fields) of one, several, or all symbols (`SymbolParamsManyData` — a list of `SymbolParamsManyInfo`), from **MT4**.
+> **Request:** the full specification (67 fields) of one, several, or all symbols (`SymbolParamsManyData` — a list of `SymbolParamsManyInfo`), from **MT4**.
 
 **API Information:**
 
@@ -18,7 +18,7 @@
 
 ## 💬 Just the essentials
 
-* **What it is.** One RPC returning the **complete contract spec** per symbol: digits, point, tick value/size, contract size, volume limits, margin, currencies, trade mode and more (~70 fields).
+* **What it is.** One RPC returning the **complete contract spec** per symbol: digits, point, tick value/size, contract size, volume limits, margin, currencies, trade mode and more (67 fields).
 * **Why you need it.** Format prices correctly, size positions, compute P&L and margin **client-side** (MT4 has no server calculators), and know a symbol's trading rules.
 * **Sanity check.** `symbol_infos_size()` ≥ 1; `symbolname()` and `digits()` are set.
 
@@ -97,7 +97,7 @@ const pb::SymbolParamsManyInfo& s = d.symbol_infos(0);
 
 ### `SymbolParamsManyInfo` — key fields
 
-> ~70 fields in total. The proto names are **CamelCase** but the C++ accessors are **all-lowercase**. The most-used ones:
+> 67 fields in total. The proto names are **CamelCase** but the C++ accessors are **all-lowercase**. The most-used ones:
 
 | Field (proto)       | C++ accessor          | C++ type                      | Description                                   |
 | ------------------- | --------------------- | ----------------------------- | --------------------------------------------- |

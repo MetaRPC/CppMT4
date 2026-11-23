@@ -145,7 +145,7 @@ Every method follows the same shape:
 
 * [Symbols.md](./3.%20Symbols_Quotes/Symbols.md) — every symbol the broker offers (name + index).
 * [SymbolSelect.md](./3.%20Symbols_Quotes/SymbolSelect.md) — add/remove a symbol from Market Watch.
-* [SymbolParamsMany.md](./3.%20Symbols_Quotes/SymbolParamsMany.md) — full parameters for one/many symbols (~70 fields each).
+* [SymbolParamsMany.md](./3.%20Symbols_Quotes/SymbolParamsMany.md) — full parameters for one/many symbols (67 fields each).
 * [TickValueWithSize.md](./3.%20Symbols_Quotes/TickValueWithSize.md) — tick value / size / contract size for P&L and sizing.
 
 ### Server & Time

@@ -1,6 +1,6 @@
 # MT4Account · Symbols & Quotes — Overview
 
-> Everything about **prices and instruments**: live quotes (one or many symbols), two kinds of historical series (quotes and OHLC bars), the symbol inventory and Market-Watch management, full symbol parameters (~70 fields), tick value for P&L, and the broker's timezone.
+> Everything about **prices and instruments**: live quotes (one or many symbols), two kinds of historical series (quotes and OHLC bars), the symbol inventory and Market-Watch management, full symbol parameters (67 fields), tick value for P&L, and the broker's timezone.
 
 These methods are **read-only** except `symbolSelect` (which toggles Market Watch). They span three services: `mt4_term_api.MarketInfo` (quotes / history / symbols / select), `mt4_term_api.AccountHelper` (symbol params, tick value), `mt4_term_api.QuoteHistory` (bars) and `mt4_term_api.ServerTimezone` (timezone).
 
@@ -17,7 +17,7 @@ These methods are **read-only** except `symbolSelect` (which toggles Market Watc
 ### Symbol inventory & management
 * **[Symbols](./Symbols.md)** — every symbol the broker offers (name + index).
 * **[SymbolSelect](./SymbolSelect.md)** — add/remove a symbol from Market Watch (**required before a symbol quotes or trades**).
-* **[SymbolParamsMany](./SymbolParamsMany.md)** — full parameters for one/all symbols (~70 fields: digits, point, contract size, volume limits, margin, currencies, trade mode…).
+* **[SymbolParamsMany](./SymbolParamsMany.md)** — full parameters for one/all symbols (67 fields: digits, point, contract size, volume limits, margin, currencies, trade mode…).
 * **[TickValueWithSize](./TickValueWithSize.md)** — tick value / tick size / contract size for several symbols — the inputs for client-side P&L and position sizing.
 
 ### Server & time
@@ -62,7 +62,7 @@ These methods are **read-only** except `symbolSelect` (which toggles Market Watc
 | OHLC bars                            | `bars`              | `QuoteHistoryBarsData`   | paginated; `from_time` **required**          |
 | List of all symbols                  | `symbols`           | `SymbolsData`            | name + index                                 |
 | Enable/disable a symbol              | `symbolSelect`      | `SymbolSelectData`       | `success` flag; needed before quote/trade    |
-| Full symbol parameters              | `symbolParamsMany`  | `SymbolParamsManyData`   | ~70 fields per symbol                        |
+| Full symbol parameters              | `symbolParamsMany`  | `SymbolParamsManyData`   | 67 fields per symbol                        |
 | Tick value / size for sizing & P&L   | `tickValueWithSize` | `TickValueWithSizeData`  | several symbols at once                       |
 | Broker timezone / UTC offset         | `serverTimezone`    | `ServerTimezoneData`     | offset + source                              |
 
