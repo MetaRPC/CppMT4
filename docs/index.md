@@ -1,13 +1,28 @@
 ---
+title: "MetaTrader 4 API — C++ SDK"
 description: "MetaRPC CppMT4 — C++17 SDK for MetaTrader 4 trading automation over gRPC. Connect, stream live ticks and orders, and execute trades from any C++ application."
 hide:
   - navigation
   - toc
 ---
 
-# CppMT4 SDK Documentation
+# MetaTrader 4 API — C++ SDK
 
 > ℹ️ **Account ID / Session ID**: when connecting via `Connect` / `ConnectEx`, MetaRPC automatically generates a terminal session GUID and returns it in `terminalInstanceGuid`. You do not need to call `GetId` or supply an `id` header before connecting — subsequent calls (subscriptions, order requests) use this session ID automatically.
+
+!!! info "Use the MT4 SDK with MetaRPC"
+
+    MetaRPC provides APIs and hosted terminal infrastructure for developers. Build your client on Windows, macOS or Linux; you control your broker accounts and trading decisions.
+
+    Start with the API setup guide, try the browser playground, or connect a trade-copying workflow.
+
+    [API setup and pricing](https://mrpc.pro/start/api?lang=en&utm_source=github&utm_medium=referral&utm_campaign=api_sdk_discovery&utm_content=cppmt4_setup)
+
+    [Try the API playground](https://mrpc.pro/api?lang=en&utm_source=github&utm_medium=referral&utm_campaign=api_sdk_discovery&utm_content=cppmt4_playground#live-code)
+
+    [Explore trade copying](https://mrpc.pro/start/copier?lang=en&utm_source=github&utm_medium=referral&utm_campaign=api_sdk_discovery&utm_content=cppmt4_copier)
+
+    **Preview SDK:** check this SDK’s supported methods and test your integration on a demo account before relying on it.
 
 <div class="hx-wrap" markdown="0">
 
